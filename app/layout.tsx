@@ -54,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <strong>אמון ושקיפות</strong>
               <a href="/editorial-policy">מדיניות עריכה</a>
               <a href="/corrections">תיקונים ועדכונים</a>
+              <a href="/privacy">פרטיות</a>
               <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">קוד פתוח ב-GitHub</a>
             </div>
           </div>
