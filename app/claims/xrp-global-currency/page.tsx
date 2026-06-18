@@ -101,6 +101,14 @@ export default function Page() {
         לא נמצא מקור רשמי לכך ש-XRP נבחר להיות מטבע עולמי, מטבע רזרבה עולמי או תחליף למטבעות מדינתיים. יש לו שימוש אמיתי בתשלומים ובגישור בין מטבעות, אבל זה לא מוכיח שנבחר למלא תפקיד עולמי רשמי.
       </p>
 
+      <section className="box answer">
+        <span className="eyebrow">תשובה קצרה</span>
+        <h2>לא נמצא מקור רשמי שבחר ב-XRP כמטבע עולמי</h2>
+        <p>
+          XRP הוא נכס דיגיטלי אמיתי עם שימושים שמתוארים על ידי Ripple ו-XRP Ledger. אבל בבדיקה לא נמצא מסמך רשמי של Ripple, ISO, קרן המטבע או גוף בינלאומי שבוחר בו כמטבע עולמי או כמטבע רזרבה.
+        </p>
+      </section>
+
       <section className="box verdict-box">
         <div className="verdict-grid">
           <div>
@@ -121,6 +129,21 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <h2>טבלת הטענה</h2>
+      <div className="comparison-list">
+        <div><strong>מה נטען:</strong><span>XRP נבחר להיות המטבע העולמי או מטבע הרזרבה הבא.</span></div>
+        <div><strong>מה המקורות אומרים:</strong><span>Ripple ו-XRP Ledger מתארים שימושים בתשלומים ובגישור בין מטבעות.</span></div>
+        <div><strong>מה נמצא:</strong><span>לא נמצא מסמך רשמי שמעניק ל-XRP מעמד עולמי רשמי.</span></div>
+        <div><strong>מה המסקנה:</strong><span>יש שימושים אמיתיים; אין ראיה לבחירה רשמית כמטבע עולמי.</span></div>
+      </div>
+
+      <h2>גרסת 60 שניות</h2>
+      <div className="box method-note">
+        <p>
+          XRP הוא נכס דיגיטלי אמיתי, וריפל אכן פועלת בעולם התשלומים הבינלאומיים. בנוסף, ISO 20022 הוא תקן אמיתי למסרים פיננסיים. הקפיצה מתחילה כשמחברים את העובדות האלה למסקנה ש-XRP נבחר להיות המטבע העולמי. בבדיקה מול מקורות רשמיים של Ripple, XRP Ledger, ISO 20022 וקרן המטבע לא נמצא מקור שמעניק ל-XRP מעמד כזה.
+        </p>
+      </div>
 
       <h2>למה הטענה נשמעת הגיונית?</h2>
       <p>
