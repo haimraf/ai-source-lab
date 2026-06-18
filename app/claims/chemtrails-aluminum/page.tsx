@@ -1,51 +1,157 @@
+import { CopyBox } from "@/components/CopyBox";
+import { siteUrl } from "@/lib/site";
+
 export const metadata = {
   title: "האם מטוסים מרססים אלומיניום? | מקור בדיקה",
-  description: "בדיקת הטענה שמטוסים מרססים אלומיניום או חומרים אחרים על האוכלוסייה.",
-  robots: {
-    index: false,
-    follow: true,
+  description: "בדיקה מול FAA, EPA ושירות מזג האוויר האמריקאי לטענה שהפסים הלבנים ממטוסים הם ריסוס אלומיניום.",
+  alternates: { canonical: "/claims/chemtrails-aluminum" },
+};
+
+const pageUrl = `${siteUrl}/claims/chemtrails-aluminum`;
+
+const sources = [
+  {
+    name: "FAA: Contrails",
+    url: "https://www.faa.gov/contrails",
+    note: "הסבר רשמי על היווצרות שובלי התעבות, משך חייהם, פליטות מנוע ופעולות פיזור מכוונות.",
   },
+  {
+    name: "EPA: Information on Contrails from Aircraft",
+    url: "https://www.epa.gov/regulations-emissions-vehicles-and-engines/Contrails",
+    note: "הסבר סביבתי על שובלים, פליטות מטוסים והטענה המכונה chemtrails.",
+  },
+  {
+    name: "National Weather Service: Clouds and Contrails",
+    url: "https://www.weather.gov/fgz/CloudsContrails",
+    note: "הסבר מטאורולוגי על לחות בגובה, הישארות שובלים ודפוסים מצטלבים.",
+  },
+  {
+    name: "FAA and EPA: Contrails Fact Sheet",
+    url: "https://www.faa.gov/contrails/fact-sheet",
+    note: "דף מידע משותף של סוכנויות אמריקאיות על שובלי התעבות וטענות לריסוס מכוון.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "האם מטוסים מרססים אלומיניום?",
+  description: "בדיקה מול מקורות רשמיים לטענה ששובלי מטוסים הם ריסוס מכוון של אלומיניום.",
+  datePublished: "2026-06-18",
+  dateModified: "2026-06-18",
+  inLanguage: "he-IL",
+  mainEntityOfPage: pageUrl,
+  author: { "@type": "Organization", name: "מקור בדיקה" },
 };
 
 export default function Page() {
-  const copyText = `יש הבדל בין שובלי התעבות, שינוי מזג אוויר והטענה שמטוסים מרססים אוכלוסייה באלומיניום. כדי להוכיח ריסוס מכוון צריך מקור ישיר, מדידות אמינות וקשר ברור למטוסים מסוימים.`;
+  const copyText = `הפסים הלבנים שמטוסים משאירים יכולים להישאר ולהתרחב כשהאוויר בגובה קר ולח. FAA, EPA ושירות מזג האוויר מסבירים אותם כשובלי התעבות. לא נמצא אצלם בסיס לטענה שטיסות רגילות מרססות אלומיניום על האוכלוסייה.\n${pageUrl}`;
 
   return (
     <article>
-      <span className="badge">טיוטה, עדיין לא לאינדוקס</span>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      <div className="claim-meta">
+        <span className="badge verdict-badge">לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות</span>
+        <span className="small">נבדק ועודכן: 18 ביוני 2026</span>
+      </div>
+
       <h1>האם מטוסים מרססים אלומיניום?</h1>
       <p className="lead">
-        צריך להפריד בין תופעות אמיתיות כמו שובלי התעבות ושינוי מזג אוויר, לבין טענה אחרת לגמרי: ריסוס מכוון של אוכלוסייה.
+        הפסים הלבנים מאחורי מטוסים מוסברים במקורות התעופה ומזג האוויר כשובלי התעבות. הם יכולים להיעלם תוך דקות או להישאר שעות ולהתרחב. במקורות הרשמיים שנבדקו לא נמצא בסיס לטענה שטיסות רגילות מפזרות אלומיניום על האוכלוסייה.
       </p>
 
-      <section className="box answer">
-        <h2>מה אפשר לומר כרגע?</h2>
-        <p>
-          <strong>נכון:</strong> שובלי התעבות קיימים, ובמקומות מסוימים יש גם פעולות לשינוי מזג אוויר. <br />
-          <strong>לא הוכח:</strong> שמטוסים מרססים אוכלוסייה באלומיניום כחלק מתוכנית נסתרת.
-        </p>
+      <section className="box verdict-box">
+        <div className="verdict-grid">
+          <div><span className="eyebrow">הטענה</span><p>הפסים הלבנים הם ריסוס מכוון של אלומיניום וחומרים נוספים.</p></div>
+          <div><span className="eyebrow">השורה התחתונה</span><p><strong>לא נמצאה ראיה שמקשרת שובלי טיסות רגילות לריסוס כזה.</strong></p></div>
+          <div><span className="eyebrow">מה כן נכון</span><p>מטוסים פולטים גזים וחלקיקים, ושובלים מסוימים נשארים בשמיים זמן רב.</p></div>
+          <div><span className="eyebrow">איפה הסיפור קופץ</span><p>מפס שנשאר בשמיים למסקנה על חומר מסוים ותוכנית מכוונת.</p></div>
+        </div>
       </section>
 
-      <h2>מה נטען?</h2>
-      <p>הטענה היא שהפסים הלבנים בשמיים אינם שובלי התעבות רגילים, אלא ריסוס מכוון של חומרים כמו אלומיניום.</p>
+      <h2>מהו שובל התעבות?</h2>
+      <p>
+        מנוע סילון פולט אדי מים ותוצרי בעירה. בגובה רב האוויר קר מאוד. כאשר התנאים מתאימים, אדי המים מתעבים וקופאים סביב חלקיקים זעירים ונוצר פס של גבישי קרח. באנגלית הוא נקרא condensation trail, או בקיצור contrail.
+      </p>
 
-      <h2>מה עומד בבסיס הסיפור?</h2>
-      <p>הפסים הלבנים אמיתיים. גם שינוי מזג אוויר הוא תחום אמיתי. זה עדיין לא מוכיח שהפסים הם ריסוס מכוון על האוכלוסייה.</p>
+      <div className="evidence-list">
+        <section className="evidence-item">
+          <span className="evidence-number">01</span>
+          <div><h3>שובל יכול להישאר שעות</h3><p>כאשר האוויר בגובה קר ולח מאוד, השובל אינו חייב להיעלם מיד. הוא יכול להתרחב, לנוע עם הרוח ולהיראות כמו עננות דקה.</p></div>
+        </section>
+        <section className="evidence-item">
+          <span className="evidence-number">02</span>
+          <div><h3>הפס יכול להתחיל ולהפסיק בפתאומיות</h3><p>מטוס יכול להיכנס ולצאת מאזורים בלתי נראים שבהם הלחות שונה. לכן שובל עשוי להופיע בקטעים בלי שהמטוס שינה את המנוע או פיזר חומר.</p></div>
+        </section>
+        <section className="evidence-item">
+          <span className="evidence-number">03</span>
+          <div><h3>יש פליטות מנוע, אבל זו לא אותה טענה</h3><p>מנועי סילון פולטים פחמן דו-חמצני, אדי מים וכמויות קטנות של תוצרי בעירה נוספים. עצם קיומן של פליטות אינו מוכיח פיזור מכוון של אלומיניום.</p></div>
+        </section>
+        <section className="evidence-item">
+          <span className="evidence-number">04</span>
+          <div><h3>קיימות פעולות פיזור אמיתיות ממטוסים</h3><p>חקלאות, כיבוי אש וזריעת עננים הן פעולות מוכרות. הן נעשות למטרות מוגדרות ואינן מסבירות אוטומטית שובלים של טיסות מסחריות בגובה רב.</p></div>
+        </section>
+      </div>
 
-      <h2>איפה הסיפור קופץ?</h2>
-      <p>ממראה בשמיים או מאבק על רכב למסקנה על ריסוס. כדי להוכיח אותה צריך לדעת איזה חומר נמצא, מאיפה הגיע, מתי נמדד ולאיזה מטוס אפשר לקשור אותו.</p>
+      <h2>ומה לגבי אבק או אלומיניום בבדיקה?</h2>
+      <p>
+        מציאת מתכת באבק, בקרקע או במסנן אינה מספיקה כדי לקבוע שמקורה במטוס. אלומיניום נפוץ מאוד בקרום כדור הארץ ובאבק סביבתי. כדי לקשור ממצא לריסוס צריך שרשרת ראיות: דגימה מבוקרת, שיטת מעבדה גלויה, נקודת השוואה, זמן ומקום, ולבסוף קשר ברור למטוס או למקור פליטה מסוים.
+      </p>
 
-      <h2>תגובה קצרה</h2>
-      <pre className="copy">{copyText}</pre>
+      <div className="comparison-list">
+        <div><strong>פס לבן שנשאר זמן רב:</strong><span>מתאים גם לשובל התעבות מתמשך.</span></div>
+        <div><strong>פסים מצטלבים:</strong><span>יכולים להיווצר מנתיבי טיסה, דפוסי המתנה ורוחות בגבהים שונים.</span></div>
+        <div><strong>אבק על רכב:</strong><span>לא מזהה את החומר, המקור או המסלול שבו הגיע.</span></div>
+        <div><strong>פעולות לשינוי מזג אוויר:</strong><span>קיימות, אבל אינן הוכחה שכל שובל הוא ריסוס.</span></div>
+      </div>
 
-      <h2>מה עוד צריך לבדוק?</h2>
-      <ul className="source-list">
-        <li>מחקרים על שובלי התעבות.</li>
-        <li>מסמכים רשמיים על שינוי מזג אוויר.</li>
-        <li>בדיקות סביבתיות שאפשר לבדוק את השיטה והממצאים שלהן.</li>
-      </ul>
+      <h2>שרשרת הטענה</h2>
+      <div className="logic-chain">
+        <span>יש פסים לבנים אמיתיים</span><span className="logic-arrow">←</span>
+        <span>חלקם נשארים שעות</span><span className="logic-arrow">←</span>
+        <span>יש בעולם פעולות פיזור ממטוסים</span><span className="logic-arrow">←</span>
+        <strong>לכן טיסות רגילות מרססות אלומיניום על האוכלוסייה</strong>
+      </div>
+      <p className="small">שלושת החלקים הראשונים יכולים להיות נכונים. המסקנה האחרונה דורשת ראיה נפרדת, והיא לא נמצאה במקורות שנבדקו.</p>
 
-      <p className="small">העמוד נשאר מחוץ לאינדקס עד להשלמת המקורות.</p>
+      <h2>שאלות נפוצות</h2>
+      <div className="faq-list">
+        <details>
+          <summary>למה פעם השובל נעלם ופעם נשאר?</summary>
+          <p>ההבדל תלוי בעיקר בטמפרטורה ובלחות בגובה הטיסה. התנאים שם יכולים להיות שונים מאוד ממה שמרגישים על הקרקע.</p>
+        </details>
+        <details>
+          <summary>האם הרשויות מכחישות כל פיזור ממטוסים?</summary>
+          <p>לא. ה-FAA מפריד במפורש בין שובלי התעבות לבין פעולות כמו חקלאות, כיבוי אש וזריעת עננים.</p>
+        </details>
+        <details>
+          <summary>אז אין שום זיהום ממטוסים?</summary>
+          <p>יש פליטות ממנועי מטוסים ויש להן השפעות סביבתיות. זו טענה שונה מריסוס מכוון של אלומיניום באמצעות טיסות רגילות.</p>
+        </details>
+        <details>
+          <summary>איזו ראיה הייתה משנה את המסקנה?</summary>
+          <p>מסמכי הפעלה מאומתים, דגימות מבוקרות שמקושרות לטיסה מסוימת, ציוד פיזור מתועד או חקירה עצמאית שמציגה שרשרת ראיות מלאה.</p>
+        </details>
+      </div>
+
+      <h2>תגובה קצרה להעתקה</h2>
+      <CopyBox text={copyText} />
+
+      <h2>המקורות שנבדקו</h2>
+      <ol className="source-list source-cards">
+        {sources.map((source) => (
+          <li key={source.url}>
+            <a href={source.url} target="_blank" rel="noreferrer"><strong>{source.name}</strong></a>
+            <p className="small">{source.note}</p>
+          </li>
+        ))}
+      </ol>
+
+      <section className="box method-note">
+        <h2>איך נבדקה הטענה?</h2>
+        <p>הבדיקה הפרידה בין ארבעה נושאים: היווצרות שובלים, פליטות מנוע, פיזור מכוון ממטוסים והטענה המסוימת על אלומיניום. המסקנה מתייחסת רק לקשר שלא הוכח בין שובלי טיסות רגילות לריסוס מכוון של אוכלוסייה.</p>
+      </section>
     </article>
   );
 }
