@@ -35,6 +35,8 @@ function splitTitleLines(title: string) {
   const normalizedTitle = normalizeHebrewOgText(title);
 
   const explicitTitleLines: Record<string, string[]> = {
+    "טענה רצה ברשת? חוזרים למקור.": ["טענה רצה ברשת?", "חוזרים למקור."],
+    "טענה רצה ברשת? חוזרים למקור": ["טענה רצה ברשת?", "חוזרים למקור"],
     "רצה ברשת? חוזרים למקור.": ["רצה ברשת?", "חוזרים למקור."],
     "מהי תוכנית שבעת השלבים של אג׳נדה עשרים שלושים?": [
       "מהי תוכנית שבעת השלבים",
