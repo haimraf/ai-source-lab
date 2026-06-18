@@ -11,6 +11,7 @@
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0;
+  font-family: inherit;
 }
 
 .hero-visual > .topic-label::after {
@@ -43,7 +44,7 @@
 .brand-mark,
 .brand-copy,
 .nav-links {
-  font-family: "Segoe UI", "Arial Hebrew", Arial, sans-serif;
+  font-family: inherit;
 }
 
 .brand-mark {
