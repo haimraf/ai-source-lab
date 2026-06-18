@@ -14,15 +14,32 @@ function clampText(text: string, maxLength: number) {
   return text.slice(0, maxLength - 1).trimEnd() + "…";
 }
 
+function normalizeHebrewOgText(text: string) {
+  return text
+    .replaceAll("2030", "עשרים שלושים")
+    .replaceAll("XRP", "אקס־אר־פי")
+    .replaceAll("AI", "בינה מלאכותית")
+    .replaceAll("ISO 20022", "תקן המסרים הפיננסיים")
+    .replaceAll("17", "שבעה עשר")
+    .replaceAll("169", "מאה שישים ותשע");
+}
+
+// The Vercel ImageResponse renderer can render Hebrew text left-to-right in OG images.
+// Until the generated image renderer handles bidi text consistently, we provide visual-order
+// Hebrew strings for the image only. Regular page HTML and metadata remain semantic RTL Hebrew.
+function ogHebrew(text: string) {
+  return Array.from(normalizeHebrewOgText(text)).reverse().join("");
+}
+
 export function createSocialImage({ kicker, title, verdict }: SocialImageInput) {
-  const safeKicker = clampText(kicker, 44);
-  const safeTitle = clampText(title, 78);
-  const safeVerdict = clampText(verdict, 96);
+  const safeKicker = ogHebrew(clampText(kicker, 44));
+  const safeTitle = ogHebrew(clampText(title, 78));
+  const safeVerdict = ogHebrew(clampText(verdict, 96));
 
   return new ImageResponse(
     (
       <div
-        dir="rtl"
+        dir="ltr"
         style={{
           width: "100%",
           height: "100%",
@@ -61,7 +78,14 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
         />
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 18,
+              flexDirection: "row-reverse",
+            }}
+          >
             <div
               style={{
                 width: 74,
@@ -78,9 +102,11 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             >
               מ
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 31, fontWeight: 900 }}>מקור בדיקה</div>
-              <div style={{ fontSize: 17, color: "#91a1b2", letterSpacing: "0.04em" }}>טענה • מקור • פער • מסקנה</div>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+              <div style={{ fontSize: 31, fontWeight: 900 }}>{ogHebrew("מקור בדיקה")}</div>
+              <div style={{ fontSize: 17, color: "#91a1b2", letterSpacing: "0.04em" }}>
+                {ogHebrew("טענה • מקור • פער • מסקנה")}
+              </div>
             </div>
           </div>
 
@@ -94,7 +120,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
               fontWeight: 800,
             }}
           >
-            בדיקת מקור
+            {ogHebrew("בדיקת מקור")}
           </div>
         </div>
 
@@ -121,7 +147,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>מסמך מקור</div>
+              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>{ogHebrew("מסמך מקור")}</div>
               <div style={{ fontSize: 14, color: "#6e7682" }}>01</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -145,9 +171,9 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
                   fontWeight: 900,
                 }}
               >
-                נבדק
+                {ogHebrew("נבדק")}
               </div>
-              <div style={{ fontSize: 13, color: "#6e7682" }}>קישורים פתוחים</div>
+              <div style={{ fontSize: 13, color: "#6e7682" }}>{ogHebrew("קישורים פתוחים")}</div>
             </div>
           </div>
 
@@ -157,8 +183,10 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: "flex-end",
               gap: 22,
               padding: "28px 0",
+              textAlign: "right",
             }}
           >
             <div style={{ color: "#d9b36a", fontSize: 28, fontWeight: 900 }}>{safeKicker}</div>
@@ -166,7 +194,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             <div
               style={{
                 display: "flex",
-                alignSelf: "flex-start",
+                alignSelf: "flex-end",
                 fontSize: 24,
                 lineHeight: 1.35,
                 color: "#d8e0ea",
@@ -193,7 +221,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             fontSize: 18,
           }}
         >
-          <span>מקורות גלויים • תאריך עדכון • בדיקה אנושית</span>
+          <span>{ogHebrew("מקורות גלויים • תאריך עדכון • בדיקה אנושית")}</span>
           <span>ai-source-lab.vercel.app</span>
         </div>
       </div>
