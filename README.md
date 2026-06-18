@@ -2,7 +2,9 @@
 
 MVP קטן בעברית שמטרתו לבדוק האם מקור חדש, מסודר ומובנה יכול להיסרק, להתאנדקס ולהופיע כמקור בתשובות של מנועי חיפוש ובינות מלאכותיות.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhaimraf%2Fai-source-lab&project-name=ai-source-lab)
+[ייבוא הריפו הקיים ל-Vercel](https://vercel.com/new)
+
+ב-Vercel יש לבחור את הריפו `haimraf/ai-source-lab` ולבצע Import.
 
 ## מה יש בגרסה הראשונה
 
