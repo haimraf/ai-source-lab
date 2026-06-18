@@ -3,6 +3,19 @@ import { ImageResponse } from "next/og";
 export const socialImageSize = { width: 1200, height: 630 };
 export const socialImageContentType = "image/png";
 
+function visualHebrew(value: string) {
+  const tokens = value.match(/[A-Za-z0-9.#:/_-]+|[\u0590-\u05FF]+|[^\u0590-\u05FFA-Za-z0-9.#:/_-]+/gu) ?? [value];
+
+  return tokens
+    .reverse()
+    .map((token) => {
+      if (/^[\u0590-\u05FF]+$/u.test(token)) return Array.from(token).reverse().join("");
+      if (/^[A-Za-z0-9.#:/_-]+$/u.test(token)) return token;
+      return token;
+    })
+    .join("");
+}
+
 export function createSocialImage({
   kicker,
   title,
@@ -15,7 +28,7 @@ export function createSocialImage({
   return new ImageResponse(
     (
       <div
-        dir="rtl"
+        dir="ltr"
         style={{
           width: "100%",
           height: "100%",
@@ -64,8 +77,8 @@ export function createSocialImage({
           }}
         />
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <div style={{ display: "flex", flexDirection: "row-reverse", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", flexDirection: "row-reverse", alignItems: "center", gap: 18 }}>
             <div
               style={{
                 width: 70,
@@ -81,11 +94,11 @@ export function createSocialImage({
                 fontWeight: 900,
               }}
             >
-              מ
+              {visualHebrew("מ")}
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 31, fontWeight: 900, color: "#172033" }}>מקור בדיקה</div>
-              <div style={{ fontSize: 18, color: "#5b6473" }}>טענות, מקורות ומסקנות</div>
+            <div style={{ display: "flex", flexDirection: "column", textAlign: "right" }}>
+              <div style={{ fontSize: 31, fontWeight: 900, color: "#172033" }}>{visualHebrew("מקור בדיקה")}</div>
+              <div style={{ fontSize: 18, color: "#5b6473" }}>{visualHebrew("טענות, מקורות ומסקנות")}</div>
             </div>
           </div>
 
@@ -101,7 +114,7 @@ export function createSocialImage({
               fontWeight: 800,
             }}
           >
-            כרטיס בדיקה
+            {visualHebrew("כרטיס בדיקה")}
           </div>
         </div>
 
@@ -116,20 +129,23 @@ export function createSocialImage({
             background: "rgba(255, 255, 255, 0.78)",
             border: "1px solid #dfd2bf",
             boxShadow: "0 24px 70px rgba(38, 31, 22, 0.12)",
+            textAlign: "right",
+            alignSelf: "stretch",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ display: "flex", flexDirection: "row-reverse", alignItems: "center", gap: 14 }}>
             <div style={{ width: 56, height: 3, background: "#234a70", display: "flex" }} />
-            <div style={{ color: "#234a70", fontSize: 26, fontWeight: 900 }}>{kicker}</div>
+            <div style={{ color: "#234a70", fontSize: 26, fontWeight: 900 }}>{visualHebrew(kicker)}</div>
           </div>
           <div style={{ fontSize: 62, fontWeight: 900, lineHeight: 1.14, letterSpacing: "-1.7px", color: "#172033" }}>
-            {title}
+            {visualHebrew(title)}
           </div>
         </div>
 
         <div
           style={{
             display: "flex",
+            flexDirection: "row-reverse",
             alignItems: "center",
             justifyContent: "space-between",
             padding: "18px 24px",
@@ -140,7 +156,7 @@ export function createSocialImage({
             fontWeight: 800,
           }}
         >
-          <span style={{ color: "#234a70" }}>{verdict}</span>
+          <span style={{ color: "#234a70", textAlign: "right" }}>{visualHebrew(verdict)}</span>
           <span style={{ color: "#7a6d5e", fontSize: 17 }}>ai-source-lab.vercel.app</span>
         </div>
       </div>
