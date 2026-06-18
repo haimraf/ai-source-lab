@@ -29,7 +29,7 @@ https://ai-source-lab.vercel.app/
 
 ### ניווט תוכן
 
-- `/topics` — מפת נושאים
+- `/topics` - מפת נושאים
 - `/topics/agenda-2030` - אשכול אג׳נדה 2030
 - Issue #1 - רדאר תוכן וסדר עדיפויות למחקר עתידי
 
