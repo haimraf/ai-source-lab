@@ -16,12 +16,12 @@ function clampText(text: string, maxLength: number) {
 
 function normalizeHebrewOgText(text: string) {
   return text
+    .replaceAll("ISO 20022", "תקן המסרים הפיננסיים")
     .replaceAll("2030", "עשרים שלושים")
     .replaceAll("XRP", "אקס־אר־פי")
     .replaceAll("AI", "בינה מלאכותית")
-    .replaceAll("ISO 20022", "תקן המסרים הפיננסיים")
-    .replaceAll("17", "שבעה עשר")
-    .replaceAll("169", "מאה שישים ותשע");
+    .replaceAll("169", "מאה שישים ותשע")
+    .replaceAll("17", "שבעה עשר");
 }
 
 // The Vercel ImageResponse renderer can render Hebrew text left-to-right in OG images.
@@ -31,9 +31,47 @@ function ogHebrew(text: string) {
   return Array.from(normalizeHebrewOgText(text)).reverse().join("");
 }
 
+function splitTitleLines(title: string) {
+  const normalizedTitle = normalizeHebrewOgText(title);
+
+  const explicitTitleLines: Record<string, string[]> = {
+    "רצה ברשת? חוזרים למקור.": ["רצה ברשת?", "חוזרים למקור."],
+    "מהי תוכנית שבעת השלבים של אג׳נדה עשרים שלושים?": [
+      "מהי תוכנית שבעת השלבים",
+      "של אג׳נדה עשרים שלושים?",
+    ],
+    "האם אקס־אר־פי נבחר להיות המטבע העולמי?": [
+      "האם אקס־אר־פי נבחר",
+      "להיות המטבע העולמי?",
+    ],
+    "האם מטוסים מרססים אלומיניום?": ["האם מטוסים", "מרססים אלומיניום?"],
+  };
+
+  if (explicitTitleLines[normalizedTitle]) return explicitTitleLines[normalizedTitle];
+
+  const words = normalizedTitle.split(" ");
+  const lines: string[] = [];
+  let currentLine = "";
+
+  for (const word of words) {
+    const candidate = currentLine ? `${currentLine} ${word}` : word;
+
+    if (candidate.length > 28 && currentLine) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = candidate;
+    }
+  }
+
+  if (currentLine) lines.push(currentLine);
+
+  return lines.slice(0, 3);
+}
+
 export function createSocialImage({ kicker, title, verdict }: SocialImageInput) {
   const safeKicker = ogHebrew(clampText(kicker, 44));
-  const safeTitle = ogHebrew(clampText(title, 78));
+  const safeTitleLines = splitTitleLines(clampText(title, 78)).map(ogHebrew);
   const safeVerdict = ogHebrew(clampText(verdict, 96));
 
   return new ImageResponse(
@@ -190,7 +228,13 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             }}
           >
             <div style={{ color: "#d9b36a", fontSize: 28, fontWeight: 900 }}>{safeKicker}</div>
-            <div style={{ fontSize: 54, lineHeight: 1.12, fontWeight: 900, maxWidth: 690 }}>{safeTitle}</div>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
+              {safeTitleLines.map((line, index) => (
+                <div key={index} style={{ fontSize: 54, lineHeight: 1.12, fontWeight: 900 }}>
+                  {line}
+                </div>
+              ))}
+            </div>
             <div
               style={{
                 display: "flex",
