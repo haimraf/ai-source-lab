@@ -1,6 +1,10 @@
 export const metadata = {
   title: "מהי תוכנית שבעת השלבים של אג׳נדה 2030? | מקור בדיקה",
   description: "בדיקה האם קיים מקור רשמי לטענת שבעת השלבים של אג׳נדה 2030.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function Page() {
@@ -8,7 +12,7 @@ export default function Page() {
 
   return (
     <article>
-      <span className="badge">טענה בבדיקה · רמת ודאות: דורש מקור ראשוני</span>
+      <span className="badge">טיוטת מחקר · אינה מיועדת עדיין לאינדוקס</span>
       <h1>מהי “תוכנית שבעת השלבים” של אג׳נדה 2030?</h1>
       <p className="lead">
         יש תוכנית רשמית בשם Agenda 2030 של האו״ם. אבל טענות רשת שמציגות “שבעה שלבים” דרמטיים דורשות מקור נפרד וברור.
@@ -41,7 +45,7 @@ export default function Page() {
         <li>בדיקה אם יש גרסאות שונות לאותו פוסטר לאורך השנים.</li>
       </ul>
 
-      <p className="small">עודכן לאחרונה: יש לעדכן בתאריך הפרסום האמיתי.</p>
+      <p className="small">עמוד זה מסומן noindex עד להשלמת המחקר והמקורות.</p>
     </article>
   );
 }
