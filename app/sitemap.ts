@@ -2,21 +2,23 @@ import type { MetadataRoute } from "next";
 import { claimRecords, staticPages } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
-type SitemapSource = {
+function toSitemapEntry(page: {
   path: string;
   updated: string;
-  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+  changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority: number;
-};
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const pages: SitemapSource[] = Array.from(staticPages);
-  claimRecords.forEach((claim) => pages.push(claim));
-
-  return pages.map((page) => ({
+}): MetadataRoute.Sitemap[number] {
+  return {
     url: siteUrl + page.path,
     lastModified: page.updated,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
-  }));
+  };
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    ...staticPages.map(toSitemapEntry),
+    ...claimRecords.map(toSitemapEntry),
+  ];
 }
