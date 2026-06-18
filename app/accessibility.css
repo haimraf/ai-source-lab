@@ -11,6 +11,10 @@ select {
   font-family: inherit;
 }
 
+body {
+  overflow-wrap: anywhere;
+}
+
 .skip-link {
   position: fixed;
   top: 10px;
@@ -59,6 +63,13 @@ button,
   min-height: 44px;
 }
 
+.nav-links a,
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+}
+
 button,
 .button-primary,
 .button-secondary {
@@ -73,6 +84,15 @@ summary {
 
 img {
   height: auto;
+}
+
+.copy-status {
+  display: inline-block;
+  min-height: 24px;
+  margin-inline-start: 12px;
+  color: var(--ok);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 [aria-disabled="true"] {
@@ -115,6 +135,12 @@ img {
   .skip-link {
     right: 10px;
     left: 10px;
+    text-align: center;
+  }
+
+  .copy-status {
+    display: block;
+    margin: 8px 0 0;
     text-align: center;
   }
 }
