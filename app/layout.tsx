@@ -4,7 +4,7 @@ import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "מקור בדיקה | פירוק טענות רשת",
-  description: "ניסוי עברי שמפרק טענות רשת ליחידות בדיקה: מה נטען, מה ידוע, מה לא הוכח ואיפה נעשתה הקפיצה.",
+  description: "אתר עברי שבודק טענות רשת מול מקורות ומפריד בין עובדה למסקנה.",
   metadataBase: new URL(siteUrl),
   robots: {
     index: true,
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
           {children}
           <footer className="footer">
-            ניסוי פתוח: האתר אינו מחליף גוף בדיקת עובדות רשמי. כל עמוד מציג מקורות, תאריך בדיקה ורמת ודאות.
+            בכל עמוד מופיעים המקורות שנבדקו ותאריך העדכון.
           </footer>
         </main>
       </body>
