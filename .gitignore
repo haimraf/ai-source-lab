@@ -26,3 +26,8 @@ pnpm-debug.log*
 
 # typescript
 *.tsbuildinfo
+
+# generated video media
+artifacts/video/*.mp4
+artifacts/video/*.png
+public/video/xrp/voiceover/*.mp3

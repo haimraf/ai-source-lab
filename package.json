@@ -6,19 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "video:studio": "remotion studio videos/xrp/index.ts",
+    "video:still:vertical": "remotion still videos/xrp/index.ts XrpVertical artifacts/video/xrp-vertical.png --frame=300",
+    "video:still:landscape": "remotion still videos/xrp/index.ts XrpLandscape artifacts/video/xrp-landscape.png --frame=300",
+    "video:render": "node --strip-types videos/xrp/render.ts"
   },
   "dependencies": {
+    "@remotion/bundler": "^4.0.481",
+    "@remotion/cli": "^4.0.481",
+    "@remotion/media": "^4.0.481",
+    "@remotion/renderer": "^4.0.481",
+    "@remotion/transitions": "^4.0.481",
     "@vercel/analytics": "latest",
     "next": "16.1.0",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "remotion": "^4.0.481"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "typescript": "^5",
+    "vitest": "^4.1.9"
   },
   "engines": {
     "node": ">=20.9.0"
