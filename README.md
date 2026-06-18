@@ -14,24 +14,24 @@ https://ai-source-lab.vercel.app/
 
 ### בדיקות שפורסמו
 
-- `/claims/agenda-2030-seven-steps` — האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
-- `/claims/xrp-global-currency` — האם XRP נבחר להיות המטבע העולמי?
-- `/claims/chemtrails-aluminum` — האם מטוסים מרססים אלומיניום?
+- `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
+- `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
+- `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
 
 ### תשתית אמון
 
-- `/methodology` — שיטת הבדיקה והיררכיית המקורות
-- `/editorial-policy` — מדיניות עריכה ושימוש בכלי בינה
-- `/corrections` — תיקונים ועדכונים
-- `/about` — אודות המיזם
-- `/privacy` — פרטיות ומדידה
-- `/accessibility` — הצהרת נגישות
+- `/methodology` - שיטת הבדיקה והיררכיית המקורות
+- `/editorial-policy` - מדיניות עריכה ושימוש בכלי בינה
+- `/corrections` - תיקונים ועדכונים
+- `/about` - אודות המיזם
+- `/privacy` - פרטיות ומדידה
+- `/accessibility` - הצהרת נגישות
 
 ### ניווט תוכן
 
 - `/topics` — מפת נושאים
-- `/topics/agenda-2030` — אשכול אג׳נדה 2030
-- Issue #1 — רדאר תוכן וסדר עדיפויות למחקר עתידי
+- `/topics/agenda-2030` - אשכול אג׳נדה 2030
+- Issue #1 - רדאר תוכן וסדר עדיפויות למחקר עתידי
 
 ## מבנה קבוע לעמוד בדיקה
 
