@@ -2,9 +2,11 @@
 
 MVP קטן בעברית שמטרתו לבדוק האם מקור חדש, מסודר ומובנה יכול להיסרק, להתאנדקס ולהופיע כמקור בתשובות של מנועי חיפוש ובינות מלאכותיות.
 
-[ייבוא הריפו הקיים ל-Vercel](https://vercel.com/new)
+## האתר החי
 
-ב-Vercel יש לבחור את הריפו `haimraf/ai-source-lab` ולבצע Import.
+[https://ai-source-lab.vercel.app/](https://ai-source-lab.vercel.app/)
+
+הפרויקט מחובר ל-Vercel ומתפרס אוטומטית בכל עדכון לענף `main`.
 
 ## מה יש בגרסה הראשונה
 
@@ -33,7 +35,13 @@ npm run build
 
 ## כתובת האתר
 
-ב-Vercel הכתובת מזוהה אוטומטית. לאחר חיבור דומיין אפשר להגדיר:
+כרגע האתר זמין בכתובת:
+
+```text
+https://ai-source-lab.vercel.app/
+```
+
+לאחר חיבור דומיין קבוע אפשר להגדיר ב-Vercel:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
