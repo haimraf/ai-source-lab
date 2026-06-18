@@ -22,10 +22,9 @@ export function createSocialImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "52px 70px",
-          color: "#f6f8fc",
-          background:
-            "radial-gradient(circle at 90% 0%, #18314f 0%, #0d1522 34%, #090c12 72%)",
+          padding: "54px 66px",
+          color: "#172033",
+          background: "#f4efe6",
           fontFamily: "sans-serif",
           position: "relative",
           overflow: "hidden",
@@ -34,12 +33,34 @@ export function createSocialImage({
         <div
           style={{
             position: "absolute",
-            inset: 0,
+            inset: 24,
             display: "flex",
-            opacity: 0.22,
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            border: "2px solid #d9ccb9",
+            borderRadius: 28,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            right: 66,
+            top: 54,
+            width: 130,
+            height: 130,
+            display: "flex",
+            borderRadius: 999,
+            border: "2px solid rgba(35, 74, 112, 0.18)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: 66,
+            bottom: 54,
+            width: 210,
+            height: 210,
+            display: "flex",
+            borderRadius: 999,
+            border: "2px solid rgba(35, 74, 112, 0.12)",
           }}
         />
 
@@ -47,46 +68,61 @@ export function createSocialImage({
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
             <div
               style={{
-                width: 76,
-                height: 76,
+                width: 70,
+                height: 70,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderRadius: 22,
-                border: "2px solid #5d8cb8",
-                background: "#13263a",
-                color: "#8fc7ff",
-                fontSize: 34,
-                fontWeight: 800,
+                borderRadius: 18,
+                border: "2px solid #234a70",
+                background: "#ffffff",
+                color: "#234a70",
+                fontSize: 32,
+                fontWeight: 900,
               }}
             >
               מ
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 30, fontWeight: 800 }}>מקור בדיקה</div>
-              <div style={{ fontSize: 18, color: "#aab3c5" }}>טענות, מקורות ומסקנות</div>
+              <div style={{ fontSize: 31, fontWeight: 900, color: "#172033" }}>מקור בדיקה</div>
+              <div style={{ fontSize: 18, color: "#5b6473" }}>טענות, מקורות ומסקנות</div>
             </div>
           </div>
 
           <div
             style={{
               display: "flex",
-              padding: "10px 20px",
+              padding: "10px 18px",
               borderRadius: 999,
-              border: "1px solid #42698e",
-              background: "#13263a",
-              color: "#8fc7ff",
-              fontSize: 20,
-              fontWeight: 700,
+              border: "1px solid #c3b39e",
+              background: "#fffaf2",
+              color: "#5b4632",
+              fontSize: 19,
+              fontWeight: 800,
             }}
           >
-            בדיקת מקור
+            כרטיס בדיקה
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 1060 }}>
-          <div style={{ color: "#8fc7ff", fontSize: 27, fontWeight: 700 }}>{kicker}</div>
-          <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.18, letterSpacing: "-2px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 22,
+            maxWidth: 1040,
+            padding: "34px 42px",
+            borderRadius: 26,
+            background: "rgba(255, 255, 255, 0.78)",
+            border: "1px solid #dfd2bf",
+            boxShadow: "0 24px 70px rgba(38, 31, 22, 0.12)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div style={{ width: 56, height: 3, background: "#234a70", display: "flex" }} />
+            <div style={{ color: "#234a70", fontSize: 26, fontWeight: 900 }}>{kicker}</div>
+          </div>
+          <div style={{ fontSize: 62, fontWeight: 900, lineHeight: 1.14, letterSpacing: "-1.7px", color: "#172033" }}>
             {title}
           </div>
         </div>
@@ -96,16 +132,16 @@ export function createSocialImage({
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "17px 24px",
+            padding: "18px 24px",
             borderRadius: 18,
-            border: "1px solid #4c6078",
-            background: "#111d2b",
-            fontSize: 24,
-            fontWeight: 700,
+            border: "1px solid #d9ccb9",
+            background: "#fffaf2",
+            fontSize: 23,
+            fontWeight: 800,
           }}
         >
-          <span>{verdict}</span>
-          <span style={{ color: "#aab3c5", fontSize: 17 }}>ai-source-lab.vercel.app</span>
+          <span style={{ color: "#234a70" }}>{verdict}</span>
+          <span style={{ color: "#7a6d5e", fontSize: 17 }}>ai-source-lab.vercel.app</span>
         </div>
       </div>
     ),
