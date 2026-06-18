@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./theme.css";
 import "./components.css";
@@ -58,6 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <p className="footer-note">בכל עמוד מופיעים המקורות שנבדקו ותאריך העדכון.</p>
         </footer>
+
+        <Analytics />
       </body>
     </html>
   );
