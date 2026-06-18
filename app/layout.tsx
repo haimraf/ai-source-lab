@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./theme.css";
 import "./components.css";
+import { ExhibitLightboxEnhancer } from "@/components/ExhibitLightboxEnhancer";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main className="container">{children}</main>
+        <ExhibitLightboxEnhancer />
 
         <footer className="site-footer">
           <div className="footer-grid">
