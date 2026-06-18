@@ -1,4 +1,5 @@
 import { CopyBox } from "@/components/CopyBox";
+import { EvidenceGallery } from "@/components/EvidenceGallery";
 import { siteUrl } from "@/lib/site";
 
 export const metadata = {
@@ -19,6 +20,21 @@ const sources = [
     name: "עמוד אג׳נדה 2030 באתר האו״ם",
     url: "https://sdgs.un.org/2030agenda",
     note: "עמוד רשמי שמציג את 17 היעדים ואת מטרות התוכנית.",
+  },
+];
+
+const exhibits = [
+  {
+    src: "/evidence/agenda-2030-poster-1.svg",
+    alt: "פוסטר ויראלי בעברית שמציג רשימת טענות על אג׳נדה 2030",
+    title: "מוצג 1.",
+    caption: "פוסטר בעברית שמחבר את אג׳נדה 2030 לשורה של טענות. מקורו הראשוני לא אותר.",
+  },
+  {
+    src: "/evidence/agenda-2030-poster-2.svg",
+    alt: "פוסטר ויראלי שכותרתו תוכנית שבעת השלבים המוצעת של האו״ם",
+    title: "מוצג 2.",
+    caption: "פוסטר שמציג רשימה בת שבעה שלבים. הופעת תמונות בו אינה מוכיחה שהמצולמים כתבו או אישרו את הטקסט.",
   },
 ];
 
@@ -86,22 +102,7 @@ export default function Page() {
 
       <h2>הפוסטרים שנבדקו</h2>
       <p>אלה דוגמאות לתוכן שמופץ ברשת. הן מוצגות כאן כדי לתעד את הטענה, לא כמקור שמוכיח אותה.</p>
-
-      <div className="exhibit-grid">
-        <figure className="exhibit-card">
-          <a href="/evidence/agenda-2030-poster-1.svg" target="_blank" rel="noreferrer">
-            <img src="/evidence/agenda-2030-poster-1.svg" alt="פוסטר ויראלי בעברית שמציג רשימת טענות על אג׳נדה 2030" />
-          </a>
-          <figcaption><strong>מוצג 1.</strong> פוסטר בעברית שמחבר את אג׳נדה 2030 לשורה של טענות. מקורו הראשוני לא אותר.</figcaption>
-        </figure>
-
-        <figure className="exhibit-card">
-          <a href="/evidence/agenda-2030-poster-2.svg" target="_blank" rel="noreferrer">
-            <img src="/evidence/agenda-2030-poster-2.svg" alt="פוסטר ויראלי שכותרתו תוכנית שבעת השלבים המוצעת של האו״ם" />
-          </a>
-          <figcaption><strong>מוצג 2.</strong> פוסטר שמציג רשימה בת שבעה שלבים. הופעת תמונות בו אינה מוכיחה שהמצולמים כתבו או אישרו את הטקסט.</figcaption>
-        </figure>
-      </div>
+      <EvidenceGallery exhibits={exhibits} />
 
       <h2>השוואה קצרה</h2>
       <div className="comparison-list">
