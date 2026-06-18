@@ -151,4 +151,4 @@ npm run build
 
 `llms.txt` הוא ניסוי משלים בלבד, לא תחליף לאינדוקס, תוכן איכותי וקישורים אמיתיים.
 
-<!-- production redeploy trigger: 2026-06-18T19:20Z -->
+<!-- redeploy after og fix 2026-06-18 -->
