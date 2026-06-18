@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 const checks = [
   {
     title: "מהי 'תוכנית שבעת השלבים' של אג׳נדה 2030?",
@@ -62,7 +68,7 @@ export default function HomePage() {
             <span className="topic-label">בדיקה מרכזית</span>
             <h2>אג׳נדה 2030 מול הפוסטרים שמסתובבים ברשת</h2>
             <p>
-              יש מסמך רשמי של האו״ם. יש גם פוסטרים שמייחסים לו ממשלה עולמית, סוף ריבונות ומעקב. בדקנו את הרשימה מול המסמך עצמו.
+              יש מסמך רשמי של האו״ם. יש גם פוסטרים שמייחסים לו טענות רחבות שלא נמצאו באותו ניסוח במסמך. בדקנו את הרשימה מול המקור עצמו.
             </p>
             <a className="button-primary" href="/claims/agenda-2030-seven-steps">פתיחת הבדיקה</a>
           </div>

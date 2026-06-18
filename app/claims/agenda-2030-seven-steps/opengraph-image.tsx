@@ -1,17 +1,16 @@
-import {
-  createSocialImage,
-  socialImageContentType,
-  socialImageSize,
-} from "@/lib/social-image";
+import { getClaimBySlug } from "@/lib/claims-db";
+import { createSocialImage, socialImageContentType, socialImageSize } from "@/lib/social-image";
+
+const claim = getClaimBySlug("agenda-2030-seven-steps");
 
 export const size = socialImageSize;
 export const contentType = socialImageContentType;
-export const alt = "האם קיימת תוכנית בת שבעה שלבים של האו״ם?";
+export const alt = claim.ogAlt;
 
 export default function Image() {
   return createSocialImage({
-    kicker: "אג׳נדה 2030",
-    title: "האם קיימת תוכנית בת שבעה שלבים של האו״ם?",
-    verdict: "לא נמצא מקור רשמי לרשימה",
+    kicker: claim.kicker,
+    title: claim.title,
+    verdict: claim.verdict,
   });
 }

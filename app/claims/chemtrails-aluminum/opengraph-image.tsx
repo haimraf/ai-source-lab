@@ -1,17 +1,16 @@
-import {
-  createSocialImage,
-  socialImageContentType,
-  socialImageSize,
-} from "@/lib/social-image";
+import { getClaimBySlug } from "@/lib/claims-db";
+import { createSocialImage, socialImageContentType, socialImageSize } from "@/lib/social-image";
+
+const claim = getClaimBySlug("chemtrails-aluminum");
 
 export const size = socialImageSize;
 export const contentType = socialImageContentType;
-export const alt = "האם מטוסים מרססים אלומיניום?";
+export const alt = claim.ogAlt;
 
 export default function Image() {
   return createSocialImage({
-    kicker: "שמיים ומזג אוויר",
-    title: "האם מטוסים מרססים אלומיניום?",
-    verdict: "לא נמצא בסיס לריסוס מטיסות רגילות",
+    kicker: claim.kicker,
+    title: claim.title,
+    verdict: claim.verdict,
   });
 }

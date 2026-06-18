@@ -1,17 +1,16 @@
-import {
-  createSocialImage,
-  socialImageContentType,
-  socialImageSize,
-} from "@/lib/social-image";
+import { getClaimBySlug } from "@/lib/claims-db";
+import { createSocialImage, socialImageContentType, socialImageSize } from "@/lib/social-image";
+
+const claim = getClaimBySlug("xrp-global-currency");
 
 export const size = socialImageSize;
 export const contentType = socialImageContentType;
-export const alt = "האם XRP נבחר להיות המטבע העולמי?";
+export const alt = claim.ogAlt;
 
 export default function Image() {
   return createSocialImage({
-    kicker: "כסף דיגיטלי",
-    title: "האם XRP נבחר להיות המטבע העולמי?",
-    verdict: "לא נמצא בסיס רשמי לטענה",
+    kicker: claim.kicker,
+    title: claim.title,
+    verdict: claim.verdict,
   });
 }

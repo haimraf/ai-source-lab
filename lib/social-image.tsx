@@ -3,25 +3,26 @@ import { ImageResponse } from "next/og";
 export const socialImageSize = { width: 1200, height: 630 };
 export const socialImageContentType = "image/png";
 
-function getTopicCode(title: string) {
-  if (title.includes("XRP")) return "XRP / PAYMENT CLAIM";
-  if (title.includes("מטוסים") || title.includes("אלומיניום")) return "CONTRAILS / AIRCRAFT CLAIM";
-  if (title.includes("2030") || title.includes("אג׳נדה") || title.includes("אג'נדה")) return "AGENDA 2030 / SOURCE CHECK";
-  return "SOURCE CHECK / HEBREW FACT FILE";
-}
-
-export function createSocialImage({
-  title,
-}: {
+type SocialImageInput = {
   kicker: string;
   title: string;
   verdict: string;
-}) {
-  const topic = getTopicCode(title);
+};
+
+function clampText(text: string, maxLength: number) {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength - 1).trimEnd() + "…";
+}
+
+export function createSocialImage({ kicker, title, verdict }: SocialImageInput) {
+  const safeKicker = clampText(kicker, 44);
+  const safeTitle = clampText(title, 78);
+  const safeVerdict = clampText(verdict, 96);
 
   return new ImageResponse(
     (
       <div
+        dir="rtl"
         style={{
           width: "100%",
           height: "100%",
@@ -59,7 +60,7 @@ export function createSocialImage({
           }}
         />
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
             <div
               style={{
@@ -71,15 +72,15 @@ export function createSocialImage({
                 border: "2px solid #d9b36a",
                 background: "#111b25",
                 color: "#d9b36a",
-                fontSize: 26,
+                fontSize: 28,
                 fontWeight: 900,
               }}
             >
-              M
+              מ
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 29, fontWeight: 900, letterSpacing: "0.03em" }}>MAKOR BEDIKA</div>
-              <div style={{ fontSize: 17, color: "#91a1b2", letterSpacing: "0.12em" }}>SOURCE • EVIDENCE • VERDICT</div>
+              <div style={{ fontSize: 31, fontWeight: 900 }}>מקור בדיקה</div>
+              <div style={{ fontSize: 17, color: "#91a1b2", letterSpacing: "0.04em" }}>טענה • מקור • פער • מסקנה</div>
             </div>
           </div>
 
@@ -91,15 +92,15 @@ export function createSocialImage({
               color: "#d9b36a",
               fontSize: 18,
               fontWeight: 800,
-              letterSpacing: "0.08em",
             }}
           >
-            CHECK FILE
+            בדיקת מקור
           </div>
         </div>
 
         <div
           style={{
+            position: "relative",
             display: "flex",
             gap: 32,
             alignItems: "stretch",
@@ -120,7 +121,7 @@ export function createSocialImage({
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>PRIMARY SOURCE</div>
+              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>מסמך מקור</div>
               <div style={{ fontSize: 14, color: "#6e7682" }}>01</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -130,8 +131,23 @@ export function createSocialImage({
               <div style={{ height: 10, background: "#657180", width: "68%", display: "flex" }} />
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ width: 70, height: 70, border: "3px solid #b0473c", borderRadius: 999, display: "flex", alignItems: "center", justifyContent: "center", color: "#b0473c", fontSize: 13, fontWeight: 900 }}>CHECKED</div>
-              <div style={{ fontSize: 13, color: "#6e7682" }}>OPEN DOCUMENT</div>
+              <div
+                style={{
+                  width: 74,
+                  height: 74,
+                  border: "3px solid #b0473c",
+                  borderRadius: 999,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#b0473c",
+                  fontSize: 13,
+                  fontWeight: 900,
+                }}
+              >
+                נבדק
+              </div>
+              <div style={{ fontSize: 13, color: "#6e7682" }}>קישורים פתוחים</div>
             </div>
           </div>
 
@@ -141,22 +157,33 @@ export function createSocialImage({
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              gap: 26,
+              gap: 22,
               padding: "28px 0",
             }}
           >
-            <div style={{ color: "#d9b36a", fontSize: 26, fontWeight: 900, letterSpacing: "0.08em" }}>{topic}</div>
-            <div style={{ fontSize: 58, lineHeight: 1.08, fontWeight: 900, letterSpacing: "0.02em" }}>
-              CLAIM → SOURCE → GAP → VERDICT
-            </div>
-            <div style={{ fontSize: 23, lineHeight: 1.35, color: "#b8c2cf", maxWidth: 660 }}>
-              A Hebrew source-checking file that separates what was written from what was added later.
+            <div style={{ color: "#d9b36a", fontSize: 28, fontWeight: 900 }}>{safeKicker}</div>
+            <div style={{ fontSize: 54, lineHeight: 1.12, fontWeight: 900, maxWidth: 690 }}>{safeTitle}</div>
+            <div
+              style={{
+                display: "flex",
+                alignSelf: "flex-start",
+                fontSize: 24,
+                lineHeight: 1.35,
+                color: "#d8e0ea",
+                background: "rgba(217,179,106,.12)",
+                border: "1px solid rgba(217,179,106,.42)",
+                padding: "14px 18px",
+                maxWidth: 650,
+              }}
+            >
+              {safeVerdict}
             </div>
           </div>
         </div>
 
         <div
           style={{
+            position: "relative",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -166,7 +193,7 @@ export function createSocialImage({
             fontSize: 18,
           }}
         >
-          <span>Human reviewed • Sources linked • Updated file</span>
+          <span>מקורות גלויים • תאריך עדכון • בדיקה אנושית</span>
           <span>ai-source-lab.vercel.app</span>
         </div>
       </div>
