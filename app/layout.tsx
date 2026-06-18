@@ -6,6 +6,7 @@ import "./theme.css";
 import "./components.css";
 import "./polish.css";
 import "./accessibility.css";
+import "./editorial-system.css";
 import { siteUrl } from "@/lib/site";
 
 const heebo = Heebo({
@@ -14,11 +15,28 @@ const heebo = Heebo({
   variable: "--font-heebo",
 });
 
+const siteTitle = "מקור בדיקה | טענות, מקורות ומסקנות";
+const siteDescription = "אתר עברי שבודק טענות רשת מול מקורות ומראה איפה העובדות נגמרות והמסקנות מתחילות.";
+
 export const metadata: Metadata = {
-  title: "מקור בדיקה | טענות, מקורות ומסקנות",
-  description: "אתר עברי שבודק טענות רשת מול מקורות ומראה איפה העובדות נגמרות והמסקנות מתחילות.",
+  title: siteTitle,
+  description: siteDescription,
   metadataBase: new URL(siteUrl),
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "מקור בדיקה",
+    locale: "he_IL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
