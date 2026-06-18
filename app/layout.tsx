@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./theme.css";
 import "./components.css";
+import "./polish.css";
 import { ExhibitLightboxEnhancer } from "@/components/ExhibitLightboxEnhancer";
 import { siteUrl } from "@/lib/site";
 
