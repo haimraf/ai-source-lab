@@ -6,11 +6,14 @@ export function CopyBox({ text }: { text: string }) {
   }
 
   return (
-    <div className="copy-box">
-      <p>{text}</p>
-      <button className="copy-button" type="button" onClick={handleClick}>
-        פתיחת טקסט להעתקה
-      </button>
-    </div>
+    <>
+      <link rel="stylesheet" href="/extras.css" />
+      <div className="copy-box">
+        <p>{text}</p>
+        <button className="copy-button" type="button" onClick={handleClick}>
+          פתיחת טקסט להעתקה
+        </button>
+      </div>
+    </>
   );
 }
