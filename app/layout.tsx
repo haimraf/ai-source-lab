@@ -4,7 +4,7 @@ import "./globals.css";
 import "./theme.css";
 import "./components.css";
 import "./polish.css";
-import { ExhibitLightboxEnhancer } from "@/components/ExhibitLightboxEnhancer";
+import "./accessibility.css";
 import { siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,10 +18,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="he" dir="rtl">
       <body>
+        <a className="skip-link" href="#main-content">דילוג לתוכן הראשי</a>
+
         <header className="site-header">
           <nav className="site-nav" aria-label="ניווט ראשי">
-            <a className="brand" href="/">
-              <span className="brand-mark">מ</span>
+            <a className="brand" href="/" aria-label="מקור בדיקה, עמוד הבית">
+              <span className="brand-mark" aria-hidden="true">מ</span>
               <span className="brand-copy">
                 <strong>מקור בדיקה</strong>
                 <small>טענות, מקורות ומסקנות</small>
@@ -36,8 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        <main className="container">{children}</main>
-        <ExhibitLightboxEnhancer />
+        <main id="main-content" className="container" tabIndex={-1}>{children}</main>
 
         <footer className="site-footer">
           <div className="footer-grid">
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/editorial-policy">מדיניות עריכה</a>
               <a href="/corrections">תיקונים ועדכונים</a>
               <a href="/privacy">פרטיות</a>
+              <a href="/accessibility">הצהרת נגישות</a>
               <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">קוד פתוח ב-GitHub</a>
             </div>
           </div>
