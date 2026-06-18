@@ -1,6 +1,10 @@
 export const metadata = {
   title: "האם מטוסים מרססים אלומיניום? | מקור בדיקה",
   description: "פירוק הטענה שמטוסים מרססים אלומיניום או חומרים על אוכלוסייה.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function Page() {
@@ -8,7 +12,7 @@ export default function Page() {
 
   return (
     <article>
-      <span className="badge">טענה בבדיקה · רמת ודאות: לא נמצא מקור מספק</span>
+      <span className="badge">טיוטת מחקר · אינה מיועדת עדיין לאינדוקס</span>
       <h1>האם מטוסים מרססים אלומיניום?</h1>
       <p className="lead">
         הטענה דורשת הבחנה בין תופעות אמיתיות כמו שובלי התעבות וניסויים לשינוי מזג אוויר, לבין טענה חמורה בהרבה: ריסוס מכוון של אוכלוסייה.
@@ -41,7 +45,7 @@ export default function Page() {
         <li>בדיקות סביבתיות אמינות ולא אנקדוטות מהרשת.</li>
       </ul>
 
-      <p className="small">עודכן לאחרונה: יש לעדכן בתאריך הפרסום האמיתי.</p>
+      <p className="small">עמוד זה מסומן noindex עד להשלמת המחקר והמקורות.</p>
     </article>
   );
 }
