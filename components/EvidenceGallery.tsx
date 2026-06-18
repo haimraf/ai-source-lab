@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 type Exhibit = {
   src: string;
@@ -11,24 +11,55 @@ type Exhibit = {
 
 export function EvidenceGallery({ exhibits }: { exhibits: Exhibit[] }) {
   const [active, setActive] = useState<Exhibit | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
+  const captionId = useId();
+
+  function openExhibit(exhibit: Exhibit, button: HTMLButtonElement) {
+    openerRef.current = button;
+    setActive(exhibit);
+  }
+
+  function closeExhibit() {
+    setActive(null);
+    window.setTimeout(() => openerRef.current?.focus(), 0);
+  }
 
   useEffect(() => {
+    if (!active) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setActive(null);
+      if (event.key === "Escape") closeExhibit();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
     }
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [active]);
 
   return (
     <>
       <div className="exhibit-grid">
         {exhibits.map((exhibit) => (
           <figure className="exhibit-card" key={exhibit.src}>
-            <button className="exhibit-trigger" type="button" onClick={() => setActive(exhibit)}>
+            <button
+              className="exhibit-trigger"
+              type="button"
+              onClick={(event) => openExhibit(exhibit, event.currentTarget)}
+              aria-label={`פתיחת ${exhibit.title} בתצוגה מוגדלת`}
+            >
               <img src={exhibit.src} alt={exhibit.alt} />
-              <span>לחיצה להגדלה</span>
+              <span aria-hidden="true">לחיצה להגדלה</span>
             </button>
             <figcaption>
               <strong>{exhibit.title}</strong> {exhibit.caption}
@@ -38,13 +69,19 @@ export function EvidenceGallery({ exhibits }: { exhibits: Exhibit[] }) {
       </div>
 
       {active ? (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={active.title} onClick={() => setActive(null)}>
+        <div className="lightbox" role="dialog" aria-modal="true" aria-labelledby={captionId} onClick={closeExhibit}>
           <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
-            <button className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="סגירת התמונה">
+            <button
+              ref={closeButtonRef}
+              className="lightbox-close"
+              type="button"
+              onClick={closeExhibit}
+              aria-label="סגירת התמונה המוגדלת"
+            >
               ×
             </button>
             <img src={active.src} alt={active.alt} />
-            <p><strong>{active.title}</strong> {active.caption}</p>
+            <p id={captionId}><strong>{active.title}</strong> {active.caption}</p>
           </div>
         </div>
       ) : null}
