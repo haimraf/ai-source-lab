@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Heebo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./theme.css";
@@ -6,6 +7,12 @@ import "./components.css";
 import "./polish.css";
 import "./accessibility.css";
 import { siteUrl } from "@/lib/site";
+
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  display: "swap",
+  variable: "--font-heebo",
+});
 
 export const metadata: Metadata = {
   title: "מקור בדיקה | טענות, מקורות ומסקנות",
@@ -16,8 +23,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl">
-      <body>
+    <html lang="he" dir="rtl" className={heebo.variable}>
+      <body className={heebo.className}>
         <a className="skip-link" href="#main-content">דילוג לתוכן הראשי</a>
 
         <header className="site-header">
