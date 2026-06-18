@@ -17,6 +17,8 @@ const heebo = Heebo({
 
 const siteTitle = "מקור בדיקה | טענות, מקורות ומסקנות";
 const siteDescription = "אתר עברי שבודק טענות רשת מול מקורות ומראה איפה העובדות נגמרות והמסקנות מתחילות.";
+const ogVersion = "editorial-file-v3";
+const homeOgImage = `${siteUrl}/opengraph-image?version=${ogVersion}`;
 
 export const metadata: Metadata = {
   title: siteTitle,
@@ -31,11 +33,20 @@ export const metadata: Metadata = {
     siteName: "מקור בדיקה",
     locale: "he_IL",
     type: "website",
+    images: [
+      {
+        url: homeOgImage,
+        width: 1200,
+        height: 630,
+        alt: "מקור בדיקה - תיק מקור ובדיקת טענות",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [homeOgImage],
   },
 };
 
