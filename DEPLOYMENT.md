@@ -2,8 +2,8 @@
 
 ## Vercel
 
-1. לפתוח את כפתור **Deploy with Vercel** ב-README.
-2. לבחור את חשבון Vercel המתאים.
+1. לפתוח את עמוד **New Project** ב-Vercel.
+2. לבחור את הריפו הקיים `haimraf/ai-source-lab` וללחוץ Import.
 3. להשאיר Framework Preset על Next.js ו-Root Directory על ברירת המחדל.
 4. לבצע Deploy.
 
