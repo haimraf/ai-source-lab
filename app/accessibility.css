@@ -1,6 +1,8 @@
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body,
@@ -12,6 +14,93 @@ select {
 }
 
 body {
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+main,
+article,
+section,
+.site-header,
+.site-nav,
+.site-footer,
+.container,
+.footer-grid,
+.footer-note,
+.card,
+.box,
+.copy-box,
+.exhibit-card,
+.comparison-list,
+.logic-chain,
+.source-cards,
+.faq-list {
+  min-width: 0;
+}
+
+.container,
+.site-nav,
+.footer-grid,
+.footer-note {
+  width: min(100%, 1140px);
+}
+
+.nav-links {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.breadcrumbs {
+  max-width: 920px;
+  margin: 0 auto 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbs li + li::before {
+  content: "←";
+  color: rgba(148, 163, 184, 0.72);
+  margin-inline: 1px 8px;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumbs [aria-current="page"] span {
+  color: var(--text);
   overflow-wrap: anywhere;
 }
 
@@ -142,5 +231,29 @@ img {
     display: block;
     margin: 8px 0 0;
     text-align: center;
+  }
+
+  .site-nav {
+    overflow: hidden;
+  }
+
+  .nav-links {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .breadcrumbs ol {
+    gap: 5px;
   }
 }
