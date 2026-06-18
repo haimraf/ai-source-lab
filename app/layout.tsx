@@ -17,8 +17,8 @@ const heebo = Heebo({
 
 const siteTitle = "מקור בדיקה | טענות, מקורות ומסקנות";
 const siteDescription = "אתר עברי שבודק טענות רשת מול מקורות ומראה איפה העובדות נגמרות והמסקנות מתחילות.";
-const ogVersion = "editorial-file-v3";
-const homeOgImage = `${siteUrl}/opengraph-image?version=${ogVersion}`;
+const ogVersion = "editorial-file-v4";
+const homeOgImage = `${siteUrl}/api/og/home?version=${ogVersion}`;
 
 export const metadata: Metadata = {
   title: siteTitle,
