@@ -1,43 +1,23 @@
 import type { Metadata } from "next";
+import { claimRecords } from "@/lib/claims-db";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const checks = [
-  {
-    title: "האם תשובת AI היא מקור?",
-    href: "/claims/ai-as-source-pyramids",
-    summary: "קייס הפירמידות: למה תשובה משכנעת של מודל אינה מחליפה מקור שאפשר לפתוח.",
-    topic: "AI ומקורות",
-    verdict: "AI הוא כלי, לא מקור",
-    updated: "19.6.26",
-  },
-  {
-    title: "מהי 'תוכנית שבעת השלבים' של אג׳נדה 2030?",
-    href: "/claims/agenda-2030-seven-steps",
-    summary: "השוואה בין הפוסטרים שמופצים ברשת לבין החלטת האו״ם A/RES/70/1.",
-    topic: "אג׳נדה 2030",
-    verdict: "לא נמצא מקור רשמי לרשימה",
-    updated: "18.6.26",
-  },
-  {
-    title: "האם XRP נבחר להיות המטבע העולמי?",
-    href: "/claims/xrp-global-currency",
-    summary: "מה Ripple באמת אומרת, מהו ISO 20022 ואיפה נולדה הקפיצה למטבע עולמי.",
-    topic: "כסף דיגיטלי",
-    verdict: "לא נמצא מקור רשמי לטענה",
-    updated: "18.6.26",
-  },
-  {
-    title: "האם מטוסים מרססים אלומיניום?",
-    href: "/claims/chemtrails-aluminum",
-    summary: "מהם שובלי התעבות, מהו שינוי מזג אוויר ומה עדיין צריך להוכיח.",
-    topic: "שמיים ומזג אוויר",
-    verdict: "נבדק מול מקורות תעופה וסביבה",
-    updated: "18.6.26",
-  },
-];
+function formatDate(value: string) {
+  const [year, month, day] = value.split("-");
+  return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
+}
+
+const checks = claimRecords.map((claim) => ({
+  title: claim.title,
+  href: claim.path,
+  summary: claim.description,
+  topic: claim.kicker,
+  verdict: claim.verdict,
+  updated: formatDate(claim.updated),
+}));
 
 export default function HomePage() {
   return (
@@ -67,7 +47,7 @@ export default function HomePage() {
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>4</strong>בדיקות שפורסמו</div>
+        <div className="trust-item"><strong>{claimRecords.length}</strong>בדיקות שפורסמו</div>
         <div className="trust-item"><strong>14+</strong>מקורות ישירים</div>
         <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
         <div className="trust-item"><strong>19.6.26</strong>עדכון אחרון</div>
