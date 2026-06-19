@@ -32,6 +32,17 @@ function formatDate(value: string) {
   return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
 }
 
+const claimIllustrations: Record<string, { src: string; alt: string }> = {
+  "/claims/gateway-process-out-of-body": {
+    src: "/evidence/gateway-process-card.svg",
+    alt: "איור של מסמך Gateway שנבדק מול טענות על תודעה ויציאה מהגוף",
+  },
+  "/claims/ai-as-source-pyramids": {
+    src: "/evidence/ai-as-source-card.svg",
+    alt: "איור של תשובה שנבדקת מול מקור אמיתי",
+  },
+};
+
 const checks = claimRecords.map((claim) => ({
   title: claim.title,
   href: claim.path,
@@ -43,6 +54,7 @@ const checks = claimRecords.map((claim) => ({
 
 const featuredChecks = checks.slice(0, 5);
 const latestCheck = checks[0];
+const latestIllustration = claimIllustrations[latestCheck.href] ?? claimIllustrations["/claims/ai-as-source-pyramids"];
 
 export default function HomePage() {
   return (
@@ -94,7 +106,7 @@ export default function HomePage() {
             <p>{latestCheck.summary}</p>
             <a className="button-primary" href={latestCheck.href}>פתיחת הבדיקה</a>
           </div>
-          <img src="/evidence/ai-as-source-card.svg" alt="איור של תשובה שנבדקת מול מקור אמיתי" />
+          <img src={latestIllustration.src} alt={latestIllustration.alt} />
         </div>
       </section>
 
