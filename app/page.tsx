@@ -1,8 +1,30 @@
 import type { Metadata } from "next";
 import { claimRecords } from "@/lib/claims-db";
+import { siteUrl } from "@/lib/site";
+
+const title = "מקור בדיקה | טענות, מקורות ומסקנות";
+const description = "אתר עברי שמחזיר טענות שרצות ברשת אל המקור שלהן.";
+const ogImage = `${siteUrl}/api/og/home?version=og-v10`;
 
 export const metadata: Metadata = {
+  title,
+  description,
   alternates: { canonical: "/" },
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: "מקור בדיקה",
+    locale: "he_IL",
+    type: "website",
+    images: [{ url: ogImage, width: 1200, height: 630, alt: "מקור בדיקה - טענה אחת, מקור אחד, מסקנה זהירה" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+  },
 };
 
 function formatDate(value: string) {
