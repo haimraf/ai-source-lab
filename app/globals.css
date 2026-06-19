@@ -73,6 +73,25 @@ ul { padding-right: 22px; }
   .evidence-item { grid-template-columns:1fr; gap:4px; }
   .logic-chain { display:grid; grid-template-columns:1fr; align-items:stretch; gap:8px; }
   .logic-chain span:not(.logic-arrow), .logic-chain strong { display:block; width:100%; }
-  .logic-chain .logic-arrow { display:block; width:100%; height:18px; text-align:center; transform:none; border:0 !important; }
-  .logic-chain .logic-arrow::before { content:"↓"; font-size:18px; line-height:18px; color:var(--muted); }
+  .logic-chain .logic-arrow {
+    display:flex;
+    width:100%;
+    height:18px;
+    align-items:center;
+    justify-content:center;
+    transform:none;
+    border:0 !important;
+    background:transparent !important;
+    color:transparent !important;
+    font-size:0;
+    line-height:0;
+    padding:0 !important;
+  }
+  .logic-chain .logic-arrow::before {
+    content:"↓";
+    display:block;
+    font-size:18px;
+    line-height:18px;
+    color:var(--muted);
+  }
 }
