@@ -98,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div>
               <strong>אמון ושקיפות</strong>
+              <a href="/how-to-cite">איך לצטט אותנו</a>
               <a href="/editorial-policy">מדיניות עריכה</a>
               <a href="/corrections">תיקונים ועדכונים</a>
               <a href="/privacy">פרטיות</a>
