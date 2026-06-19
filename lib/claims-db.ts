@@ -26,6 +26,18 @@ export const claimRecords = [
     ogAlt: "מקור בדיקה - בדיקת הטענה שתשובת AI היא מקור",
   },
   {
+    slug: "cloud-seeding-chemtrails",
+    path: "/claims/cloud-seeding-chemtrails",
+    title: "האם זריעת עננים מוכיחה Chemtrails?",
+    description: "בדיקה שמפרידה בין זריעת עננים אמיתית, שובלי מטוסים וטענות על ריסוס אלומיניום.",
+    kicker: "שובלי מטוסים",
+    verdict: "זריעת עננים קיימת, אבל אינה מוכיחה שכל שובל הוא ריסוס",
+    updated: "2026-06-19",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    ogAlt: "מקור בדיקה - בדיקת הקשר בין זריעת עננים לטענות Chemtrails",
+  },
+  {
     slug: "agenda-2030-seven-steps",
     path: "/claims/agenda-2030-seven-steps",
     title: "מהי תוכנית שבעת השלבים של אג׳נדה 2030?",
