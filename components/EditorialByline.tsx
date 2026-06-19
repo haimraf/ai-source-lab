@@ -2,9 +2,9 @@ export function EditorialByline() {
   return (
     <aside className="box method-note" aria-label="אחריות עריכתית">
       <span className="eyebrow">אחריות עריכתית</span>
-      <h2>נערך ונבדק על ידי חיים רפאל</h2>
+      <h2>נבדק ונערך במסגרת מקור בדיקה</h2>
       <p>
-        מיזם עצמאי לבדיקת טענות ומקורות בעברית. המקורות והמסקנה עוברים בדיקה אנושית לפני פרסום.
+        מקור בדיקה הוא מיזם עצמאי של חיים רפאל לבדיקת טענות ומקורות בעברית. המקורות, הניסוח והמסקנה עוברים בדיקה אנושית לפני פרסום.
       </p>
       <div className="hero-actions">
         <a className="button-secondary" href="/about">אודות המיזם</a>
