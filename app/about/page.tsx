@@ -8,15 +8,20 @@ export default function AboutPage() {
     <article>
       <section className="hero">
         <span className="badge">אודות</span>
-        <h1>מקור בדיקה נולד מבעיה פשוטה: צילום מסך רץ מהר יותר מהמקור.</h1>
-        <p className="lead">זהו מיזם עצמאי בעברית שמפרק טענות רשת, חוזר למסמכים שעליהם הן נשענות ומציג לקורא את הדרך למסקנה.</p>
+        <h1>מקור בדיקה נולד מהרגע שבו טענה גדולה רצה מהר יותר מהמקור שלה.</h1>
+        <p className="lead">זהו מיזם עצמאי בעברית שבודק טענות רשת, מסמכים, מקורות ונרטיבים ציבוריים. המטרה היא לא לצעוק “פייק”, אלא להראות מה ידוע, מה נטען, ומה עדיין לא הוכח.</p>
       </section>
 
       <div className="process-grid">
-        <section className="process-card"><span>01</span><h3>למי האתר מיועד?</h3><p>למי שנתקל בטענה ורוצה תשובה שאפשר לפתוח, לבדוק ולשלוח הלאה בלי להסתפק ב"תאמין לי".</p></section>
-        <section className="process-card"><span>02</span><h3>מה האתר אינו?</h3><p>לא אנציקלופדיה, לא תחליף לעיתונות ולא מערכת אוטומטית שמחליטה מה אמת.</p></section>
-        <section className="process-card"><span>03</span><h3>איך נבחרים נושאים?</h3><p>לפי תפוצה ברשת, חוסר במקור עברי ברור והאפשרות לבדוק את הטענה מול חומר ראשוני.</p></section>
-        <section className="process-card"><span>04</span><h3>איך נשמרת שקיפות?</h3><p>הקוד פתוח, המקורות גלויים, תאריכי העדכון מופיעים ותיקונים מתועדים.</p></section>
+        <section className="process-card"><span>01</span><h3>למי האתר מיועד?</h3><p>למי שנתקל בטענה, צילום מסך, סרטון או מסמך ורוצה תשובה שאפשר לפתוח, לבדוק ולשלוח הלאה.</p></section>
+        <section className="process-card"><span>02</span><h3>מה האתר אינו?</h3><p>לא בית משפט, לא תחליף לעיתונות, לא פסיקת הלכה ולא מערכת אוטומטית שמחליטה מה אמת.</p></section>
+        <section className="process-card"><span>03</span><h3>איך נבחרים נושאים?</h3><p>לפי תפוצה ברשת, חוסר במקור עברי ברור והאפשרות לבדוק את הטענה מול חומר שאפשר לפתוח.</p></section>
+        <section className="process-card"><span>04</span><h3>איך נשמרת שקיפות?</h3><p>המקורות גלויים, תאריכי העדכון מופיעים, תיקונים מתועדים ויש שקיפות טכנית דרך GitHub.</p></section>
+      </div>
+
+      <h2>טון העבודה</h2>
+      <div className="box answer">
+        <p>יש נושאים שבהם יש גרעין אמיתי, כאב אמיתי או שאלה ציבורית רצינית. לכן האתר לא נבנה כדי “להפריך הכול”, אלא כדי להפריד בין עובדה, פרשנות, חשד, השערה ומסקנה.</p>
       </div>
 
       <h2>עצמאות ותוכן ממומן</h2>
@@ -30,7 +35,7 @@ export default function AboutPage() {
       <h2>הפרויקט פתוח לבדיקה</h2>
       <p>הריפו הציבורי מאפשר לראות את הקוד ואת היסטוריית השינויים. אפשר גם לפתוח פנייה עם מקור חדש, תיקון או הצעה לבדיקה.</p>
       <div className="hero-actions">
-        <a className="button-primary" href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">פתיחת GitHub</a>
+        <a className="button-primary" href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">שקיפות טכנית</a>
         <a className="button-secondary" href="/corrections">תיקונים ועדכונים</a>
       </div>
     </article>
