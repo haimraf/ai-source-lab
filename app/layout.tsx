@@ -68,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/#checks">בדיקות</a>
               <a href="/topics">נושאים</a>
               <a href="/methodology">איך בודקים</a>
+              <a href="/suggest-claim">הצע טענה</a>
               <a href="/about">אודות</a>
             </div>
           </nav>
@@ -79,7 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="/">בית</a>
           <a href="/#checks">בדיקות</a>
           <a href="/topics">נושאים</a>
-          <a href="/methodology">איך בודקים</a>
+          <a href="/suggest-claim">הצע טענה</a>
         </nav>
 
         <footer className="site-footer">
@@ -94,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/#checks">בדיקות</a>
               <a href="/topics">מפת נושאים</a>
               <a href="/methodology">איך בודקים</a>
+              <a href="/suggest-claim">הצע טענה לבדיקה</a>
               <a href="/about">אודות</a>
             </div>
             <div>
