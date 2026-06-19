@@ -18,7 +18,7 @@ export default function TopicsPage() {
         <a className="topic-card" href="/claims/chemtrails-aluminum"><span className="topic-label">בדיקה שפורסמה</span><h3>שמיים, אקלים וסביבה</h3><p>שובלי התעבות, פליטות מנועים, זריעת עננים והטענות על ריסוס חומרים.</p></a>
         <a className="topic-card" href="/claims/xrp-global-currency"><span className="topic-label">בדיקה שפורסמה</span><h3>כסף דיגיטלי ומערכות תשלום</h3><p>XRP, ISO 20022, מטבעות רזרבה והפער בין שימוש טכנולוגי לבחירה רשמית.</p></a>
         <a className="topic-card" href="/about"><span className="topic-label">עתידי</span><h3>מדינה, מוסדות ואמון ציבורי</h3><p>מסמכים רשמיים, ועדות, מדיניות ציבורית והפער בין מה שנכתב לבין מה שמופץ ברשת.</p></a>
-        <a className="topic-card" href="/editorial-policy"><span className="topic-label">עתידי</span><h3>אמונה ומקורות</h3><p>בירור מקורות, ציטוטים וטענות שמופצות בשם רבנים או מסורת — בלי פסיקת הלכה ובלי ערעור אמונה.</p></a>
+        <a className="topic-card" href="/editorial-policy"><span className="topic-label">עתידי</span><h3>אמונה ומקורות</h3><p>בירור ציטוטים וטענות שמופצות בשם מקורות דתיים - בלי לדבר בשם רבנים ובלי לקבוע מסקנות שלא מופיעות במקור.</p></a>
       </div>
 
       <section className="box method-note">
