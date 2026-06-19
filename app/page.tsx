@@ -19,29 +19,40 @@ const checks = claimRecords.map((claim) => ({
   updated: formatDate(claim.updated),
 }));
 
+const featuredChecks = checks.slice(0, 5);
+const latestCheck = checks[0];
+
 export default function HomePage() {
   return (
     <>
       <section className="home-hero">
         <div>
-          <span className="badge">מקורות, מסמכים ואמון ציבורי</span>
-          <h1>טענה רצה ברשת? חוזרים למקור לפני שקופצים למסקנה.</h1>
+          <span className="badge">בדיקות טענות מול מקורות</span>
+          <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
-            מקור בדיקה מפרק טענות רשת, מסמכים ונרטיבים שחוזרים שוב ושוב. במקום להסתפק בכותרת, צילום מסך או תשובת AI, פותחים את המקור ובודקים מה באמת אפשר לקבוע.
+            כל בדיקה מתחילה בטענה אחת ברורה, מציגה שורה תחתונה, ואז פותחת את המקור כדי לראות מה באמת אפשר לקבוע ומה נוסף בדרך.
           </p>
           <div className="hero-actions">
-            <a className="button-primary" href="/claims/ai-as-source-pyramids">לבדיקה האחרונה</a>
-            <a className="button-secondary" href="/methodology">איך אנחנו בודקים</a>
+            <a className="button-primary" href={latestCheck.href}>פתח בדיקה לדוגמה</a>
+            <a className="button-secondary" href="#checks">כל הטענות שנבדקו</a>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="מבנה בדיקה לדוגמה">
-          <span className="topic-label">כך טענה נבדקת</span>
-          <div className="signal-list">
-            <div className="signal-row"><span>01</span><div><strong>הטענה</strong><small>מה בדיוק מופץ?</small></div></div>
-            <div className="signal-row"><span>02</span><div><strong>המקור</strong><small>מה המסמך או המקור אומרים?</small></div></div>
-            <div className="signal-row"><span>03</span><div><strong>הקפיצה</strong><small>איפה נוספה מסקנה שלא הופיעה במקור?</small></div></div>
-            <div className="signal-row"><span>04</span><div><strong>השורה התחתונה</strong><small>מה אפשר לקבוע בזהירות?</small></div></div>
+        <div className="hero-visual" aria-label="טענות שנבדקות באתר">
+          <span className="topic-label">טענות שנבדקות עכשיו</span>
+          <p className="visual-intro">
+            קודם רואים את הטענה ואת המסקנה. הרקע, השיטה והמקורות מגיעים אחרי שהעיקר ברור.
+          </p>
+          <div className="signal-list claim-signal-list">
+            {featuredChecks.map((check, index) => (
+              <a className="signal-row claim-signal" href={check.href} key={check.href}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <strong>{check.title}</strong>
+                  <small>{check.verdict}</small>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -56,20 +67,18 @@ export default function HomePage() {
       <section>
         <div className="feature-card">
           <div>
-            <span className="topic-label">בדיקה חדשה</span>
-            <h2>המשפט הכי מסוכן בדיון: “שאלתי AI”</h2>
-            <p>
-              תשובת AI יכולה להישמע בטוחה, מסודרת וכמעט רשמית. אבל עד שלא פותחים את המקורות שהיא נשענת עליהם, זו לא ראיה - זו רק התחלה של בדיקה.
-            </p>
-            <a className="button-primary" href="/claims/ai-as-source-pyramids">פתיחת הבדיקה</a>
+            <span className="topic-label">בדיקה לדוגמה</span>
+            <h2>{latestCheck.title}</h2>
+            <p>{latestCheck.summary}</p>
+            <a className="button-primary" href={latestCheck.href}>פתיחת הבדיקה</a>
           </div>
-          <img src="/evidence/ai-as-source-card.svg" alt="איור של תשובת AI שנבדקת מול מקור אמיתי" />
+          <img src="/evidence/ai-as-source-card.svg" alt="איור של תשובה שנבדקת מול מקור אמיתי" />
         </div>
       </section>
 
       <section id="checks">
         <div className="section-head">
-          <div><span className="topic-label">בדיקות שפורסמו</span><h2>לא רק תשובה. מסלול מלא עד המקור.</h2></div>
+          <div><span className="topic-label">בדיקות שפורסמו</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
           <p>כל כרטיס מוביל לעמוד עם מסקנה, שרשרת הטענה, שאלות נפוצות וקישורים ישירים למקורות.</p>
         </div>
         <div className="grid">
@@ -92,9 +101,13 @@ export default function HomePage() {
           <p>יש נושאים שלא נסגרים בכן או לא. לכן הם נבנים כאשכולות: טענה אחת בכל פעם, בלי לערבב הכול למסקנה אחת גדולה.</p>
         </div>
         <div className="topic-grid">
-          <a className="topic-card" href="/claims/ai-as-source-pyramids"><span className="topic-label">בדיקה חדשה</span><h3>AI כמקור</h3><p>למה תשובה של מודל אינה מקור, ואיך משתמשים בבינה בלי לתת לה להכריע.</p></a>
-          <a className="topic-card" href="/topics/agenda-2030"><span className="topic-label">אשכול מתפתח</span><h3>אג׳נדה 2030</h3><p>17 היעדים, שבעת השלבים, ריבונות, זהות דיגיטלית והחיבורים שמוסיפים ברשת.</p></a>
-          <a className="topic-card" href="/claims/chemtrails-aluminum"><span className="topic-label">שמיים ומדע</span><h3>שובלי מטוסים</h3><p>שובלי התעבות, זריעת עננים, פליטות מנועים וטענות על ריסוס.</p></a>
+          {checks.slice(0, 3).map((check) => (
+            <a className="topic-card" href={check.href} key={`topic-${check.href}`}>
+              <span className="topic-label">{check.topic}</span>
+              <h3>{check.title}</h3>
+              <p>{check.summary}</p>
+            </a>
+          ))}
         </div>
       </section>
 
