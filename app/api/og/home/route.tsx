@@ -5,7 +5,7 @@ export const runtime = "edge";
 export function GET() {
   return createSocialImage({
     kicker: "מקור בדיקה",
-    title: "טענה רצה ברשת? חוזרים למקור.",
-    verdict: "מקור לפני מסקנה",
+    title: "טענה אחת. מקור אחד. מסקנה זהירה.",
+    verdict: "בודקים מול המקור לפני שקופצים למסקנה.",
   });
 }
