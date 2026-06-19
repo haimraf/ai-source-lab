@@ -83,7 +83,7 @@ export default function HomePage() {
             </p>
             <a className="button-primary" href="/claims/ai-as-source-pyramids">פתיחת הבדיקה</a>
           </div>
-          <img src="/evidence/agenda-2030-poster-2.svg" alt="דוגמת מקור שנבדק באתר מקור בדיקה" />
+          <img src="/evidence/ai-as-source-card.svg" alt="איור של תשובת AI שנבדקת מול מקור אמיתי" />
         </div>
       </section>
 
