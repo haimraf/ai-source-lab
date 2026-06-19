@@ -151,4 +151,4 @@ npm run build
 
 `llms.txt` הוא ניסוי משלים בלבד, לא תחליף לאינדוקס, תוכן איכותי וקישורים אמיתיים.
 
-<!-- redeploy after og fix 2026-06-18 -->
+<!-- redeploy after og v7 rate-limit retry 2026-06-19 -->
