@@ -6,11 +6,20 @@ export const metadata: Metadata = {
 
 const checks = [
   {
+    title: "האם תשובת AI היא מקור?",
+    href: "/claims/ai-as-source-pyramids",
+    summary: "קייס הפירמידות: למה תשובה משכנעת של מודל אינה מחליפה מקור שאפשר לפתוח.",
+    topic: "AI ומקורות",
+    verdict: "AI הוא כלי, לא מקור",
+    updated: "19.6.26",
+  },
+  {
     title: "מהי 'תוכנית שבעת השלבים' של אג׳נדה 2030?",
     href: "/claims/agenda-2030-seven-steps",
     summary: "השוואה בין הפוסטרים שמופצים ברשת לבין החלטת האו״ם A/RES/70/1.",
     topic: "אג׳נדה 2030",
     verdict: "לא נמצא מקור רשמי לרשימה",
+    updated: "18.6.26",
   },
   {
     title: "האם XRP נבחר להיות המטבע העולמי?",
@@ -18,6 +27,7 @@ const checks = [
     summary: "מה Ripple באמת אומרת, מהו ISO 20022 ואיפה נולדה הקפיצה למטבע עולמי.",
     topic: "כסף דיגיטלי",
     verdict: "לא נמצא מקור רשמי לטענה",
+    updated: "18.6.26",
   },
   {
     title: "האם מטוסים מרססים אלומיניום?",
@@ -25,6 +35,7 @@ const checks = [
     summary: "מהם שובלי התעבות, מהו שינוי מזג אוויר ומה עדיין צריך להוכיח.",
     topic: "שמיים ומזג אוויר",
     verdict: "נבדק מול מקורות תעופה וסביבה",
+    updated: "18.6.26",
   },
 ];
 
@@ -39,7 +50,7 @@ export default function HomePage() {
             מקור בדיקה מפרק טענות רשת, מסמכים ונרטיבים שחוזרים שוב ושוב. במקום להסתפק בכותרת, צילום מסך או תשובת AI, פותחים את המקור ובודקים מה באמת אפשר לקבוע.
           </p>
           <div className="hero-actions">
-            <a className="button-primary" href="/claims/agenda-2030-seven-steps">לבדיקה האחרונה</a>
+            <a className="button-primary" href="/claims/ai-as-source-pyramids">לבדיקה האחרונה</a>
             <a className="button-secondary" href="/methodology">איך אנחנו בודקים</a>
           </div>
         </div>
@@ -56,23 +67,23 @@ export default function HomePage() {
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>3</strong>בדיקות שפורסמו</div>
-        <div className="trust-item"><strong>9+</strong>מקורות ישירים</div>
+        <div className="trust-item"><strong>4</strong>בדיקות שפורסמו</div>
+        <div className="trust-item"><strong>14+</strong>מקורות ישירים</div>
         <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
-        <div className="trust-item"><strong>18.6.26</strong>עדכון אחרון</div>
+        <div className="trust-item"><strong>19.6.26</strong>עדכון אחרון</div>
       </section>
 
       <section>
         <div className="feature-card">
           <div>
-            <span className="topic-label">בדיקה מרכזית</span>
-            <h2>אג׳נדה 2030 מול הפוסטרים שמסתובבים ברשת</h2>
+            <span className="topic-label">בדיקה חדשה</span>
+            <h2>המשפט הכי מסוכן בדיון: “שאלתי AI”</h2>
             <p>
-              יש מסמך רשמי של האו״ם. יש גם פוסטרים שמייחסים לו טענות רחבות שלא נמצאו באותו ניסוח במסמך. בדקנו את הרשימה מול המקור עצמו.
+              תשובת AI יכולה להישמע בטוחה, מסודרת וכמעט רשמית. אבל עד שלא פותחים את המקורות שהיא נשענת עליהם, זו לא ראיה — זו רק התחלה של בדיקה.
             </p>
-            <a className="button-primary" href="/claims/agenda-2030-seven-steps">פתיחת הבדיקה</a>
+            <a className="button-primary" href="/claims/ai-as-source-pyramids">פתיחת הבדיקה</a>
           </div>
-          <img src="/evidence/agenda-2030-poster-2.svg" alt="פוסטר שבעת השלבים שנבדק בעמוד אג׳נדה 2030" />
+          <img src="/evidence/agenda-2030-poster-2.svg" alt="דוגמת מקור שנבדק באתר מקור בדיקה" />
         </div>
       </section>
 
@@ -85,7 +96,7 @@ export default function HomePage() {
           {checks.map((check) => (
             <article className="card" key={check.href}>
               <a href={check.href}>
-                <div className="card-meta"><span>{check.topic}</span><span>•</span><span>עודכן 18.6.26</span></div>
+                <div className="card-meta"><span>{check.topic}</span><span>•</span><span>עודכן {check.updated}</span></div>
                 <h3>{check.title}</h3>
                 <p className="small">{check.summary}</p>
                 <span className="status-chip">{check.verdict}</span>
@@ -101,9 +112,9 @@ export default function HomePage() {
           <p>יש נושאים שלא נסגרים בכן או לא. לכן הם נבנים כאשכולות: טענה אחת בכל פעם, בלי לערבב הכול למסקנה אחת גדולה.</p>
         </div>
         <div className="topic-grid">
+          <a className="topic-card" href="/claims/ai-as-source-pyramids"><span className="topic-label">בדיקה חדשה</span><h3>AI כמקור</h3><p>למה תשובה של מודל אינה מקור, ואיך משתמשים בבינה בלי לתת לה להכריע.</p></a>
           <a className="topic-card" href="/topics/agenda-2030"><span className="topic-label">אשכול מתפתח</span><h3>אג׳נדה 2030</h3><p>17 היעדים, שבעת השלבים, ריבונות, זהות דיגיטלית והחיבורים שמוסיפים ברשת.</p></a>
           <a className="topic-card" href="/claims/chemtrails-aluminum"><span className="topic-label">שמיים ומדע</span><h3>שובלי מטוסים</h3><p>שובלי התעבות, זריעת עננים, פליטות מנועים וטענות על ריסוס.</p></a>
-          <a className="topic-card" href="/claims/xrp-global-currency"><span className="topic-label">כסף וטכנולוגיה</span><h3>מטבעות דיגיטליים</h3><p>מה חברות ורגולטורים אומרים מול התחזיות שמקבלות מעמד של עובדה.</p></a>
         </div>
       </section>
 
