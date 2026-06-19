@@ -33,10 +33,10 @@ export default function HomePage() {
     <>
       <section className="home-hero">
         <div>
-          <span className="badge">בדיקות מקור בעברית</span>
-          <h1>טענה רצה ברשת? חוזרים למקום שבו היא התחילה.</h1>
+          <span className="badge">מקורות, מסמכים ואמון ציבורי</span>
+          <h1>טענה רצה ברשת? חוזרים למקור לפני שקופצים למסקנה.</h1>
           <p className="lead">
-            במקום להתווכח על צילום מסך, פותחים את המסמך, בודקים מה באמת כתוב בו ומסמנים איפה נוספה מסקנה שלא הופיעה במקור.
+            מקור בדיקה מפרק טענות רשת, מסמכים ונרטיבים שחוזרים שוב ושוב. במקום להסתפק בכותרת, צילום מסך או תשובת AI, פותחים את המקור ובודקים מה באמת אפשר לקבוע.
           </p>
           <div className="hero-actions">
             <a className="button-primary" href="/claims/agenda-2030-seven-steps">לבדיקה האחרונה</a>
@@ -48,15 +48,15 @@ export default function HomePage() {
           <span className="topic-label">כך טענה נבדקת</span>
           <div className="signal-list">
             <div className="signal-row"><span>01</span><div><strong>הטענה</strong><small>מה בדיוק מופץ?</small></div></div>
-            <div className="signal-row"><span>02</span><div><strong>המקור</strong><small>איפה המסמך או ההודעה המקוריים?</small></div></div>
-            <div className="signal-row"><span>03</span><div><strong>הפער</strong><small>מה כתוב ומה נוסף אחר כך?</small></div></div>
-            <div className="signal-row"><span>04</span><div><strong>המסקנה</strong><small>מה אפשר לקבוע נכון לעכשיו?</small></div></div>
+            <div className="signal-row"><span>02</span><div><strong>המקור</strong><small>מה המסמך או המקור אומרים?</small></div></div>
+            <div className="signal-row"><span>03</span><div><strong>הקפיצה</strong><small>איפה נוספה מסקנה שלא הופיעה במקור?</small></div></div>
+            <div className="signal-row"><span>04</span><div><strong>השורה התחתונה</strong><small>מה אפשר לקבוע בזהירות?</small></div></div>
           </div>
         </div>
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>3</strong>בדיקות עומק</div>
+        <div className="trust-item"><strong>3</strong>בדיקות שפורסמו</div>
         <div className="trust-item"><strong>9+</strong>מקורות ישירים</div>
         <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
         <div className="trust-item"><strong>18.6.26</strong>עדכון אחרון</div>
@@ -98,7 +98,7 @@ export default function HomePage() {
       <section>
         <div className="section-head">
           <div><span className="topic-label">מפת נושאים</span><h2>נושאים שחוזרים שוב ושוב</h2></div>
-          <p>במקום עמוד בודד לכל סערה, נבנה אשכול שמפריד בין הטענות השונות בתוך אותו סיפור.</p>
+          <p>יש נושאים שלא נסגרים בכן או לא. לכן הם נבנים כאשכולות: טענה אחת בכל פעם, בלי לערבב הכול למסקנה אחת גדולה.</p>
         </div>
         <div className="topic-grid">
           <a className="topic-card" href="/topics/agenda-2030"><span className="topic-label">אשכול מתפתח</span><h3>אג׳נדה 2030</h3><p>17 היעדים, שבעת השלבים, ריבונות, זהות דיגיטלית והחיבורים שמוסיפים ברשת.</p></a>
@@ -109,7 +109,7 @@ export default function HomePage() {
 
       <section className="box answer">
         <h2>למה לסמוך על התהליך?</h2>
-        <p>המקורות מוצגים ליד המסקנה, תאריך הבדיקה גלוי, וטעויות ניתנות לתיקון. כלי בינה יכולים לסייע בסידור ובאיתור, אבל ההכרעה והפרסום עוברים בדיקה אנושית.</p>
+        <p>המטרה היא לא לנצח ויכוח ולא לבחור צד. המקורות מוצגים ליד המסקנה, תאריך הבדיקה גלוי, וטעויות ניתנות לתיקון. כלי בינה יכולים לסייע בסידור ובאיתור, אבל ההכרעה והפרסום עוברים בדיקה אנושית.</p>
         <div className="hero-actions"><a className="button-secondary" href="/editorial-policy">מדיניות עריכה</a><a className="button-secondary" href="/corrections">תיקונים ועדכונים</a></div>
       </section>
     </>
