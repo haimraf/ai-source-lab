@@ -14,6 +14,18 @@ export const staticPages = [
 
 export const claimRecords = [
   {
+    slug: "gateway-process-out-of-body",
+    path: "/claims/gateway-process-out-of-body",
+    title: "האם מסמך Gateway מוכיח יציאה מהגוף?",
+    description: "בדיקה של מסמך Gateway מ־1983: מה באמת נבדק, מה אפשר ללמוד ממנו, ואיפה מתחילה הקפיצה מהתעניינות מודיעינית להוכחה רוחנית.",
+    kicker: "תודעה ומודיעין",
+    verdict: "המסמך אמיתי, אבל הוא לא הוכחה ליציאה מהגוף",
+    updated: "2026-06-19",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    ogAlt: "מקור בדיקה - בדיקת הטענה שמסמך Gateway מוכיח יציאה מהגוף",
+  },
+  {
     slug: "ai-as-source-pyramids",
     path: "/claims/ai-as-source-pyramids",
     title: "האם תשובת AI היא מקור?",
