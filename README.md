@@ -18,6 +18,7 @@ https://ai-source-lab.vercel.app/
 
 ## בדיקות שפורסמו
 
+- `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
 - `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
