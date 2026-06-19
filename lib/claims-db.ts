@@ -1,16 +1,28 @@
 export const staticPages = [
-  { path: "/", updated: "2026-06-18", changeFrequency: "weekly", priority: 1 },
-  { path: "/about", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/", updated: "2026-06-19", changeFrequency: "weekly", priority: 1 },
+  { path: "/about", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/privacy", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/accessibility", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
-  { path: "/methodology", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/editorial-policy", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/methodology", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/editorial-policy", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/corrections", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
-  { path: "/topics", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/topics", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.8 },
   { path: "/topics/agenda-2030", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
 export const claimRecords = [
+  {
+    slug: "ai-as-source-pyramids",
+    path: "/claims/ai-as-source-pyramids",
+    title: "האם תשובת AI היא מקור?",
+    description: "בדיקה של הטענה שתשובה של AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
+    kicker: "AI ומקורות",
+    verdict: "AI הוא כלי שמוביל למקורות, לא מקור בפני עצמו",
+    updated: "2026-06-19",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    ogAlt: "מקור בדיקה - בדיקת הטענה שתשובת AI היא מקור",
+  },
   {
     slug: "agenda-2030-seven-steps",
     path: "/claims/agenda-2030-seven-steps",
