@@ -190,15 +190,12 @@ h2 {
   background: #121b25;
 }
 
-.card > a,
-.card > a:hover,
-.card > a:focus-visible,
+.card a,
+.card a *,
 a.topic-card,
-a.topic-card:hover,
-a.topic-card:focus-visible,
+a.topic-card *,
 a.signal-row,
-a.signal-row:hover,
-a.signal-row:focus-visible {
+a.signal-row * {
   text-decoration: none !important;
 }
 
