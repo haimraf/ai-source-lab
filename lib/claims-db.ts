@@ -4,6 +4,7 @@ export const staticPages = [
   { path: "/privacy", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/accessibility", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/methodology", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/how-to-cite", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/editorial-policy", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/corrections", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/topics", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.8 },
