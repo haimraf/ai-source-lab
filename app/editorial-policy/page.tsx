@@ -9,13 +9,14 @@ export default function EditorialPolicyPage() {
       <section className="hero">
         <span className="badge">אמון ושקיפות</span>
         <h1>מדיניות העריכה שלנו</h1>
-        <p className="lead">הכללים שקובעים אילו מקורות נכנסים לבדיקה, איך מנוסחת מסקנה ומה קורה כשמתגלה טעות.</p>
+        <p className="lead">הכללים שקובעים אילו מקורות נכנסים לבדיקה, איך מנוסחת מסקנה, איך מתייחסים לאי־ודאות ומה קורה כשמתגלה טעות.</p>
       </section>
 
       <div className="source-levels">
         <div className="source-level"><strong>מקורות</strong><div><h3>עדיפות לחומר ראשוני</h3><p>מסמכים רשמיים, מחקרים, מאגרי נתונים ותיעוד טכני קודמים לפוסטים ולכתבות מסכמות.</p></div></div>
         <div className="source-level"><strong>ניסוח</strong><div><h3>טענה צרה ומסקנה צרה</h3><p>לא הופכים "לא נמצא מקור" ל"זה לעולם לא יקרה", ולא מוסיפים ודאות שאין בחומר.</p></div></div>
         <div className="source-level"><strong>איזון</strong><div><h3>גם הגרעין הנכון נשאר בפנים</h3><p>אם טענה מטעה נשענת על עובדה אמיתית, העובדה מוצגת ולא נמחקת.</p></div></div>
+        <div className="source-level"><strong>הקשר</strong><div><h3>לא כל נושא הוא הפרכה פשוטה</h3><p>בנושאים מורכבים מפרידים בין מסמך, עדות, פרשנות, שאלה פתוחה ומסקנה שניתן לבסס.</p></div></div>
         <div className="source-level"><strong>תאריך</strong><div><h3>כל מסקנה שייכת לזמן</h3><p>עמודים מציגים מועד בדיקה ומתעדכנים כאשר מקור חדש משנה את התמונה.</p></div></div>
       </div>
 
