@@ -30,28 +30,21 @@ export function ReadingTimeInjector() {
     const article = document.querySelector("main article");
     if (!article) return;
 
-    article.querySelectorAll("[data-reading-time]").forEach((element) => element.remove());
+    article.querySelectorAll(".reading-time-row").forEach((element) => element.remove());
+
+    const title = article.querySelector("h1");
+    if (!title || !title.parentNode) return;
 
     const minutes = estimateReadingMinutes(article.textContent ?? "");
+    const row = document.createElement("div");
+    row.className = "reading-time-row";
+
     const readingTime = document.createElement("span");
     readingTime.className = "small reading-time";
-    readingTime.dataset.readingTime = "true";
-    readingTime.innerHTML = `<span class="link-icon" aria-hidden="true">⏱️</span>זמן קריאה: ${minutes} דק׳`;
+    readingTime.textContent = `זמן קריאה: ${minutes} דק׳`;
 
-    const existingMeta = article.querySelector(".claim-meta");
-    if (existingMeta) {
-      existingMeta.appendChild(readingTime);
-      return;
-    }
-
-    const hero = article.querySelector(".hero");
-    if (hero) {
-      const meta = document.createElement("div");
-      meta.className = "claim-meta";
-      meta.dataset.readingTime = "true";
-      meta.appendChild(readingTime);
-      hero.appendChild(meta);
-    }
+    row.appendChild(readingTime);
+    title.parentNode.insertBefore(row, title.nextSibling);
   }, [pathname]);
 
   return null;
