@@ -68,12 +68,33 @@ function getResults(query: string, activeTag: string | null) {
   return scored;
 }
 
+const priorityTags = ["AI", "BCI", "Chemtrails", "NASA", "אג׳נדה 2030", "מקור רשמי", "תודעה", "XRP"];
+
+function sortTagsForDisplay(tags: readonly string[]) {
+  return [...tags].sort((firstTag, secondTag) => {
+    const firstPriority = priorityTags.indexOf(firstTag);
+    const secondPriority = priorityTags.indexOf(secondTag);
+
+    if (firstPriority !== -1 || secondPriority !== -1) {
+      if (firstPriority === -1) return 1;
+      if (secondPriority === -1) return -1;
+      return firstPriority - secondPriority;
+    }
+
+    return firstTag.localeCompare(secondTag, "he");
+  });
+}
+
 export function ClaimSearch({ compact = false }: { compact?: boolean }) {
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [showAllTags, setShowAllTags] = useState(false);
 
   const results = useMemo(() => getResults(query, activeTag), [query, activeTag]);
-  const visibleTags = allClaimTags.slice(0, compact ? 10 : 18);
+  const sortedTags = useMemo(() => sortTagsForDisplay(allClaimTags), []);
+  const initialTagCount = compact ? 10 : 14;
+  const visibleTags = showAllTags ? sortedTags : sortedTags.slice(0, initialTagCount);
+  const hiddenTagCount = Math.max(sortedTags.length - initialTagCount, 0);
   const hasFilter = query.trim().length > 0 || activeTag;
 
   function clearSearch() {
@@ -128,6 +149,16 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
             #{tag}
           </button>
         ))}
+        {hiddenTagCount > 0 ? (
+          <button
+            className="tag-chip tag-more-button"
+            type="button"
+            onClick={() => setShowAllTags((current) => !current)}
+            aria-expanded={showAllTags}
+          >
+            {showAllTags ? "פחות תגיות" : `עוד ${hiddenTagCount} תגיות`}
+          </button>
+        ) : null}
       </div>
 
       <p className="search-count" role="status" aria-live="polite">
