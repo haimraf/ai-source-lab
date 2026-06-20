@@ -59,13 +59,15 @@
 
 ## קבצי SEO/GEO
 
-הקבצים הבאים נוצרים אוטומטית מתוך הקוד ולא אמורים להיות מעודכנים ידנית בתיקיית `public`:
+מצב נוכחי:
 
-- `/sitemap.xml` מתוך `app/sitemap.ts`
-- `/robots.txt` מתוך `app/robots.ts`
-- `/llms.txt` מתוך `app/llms.txt/route.ts`
+- `/sitemap.xml` מוגש מקובץ סטטי: `public/sitemap.xml`.
+- `/robots.txt` מוגש מקובץ סטטי: `public/robots.txt`.
+- `/llms.txt` מוגש דינמית מתוך `app/llms.txt/route.ts`.
 
-המקור המרכזי לעמודי בדיקה הוא `claimRecords`. לכן פרסום תקין מתחיל שם.
+המקור המרכזי לעמודי בדיקה הוא `claimRecords`. לכן פרסום תקין מתחיל שם, אבל כל עוד ה-sitemap סטטי צריך לוודא ידנית שעמוד חדש נוסף גם ל-`public/sitemap.xml`.
+
+לא להחזיר `app/sitemap.ts` או `app/robots.ts` בלי החלטה מפורשת, כי המעבר לקבצים סטטיים נעשה כדי לצמצם בעיות קריאה ב-Google Search Console.
 
 ## תגיות וחיפוש חי
 
