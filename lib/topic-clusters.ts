@@ -1,11 +1,37 @@
 import { claimRecords, type ClaimRecord, type ClaimSlug, type TopicClusterSlug } from "@/lib/claims-db";
 
+export type TopicClusterStatus = "active" | "expanding" | "planned";
+export type PlannedClaimStatus = "בבדיקה" | "בתכנון";
+
+export type PlannedClaim = {
+  title: string;
+  status: PlannedClaimStatus;
+  note: string;
+};
+
+export type TopicCluster = {
+  slug: TopicClusterSlug;
+  path: `/topics/${string}`;
+  title: string;
+  shortTitle: string;
+  eyebrow: string;
+  description: string;
+  status: TopicClusterStatus;
+  updated: string;
+  priority: number;
+  claimSlugs: readonly ClaimSlug[];
+  plannedClaims: readonly PlannedClaim[];
+  sourceMap: readonly (readonly [string, string])[];
+  admin: {
+    dashboardSection: "clusters";
+    editorialStage: string;
+    nextAction: string;
+  };
+};
+
 function claimSlugs<T extends readonly ClaimSlug[]>(slugs: T) {
   return slugs;
 }
-
-export type TopicClusterStatus = "active" | "expanding" | "planned";
-export type PlannedClaimStatus = "בבדיקה" | "בתכנון";
 
 export const topicClusters = [
   {
@@ -228,9 +254,7 @@ export const topicClusters = [
       nextAction: "לפתוח בדיקת ISO 20022 לפני עוד טענות XRP.",
     },
   },
-] as const;
-
-export type TopicCluster = (typeof topicClusters)[number];
+] satisfies readonly TopicCluster[];
 
 export const dynamicTopicClusters = topicClusters.filter((cluster) => cluster.slug !== "agenda-2030");
 
