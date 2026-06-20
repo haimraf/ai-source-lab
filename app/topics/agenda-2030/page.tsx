@@ -1,11 +1,17 @@
 import { TopicClusterPage } from "@/components/TopicClusterPage";
-import { getTopicClusterBySlug } from "@/lib/topic-clusters";
+import { getTopicClusterBySlug, type TopicCluster } from "@/lib/topic-clusters";
 
-const agendaCluster = getTopicClusterBySlug("agenda-2030");
+function getAgendaCluster(): TopicCluster {
+  const cluster = getTopicClusterBySlug("agenda-2030");
 
-if (!agendaCluster) {
-  throw new Error("Missing agenda-2030 topic cluster");
+  if (!cluster) {
+    throw new Error("Missing agenda-2030 topic cluster");
+  }
+
+  return cluster;
 }
+
+const agendaCluster = getAgendaCluster();
 
 export const metadata = {
   title: `${agendaCluster.shortTitle} | מקור בדיקה`,
