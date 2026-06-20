@@ -21,7 +21,7 @@ export const claimRecords = [
     title: "האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?",
     description: "בדיקה של טענה שמערבבת BCI, סוכני AI, כפילים דיגיטליים, נוירופידבק, LED ו-Wi-Fi למסקנה על שליטה חיצונית באדם.",
     kicker: "AI, מוח ותודעה",
-    tags: ["AI", "BCI", "תודעה", "Digital Twin", "נוירוטכנולוגיה"],
+    tags: ["AI", "BCI", "נשמה סינטטית", "Digital Twin", "נוירוטכנולוגיה"],
     verdict: "הטכנולוגיות קיימות, אבל לא מוכיחות שליטה חיצונית באדם",
     updated: "2026-06-20",
     changeFrequency: "monthly",
