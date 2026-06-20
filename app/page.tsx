@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClaimSearch } from "@/components/ClaimSearch";
 import { claimRecords, getHomeFeaturedClaim } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
@@ -42,11 +41,10 @@ function toCheck(claim: (typeof claimRecords)[number]) {
     tags: claim.tags,
     verdict: claim.verdict,
     updated: formatDate(claim.updated),
-    ogAlt: claim.ogAlt,
   };
 }
 
-function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number }) {
+function TagList({ tags, limit = 3 }: { tags: readonly string[]; limit?: number }) {
   return (
     <div className="tag-list" aria-label="תגיות">
       {tags.slice(0, limit).map((tag) => (
@@ -57,10 +55,9 @@ function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number 
 }
 
 const checks = claimRecords.map(toCheck);
-const featuredChecks = checks.slice(0, 5);
-const homeFeaturedClaim = getHomeFeaturedClaim();
-const homeFeaturedCheck = toCheck(homeFeaturedClaim);
-const homeFeaturedImage = `${homeFeaturedClaim.path}/opengraph-image`;
+const featuredChecks = checks.slice(0, 3);
+const latestChecks = checks.slice(0, 3);
+const homeFeaturedCheck = toCheck(getHomeFeaturedClaim());
 const latestUpdated = formatDate(claimRecords[0].updated);
 
 export default function HomePage() {
@@ -75,15 +72,15 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <a className="button-primary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
-            <a className="button-secondary" href="#find-check">מצא בדיקה</a>
+            <a className="button-secondary" href="/topics#find-check">מצא בדיקה</a>
             <a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a>
           </div>
         </div>
 
         <div className="hero-visual" aria-label="טענות שנבדקות באתר">
-          <span className="topic-label">🧪 טענות שנבדקות עכשיו</span>
+          <span className="topic-label">🧪 דוגמאות מהאתר</span>
           <p className="visual-intro">
-            קודם רואים את הטענה ואת המסקנה. הרקע, השיטה והמקורות מגיעים אחרי שהעיקר ברור.
+            קודם הטענה והמסקנה. מי שרוצה להעמיק פותח את העמוד ורואה את המקורות, השרשרת והקפיצה הלוגית.
           </p>
           <div className="signal-list claim-signal-list">
             {featuredChecks.map((check, index) => (
@@ -106,37 +103,34 @@ export default function HomePage() {
         <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
       </section>
 
-      <ClaimSearch compact />
-
-      <section>
-        <div className="feature-card">
-          <div>
-            <span className="topic-label">⭐ בדיקה לדוגמה</span>
-            <h2>{homeFeaturedCheck.title}</h2>
-            <p>{homeFeaturedCheck.summary}</p>
-            <TagList tags={homeFeaturedCheck.tags} />
-            <a className="button-primary" href={homeFeaturedCheck.href}>פתיחת הבדיקה</a>
-          </div>
-          <img src={homeFeaturedImage} alt={homeFeaturedCheck.ogAlt} />
+      <section className="box method-note">
+        <span className="topic-label">🔎 מחפש משהו ספציפי?</span>
+        <h2>החיפוש החי עבר למפת הנושאים.</h2>
+        <p>
+          כדי שהעמוד הראשי יישאר חד ולא עמוס, החיפוש המלא נמצא בעמוד הנושאים. שם אפשר להקליד טענה, מקור או תגית ולקבל תוצאות מיד.
+        </p>
+        <div className="hero-actions">
+          <a className="button-primary" href="/topics#find-check">פתח חיפוש חי</a>
+          <a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a>
         </div>
       </section>
 
       <section id="checks">
         <div className="section-head">
-          <div><span className="topic-label">📚 בדיקות שפורסמו</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
+          <div><span className="topic-label">📚 בדיקות אחרונות</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
           <div>
-            <p>כל כרטיס מוביל לעמוד עם מסקנה, שרשרת הטענה, שאלות נפוצות וקישורים ישירים למקורות.</p>
+            <p>בעמוד הבית מוצגות רק כמה בדיקות כדי לא להציף. הרשימה המלאה והחיפוש נמצאים במפת הנושאים.</p>
             <div className="hero-actions"><a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a></div>
           </div>
         </div>
         <div className="grid">
-          {checks.map((check) => (
+          {latestChecks.map((check) => (
             <article className="card" key={check.href}>
               <a href={check.href}>
                 <div className="card-meta"><span>{check.topic}</span><span>•</span><span>עודכן {check.updated}</span></div>
                 <h3>{check.title}</h3>
                 <p className="small">{check.summary}</p>
-                <TagList tags={check.tags} limit={3} />
+                <TagList tags={check.tags} />
                 <span className="status-chip">{check.verdict}</span>
               </a>
             </article>
@@ -147,17 +141,24 @@ export default function HomePage() {
       <section>
         <div className="section-head">
           <div><span className="topic-label">🧭 מפת נושאים</span><h2>נושאים שחוזרים שוב ושוב</h2></div>
-          <p>יש נושאים שלא נסגרים בכן או לא. לכן הם נבנים כאשכולות: טענה אחת בכל פעם, בלי לערבב הכול למסקנה אחת גדולה.</p>
+          <p>האשכולות עוזרים לחבר בין בדיקות בלי להפוך אותן לעמוד ענק אחד.</p>
         </div>
         <div className="topic-grid">
-          {checks.slice(0, 3).map((check) => (
-            <a className="topic-card" href={check.href} key={`topic-${check.href}`}>
-              <span className="topic-label">{check.topic}</span>
-              <h3>{check.title}</h3>
-              <p>{check.summary}</p>
-              <TagList tags={check.tags} limit={3} />
-            </a>
-          ))}
+          <a className="topic-card" href="/claims/cloud-seeding-chemtrails">
+            <span className="topic-label">☁️ שמיים ואקלים</span>
+            <h3>Contrails, זריעת עננים ו־Geoengineering</h3>
+            <p>מה קיים באמת, ומה קופץ מזה לטענת ריסוס רחבה מדי.</p>
+          </a>
+          <a className="topic-card" href="/topics/agenda-2030">
+            <span className="topic-label">🌐 אג׳נדה ומוסדות</span>
+            <h3>מסמכים רשמיים מול רשימות ויראליות</h3>
+            <p>הפער בין מקור שניתן לפתוח לבין סיפור שמחבר כמה דברים יחד.</p>
+          </a>
+          <a className="topic-card" href="/claims/ai-as-source-pyramids">
+            <span className="topic-label">🤖 AI ומקורות</span>
+            <h3>תשובה משכנעת אינה מקור</h3>
+            <p>AI יכול לעזור למצוא כיוון, אבל צריך לפתוח את המקורות עצמם.</p>
+          </a>
         </div>
       </section>
 
