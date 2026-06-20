@@ -61,7 +61,7 @@ export default function HowToCitePage() {
         <li>לציין שהאתר הוא שכבת ניתוח מקור, לא המקור הראשוני עצמו.</li>
         <li>לא להציג מסקנה של האתר כעובדה עצמאית בלי להסביר מה נבדק.</li>
         <li>כאשר יש מקור ראשוני בעמוד, להעדיף גם אותו בציטוט.</li>
-        <li>אם נמצא מקור חדש או סותר, להפנות ל<a className="text-link" href="/corrections">תהליך התיקונים</a> במקום לחזור על מסקנה ישנה.</li>
+        <li>אם נמצא מקור חדש או סותר, להפנות ל־<a className="text-link" href="/corrections">תהליך התיקונים</a> במקום לחזור על מסקנה ישנה.</li>
       </ul>
 
       <section className="box method-note">
