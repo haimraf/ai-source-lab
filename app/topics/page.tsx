@@ -1,9 +1,19 @@
-import { claimRecords } from "@/lib/claims-db";
+import { allClaimTags, claimRecords } from "@/lib/claims-db";
 
 export const metadata = {
   title: "מפת נושאים | מקור בדיקה",
   description: "אשכולות התוכן והבדיקות של מקור בדיקה.",
 };
+
+function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number }) {
+  return (
+    <div className="tag-list" aria-label="תגיות">
+      {tags.slice(0, limit).map((tag) => (
+        <span className="tag-chip" key={tag}>#{tag}</span>
+      ))}
+    </div>
+  );
+}
 
 export default function TopicsPage() {
   return (
@@ -11,7 +21,18 @@ export default function TopicsPage() {
       <section className="hero">
         <span className="badge">🧭 מפת נושאים</span>
         <h1>טענה אחת כמעט תמיד מחוברת לעוד חמש.</h1>
-        <p className="lead">לכן האתר בנוי גם לפי אשכולות. כל אשכול מפריד בין המקור, הטענות שנוספו לו, השאלות הציבוריות והחלקים שעדיין פתוחים לבדיקה.</p>
+        <p className="lead">לכן האתר בנוי גם לפי אשכולות ותגיות. כל אשכול מפריד בין המקור, הטענות שנוספו לו, השאלות הציבוריות והחלקים שעדיין פתוחים לבדיקה.</p>
+      </section>
+
+      <section className="box method-note">
+        <span className="topic-label">🏷️ תגיות מרכזיות</span>
+        <h2>דרך מהירה להבין מה כבר קיים באתר</h2>
+        <p className="small">התגיות הן התשתית לחיפוש חי בעתיד. כרגע הן עוזרות לסרוק את הנושאים ולראות אילו בדיקות מתחברות זו לזו.</p>
+        <div className="tag-cloud" aria-label="תגיות באתר">
+          {allClaimTags.map((tag) => (
+            <span className="tag-chip" key={tag}>#{tag}</span>
+          ))}
+        </div>
       </section>
 
       <div className="topic-grid">
@@ -27,7 +48,7 @@ export default function TopicsPage() {
       <section id="all-checks" className="box answer">
         <div className="section-head">
           <div><span className="topic-label">📚 כל הבדיקות</span><h2>כל הבדיקות שפורסמו באתר.</h2></div>
-          <p>ברגע שעולה בדיקה חדשה, היא מופיעה גם כאן — לפי נושא, תאריך ומסקנה קצרה.</p>
+          <p>ברגע שעולה בדיקה חדשה, היא מופיעה גם כאן — לפי נושא, תגיות, תאריך ומסקנה קצרה.</p>
         </div>
         <div className="grid">
           {claimRecords.map((claim) => (
@@ -36,6 +57,7 @@ export default function TopicsPage() {
                 <div className="card-meta"><span>{claim.kicker}</span><span>•</span><span>{claim.updated}</span></div>
                 <h3>{claim.title}</h3>
                 <p className="small">{claim.description}</p>
+                <TagList tags={claim.tags} limit={4} />
                 <span className="status-chip">{claim.verdict}</span>
               </a>
             </article>
