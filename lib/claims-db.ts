@@ -1,5 +1,5 @@
 export const staticPages = [
-  { path: "/", updated: "2026-06-19", changeFrequency: "weekly", priority: 1 },
+  { path: "/", updated: "2026-06-20", changeFrequency: "weekly", priority: 1 },
   { path: "/about", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/privacy", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/accessibility", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
@@ -8,7 +8,7 @@ export const staticPages = [
   { path: "/suggest-claim", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/editorial-policy", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/corrections", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
-  { path: "/topics", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/topics", updated: "2026-06-20", changeFrequency: "weekly", priority: 0.8 },
   { path: "/topics/agenda-2030", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
