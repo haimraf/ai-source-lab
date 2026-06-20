@@ -3,7 +3,7 @@ import { siteUrl } from "@/lib/site";
 
 const pageLabels: Record<string, string> = {
   "/": "עמוד הבית והבדיקות האחרונות",
-  "/topics": "מפת הנושאים והבדיקות לפי אשכולות",
+  "/topics": "מפת הנושאים, תגיות והבדיקות לפי אשכולות",
   "/topics/agenda-2030": "אשכול הטענות סביב אג׳נדה 2030",
   "/methodology": "תהליך הבדיקה והיררכיית המקורות",
   "/how-to-cite": "איך לצטט נכון את מקור בדיקה",
@@ -20,7 +20,7 @@ function lineForPage(path: string) {
 }
 
 function lineForClaim(claim: (typeof claimRecords)[number]) {
-  return `- ${siteUrl}${claim.path} - ${claim.title}. עודכן ${claim.updated}. הממצא: ${claim.verdict}.`;
+  return `- ${siteUrl}${claim.path} - ${claim.title}. עודכן ${claim.updated}. תגיות: ${claim.tags.join(", ")}. הממצא: ${claim.verdict}.`;
 }
 
 export async function GET() {
