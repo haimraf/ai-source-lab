@@ -265,14 +265,21 @@ export const topicClusterPages = topicClusters.map((cluster) => ({
   priority: cluster.priority,
 }));
 
-export function getTopicClusterBySlug(slug: TopicClusterSlug): TopicCluster;
-export function getTopicClusterBySlug(slug: string | null | undefined): TopicCluster | undefined;
-export function getTopicClusterBySlug(slug: string | null | undefined) {
-  return topicClusters.find((cluster) => cluster.slug === slug);
+export function getTopicClusterBySlug(slug: string | null | undefined): TopicCluster | undefined {
+  if (!slug) return undefined;
+
+  const clusters: readonly TopicCluster[] = topicClusters;
+  return clusters.find((cluster) => cluster.slug === slug);
 }
 
-export function getTopicClusterForClaim(claim: ClaimRecord) {
-  return getTopicClusterBySlug(claim.cluster);
+export function getTopicClusterForClaim(claim: ClaimRecord): TopicCluster {
+  const cluster = getTopicClusterBySlug(claim.cluster);
+
+  if (!cluster) {
+    throw new Error(`Missing topic cluster for claim cluster: ${claim.cluster}`);
+  }
+
+  return cluster;
 }
 
 export function getClaimsForTopicCluster(cluster: TopicCluster) {
