@@ -14,6 +14,18 @@ export const staticPages = [
 
 export const claimRecords = [
   {
+    slug: "project-blue-beam-nasa",
+    path: "/claims/project-blue-beam-nasa",
+    title: "האם Project Blue Beam הוא תוכנית רשמית של NASA?",
+    description: "בדיקה של הטענה ש־Project Blue Beam הוא פרויקט רשמי של NASA או האו״ם לזיוף פלישת חוצנים או התגלות דתית לצורך סדר עולמי חדש.",
+    kicker: "חוצנים וסדר עולמי",
+    verdict: "לא נמצא מקור רשמי של NASA או האו״ם",
+    updated: "2026-06-20",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    ogAlt: "מקור בדיקה - בדיקת הטענה ש-Project Blue Beam הוא תוכנית רשמית של NASA",
+  },
+  {
     slug: "gateway-process-out-of-body",
     path: "/claims/gateway-process-out-of-body",
     title: "האם מסמך Gateway מוכיח יציאה מהגוף?",
