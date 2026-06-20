@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { claimRecords, staticPages } from "@/lib/claims-db";
+import { topicClusterPages } from "@/lib/topic-clusters";
 import { siteUrl } from "@/lib/site";
 
 function toSitemapEntry(page: {
@@ -19,6 +20,7 @@ function toSitemapEntry(page: {
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages.map(toSitemapEntry),
+    ...topicClusterPages.map(toSitemapEntry),
     ...claimRecords.map(toSitemapEntry),
   ];
 }
