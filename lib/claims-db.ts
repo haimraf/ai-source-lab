@@ -12,6 +12,8 @@ export const staticPages = [
   { path: "/topics/agenda-2030", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
+export const homeFeaturedClaimSlug = "project-blue-beam-nasa";
+
 export const claimRecords = [
   {
     slug: "project-blue-beam-nasa",
@@ -107,4 +109,8 @@ export function getClaimBySlug(slug: ClaimSlug): ClaimRecord;
 export function getClaimBySlug(slug: string | null): ClaimRecord | undefined;
 export function getClaimBySlug(slug: string | null) {
   return claimRecords.find((claim) => claim.slug === slug);
+}
+
+export function getHomeFeaturedClaim() {
+  return getClaimBySlug(homeFeaturedClaimSlug) ?? claimRecords[0];
 }
