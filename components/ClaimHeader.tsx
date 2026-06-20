@@ -7,8 +7,10 @@ type ClaimHeaderProps = {
   lead: string;
 };
 
+const agendaTags = new Set<string>(["אג׳נדה 2030", "SDGs"]);
+
 function topicHrefForClaim(claim: ClaimRecord) {
-  if (claim.tags.some((tag) => ["אג׳נדה 2030", "SDGs"].includes(tag))) return "/topics/agenda-2030";
+  if (claim.tags.some((tag) => agendaTags.has(tag))) return "/topics/agenda-2030";
   return "/topics#all-checks";
 }
 
