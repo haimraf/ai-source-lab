@@ -35,6 +35,9 @@ export function ReadingTimeInjector() {
     const title = article.querySelector("h1");
     if (!title || !title.parentNode) return;
 
+    const legacyMeta = article.querySelector(":scope > .claim-meta");
+    if (legacyMeta) legacyMeta.classList.add("claim-header-meta");
+
     const minutes = estimateReadingMinutes(article.textContent ?? "");
     const row = document.createElement("div");
     row.className = "reading-time-row";
@@ -45,6 +48,10 @@ export function ReadingTimeInjector() {
 
     row.appendChild(readingTime);
     title.parentNode.insertBefore(row, title.nextSibling);
+
+    if (legacyMeta && row.parentNode) {
+      row.parentNode.insertBefore(legacyMeta, row.nextSibling);
+    }
   }, [pathname]);
 
   return null;
