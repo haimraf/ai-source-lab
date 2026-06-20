@@ -21,7 +21,7 @@ export default function CorrectionsPage() {
 
       <h2>פתיחת פנייה</h2>
       <div className="box answer">
-        <p>כרגע הדרך הישירה ביותר היא לפתוח Issue בריפו הציבורי. אין צורך בידע טכני, רק כותרת, קישור והסבר קצר. אם זו טענה חדשה ולא תיקון, עדיף להשתמש ב<a className="text-link" href="/suggest-claim">עמוד הצעת טענה</a>.</p>
+        <p>כרגע הדרך הישירה ביותר היא לפתוח Issue בריפו הציבורי. אין צורך בידע טכני, רק כותרת, קישור והסבר קצר. אם זו טענה חדשה ולא תיקון, עדיף להשתמש ב־<a className="text-link" href="/suggest-claim">עמוד הצעת טענה</a>.</p>
         <a className="button-primary" href="https://github.com/haimraf/ai-source-lab/issues/new" target="_blank" rel="noreferrer">פתיחת בקשת תיקון</a>
       </div>
 
