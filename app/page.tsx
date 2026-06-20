@@ -65,22 +65,22 @@ export default function HomePage() {
     <>
       <section className="home-hero">
         <div>
-          <span className="badge">🔎 בדיקות טענות מול מקורות</span>
+          <span className="badge">🔎 מאגר בדיקות מקור</span>
           <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
-            כל בדיקה מתחילה בטענה אחת ברורה, מציגה שורה תחתונה, ואז פותחת את המקור כדי לראות מה באמת אפשר לקבוע ומה נוסף בדרך.
+            זה לא צ׳אט שבודק כל פרומפט בזמן אמת. זה מאגר בדיקות: מחפשים בדיקה קיימת, פותחים מקור, ורואים מה באמת אפשר לקבוע.
           </p>
           <div className="hero-actions">
-            <a className="button-primary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
-            <a className="button-secondary" href="/topics#find-check">מצא בדיקה</a>
-            <a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a>
+            <a className="button-primary" href="/topics#find-check">חפש בדיקה קיימת</a>
+            <a className="button-secondary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
+            <a className="button-secondary" href="/suggest-claim">הצע טענה</a>
           </div>
         </div>
 
         <div className="hero-visual" aria-label="טענות שנבדקות באתר">
-          <span className="topic-label">🧪 דוגמאות מהאתר</span>
+          <span className="topic-label">🧪 מה מקבלים?</span>
           <p className="visual-intro">
-            קודם הטענה והמסקנה. מי שרוצה להעמיק פותח את העמוד ורואה את המקורות, השרשרת והקפיצה הלוגית.
+            בכל בדיקה: הטענה, שורה תחתונה, מה כן נכון, איפה הקפיצה, ומה המקורות אומרים.
           </p>
           <div className="signal-list claim-signal-list">
             {featuredChecks.map((check, index) => (
@@ -103,11 +103,33 @@ export default function HomePage() {
         <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
       </section>
 
+      <section className="how-use box answer">
+        <span className="topic-label">🧭 איך משתמשים באתר?</span>
+        <h2>שלושה צעדים פשוטים</h2>
+        <div className="process-grid compact-process">
+          <section className="process-card">
+            <span>01</span>
+            <h3>מחפשים בדיקה קיימת</h3>
+            <p>מקלידים טענה, מקור, מושג או תגית. החיפוש מחפש רק בתוך בדיקות שכבר פורסמו.</p>
+          </section>
+          <section className="process-card">
+            <span>02</span>
+            <h3>פותחים את הבדיקה</h3>
+            <p>מקבלים שורה תחתונה, מקורות, מה כן נכון, ומה הקפיצה בין המקור למסקנה.</p>
+          </section>
+          <section className="process-card">
+            <span>03</span>
+            <h3>לא מצאתם?</h3>
+            <p>שולחים טענה לבדיקה עתידית. כרגע האתר לא מחזיר בדיקה אוטומטית לכל פרומפט.</p>
+          </section>
+        </div>
+      </section>
+
       <section className="box method-note">
         <span className="topic-label">🔎 מחפש משהו ספציפי?</span>
-        <h2>החיפוש החי עבר למפת הנושאים.</h2>
+        <h2>החיפוש החי נמצא במפת הנושאים.</h2>
         <p>
-          כדי שהעמוד הראשי יישאר חד ולא עמוס, החיפוש המלא נמצא בעמוד הנושאים. שם אפשר להקליד טענה, מקור או תגית ולקבל תוצאות מיד.
+          שם אפשר להקליד טענה, מקור או תגית ולקבל תוצאות מיד מתוך המאגר הקיים. אם אין תוצאה, אפשר להציע טענה לבדיקה עתידית.
         </p>
         <div className="hero-actions">
           <a className="button-primary" href="/topics#find-check">פתח חיפוש חי</a>
