@@ -20,3 +20,9 @@ Included in this rebuild:
 - 15-minute city claim page
 - 15-minute city internal illustrations
 - reactions roadmap note
+
+## 2026-06-20 — production deploy retry
+
+One final production deploy trigger after the claim template upgrade.
+
+No product code changed in this commit.
