@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClaimSearch } from "@/components/ClaimSearch";
 import { claimRecords, getHomeFeaturedClaim } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
@@ -74,6 +75,7 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <a className="button-primary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
+            <a className="button-secondary" href="#find-check">מצא בדיקה</a>
             <a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a>
           </div>
         </div>
@@ -103,6 +105,8 @@ export default function HomePage() {
         <div className="trust-item"><strong>100%</strong>🔓 קישורים פתוחים לבדיקה</div>
         <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
       </section>
+
+      <ClaimSearch compact />
 
       <section>
         <div className="feature-card">
