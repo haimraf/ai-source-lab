@@ -32,6 +32,12 @@ function formatDate(value: string) {
   return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
 }
 
+function byHomepageFreshness(a: (typeof claimRecords)[number], b: (typeof claimRecords)[number]) {
+  const dateCompare = b.updated.localeCompare(a.updated);
+  if (dateCompare !== 0) return dateCompare;
+  return b.priority - a.priority;
+}
+
 function toCheck(claim: (typeof claimRecords)[number]) {
   return {
     title: claim.title,
@@ -54,11 +60,12 @@ function TagList({ tags, limit = 3 }: { tags: readonly string[]; limit?: number 
   );
 }
 
-const checks = claimRecords.map(toCheck);
+const sortedClaims = [...claimRecords].sort(byHomepageFreshness);
+const checks = sortedClaims.map(toCheck);
 const featuredChecks = checks.slice(0, 3);
 const latestChecks = checks.slice(0, 3);
 const homeFeaturedCheck = toCheck(getHomeFeaturedClaim());
-const latestUpdated = formatDate(claimRecords[0].updated);
+const latestUpdated = formatDate(sortedClaims[0].updated);
 
 export default function HomePage() {
   return (
