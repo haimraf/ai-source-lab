@@ -26,3 +26,9 @@ Included in this rebuild:
 One final production deploy trigger after the claim template upgrade.
 
 No product code changed in this commit.
+
+## 2026-06-20 — second production deploy retry
+
+Another clean production deploy trigger for the same prepared changes.
+
+No product code changed in this commit.
