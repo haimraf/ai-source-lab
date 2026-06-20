@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClaimHeader } from "@/components/ClaimHeader";
 import { CopyBox } from "@/components/CopyBox";
 import { getClaimBySlug } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
@@ -6,6 +7,8 @@ import { siteUrl } from "@/lib/site";
 const claim = getClaimBySlug("ai-bci-synthetic-soul")!;
 const pageUrl = `${siteUrl}${claim.path}`;
 const ogImage = `${pageUrl}/opengraph-image`;
+
+const lead = "הטענה מערבבת מונחים אמיתיים כמו BCI, כפילים דיגיטליים, AI Agents ונוירופידבק עם מסקנה גדולה בהרבה: כאילו קיימת מערכת שמחליפה את התודעה האנושית ומפעילה את הגוף במקום האדם.";
 
 export const metadata: Metadata = {
   title: `${claim.title} | מקור בדיקה`,
@@ -69,11 +72,7 @@ const sources = [
 export default function SyntheticSoulClaimPage() {
   return (
     <article>
-      <section className="hero">
-        <span className="badge">{claim.kicker}</span>
-        <h1>{claim.title}</h1>
-        <p className="lead">הטענה מערבבת מונחים אמיתיים כמו BCI, כפילים דיגיטליים, AI Agents ונוירופידבק עם מסקנה גדולה בהרבה: כאילו קיימת מערכת שמחליפה את התודעה האנושית ומפעילה את הגוף במקום האדם.</p>
-      </section>
+      <ClaimHeader claim={claim} verdictLabel="טכנולוגיה אמיתית — קפיצה לא מוכחת" updatedLabel="נבדק ועודכן: 20 ביוני 2026" lead={lead} />
 
       <section className="box answer">
         <h2>שורה תחתונה</h2>
