@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { allClaimTags, claimRecords } from "@/lib/claims-db";
+import { getTopicClusterBySlug } from "@/lib/topic-clusters";
 
 type Claim = (typeof claimRecords)[number];
 
@@ -15,6 +16,21 @@ function normalizeSearchText(value: string) {
     .trim();
 }
 
+function getClusterTerms(claim: Claim) {
+  const cluster = getTopicClusterBySlug(claim.cluster);
+
+  if (!cluster) return [claim.cluster];
+
+  return [
+    cluster.slug,
+    cluster.title,
+    cluster.shortTitle,
+    cluster.eyebrow,
+    cluster.description,
+    ...cluster.sourceMap.flatMap(([label, explanation]) => [label, explanation]),
+  ];
+}
+
 function buildSearchText(claim: Claim) {
   return normalizeSearchText([
     claim.title,
@@ -22,8 +38,16 @@ function buildSearchText(claim: Claim) {
     claim.kicker,
     claim.verdict,
     claim.path,
+    claim.cluster,
     ...claim.tags,
+    ...getClusterTerms(claim),
   ].join(" "));
+}
+
+function getClaimTopicLabel(claim: Claim) {
+  const cluster = getTopicClusterBySlug(claim.cluster);
+  if (!cluster) return claim.kicker;
+  return `${cluster.shortTitle} · ${claim.kicker}`;
 }
 
 function scoreClaim(claim: Claim, query: string, activeTag: string | null) {
@@ -68,7 +92,7 @@ function getResults(query: string, activeTag: string | null) {
   return scored;
 }
 
-const priorityTags = ["AI", "BCI", "Chemtrails", "NASA", "אג׳נדה 2030", "מקור רשמי", "תודעה", "XRP"];
+const priorityTags = ["AI", "BCI", "Chemtrails", "NASA", "אג׳נדה 2030", "מקור רשמי", "תודעה", "XRP", "עיר 15 דקות"];
 
 function sortTagsForDisplay(tags: readonly string[]) {
   return [...tags].sort((firstTag, secondTag) => {
@@ -112,13 +136,13 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
         <span className="topic-label">🔎 חיפוש במאגר</span>
         <div>
           <h2 id="claim-search-title">חיפוש בתוך בדיקות שכבר פורסמו.</h2>
-          <p className="small">זה לא צ׳אט שבודק כל פרומפט בזמן אמת. כאן מחפשים בדיקה קיימת לפי טענה, מקור, מושג או תגית. אם אין תוצאה — אפשר להציע טענה לבדיקה עתידית.</p>
+          <p className="small">זה לא צ׳אט שבודק כל פרומפט בזמן אמת. כאן מחפשים בדיקה קיימת לפי טענה, מקור, מושג, אשכול או תגית. אם אין תוצאה — אפשר להציע טענה לבדיקה עתידית.</p>
         </div>
       </div>
 
       <div className="search-guide" aria-label="איך משתמשים בחיפוש">
         <div><strong>Input</strong><span>מילה, מקור או נושא: NASA, BCI, אג׳נדה, Chemtrails.</span></div>
-        <div><strong>Output</strong><span>בדיקות קיימות עם שורה תחתונה, תגיות וקישור לעמוד המלא.</span></div>
+        <div><strong>Output</strong><span>בדיקות קיימות עם שורה תחתונה, תגיות, אשכול וקישור לעמוד המלא.</span></div>
         <div><strong>תחום</strong><span>רק בדיקות שפורסמו באתר. לא כל האינטרנט בזמן אמת.</span></div>
       </div>
 
@@ -169,7 +193,7 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
         {results.length ? (
           results.map(({ claim }) => (
             <a className="search-result" href={claim.path} key={claim.path}>
-              <span className="search-result-topic">{claim.kicker}</span>
+              <span className="search-result-topic">{getClaimTopicLabel(claim)}</span>
               <strong>{claim.title}</strong>
               <small>{claim.verdict}</small>
               <span className="search-result-tags">{claim.tags.slice(0, 4).map((tag) => `#${tag}`).join("  ")}</span>
