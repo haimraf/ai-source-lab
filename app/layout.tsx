@@ -40,6 +40,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <small>🔎 מקור לפני מסקנה</small>
               </span>
             </a>
+            <div className="mobile-header-actions" aria-label="פעולות מהירות במובייל">
+              <a href="/topics#find-check">🔎 חיפוש</a>
+              <a href="/suggest-claim">✍️ הצעה</a>
+            </div>
             <div className="nav-links">
               <a href="/#checks"><span aria-hidden="true">📚</span> בדיקות</a>
               <a href="/topics#find-check"><span aria-hidden="true">🔎</span> חיפוש</a>
