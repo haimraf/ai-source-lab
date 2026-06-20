@@ -12,9 +12,22 @@ export const staticPages = [
   { path: "/topics/agenda-2030", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
-export const homeFeaturedClaimSlug = "project-blue-beam-nasa";
+export const homeFeaturedClaimSlug = "ai-bci-synthetic-soul";
 
 export const claimRecords = [
+  {
+    slug: "ai-bci-synthetic-soul",
+    path: "/claims/ai-bci-synthetic-soul",
+    title: "האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?",
+    description: "בדיקה של טענה שמערבבת BCI, סוכני AI, כפילים דיגיטליים, נוירופידבק, LED ו-Wi-Fi למסקנה על שליטה חיצונית באדם.",
+    kicker: "AI, מוח ותודעה",
+    tags: ["AI", "BCI", "תודעה", "Digital Twin", "נוירוטכנולוגיה"],
+    verdict: "הטכנולוגיות קיימות, אבל לא מוכיחות שליטה חיצונית באדם",
+    updated: "2026-06-20",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    ogAlt: "מקור בדיקה - בדיקת הטענה ש-BCI ו-AI מוכיחים שליטה חיצונית בגוף",
+  },
   {
     slug: "project-blue-beam-nasa",
     path: "/claims/project-blue-beam-nasa",
