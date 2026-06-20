@@ -63,7 +63,7 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <a className="button-primary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
-            <a className="button-secondary" href="#checks">כל הטענות שנבדקו</a>
+            <a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a>
           </div>
         </div>
 
@@ -108,7 +108,10 @@ export default function HomePage() {
       <section id="checks">
         <div className="section-head">
           <div><span className="topic-label">📚 בדיקות שפורסמו</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
-          <p>כל כרטיס מוביל לעמוד עם מסקנה, שרשרת הטענה, שאלות נפוצות וקישורים ישירים למקורות.</p>
+          <div>
+            <p>כל כרטיס מוביל לעמוד עם מסקנה, שרשרת הטענה, שאלות נפוצות וקישורים ישירים למקורות.</p>
+            <div className="hero-actions"><a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a></div>
+          </div>
         </div>
         <div className="grid">
           {checks.map((check) => (
