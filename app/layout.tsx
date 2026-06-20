@@ -37,15 +37,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="brand-mark" aria-hidden="true">מ</span>
               <span className="brand-copy">
                 <strong>מקור בדיקה</strong>
-                <small>מקור לפני מסקנה</small>
+                <small>🔎 מקור לפני מסקנה</small>
               </span>
             </a>
             <div className="nav-links">
-              <a href="/#checks">בדיקות</a>
-              <a href="/topics">נושאים</a>
-              <a href="/methodology">איך בודקים</a>
-              <a href="/suggest-claim">הצע טענה</a>
-              <a href="/about">אודות</a>
+              <a href="/#checks"><span aria-hidden="true">📚</span> בדיקות</a>
+              <a href="/topics"><span aria-hidden="true">🧭</span> נושאים</a>
+              <a href="/methodology"><span aria-hidden="true">🔎</span> איך בודקים</a>
+              <a href="/suggest-claim"><span aria-hidden="true">✍️</span> הצע טענה</a>
+              <a href="/about"><span aria-hidden="true">🧑‍💻</span> אודות</a>
             </div>
           </nav>
         </header>
@@ -53,38 +53,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main-content" className="container" tabIndex={-1}>{children}</main>
 
         <nav className="mobile-bottom-nav" aria-label="ניווט מהיר במובייל">
-          <a href="/">בית</a>
-          <a href="/#checks">בדיקות</a>
-          <a href="/topics">נושאים</a>
-          <a href="/suggest-claim">הצע טענה</a>
+          <a href="/"><span aria-hidden="true">🏠</span> בית</a>
+          <a href="/#checks"><span aria-hidden="true">📚</span> בדיקות</a>
+          <a href="/topics"><span aria-hidden="true">🧭</span> נושאים</a>
+          <a href="/suggest-claim"><span aria-hidden="true">✍️</span> הצע טענה</a>
         </nav>
 
         <footer className="site-footer">
           <div className="footer-grid">
             <div className="footer-summary">
-              <a className="footer-brand" href="/">מקור בדיקה</a>
+              <a className="footer-brand" href="/">🔎 מקור בדיקה</a>
               <p>בודקים טענות רשת, מקורות ומסמכים בלי לדלג מהכותרת למסקנה.</p>
-              <span className="footer-seal">מקור לפני מסקנה</span>
+              <span className="footer-seal">🧭 מקור לפני מסקנה</span>
             </div>
             <div>
-              <strong>האתר</strong>
-              <a href="/#checks">בדיקות</a>
-              <a href="/topics">מפת נושאים</a>
-              <a href="/methodology">איך בודקים</a>
-              <a href="/suggest-claim">הצע טענה לבדיקה</a>
-              <a href="/about">אודות</a>
+              <strong>🗂️ האתר</strong>
+              <a href="/#checks">📚 בדיקות</a>
+              <a href="/topics">🧭 מפת נושאים</a>
+              <a href="/methodology">🔎 איך בודקים</a>
+              <a href="/suggest-claim">✍️ הצע טענה לבדיקה</a>
+              <a href="/about">🧑‍💻 אודות</a>
             </div>
             <div>
-              <strong>אמון ושקיפות</strong>
-              <a href="/how-to-cite">איך לצטט אותנו</a>
-              <a href="/editorial-policy">מדיניות עריכה</a>
-              <a href="/corrections">תיקונים ועדכונים</a>
-              <a href="/privacy">פרטיות</a>
-              <a href="/accessibility">הצהרת נגישות</a>
-              <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">שקיפות טכנית ב-GitHub</a>
+              <strong>🛡️ אמון ושקיפות</strong>
+              <a href="/how-to-cite">🔗 איך לצטט אותנו</a>
+              <a href="/editorial-policy">📌 מדיניות עריכה</a>
+              <a href="/corrections">🛠️ תיקונים ועדכונים</a>
+              <a href="/privacy">🔒 פרטיות</a>
+              <a href="/accessibility">♿ הצהרת נגישות</a>
+              <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">💻 שקיפות טכנית ב-GitHub</a>
             </div>
           </div>
-          <p className="footer-note">בכל עמוד מופיעים המקורות שנבדקו, תאריך העדכון והפרדה בין עובדה, פרשנות וקפיצה לוגית.</p>
+          <p className="footer-note">🧾 בכל עמוד מופיעים המקורות שנבדקו, תאריך העדכון והפרדה בין עובדה, פרשנות וקפיצה לוגית.</p>
         </footer>
 
         <Analytics />
