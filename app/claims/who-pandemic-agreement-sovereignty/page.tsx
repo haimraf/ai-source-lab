@@ -1,14 +1,27 @@
 import { ClaimHeader } from "@/components/ClaimHeader";
 import { CopyBox } from "@/components/CopyBox";
 import { EvidenceGallery } from "@/components/EvidenceGallery";
-import { getClaimBySlug } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
-const claim = getClaimBySlug("who-pandemic-agreement-sovereignty")!;
+const claim = {
+  slug: "who-pandemic-agreement-sovereignty",
+  path: "/claims/who-pandemic-agreement-sovereignty",
+  title: "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?",
+  description: "בדיקה של הטענה שאמנת המגיפות של WHO נותנת לארגון סמכות להכתיב למדינות מדיניות חירום, בריאות או חקיקה פנימית.",
+  kicker: "WHO ואמנת מגיפות",
+  tags: ["WHO", "אמנת מגיפות", "ריבונות", "מדיניות פנים", "בריאות ציבורית"],
+  verdict: "הטקסט הרשמי שולל סמכות להכתיב מדיניות פנים למדינות",
+  updated: "2026-06-21",
+  changeFrequency: "monthly",
+  priority: 0.9,
+  cluster: "institutional-narratives",
+  ogAlt: "מקור בדיקה - בדיקת הטענה שאמנת המגיפות נותנת ל-WHO סמכות כפייה",
+} as const;
+
 const pageUrl = `${siteUrl}${claim.path}`;
 const ogImage = `${pageUrl}/opengraph-image`;
 
-const lead = "הטענה אומרת שאמנת המגיפות של ארגון הבריאות העולמי תאפשר ל-WHO לכפות על מדינות סגרים, חיסונים, שינויי חוק או מדיניות פנים. הבדיקה הזו מפרידה בין הסכם בינלאומי מחייב, תהליך אשרור מדינתי, וסמכות כפייה שלא מופיעה בטקסט.";
+const lead = "הטענה אומרת שאמנת המגיפות של ארגון הבריאות העולמי תאפשר ל-WHO להכתיב למדינות מדיניות פנים בזמן מגיפה. הבדיקה הזו מפרידה בין הסכם בינלאומי מחייב, תהליך אשרור מדינתי, וסמכות כפייה שלא מופיעה בטקסט.";
 
 export const metadata = {
   title: `${claim.title} | מקור בדיקה`,
@@ -40,7 +53,7 @@ const sources = [
   {
     name: "WHA78.1 — WHO Pandemic Agreement, official text",
     url: "https://apps.who.int/gb/ebwha/pdf_files/WHA78/A78_R1-en.pdf",
-    note: "הטקסט הרשמי שאומץ בעצרת הבריאות העולמית. סעיף 22(2) הוא מקור המפתח לשאלה אם ל-WHO יש סמכות לכפות סגרים, חיסונים או שינויי חוק.",
+    note: "הטקסט הרשמי שאומץ בעצרת הבריאות העולמית. סעיף 22(2) הוא מקור המפתח לשאלה אם ל-WHO יש סמכות להכתיב מדיניות פנים למדינות.",
   },
   {
     name: "WHO Q&A — Pandemic prevention, preparedness and response agreement",
@@ -87,27 +100,27 @@ const jsonLd = {
 };
 
 export default function Page() {
-  const copyText = `אמנת המגיפות של ארגון הבריאות העולמי היא הסכם בינלאומי לשיתוף פעולה בהיערכות למגיפות, אבל הטקסט הרשמי לא נותן ל-WHO סמכות לכפות על מדינה סגרים, חיסונים או שינויי חוק. סעיף 22(2) אפילו שולל במפורש סמכות כזו. זה לא אומר שאין מה לבקר בהסכם, אבל הטענה ש-WHO יוכל להורות למדינות מה לעשות לא מופיעה במקור הרשמי.
+  const copyText = `אמנת המגיפות של ארגון הבריאות העולמי היא הסכם בינלאומי לשיתוף פעולה בהיערכות למגיפות. הטקסט הרשמי לא נותן ל-WHO סמכות להכתיב למדינה מדיניות פנים, לשנות חוק פנימי או להורות להפעיל צעדי חירום. סעיף 22(2) שולל במפורש פרשנות כזו. זה לא אומר שאין מה לבקר בהסכם, אבל טענת סמכות הכפייה לא מופיעה במקור הרשמי.
 ${pageUrl}`;
 
   return (
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <ClaimHeader claim={claim} verdictLabel="הטקסט שולל סמכות לכפות סגרים או חיסונים" updatedLabel="נבדק ועודכן: 21 ביוני 2026" lead={lead} />
+      <ClaimHeader claim={claim as any} verdictLabel="הטקסט שולל סמכות להכתיב מדיניות פנים" updatedLabel="נבדק ועודכן: 21 ביוני 2026" lead={lead} />
 
       <section className="box answer">
         <span className="eyebrow">תשובה קצרה</span>
         <h2>לא במובן שמופץ ברשת.</h2>
         <p>
-          ההסכם הוא מסמך בינלאומי מחייב למדינות שיצטרפו אליו לפי התהליך החוקתי שלהן, אבל הטקסט הרשמי אינו נותן למזכירות WHO או למנכ״ל WHO סמכות להורות למדינות לשנות חוק, לכפות חיסונים, לאסור כניסת נוסעים או להפעיל סגרים.
+          ההסכם הוא מסמך בינלאומי מחייב למדינות שיצטרפו אליו לפי התהליך החוקתי שלהן, אבל הטקסט הרשמי אינו נותן למזכירות WHO או למנכ״ל WHO סמכות להורות למדינות לשנות חוק, להכתיב מדיניות פנים או להפעיל צעדי חירום.
         </p>
-        <p className="small">המסקנה צרה: יש מקום לבדוק ולבקר סעיפים, מימון, שקיפות או מנגנוני יישום. אבל טענת “WHO יקבע לישראל סגרים וחיסונים” דורשת סמכות כפייה שלא נמצאה בטקסט.</p>
+        <p className="small">המסקנה צרה: יש מקום לבדוק ולבקר סעיפים, מימון, שקיפות או מנגנוני יישום. אבל טענת “WHO יקבע למדינה מה לעשות” דורשת סמכות כפייה שלא נמצאה בטקסט.</p>
       </section>
 
       <section className="box verdict-box">
         <div className="verdict-grid">
-          <div><span className="eyebrow">הטענה</span><p>אמנת המגיפות נותנת ל-WHO סמכות לכפות על מדינות סגרים, חיסונים או שינויי חוק.</p></div>
+          <div><span className="eyebrow">הטענה</span><p>אמנת המגיפות נותנת ל-WHO סמכות להכתיב למדינות מדיניות פנים בזמן מגיפה.</p></div>
           <div><span className="eyebrow">השורה התחתונה</span><p><strong>הסעיף הרלוונטי אומר ההפך: אין ל-WHO סמכות כזו.</strong></p></div>
           <div><span className="eyebrow">מה כן נכון</span><p>ההסכם עוסק בשיתוף פעולה, היערכות, שרשראות אספקה, מימון, דיווחים וגישה שוויונית לכלים רפואיים.</p></div>
           <div><span className="eyebrow">איפה הקפיצה</span><p>מ”הסכם בינלאומי מחייב” ל”ארגון חיצוני יכול להורות למדינה מה לעשות בתוך המדינה”.</p></div>
@@ -118,7 +131,7 @@ ${pageUrl}`;
       <div className="source-levels">
         <div className="source-level"><strong>ההסכם</strong><div><h3>שיתוף פעולה בינלאומי</h3><p>המסמך קובע מסגרת להיערכות, תגובה, מימון, שיתוף מידע וגישה לכלים רפואיים בזמן מגיפות.</p></div></div>
         <div className="source-level"><strong>מדינה</strong><div><h3>יישום דרך חוק פנימי</h3><p>מדינה שמצטרפת להסכם עדיין פועלת דרך מוסדותיה, חוקיה ותהליכי האשרור שלה.</p></div></div>
-        <div className="source-level"><strong>טענה</strong><div><h3>כפייה של WHO</h3><p>כאן צריך סעיף שנותן ל-WHO סמכות להורות למדינה לבצע סגר, חיסון או שינוי חוק. הסעיף שנבדק שולל זאת.</p></div></div>
+        <div className="source-level"><strong>טענה</strong><div><h3>כפייה של WHO</h3><p>כאן צריך סעיף שנותן ל-WHO סמכות להורות למדינה לבצע מדיניות פנים מסוימת. הסעיף שנבדק שולל זאת.</p></div></div>
       </div>
 
       <h2>מוצגים ואיורים</h2>
@@ -145,15 +158,15 @@ ${pageUrl}`;
       <div className="logic-chain">
         <span>ההסכם מחייב מדינות שמצטרפות אליו</span><span className="logic-arrow">←</span>
         <span>WHO משמש מזכירות ומסייע בתיאום</span><span className="logic-arrow">←</span>
-        <span>יש חשש מסגרים וחיסונים מהעבר</span><span className="logic-arrow">←</span>
+        <span>יש חשש מצעדי חירום מהעבר</span><span className="logic-arrow">←</span>
         <strong>לכן WHO יוכל לכפות מדיניות על מדינה</strong>
       </div>
       <p className="small">הקפיצה היא להפוך תיאום בינלאומי ומסגרת מחייבת למדינות לסמכות ישירה של WHO על חוקי מדינה, בלי סעיף שנותן סמכות כזו.</p>
 
       <h2>מה לא נמצא במקורות?</h2>
       <div className="comparison-list">
-        <div><strong>לא נמצא</strong><span>סעיף שנותן למנכ״ל WHO סמכות להורות למדינה להפעיל סגר.</span></div>
-        <div><strong>לא נמצא</strong><span>סעיף שמאפשר ל-WHO לכפות חיסון חובה על אזרחים.</span></div>
+        <div><strong>לא נמצא</strong><span>סעיף שנותן למנכ״ל WHO סמכות להורות למדינה להפעיל צעדי חירום.</span></div>
+        <div><strong>לא נמצא</strong><span>סעיף שמאפשר ל-WHO להכתיב מדיניות פנים לאזרחים.</span></div>
         <div><strong>לא נמצא</strong><span>סעיף שמאפשר ל-WHO לשנות חוק פנימי של מדינה.</span></div>
         <div><strong>לא נמצא</strong><span>סעיף שמדלג על תהליך חתימה, אשרור או הצטרפות של מדינות.</span></div>
       </div>
@@ -166,7 +179,7 @@ ${pageUrl}`;
         </details>
         <details>
           <summary>מה הסעיף הכי חשוב לבדיקה?</summary>
-          <p>סעיף 22(2). הוא קובע שאין לפרש את ההסכם כנותן למזכירות WHO או למנכ״ל WHO סמכות להורות, לשנות או לכפות חוק או מדיניות פנים, כולל חיסונים או סגרים.</p>
+          <p>סעיף 22(2). הוא קובע שאין לפרש את ההסכם כנותן למזכירות WHO או למנכ״ל WHO סמכות להורות, לשנות או להכתיב חוק או מדיניות פנים של מדינה.</p>
         </details>
         <details>
           <summary>מה עם International Health Regulations?</summary>
@@ -194,7 +207,7 @@ ${pageUrl}`;
       <section className="box method-note">
         <h2>איך נבדקה הטענה?</h2>
         <p>
-          בדקנו את נוסח ההסכם שאומץ בעצרת הבריאות העולמית, את עמוד ההסבר הרשמי של WHO ואת שאלות-התשובות של WHO. לאחר מכן הפרדנו בין מסגרת בינלאומית מחייבת למדינות לבין סמכות ישירה של WHO על חוקי מדינה, וחיפשנו במיוחד סעיף שמאפשר כפיית סגרים, חיסונים או שינויי חוק.
+          בדקנו את נוסח ההסכם שאומץ בעצרת הבריאות העולמית, את עמוד ההסבר הרשמי של WHO ואת שאלות-התשובות של WHO. לאחר מכן הפרדנו בין מסגרת בינלאומית מחייבת למדינות לבין סמכות ישירה של WHO על חוקי מדינה, וחיפשנו במיוחד סעיף שמאפשר להכתיב מדיניות פנים.
         </p>
       </section>
     </article>
