@@ -88,14 +88,20 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
   return (
     <section id="find-check" className="search-panel box" aria-labelledby="claim-search-title">
       <div className="search-head">
-        <span className="topic-label">🔎 חיפוש חי</span>
+        <span className="topic-label">🔎 חיפוש במאגר</span>
         <div>
-          <h2 id="claim-search-title">מצא בדיקה לפי טענה, מקור או תגית.</h2>
-          <p className="small">בלי Enter ובלי עמוד תוצאות. מקלידים או בוחרים תגית — והבדיקות מסתדרות מיד.</p>
+          <h2 id="claim-search-title">חיפוש בתוך בדיקות שכבר פורסמו.</h2>
+          <p className="small">זה לא צ׳אט שבודק כל פרומפט בזמן אמת. כאן מחפשים בדיקה קיימת לפי טענה, מקור, מושג או תגית. אם אין תוצאה — אפשר להציע טענה לבדיקה עתידית.</p>
         </div>
       </div>
 
-      <label className="search-label" htmlFor="claim-search-input">מה לבדוק?</label>
+      <div className="search-guide" aria-label="איך משתמשים בחיפוש">
+        <div><strong>Input</strong><span>מילה, מקור או נושא: NASA, BCI, אג׳נדה, Chemtrails.</span></div>
+        <div><strong>Output</strong><span>בדיקות קיימות עם שורה תחתונה, תגיות וקישור לעמוד המלא.</span></div>
+        <div><strong>תחום</strong><span>רק בדיקות שפורסמו באתר. לא כל האינטרנט בזמן אמת.</span></div>
+      </div>
+
+      <label className="search-label" htmlFor="claim-search-input">חיפוש במאגר הקיים</label>
       <div className="search-input-row">
         <input
           id="claim-search-input"
@@ -103,7 +109,7 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
           type="search"
           inputMode="search"
           autoComplete="off"
-          placeholder="לדוגמה: NASA, אג׳נדה, Chemtrails, XRP, מקור רשמי"
+          placeholder="לדוגמה: NASA, BCI, אג׳נדה, Chemtrails, XRP"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
@@ -125,7 +131,7 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
       </div>
 
       <p className="search-count" role="status" aria-live="polite">
-        {hasFilter ? `${results.length} תוצאות נמצאו` : "מציג בדיקות אחרונות. חיפוש יצמצם את הרשימה."}
+        {hasFilter ? `${results.length} תוצאות נמצאו` : "מציג בדיקות אחרונות. הקלדה או תגית יצמצמו את הרשימה."}
       </p>
 
       <div className="search-results">
@@ -140,9 +146,9 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
           ))
         ) : (
           <div className="search-empty">
-            <strong>לא נמצאה בדיקה מתאימה.</strong>
-            <p>אפשר לנסות תגית רחבה יותר, או לשלוח את הטענה לבדיקה עתידית.</p>
-            <a className="button-secondary" href="/suggest-claim">הצע טענה</a>
+            <strong>לא נמצאה בדיקה קיימת.</strong>
+            <p>זה לא אומר שהטענה נכונה או לא נכונה. זה רק אומר שעדיין לא פורסמה עליה בדיקה באתר.</p>
+            <a className="button-secondary" href="/suggest-claim">הצע טענה לבדיקה</a>
           </div>
         )}
       </div>
