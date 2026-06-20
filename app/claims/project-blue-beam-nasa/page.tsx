@@ -1,14 +1,17 @@
+import { ClaimHeader } from "@/components/ClaimHeader";
 import { CopyBox } from "@/components/CopyBox";
+import { getClaimBySlug } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
-export const metadata = {
-  title: "האם Project Blue Beam הוא תוכנית רשמית של NASA? | מקור בדיקה",
-  description:
-    "בדיקה של הטענה ש־Project Blue Beam הוא פרויקט רשמי של NASA או האו״ם לזיוף פלישת חוצנים או התגלות דתית כדי ליצור סדר עולמי חדש.",
-  alternates: { canonical: "/claims/project-blue-beam-nasa" },
-};
+const claim = getClaimBySlug("project-blue-beam-nasa")!;
+const pageUrl = `${siteUrl}${claim.path}`;
+const lead = "Project Blue Beam הוא אחד הנרטיבים הוויראליים הכי חזקים באזור שבין חוצנים, סדר עולמי חדש, טכנולוגיה סודית ודת. הטענה נשמעת כמו מסמך ממשלתי שנחשף: NASA והאו״ם יזייפו התגלות דתית או פלישת חוצנים כדי לאחד את האנושות תחת שליטה אחת. אבל השאלה שלנו צרה יותר: האם יש מקור רשמי שמראה שזה באמת פרויקט של NASA או האו״ם?";
 
-const pageUrl = `${siteUrl}/claims/project-blue-beam-nasa`;
+export const metadata = {
+  title: `${claim.title} | מקור בדיקה`,
+  description: claim.description,
+  alternates: { canonical: claim.path },
+};
 
 const sources = [
   {
@@ -46,9 +49,8 @@ const sources = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "האם Project Blue Beam הוא תוכנית רשמית של NASA?",
-  description:
-    "בדיקה של הטענה ש־Project Blue Beam הוא פרויקט רשמי של NASA או האו״ם לזיוף אירוע דתי או חוצני לצורך סדר עולמי חדש.",
+  headline: claim.title,
+  description: claim.description,
   datePublished: "2026-06-20",
   dateModified: "2026-06-20",
   inLanguage: "he-IL",
@@ -64,15 +66,7 @@ ${pageUrl}`;
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <div className="claim-meta">
-        <span className="badge verdict-badge">נרטיב מוכר — מקור רשמי לא נמצא</span>
-        <span className="small">נבדק ועודכן: 20 ביוני 2026</span>
-      </div>
-
-      <h1>האם Project Blue Beam הוא תוכנית רשמית של NASA?</h1>
-      <p className="lead">
-        Project Blue Beam הוא אחד הנרטיבים הוויראליים הכי חזקים באזור שבין חוצנים, סדר עולמי חדש, טכנולוגיה סודית ודת. הטענה נשמעת כמו מסמך ממשלתי שנחשף: NASA והאו״ם יזייפו התגלות דתית או פלישת חוצנים כדי לאחד את האנושות תחת שליטה אחת. אבל השאלה שלנו צרה יותר: האם יש מקור רשמי שמראה שזה באמת פרויקט של NASA או האו״ם?
-      </p>
+      <ClaimHeader claim={claim} verdictLabel="נרטיב מוכר — מקור רשמי לא נמצא" updatedLabel="נבדק ועודכן: 20 ביוני 2026" lead={lead} />
 
       <section className="box answer">
         <span className="eyebrow">תשובה קצרה</span>
