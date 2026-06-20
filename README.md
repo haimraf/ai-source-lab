@@ -18,8 +18,10 @@ https://ai-source-lab.vercel.app/
 
 ## בדיקות שפורסמו
 
+- `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
+- `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
 - `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
 - `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
