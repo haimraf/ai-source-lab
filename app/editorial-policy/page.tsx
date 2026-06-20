@@ -13,7 +13,7 @@ export default function EditorialPolicyPage() {
       </section>
 
       <div className="source-levels">
-        <div className="source-level"><strong>מקורות</strong><div><h3>עדיפות לחומר ראשוני</h3><p>מסמכים רשמיים, מחקרים, מאגרי נתונים ותיעוד טכני קודמים לפוסטים ולכתבות מסכמות.</p></div></div>
+        <div className="source-level"><strong>מקורות</strong><div><h3>עדיפות לחומר ראשוני</h3><p>מסמכים רשמיים, מחקרים, מאגרי נתונים ותיעוד טכני קודמים לפוסטים ולכתבות מסכמות. פירוט נוסף מופיע ב<a className="text-link" href="/methodology">שיטת הבדיקה</a>.</p></div></div>
         <div className="source-level"><strong>ניסוח</strong><div><h3>טענה צרה ומסקנה צרה</h3><p>לא הופכים "לא נמצא מקור" ל"זה לעולם לא יקרה", ולא מוסיפים ודאות שאין בחומר.</p></div></div>
         <div className="source-level"><strong>איזון</strong><div><h3>גם הגרעין הנכון נשאר בפנים</h3><p>אם טענה מטעה נשענת על עובדה אמיתית, העובדה מוצגת ולא נמחקת.</p></div></div>
         <div className="source-level"><strong>הקשר</strong><div><h3>לא כל נושא הוא הפרכה פשוטה</h3><p>בנושאים מורכבים מפרידים בין מסמך, עדות, פרשנות, שאלה פתוחה ומסקנה שניתן לבסס.</p></div></div>
@@ -25,7 +25,7 @@ export default function EditorialPolicyPage() {
 
       <h2>שימוש בבינה מלאכותית</h2>
       <div className="box answer">
-        <p>כלי בינה יכולים לעזור באיתור מונחים, תמלול, השוואה ועריכה. כל קישור נפתח ונבדק, והניסוח הסופי עובר החלטה אנושית. תשובה של מודל אינה מקור.</p>
+        <p>כלי בינה יכולים לעזור באיתור מונחים, תמלול, השוואה ועריכה. כל קישור נפתח ונבדק, והניסוח הסופי עובר החלטה אנושית. תשובה של מודל אינה מקור — ראו גם את הבדיקה <a className="text-link" href="/claims/ai-as-source-pyramids">האם תשובת AI היא מקור?</a></p>
       </div>
 
       <h2>ניגודי עניינים</h2>
@@ -36,7 +36,7 @@ export default function EditorialPolicyPage() {
 
       <section className="box method-note">
         <h2>המדיניות חלה גם על האתר עצמו</h2>
-        <p>ניסוח בעייתי, קישור שבור או מקור חדש הם סיבה לעדכן. היסטוריית השינויים נשמרת בריפו הציבורי.</p>
+        <p>ניסוח בעייתי, קישור שבור או מקור חדש הם סיבה לעדכן. היסטוריית השינויים נשמרת בריפו הציבורי, ותיקונים עוברים דרך <a className="text-link" href="/corrections">עמוד התיקונים</a>.</p>
         <a className="button-primary" href="/corrections">עמוד התיקונים</a>
       </section>
     </article>
