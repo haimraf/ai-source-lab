@@ -30,6 +30,7 @@ https://ai-source-lab.vercel.app/
 
 - `/claims/ai-bci-synthetic-soul` - האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
+- `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
