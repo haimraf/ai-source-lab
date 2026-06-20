@@ -38,10 +38,21 @@ function toCheck(claim: (typeof claimRecords)[number]) {
     href: claim.path,
     summary: claim.description,
     topic: claim.kicker,
+    tags: claim.tags,
     verdict: claim.verdict,
     updated: formatDate(claim.updated),
     ogAlt: claim.ogAlt,
   };
+}
+
+function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number }) {
+  return (
+    <div className="tag-list" aria-label="תגיות">
+      {tags.slice(0, limit).map((tag) => (
+        <span className="tag-chip" key={tag}>#{tag}</span>
+      ))}
+    </div>
+  );
 }
 
 const checks = claimRecords.map(toCheck);
@@ -99,6 +110,7 @@ export default function HomePage() {
             <span className="topic-label">⭐ בדיקה לדוגמה</span>
             <h2>{homeFeaturedCheck.title}</h2>
             <p>{homeFeaturedCheck.summary}</p>
+            <TagList tags={homeFeaturedCheck.tags} />
             <a className="button-primary" href={homeFeaturedCheck.href}>פתיחת הבדיקה</a>
           </div>
           <img src={homeFeaturedImage} alt={homeFeaturedCheck.ogAlt} />
@@ -120,6 +132,7 @@ export default function HomePage() {
                 <div className="card-meta"><span>{check.topic}</span><span>•</span><span>עודכן {check.updated}</span></div>
                 <h3>{check.title}</h3>
                 <p className="small">{check.summary}</p>
+                <TagList tags={check.tags} limit={3} />
                 <span className="status-chip">{check.verdict}</span>
               </a>
             </article>
@@ -138,6 +151,7 @@ export default function HomePage() {
               <span className="topic-label">{check.topic}</span>
               <h3>{check.title}</h3>
               <p>{check.summary}</p>
+              <TagList tags={check.tags} limit={3} />
             </a>
           ))}
         </div>
