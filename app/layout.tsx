@@ -7,6 +7,7 @@ import "./components.css";
 import "./polish.css";
 import "./accessibility.css";
 import "./editorial-system.css";
+import { ReadingTimeInjector } from "@/components/ReadingTimeInjector";
 import { siteUrl } from "@/lib/site";
 
 const heebo = Heebo({
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main id="main-content" className="container" tabIndex={-1}>{children}</main>
+        <ReadingTimeInjector />
 
         <nav className="mobile-bottom-nav" aria-label="ניווט מהיר במובייל">
           <a href="/"><span aria-hidden="true">🏠</span>בית</a>
