@@ -1,16 +1,10 @@
 import { ClaimSearch } from "@/components/ClaimSearch";
 import { claimRecords } from "@/lib/claims-db";
-import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
 
 export const metadata = {
   title: "מפת נושאים | מקור בדיקה",
   description: "אשכולות התוכן והבדיקות של מקור בדיקה.",
 };
-
-function formatDate(value: string) {
-  const [year, month, day] = value.split("-");
-  return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
-}
 
 function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number }) {
   return (
@@ -21,24 +15,6 @@ function TagList({ tags, limit = 4 }: { tags: readonly string[]; limit?: number 
     </div>
   );
 }
-
-function ClusterCard({ cluster }: { cluster: TopicCluster }) {
-  const stats = getTopicClusterStats(cluster);
-  const claims = getClaimsForTopicCluster(cluster);
-
-  return (
-    <a id={cluster.slug} className="topic-card" href={cluster.path}>
-      <span className="topic-label">{cluster.eyebrow}</span>
-      <h3>{cluster.shortTitle}</h3>
-      <p>{cluster.description}</p>
-      <small>{stats.publishedCount} בדיקות פורסמו · {stats.plannedCount} בתכנון · עודכן {formatDate(stats.updated)}</small>
-      {claims.length ? <span className="status-chip">בדיקה אחרונה: {claims[0].title}</span> : null}
-    </a>
-  );
-}
-
-const sortedClusters = [...topicClusters].sort((a, b) => b.priority - a.priority || b.updated.localeCompare(a.updated));
-const sortedClaims = [...claimRecords].sort((a, b) => b.updated.localeCompare(a.updated) || b.priority - a.priority);
 
 export default function TopicsPage() {
   return (
@@ -51,20 +27,15 @@ export default function TopicsPage() {
 
       <ClaimSearch />
 
-      <section className="box answer">
-        <div className="section-head">
-          <div>
-            <span className="topic-label">🗂️ אשכולות</span>
-            <h2>אשכולות שמחזיקים בדיקות, לא רק תגיות.</h2>
-          </div>
-          <p>כל אשכול הוא עמוד עבודה עצמאי: בדיקות שפורסמו, שאלות להמשך, ומפת מקור מול פרשנות.</p>
-        </div>
-        <div className="topic-grid">
-          {sortedClusters.map((cluster) => (
-            <ClusterCard cluster={cluster} key={cluster.slug} />
-          ))}
-        </div>
-      </section>
+      <div className="topic-grid">
+        <a className="topic-card" href="/claims/project-blue-beam-nasa"><span className="topic-label">🛸 בדיקה שפורסמה</span><h3>Blue Beam ונרטיבים ציבוריים</h3><p>בדיקה של סיפור ויראלי מול השאלה הפשוטה: האם יש מקור רשמי שניתן לפתוח.</p></a>
+        <a className="topic-card" href="/claims/gateway-process-out-of-body"><span className="topic-label">🧠 בדיקה שפורסמה</span><h3>תודעה ומודיעין</h3><p>Gateway Process וההבדל בין מסמך אמיתי לבין הוכחה למה שמייחסים לו ברשת.</p></a>
+        <a className="topic-card" href="/claims/ai-as-source-pyramids"><span className="topic-label">🤖 בדיקה שפורסמה</span><h3>AI כמקור</h3><p>תשובה של מודל יכולה לעזור למצוא כיוון, אבל היא לא מקור בפני עצמה.</p></a>
+        <a className="topic-card" href="/topics/agenda-2030"><span className="topic-label">🌐 אשכול פעיל</span><h3>אג׳נדה 2030</h3><p>הפער בין מסמך רשמי לבין רשימות שמופצות ברשת.</p></a>
+        <a className="topic-card" href="/claims/cloud-seeding-chemtrails"><span className="topic-label">☁️ אשכול מתרחב</span><h3>שמיים, אקלים וסביבה</h3><p>שובלי התעבות, זריעת עננים והקפיצה מטכנולוגיה קיימת לטענה רחבה מדי.</p></a>
+        <a className="topic-card" href="/claims/xrp-global-currency"><span className="topic-label">💳 בדיקה שפורסמה</span><h3>כסף דיגיטלי ומערכות תשלום</h3><p>XRP, תקני תשלום והפער בין שימוש טכנולוגי לבחירה רשמית.</p></a>
+        <a className="topic-card" href="/editorial-policy"><span className="topic-label">🔮 עתידי</span><h3>ציטוטים ומקורות</h3><p>בירור ציטוטים שמופצים בשם מקור חיצוני, בלי לקבוע מסקנות שלא מופיעות במקור.</p></a>
+      </div>
 
       <section id="all-checks" className="box answer">
         <div className="section-head">
@@ -72,10 +43,10 @@ export default function TopicsPage() {
           <p>ברגע שעולה בדיקה חדשה, היא מופיעה גם כאן — לפי נושא, תגיות, תאריך ומסקנה קצרה.</p>
         </div>
         <div className="grid">
-          {sortedClaims.map((claim) => (
+          {claimRecords.map((claim) => (
             <article className="card" key={claim.path}>
               <a href={claim.path}>
-                <div className="card-meta"><span>{claim.kicker}</span><span>•</span><span>{formatDate(claim.updated)}</span></div>
+                <div className="card-meta"><span>{claim.kicker}</span><span>•</span><span>{claim.updated}</span></div>
                 <h3>{claim.title}</h3>
                 <p className="small">{claim.description}</p>
                 <TagList tags={claim.tags} limit={4} />
@@ -88,7 +59,7 @@ export default function TopicsPage() {
 
       <section className="box method-note">
         <h2>למה אשכול ולא עמוד ענק?</h2>
-        <p>עמוד אחד צריך לענות על שאלה אחת. אשכול מאפשר לקשר בין שאלות בלי לערבב אותן למסקנה אחת גדולה, וזה גם מכין את האתר לניהול עתידי דרך לוח בקרה.</p>
+        <p>עמוד אחד צריך לענות על שאלה אחת. אשכול מאפשר לקשר בין שאלות בלי לערבב אותן למסקנה אחת גדולה.</p>
       </section>
     </article>
   );

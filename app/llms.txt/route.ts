@@ -1,10 +1,10 @@
 import { claimRecords, staticPages } from "@/lib/claims-db";
-import { getClaimsForTopicCluster, topicClusters } from "@/lib/topic-clusters";
 import { siteUrl } from "@/lib/site";
 
 const pageLabels: Record<string, string> = {
   "/": "עמוד הבית והבדיקות האחרונות",
   "/topics": "מפת הנושאים, תגיות והבדיקות לפי אשכולות",
+  "/topics/agenda-2030": "אשכול הטענות סביב אג׳נדה 2030",
   "/methodology": "תהליך הבדיקה והיררכיית המקורות",
   "/how-to-cite": "איך לצטט נכון את מקור בדיקה",
   "/suggest-claim": "הצעת טענה לבדיקה עתידית",
@@ -19,15 +19,8 @@ function lineForPage(path: string) {
   return `- ${siteUrl}${path} - ${pageLabels[path] ?? "עמוד מידע"}`;
 }
 
-function lineForCluster(cluster: (typeof topicClusters)[number]) {
-  const publishedClaims = getClaimsForTopicCluster(cluster);
-  const plannedTitles = cluster.plannedClaims.map((claim) => claim.title).join("; ");
-
-  return `- ${siteUrl}${cluster.path} - ${cluster.title}. סטטוס: ${cluster.status}. בדיקות שפורסמו: ${publishedClaims.length}. שאלות המשך: ${plannedTitles || "אין כרגע"}.`;
-}
-
 function lineForClaim(claim: (typeof claimRecords)[number]) {
-  return `- ${siteUrl}${claim.path} - ${claim.title}. אשכול: ${claim.cluster}. עודכן ${claim.updated}. תגיות: ${claim.tags.join(", ")}. הממצא: ${claim.verdict}.`;
+  return `- ${siteUrl}${claim.path} - ${claim.title}. עודכן ${claim.updated}. תגיות: ${claim.tags.join(", ")}. הממצא: ${claim.verdict}.`;
 }
 
 export async function GET() {
@@ -39,10 +32,6 @@ export async function GET() {
     "## עמודים מרכזיים",
     "",
     ...staticPages.map((page) => lineForPage(page.path)),
-    "",
-    "## אשכולות נושא",
-    "",
-    ...topicClusters.map(lineForCluster),
     "",
     "## בדיקות שפורסמו",
     "",

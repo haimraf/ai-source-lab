@@ -9,17 +9,10 @@ export const staticPages = [
   { path: "/editorial-policy", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/corrections", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/topics", updated: "2026-06-20", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/topics/agenda-2030", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
 export const homeFeaturedClaimSlug = "ai-bci-synthetic-soul";
-
-export type TopicClusterSlug =
-  | "ai-sources"
-  | "agenda-2030"
-  | "sky-climate"
-  | "consciousness-intelligence"
-  | "institutional-narratives"
-  | "digital-money";
 
 export const claimRecords = [
   {
@@ -33,7 +26,6 @@ export const claimRecords = [
     updated: "2026-06-20",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "ai-sources",
     ogAlt: "מקור בדיקה - בדיקת הטענה ש-BCI ו-AI מוכיחים שליטה חיצונית בגוף",
   },
   {
@@ -47,7 +39,6 @@ export const claimRecords = [
     updated: "2026-06-20",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "institutional-narratives",
     ogAlt: "מקור בדיקה - בדיקת הטענה ש-Project Blue Beam הוא תוכנית רשמית של NASA",
   },
   {
@@ -61,7 +52,6 @@ export const claimRecords = [
     updated: "2026-06-19",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "consciousness-intelligence",
     ogAlt: "מקור בדיקה - בדיקת הטענה שמסמך Gateway מוכיח יציאה מהגוף",
   },
   {
@@ -75,7 +65,6 @@ export const claimRecords = [
     updated: "2026-06-19",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "ai-sources",
     ogAlt: "מקור בדיקה - בדיקת הטענה שתשובת AI היא מקור",
   },
   {
@@ -89,7 +78,6 @@ export const claimRecords = [
     updated: "2026-06-19",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "sky-climate",
     ogAlt: "מקור בדיקה - בדיקת הקשר בין זריעת עננים לטענות Chemtrails",
   },
   {
@@ -103,7 +91,6 @@ export const claimRecords = [
     updated: "2026-06-20",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "agenda-2030",
     ogAlt: "מקור בדיקה - בדיקת הטענה שעיר 15 דקות היא כלא עירוני",
   },
   {
@@ -117,7 +104,6 @@ export const claimRecords = [
     updated: "2026-06-18",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "agenda-2030",
     ogAlt: "מקור בדיקה - בדיקת אג׳נדה 2030 ושבעת השלבים",
   },
   {
@@ -132,7 +118,6 @@ export const claimRecords = [
     updated: "2026-06-18",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "digital-money",
     ogAlt: "מקור בדיקה - בדיקת הטענה ש-XRP נבחר להיות המטבע העולמי",
   },
   {
@@ -146,7 +131,6 @@ export const claimRecords = [
     updated: "2026-06-18",
     changeFrequency: "monthly",
     priority: 0.9,
-    cluster: "sky-climate",
     ogAlt: "מקור בדיקה - בדיקת הטענה שמטוסים מרססים אלומיניום",
   },
 ] as const;

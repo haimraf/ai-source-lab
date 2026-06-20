@@ -43,13 +43,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <div className="mobile-header-actions" aria-label="פעולות מהירות במובייל">
               <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות</a>
               <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצעה</a>
             </div>
             <div className="nav-links">
               <a href="/#checks"><span className="link-icon" aria-hidden="true">📚</span>בדיקות</a>
               <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות</a>
+              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>נושאים</a>
               <a href="/methodology"><span className="link-icon" aria-hidden="true">🧪</span>איך בודקים</a>
               <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצע טענה</a>
               <a href="/about"><span className="link-icon" aria-hidden="true">🧑‍💻</span>אודות</a>
@@ -63,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="mobile-bottom-nav" aria-label="ניווט מהיר במובייל">
           <a href="/"><span aria-hidden="true">🏠</span>בית</a>
           <a href="/topics#find-check"><span aria-hidden="true">🔎</span>חיפוש</a>
-          <a href="/topics"><span aria-hidden="true">🧭</span>אשכולות</a>
+          <a href="/topics"><span aria-hidden="true">🧭</span>נושאים</a>
           <a href="/suggest-claim"><span aria-hidden="true">✍️</span>הצע</a>
         </nav>
 
@@ -78,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <strong><span className="link-icon" aria-hidden="true">🗂️</span>האתר</strong>
               <a href="/#checks"><span className="link-icon" aria-hidden="true">📚</span>בדיקות</a>
               <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש חי</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות נושא</a>
+              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>מפת נושאים</a>
               <a href="/methodology"><span className="link-icon" aria-hidden="true">🧪</span>איך בודקים</a>
               <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצע טענה לבדיקה</a>
               <a href="/about"><span className="link-icon" aria-hidden="true">🧑‍💻</span>אודות</a>

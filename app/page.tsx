@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { claimRecords, getHomeFeaturedClaim } from "@/lib/claims-db";
-import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
 import { siteUrl } from "@/lib/site";
 
 const title = "מקור בדיקה | טענות, מקורות ומסקנות";
@@ -39,12 +38,6 @@ function byHomepageFreshness(a: (typeof claimRecords)[number], b: (typeof claimR
   return b.priority - a.priority;
 }
 
-function byClusterPriority(a: TopicCluster, b: TopicCluster) {
-  const priorityCompare = b.priority - a.priority;
-  if (priorityCompare !== 0) return priorityCompare;
-  return b.updated.localeCompare(a.updated);
-}
-
 function toCheck(claim: (typeof claimRecords)[number]) {
   return {
     title: claim.title,
@@ -67,28 +60,12 @@ function TagList({ tags, limit = 3 }: { tags: readonly string[]; limit?: number 
   );
 }
 
-function ClusterCard({ cluster }: { cluster: TopicCluster }) {
-  const stats = getTopicClusterStats(cluster);
-  const claims = getClaimsForTopicCluster(cluster);
-
-  return (
-    <a className="topic-card" href={cluster.path}>
-      <span className="topic-label">{cluster.eyebrow}</span>
-      <h3>{cluster.shortTitle}</h3>
-      <p>{cluster.description}</p>
-      <small>{stats.publishedCount} בדיקות פורסמו · {stats.plannedCount} בתכנון · עודכן {formatDate(stats.updated)}</small>
-      {claims.length ? <span className="status-chip">{claims[0].verdict}</span> : null}
-    </a>
-  );
-}
-
 const sortedClaims = [...claimRecords].sort(byHomepageFreshness);
 const checks = sortedClaims.map(toCheck);
 const featuredChecks = checks.slice(0, 3);
 const latestChecks = checks.slice(0, 3);
 const homeFeaturedCheck = toCheck(getHomeFeaturedClaim());
 const latestUpdated = formatDate(sortedClaims[0].updated);
-const homepageClusters = [...topicClusters].sort(byClusterPriority).slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -128,7 +105,7 @@ export default function HomePage() {
 
       <section className="trust-strip" aria-label="נתוני אמון">
         <div className="trust-item"><strong>{claimRecords.length}</strong>🗂️ בדיקות שפורסמו</div>
-        <div className="trust-item"><strong>{topicClusters.length}</strong>🧭 אשכולות נושא</div>
+        <div className="trust-item"><strong>14+</strong>🔗 מקורות ישירים</div>
         <div className="trust-item"><strong>100%</strong>🔓 קישורים פתוחים לבדיקה</div>
         <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
       </section>
@@ -149,8 +126,8 @@ export default function HomePage() {
           </section>
           <section className="process-card">
             <span>03</span>
-            <h3>ממשיכים לאשכול</h3>
-            <p>כל בדיקה מחוברת לאשכול נושא שמראה בדיקות קשורות, שאלות פתוחות ומה לא כדאי לערבב יחד.</p>
+            <h3>לא מצאתם?</h3>
+            <p>שולחים <a className="text-link" href="/suggest-claim">טענה לבדיקה עתידית</a>. כרגע האתר לא מחזיר בדיקה אוטומטית לכל פרומפט.</p>
           </section>
         </div>
       </section>
@@ -192,16 +169,25 @@ export default function HomePage() {
 
       <section>
         <div className="section-head">
-          <div><span className="topic-label">🧭 מפת נושאים</span><h2>אשכולות אמיתיים, לא רק קטגוריות.</h2></div>
-          <p>כל אשכול מחזיק את הבדיקות שכבר פורסמו, את השאלות שעדיין פתוחות ואת הגבול בין מקור, פרשנות וקפיצה לוגית.</p>
+          <div><span className="topic-label">🧭 מפת נושאים</span><h2>נושאים שחוזרים שוב ושוב</h2></div>
+          <p>האשכולות עוזרים לחבר בין בדיקות בלי להפוך אותן לעמוד ענק אחד.</p>
         </div>
         <div className="topic-grid">
-          {homepageClusters.map((cluster) => (
-            <ClusterCard cluster={cluster} key={cluster.slug} />
-          ))}
-        </div>
-        <div className="hero-actions">
-          <a className="button-secondary" href="/topics">כל האשכולות</a>
+          <a className="topic-card" href="/claims/cloud-seeding-chemtrails">
+            <span className="topic-label">☁️ שמיים ואקלים</span>
+            <h3>Contrails, זריעת עננים ו־Geoengineering</h3>
+            <p>מה קיים באמת, ומה קופץ מזה לטענת ריסוס רחבה מדי.</p>
+          </a>
+          <a className="topic-card" href="/topics/agenda-2030">
+            <span className="topic-label">🌐 אג׳נדה ומוסדות</span>
+            <h3>מסמכים רשמיים מול רשימות ויראליות</h3>
+            <p>הפער בין מקור שניתן לפתוח לבין סיפור שמחבר כמה דברים יחד.</p>
+          </a>
+          <a className="topic-card" href="/claims/ai-as-source-pyramids">
+            <span className="topic-label">🤖 AI ומקורות</span>
+            <h3>תשובה משכנעת אינה מקור</h3>
+            <p>AI יכול לעזור למצוא כיוון, אבל צריך לפתוח את המקורות עצמם.</p>
+          </a>
         </div>
       </section>
 
