@@ -69,14 +69,6 @@ const sources = [
 export default function SyntheticSoulClaimPage() {
   return (
     <article>
-      <nav className="breadcrumbs" aria-label="פירורי לחם">
-        <ol>
-          <li><a href="/">בית</a></li>
-          <li><a href="/topics">נושאים</a></li>
-          <li aria-current="page"><span>{claim.title}</span></li>
-        </ol>
-      </nav>
-
       <section className="hero">
         <span className="badge">{claim.kicker}</span>
         <h1>{claim.title}</h1>
