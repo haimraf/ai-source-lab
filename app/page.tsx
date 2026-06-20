@@ -68,7 +68,7 @@ export default function HomePage() {
           <span className="badge">🔎 מאגר בדיקות מקור</span>
           <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
-            זה לא צ׳אט שבודק כל פרומפט בזמן אמת. זה מאגר בדיקות: מחפשים בדיקה קיימת, פותחים מקור, ורואים מה באמת אפשר לקבוע.
+            זה לא צ׳אט שבודק כל פרומפט בזמן אמת. זה מאגר בדיקות: <a className="text-link" href="/topics#find-check">מחפשים בדיקה קיימת</a>, פותחים מקור, ורואים מה באמת אפשר לקבוע.
           </p>
           <div className="hero-actions">
             <a className="button-primary" href="/topics#find-check">חפש בדיקה קיימת</a>
@@ -110,7 +110,7 @@ export default function HomePage() {
           <section className="process-card">
             <span>01</span>
             <h3>מחפשים בדיקה קיימת</h3>
-            <p>מקלידים טענה, מקור, מושג או תגית. החיפוש מחפש רק בתוך בדיקות שכבר פורסמו.</p>
+            <p>מקלידים טענה, מקור, מושג או תגית. <a className="text-link" href="/topics#find-check">החיפוש</a> מחפש רק בתוך בדיקות שכבר פורסמו.</p>
           </section>
           <section className="process-card">
             <span>02</span>
@@ -120,14 +120,14 @@ export default function HomePage() {
           <section className="process-card">
             <span>03</span>
             <h3>לא מצאתם?</h3>
-            <p>שולחים טענה לבדיקה עתידית. כרגע האתר לא מחזיר בדיקה אוטומטית לכל פרומפט.</p>
+            <p>שולחים <a className="text-link" href="/suggest-claim">טענה לבדיקה עתידית</a>. כרגע האתר לא מחזיר בדיקה אוטומטית לכל פרומפט.</p>
           </section>
         </div>
       </section>
 
       <section className="box method-note">
         <span className="topic-label">🔎 מחפש משהו ספציפי?</span>
-        <h2>החיפוש החי נמצא במפת הנושאים.</h2>
+        <h2><a className="text-link" href="/topics#find-check">החיפוש החי</a> נמצא במפת הנושאים.</h2>
         <p>
           שם אפשר להקליד טענה, מקור או תגית ולקבל תוצאות מיד מתוך המאגר הקיים. אם אין תוצאה, אפשר להציע טענה לבדיקה עתידית.
         </p>
@@ -141,7 +141,7 @@ export default function HomePage() {
         <div className="section-head">
           <div><span className="topic-label">📚 בדיקות אחרונות</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
           <div>
-            <p>בעמוד הבית מוצגות רק כמה בדיקות כדי לא להציף. הרשימה המלאה והחיפוש נמצאים במפת הנושאים.</p>
+            <p>בעמוד הבית מוצגות רק כמה בדיקות כדי לא להציף. <a className="text-link" href="/topics#all-checks">הרשימה המלאה</a> והחיפוש נמצאים במפת הנושאים.</p>
             <div className="hero-actions"><a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a></div>
           </div>
         </div>
