@@ -10,4 +10,15 @@
 6. לעדכן sitemap סטטי אם הוא עדיין קיים במקביל ל-`app/sitemap.ts`.
 7. אחרי פריסה, לבדוק preview חיצוני ולרענן cache.
 
+## Homepage featured claim
+
+כרטיס "בדיקה לדוגמה" בעמוד הבית לא משתמש יותר ב-SVG ידני.
+
+הוא נשען על:
+
+- `homeFeaturedClaimSlug` מתוך `lib/claims-db.ts`
+- ה-`opengraph-image` של אותו עמוד claim
+
+כדי להחליף את הבדיקה שמופיעה בהום, משנים רק את `homeFeaturedClaimSlug`. אין צורך ליצור SVG חדש לכל בדיקה.
+
 הכלל: לא מעלים claim חדש בלי OG תקין.
