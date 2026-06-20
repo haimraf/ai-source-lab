@@ -39,6 +39,7 @@ p { margin: 0 0 16px; }
 .status { color: var(--warn); font-weight:700; }
 .fact { color: var(--ok); font-weight:700; }
 .small { color:var(--muted); font-size:14px; }
+.reading-time { display:inline-flex; align-items:center; gap:4px; border:1px solid rgba(148, 163, 184, .18); border-radius:999px; padding:4px 9px; background:rgba(255,255,255,.035); }
 .copy { width:100%; border:1px solid var(--border); background:#111827; color:var(--text); border-radius:16px; padding:16px; white-space:pre-wrap; font:inherit; }
 .footer { margin-top:64px; color:var(--muted); font-size:14px; border-top:1px solid var(--border); padding-top:24px; }
 ul { padding-right: 22px; }
