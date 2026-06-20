@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { claimRecords } from "@/lib/claims-db";
+import { claimRecords, getHomeFeaturedClaim } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
 const title = "מקור בדיקה | טענות, מקורות ומסקנות";
@@ -32,48 +32,43 @@ function formatDate(value: string) {
   return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
 }
 
-const claimIllustrations: Record<string, { src: string; alt: string }> = {
-  "/claims/gateway-process-out-of-body": {
-    src: "/evidence/gateway-process-card.svg",
-    alt: "איור של מסמך Gateway שנבדק מול טענות על תודעה ויציאה מהגוף",
-  },
-  "/claims/ai-as-source-pyramids": {
-    src: "/evidence/ai-as-source-card.svg",
-    alt: "איור של תשובה שנבדקת מול מקור אמיתי",
-  },
-};
+function toCheck(claim: (typeof claimRecords)[number]) {
+  return {
+    title: claim.title,
+    href: claim.path,
+    summary: claim.description,
+    topic: claim.kicker,
+    verdict: claim.verdict,
+    updated: formatDate(claim.updated),
+    ogAlt: claim.ogAlt,
+  };
+}
 
-const checks = claimRecords.map((claim) => ({
-  title: claim.title,
-  href: claim.path,
-  summary: claim.description,
-  topic: claim.kicker,
-  verdict: claim.verdict,
-  updated: formatDate(claim.updated),
-}));
-
+const checks = claimRecords.map(toCheck);
 const featuredChecks = checks.slice(0, 5);
-const latestCheck = checks[0];
-const latestIllustration = claimIllustrations[latestCheck.href] ?? claimIllustrations["/claims/ai-as-source-pyramids"];
+const homeFeaturedClaim = getHomeFeaturedClaim();
+const homeFeaturedCheck = toCheck(homeFeaturedClaim);
+const homeFeaturedImage = `${homeFeaturedClaim.path}/opengraph-image`;
+const latestUpdated = formatDate(claimRecords[0].updated);
 
 export default function HomePage() {
   return (
     <>
       <section className="home-hero">
         <div>
-          <span className="badge">בדיקות טענות מול מקורות</span>
+          <span className="badge">🔎 בדיקות טענות מול מקורות</span>
           <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
             כל בדיקה מתחילה בטענה אחת ברורה, מציגה שורה תחתונה, ואז פותחת את המקור כדי לראות מה באמת אפשר לקבוע ומה נוסף בדרך.
           </p>
           <div className="hero-actions">
-            <a className="button-primary" href={latestCheck.href}>פתח בדיקה לדוגמה</a>
+            <a className="button-primary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
             <a className="button-secondary" href="#checks">כל הטענות שנבדקו</a>
           </div>
         </div>
 
         <div className="hero-visual" aria-label="טענות שנבדקות באתר">
-          <span className="topic-label">טענות שנבדקות עכשיו</span>
+          <span className="topic-label">🧪 טענות שנבדקות עכשיו</span>
           <p className="visual-intro">
             קודם רואים את הטענה ואת המסקנה. הרקע, השיטה והמקורות מגיעים אחרי שהעיקר ברור.
           </p>
@@ -92,27 +87,27 @@ export default function HomePage() {
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>{claimRecords.length}</strong>בדיקות שפורסמו</div>
-        <div className="trust-item"><strong>14+</strong>מקורות ישירים</div>
-        <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
-        <div className="trust-item"><strong>19.6.26</strong>עדכון אחרון</div>
+        <div className="trust-item"><strong>{claimRecords.length}</strong>🗂️ בדיקות שפורסמו</div>
+        <div className="trust-item"><strong>14+</strong>🔗 מקורות ישירים</div>
+        <div className="trust-item"><strong>100%</strong>🔓 קישורים פתוחים לבדיקה</div>
+        <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
       </section>
 
       <section>
         <div className="feature-card">
           <div>
-            <span className="topic-label">בדיקה לדוגמה</span>
-            <h2>{latestCheck.title}</h2>
-            <p>{latestCheck.summary}</p>
-            <a className="button-primary" href={latestCheck.href}>פתיחת הבדיקה</a>
+            <span className="topic-label">⭐ בדיקה לדוגמה</span>
+            <h2>{homeFeaturedCheck.title}</h2>
+            <p>{homeFeaturedCheck.summary}</p>
+            <a className="button-primary" href={homeFeaturedCheck.href}>פתיחת הבדיקה</a>
           </div>
-          <img src={latestIllustration.src} alt={latestIllustration.alt} />
+          <img src={homeFeaturedImage} alt={homeFeaturedCheck.ogAlt} />
         </div>
       </section>
 
       <section id="checks">
         <div className="section-head">
-          <div><span className="topic-label">בדיקות שפורסמו</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
+          <div><span className="topic-label">📚 בדיקות שפורסמו</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
           <p>כל כרטיס מוביל לעמוד עם מסקנה, שרשרת הטענה, שאלות נפוצות וקישורים ישירים למקורות.</p>
         </div>
         <div className="grid">
@@ -131,7 +126,7 @@ export default function HomePage() {
 
       <section>
         <div className="section-head">
-          <div><span className="topic-label">מפת נושאים</span><h2>נושאים שחוזרים שוב ושוב</h2></div>
+          <div><span className="topic-label">🧭 מפת נושאים</span><h2>נושאים שחוזרים שוב ושוב</h2></div>
           <p>יש נושאים שלא נסגרים בכן או לא. לכן הם נבנים כאשכולות: טענה אחת בכל פעם, בלי לערבב הכול למסקנה אחת גדולה.</p>
         </div>
         <div className="topic-grid">
@@ -146,7 +141,7 @@ export default function HomePage() {
       </section>
 
       <section className="box answer">
-        <h2>למה לסמוך על התהליך?</h2>
+        <h2>🛡️ למה לסמוך על התהליך?</h2>
         <p>המטרה היא לא לנצח ויכוח ולא לבחור צד. המקורות מוצגים ליד המסקנה, תאריך הבדיקה גלוי, וטעויות ניתנות לתיקון. כלי בינה יכולים לסייע בסידור ובאיתור, אבל ההכרעה והפרסום עוברים בדיקה אנושית.</p>
         <div className="hero-actions"><a className="button-secondary" href="/editorial-policy">מדיניות עריכה</a><a className="button-secondary" href="/corrections">תיקונים ועדכונים</a></div>
       </section>
