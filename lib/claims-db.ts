@@ -21,6 +21,7 @@ export const claimRecords = [
     title: "האם Project Blue Beam הוא תוכנית רשמית של NASA?",
     description: "בדיקה של הטענה ש־Project Blue Beam הוא פרויקט רשמי של NASA או האו״ם לזיוף פלישת חוצנים או התגלות דתית לצורך סדר עולמי חדש.",
     kicker: "חוצנים וסדר עולמי",
+    tags: ["חוצנים", "NASA", "האו״ם", "סדר עולמי", "מקור רשמי"],
     verdict: "לא נמצא מקור רשמי של NASA או האו״ם",
     updated: "2026-06-20",
     changeFrequency: "monthly",
@@ -33,6 +34,7 @@ export const claimRecords = [
     title: "האם מסמך Gateway מוכיח יציאה מהגוף?",
     description: "בדיקה של מסמך Gateway מ־1983: מה באמת נבדק, מה אפשר ללמוד ממנו, ואיפה מתחילה הקפיצה מהתעניינות מודיעינית להוכחה רוחנית.",
     kicker: "תודעה ומודיעין",
+    tags: ["תודעה", "CIA", "Gateway", "ראייה מרחוק", "מסמך רשמי"],
     verdict: "המסמך אמיתי, אבל הוא לא הוכחה ליציאה מהגוף",
     updated: "2026-06-19",
     changeFrequency: "monthly",
@@ -45,6 +47,7 @@ export const claimRecords = [
     title: "האם תשובת AI היא מקור?",
     description: "בדיקה של הטענה שתשובה של AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
     kicker: "AI ומקורות",
+    tags: ["AI", "מקורות", "ציטוטים", "פירמידות", "בדיקת מקור"],
     verdict: "AI הוא כלי שמוביל למקורות, לא מקור בפני עצמו",
     updated: "2026-06-19",
     changeFrequency: "monthly",
@@ -57,6 +60,7 @@ export const claimRecords = [
     title: "האם זריעת עננים מוכיחה Chemtrails?",
     description: "בדיקה שמפרידה בין זריעת עננים אמיתית, שובלי מטוסים וטענות על ריסוס אלומיניום.",
     kicker: "שובלי מטוסים",
+    tags: ["Chemtrails", "Cloud Seeding", "Geoengineering", "שמיים", "אקלים"],
     verdict: "זריעת עננים קיימת, אבל אינה מוכיחה שכל שובל הוא ריסוס",
     updated: "2026-06-19",
     changeFrequency: "monthly",
@@ -69,6 +73,7 @@ export const claimRecords = [
     title: "מהי תוכנית שבעת השלבים של אג׳נדה 2030?",
     description: "השוואה בין פוסטרים שמופצים ברשת לבין המסמך הרשמי של אג׳נדה 2030.",
     kicker: "אג׳נדה 2030",
+    tags: ["אג׳נדה 2030", "האו״ם", "SDGs", "סדר עולמי", "מסמך רשמי"],
     verdict: "לא נמצא מקור רשמי לרשימת שבעת השלבים",
     updated: "2026-06-18",
     changeFrequency: "monthly",
@@ -82,6 +87,7 @@ export const claimRecords = [
     description:
       "בדיקה מבוססת מקורות רשמיים לטענה ש-XRP נבחר להיות מטבע עולמי, מטבע רזרבה או תחליף למטבעות מדינתיים.",
     kicker: "XRP ותקני תשלום",
+    tags: ["XRP", "כסף דיגיטלי", "ISO 20022", "מטבעות", "תשלומים"],
     verdict: "לא נמצא מקור רשמי לכך ש-XRP נבחר למטבע עולמי",
     updated: "2026-06-18",
     changeFrequency: "monthly",
@@ -94,6 +100,7 @@ export const claimRecords = [
     title: "האם מטוסים מרססים אלומיניום?",
     description: "בדיקה מול FAA, EPA ושירות מזג האוויר האמריקאי לטענה שהפסים הלבנים ממטוסים הם ריסוס אלומיניום.",
     kicker: "שובלי מטוסים",
+    tags: ["Chemtrails", "אלומיניום", "Contrails", "שמיים", "FAA"],
     verdict: "לא נמצאה ראיה שמקשרת שובלי טיסות רגילות לריסוס אלומיניום",
     updated: "2026-06-18",
     changeFrequency: "monthly",
@@ -104,6 +111,10 @@ export const claimRecords = [
 
 export type ClaimRecord = (typeof claimRecords)[number];
 export type ClaimSlug = ClaimRecord["slug"];
+
+export const allClaimTags = Array.from(new Set(claimRecords.flatMap((claim) => claim.tags))).sort((a, b) =>
+  a.localeCompare(b, "he"),
+);
 
 export function getClaimBySlug(slug: ClaimSlug): ClaimRecord;
 export function getClaimBySlug(slug: string | null): ClaimRecord | undefined;
