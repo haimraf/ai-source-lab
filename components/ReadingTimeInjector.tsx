@@ -36,7 +36,7 @@ export function ReadingTimeInjector() {
     const readingTime = document.createElement("span");
     readingTime.className = "small reading-time";
     readingTime.dataset.readingTime = "true";
-    readingTime.textContent = `זמן קריאה: ${minutes} דק׳`;
+    readingTime.innerHTML = `<span class="link-icon" aria-hidden="true">⏱️</span>זמן קריאה: ${minutes} דק׳`;
 
     const existingMeta = article.querySelector(".claim-meta");
     if (existingMeta) {
