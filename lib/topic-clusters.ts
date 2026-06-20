@@ -1,4 +1,5 @@
 import { claimRecords, type ClaimRecord, type ClaimSlug, type TopicClusterSlug } from "@/lib/claims-db";
+import { standaloneClaimRecords } from "@/lib/standalone-claims";
 
 export type TopicClusterStatus = "active" | "expanding" | "planned";
 export type PlannedClaimStatus = "בבדיקה" | "בתכנון";
@@ -163,7 +164,7 @@ export const topicClusters = [
     description:
       "אשכול לטענות שמייחסות לגופים רשמיים תוכניות גדולות, אבל דורשות בדיקה פשוטה: האם יש מקור רשמי שניתן לפתוח.",
     status: "expanding",
-    updated: "2026-06-20",
+    updated: "2026-06-21",
     priority: 0.84,
     claimSlugs: claimSlugs(["project-blue-beam-nasa"]),
     plannedClaims: [
@@ -284,7 +285,10 @@ export function getTopicClusterForClaim(claim: ClaimRecord): TopicCluster {
 
 export function getClaimsForTopicCluster(cluster: TopicCluster) {
   const slugSet = new Set<string>(cluster.claimSlugs);
-  return claimRecords.filter((claim) => slugSet.has(claim.slug));
+  const indexedClaims = claimRecords.filter((claim) => slugSet.has(claim.slug));
+  const standaloneClaims = standaloneClaimRecords.filter((claim) => claim.cluster === cluster.slug);
+
+  return [...indexedClaims, ...standaloneClaims];
 }
 
 export function getTopicClusterStats(cluster: TopicCluster) {
