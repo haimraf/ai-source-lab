@@ -1,4 +1,5 @@
-import { allClaimTags, claimRecords } from "@/lib/claims-db";
+import { ClaimSearch } from "@/components/ClaimSearch";
+import { claimRecords } from "@/lib/claims-db";
 
 export const metadata = {
   title: "מפת נושאים | מקור בדיקה",
@@ -24,16 +25,7 @@ export default function TopicsPage() {
         <p className="lead">לכן האתר בנוי גם לפי אשכולות ותגיות. כל אשכול מפריד בין המקור, הטענות שנוספו לו, השאלות הציבוריות והחלקים שעדיין פתוחים לבדיקה.</p>
       </section>
 
-      <section className="box method-note">
-        <span className="topic-label">🏷️ תגיות מרכזיות</span>
-        <h2>דרך מהירה להבין מה כבר קיים באתר</h2>
-        <p className="small">התגיות הן התשתית לחיפוש חי בעתיד. כרגע הן עוזרות לסרוק את הנושאים ולראות אילו בדיקות מתחברות זו לזו.</p>
-        <div className="tag-cloud" aria-label="תגיות באתר">
-          {allClaimTags.map((tag) => (
-            <span className="tag-chip" key={tag}>#{tag}</span>
-          ))}
-        </div>
-      </section>
+      <ClaimSearch />
 
       <div className="topic-grid">
         <a className="topic-card" href="/claims/project-blue-beam-nasa"><span className="topic-label">🛸 בדיקה שפורסמה</span><h3>Blue Beam ונרטיבים ציבוריים</h3><p>בדיקה של סיפור ויראלי מול השאלה הפשוטה: האם יש מקור רשמי שניתן לפתוח.</p></a>
