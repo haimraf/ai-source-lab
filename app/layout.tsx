@@ -42,8 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <div className="nav-links">
               <a href="/#checks"><span aria-hidden="true">📚</span> בדיקות</a>
+              <a href="/topics#find-check"><span aria-hidden="true">🔎</span> חיפוש</a>
               <a href="/topics"><span aria-hidden="true">🧭</span> נושאים</a>
-              <a href="/methodology"><span aria-hidden="true">🔎</span> איך בודקים</a>
+              <a href="/methodology"><span aria-hidden="true">🧪</span> איך בודקים</a>
               <a href="/suggest-claim"><span aria-hidden="true">✍️</span> הצע טענה</a>
               <a href="/about"><span aria-hidden="true">🧑‍💻</span> אודות</a>
             </div>
@@ -54,9 +55,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <nav className="mobile-bottom-nav" aria-label="ניווט מהיר במובייל">
           <a href="/"><span aria-hidden="true">🏠</span> בית</a>
-          <a href="/#checks"><span aria-hidden="true">📚</span> בדיקות</a>
+          <a href="/topics#find-check"><span aria-hidden="true">🔎</span> חיפוש</a>
           <a href="/topics"><span aria-hidden="true">🧭</span> נושאים</a>
-          <a href="/suggest-claim"><span aria-hidden="true">✍️</span> הצע טענה</a>
+          <a href="/suggest-claim"><span aria-hidden="true">✍️</span> הצע</a>
         </nav>
 
         <footer className="site-footer">
@@ -69,8 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div>
               <strong>🗂️ האתר</strong>
               <a href="/#checks">📚 בדיקות</a>
+              <a href="/topics#find-check">🔎 חיפוש חי</a>
               <a href="/topics">🧭 מפת נושאים</a>
-              <a href="/methodology">🔎 איך בודקים</a>
+              <a href="/methodology">🧪 איך בודקים</a>
               <a href="/suggest-claim">✍️ הצע טענה לבדיקה</a>
               <a href="/about">🧑‍💻 אודות</a>
             </div>
