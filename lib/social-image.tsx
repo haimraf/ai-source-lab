@@ -16,6 +16,9 @@ function clampText(text: string, maxLength: number) {
 
 function normalizeHebrewOgText(text: string) {
   return text
+    .replaceAll("Project Blue Beam", "פרויקט בלו בים")
+    .replaceAll("NASA", "נאס״א")
+    .replaceAll("UN", "האו״ם")
     .replaceAll("ISO 20022", "תקן המסרים הפיננסיים")
     .replaceAll("2030", "עשרים שלושים")
     .replaceAll("XRP", "אקס־אר־פי")
@@ -43,6 +46,11 @@ function splitTitleLines(title: string) {
     "האם תשובת בינה מלאכותית היא מקור?": [
       "תשובת בינה מלאכותית",
       "אינה מקור בפני עצמה",
+    ],
+    "האם פרויקט בלו בים הוא תוכנית רשמית של נאס״א?": [
+      "לא נמצא מקור רשמי",
+      "לפרויקט בלו בים",
+      "של נאס״א או האו״ם",
     ],
     "האם מסמך גייטוויי מוכיח יציאה מהגוף?": [
       "מסמך גייטוויי אמיתי",
@@ -258,11 +266,8 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
                 display: "flex",
                 alignSelf: "flex-end",
                 fontSize: 24,
-                lineHeight: 1.35,
-                color: "#d8e0ea",
-                background: "rgba(217,179,106,.12)",
-                border: "1px solid rgba(217,179,106,.42)",
-                padding: "14px 18px",
+                lineHeight: 1.25,
+                color: "#c9d2dc",
                 maxWidth: 650,
               }}
             >
@@ -271,20 +276,9 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
           </div>
         </div>
 
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            borderTop: "1px solid #273747",
-            paddingTop: 18,
-            color: "#91a1b2",
-            fontSize: 18,
-          }}
-        >
-          <span>{ogHebrew("מקורות גלויים • תאריך עדכון • בדיקה אנושית")}</span>
-          <span>ai-source-lab.vercel.app</span>
+        <div style={{ display: "flex", justifyContent: "space-between", color: "#91a1b2", fontSize: 16, position: "relative" }}>
+          <div>{ogHebrew("מקור פתוח • בדיקה אנושית • מסקנה זהירה")}</div>
+          <div>ai-source-lab.vercel.app</div>
         </div>
       </div>
     ),
