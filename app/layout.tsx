@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { House, LibraryBig, PencilLine, Search } from "lucide-react";
 import "@fontsource-variable/heebo";
 import "./globals.css";
 import "./theme.css";
@@ -38,8 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </span>
             </a>
             <div className="mobile-header-actions" aria-label="פעולות מהירות במובייל">
-              <a href="/topics#find-check">חיפוש</a>
-              <a href="/topics">אשכולות</a>
+              <a href="/topics#find-check"><Search aria-hidden="true" />חיפוש</a>
+              <a href="/topics"><LibraryBig aria-hidden="true" />אשכולות</a>
             </div>
             <div className="nav-links">
               <a href="/#checks">בדיקות</a>
@@ -56,10 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ReadingTimeInjector />
 
         <nav className="mobile-bottom-nav" aria-label="ניווט מהיר במובייל">
-          <a href="/"><span aria-hidden="true">🏠</span>בית</a>
-          <a href="/topics#find-check"><span aria-hidden="true">🔎</span>חיפוש</a>
-          <a href="/topics"><span aria-hidden="true">🧭</span>אשכולות</a>
-          <a href="/suggest-claim"><span aria-hidden="true">✍️</span>הצע</a>
+          <a href="/"><House aria-hidden="true" />בית</a>
+          <a href="/topics#find-check"><Search aria-hidden="true" />חיפוש</a>
+          <a href="/topics"><LibraryBig aria-hidden="true" />אשכולות</a>
+          <a href="/suggest-claim"><PencilLine aria-hidden="true" />הצע</a>
         </nav>
 
         <footer className="site-footer">

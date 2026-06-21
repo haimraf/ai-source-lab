@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { Maximize2, X } from "lucide-react";
 
 type Exhibit = {
   src: string;
@@ -49,7 +50,7 @@ export function EvidenceGallery({ exhibits }: { exhibits: Exhibit[] }) {
 
   return (
     <>
-      <div className="exhibit-grid">
+      <div className="exhibit-grid" id="evidence-gallery">
         {exhibits.map((exhibit) => (
           <figure className="exhibit-card" key={exhibit.src}>
             <button
@@ -59,7 +60,7 @@ export function EvidenceGallery({ exhibits }: { exhibits: Exhibit[] }) {
               aria-label={`פתיחת ${exhibit.title} בתצוגה מוגדלת`}
             >
               <img src={exhibit.src} alt={exhibit.alt} />
-              <span aria-hidden="true">לחיצה להגדלה</span>
+              <span aria-hidden="true"><Maximize2 />לחיצה להגדלה</span>
             </button>
             <figcaption>
               <strong>{exhibit.title}</strong> {exhibit.caption}
@@ -78,7 +79,7 @@ export function EvidenceGallery({ exhibits }: { exhibits: Exhibit[] }) {
               onClick={closeExhibit}
               aria-label="סגירת התמונה המוגדלת"
             >
-              ×
+              <X aria-hidden="true" />
             </button>
             <img src={active.src} alt={active.alt} />
             <p id={captionId}><strong>{active.title}</strong> {active.caption}</p>

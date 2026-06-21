@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Copy, MessageCircle } from "lucide-react";
 import { buildWhatsAppShareUrl } from "@/lib/share-links";
 
 export function CopyBox({ text }: { text: string }) {
@@ -33,8 +34,8 @@ export function CopyBox({ text }: { text: string }) {
     <div className="copy-box">
       <p>{text}</p>
       <div className="copy-actions">
-        <button className="copy-button" type="button" onClick={handleClick}>העתקת תגובה</button>
-        <button className="button-secondary" type="button" onClick={handleWhatsAppShare}>שיתוף ב-WhatsApp</button>
+        <button className="copy-button" type="button" onClick={handleClick}><Copy aria-hidden="true" />העתקת תגובה</button>
+        <button className="button-secondary" type="button" onClick={handleWhatsAppShare}><MessageCircle aria-hidden="true" />שיתוף ב-WhatsApp</button>
       </div>
       <span className="copy-status" role="status" aria-live="polite">
         {copied ? "התגובה הועתקה ללוח" : ""}

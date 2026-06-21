@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 
 type ActiveImage = {
   src: string;
@@ -41,7 +42,7 @@ export function ExhibitLightboxEnhancer() {
   return (
     <div className="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" onClick={() => setActive(null)}>
       <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
-        <button className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="סגירת התמונה">×</button>
+        <button className="lightbox-close" type="button" onClick={() => setActive(null)} aria-label="סגירת התמונה"><X aria-hidden="true" /></button>
         <img src={active.src} alt={active.alt} />
       </div>
     </div>

@@ -25,13 +25,13 @@ const sources = [
 
 const exhibits = [
   {
-    src: "/evidence/agenda-2030-poster-1.svg",
+    src: "/evidence/agenda-2030-poster-1.webp",
     alt: "פוסטר ויראלי בעברית שמציג רשימת טענות על אג׳נדה 2030",
     title: "מוצג 1.",
     caption: "פוסטר בעברית שמחבר את אג׳נדה 2030 לשורה של טענות. מקורו הראשוני לא אותר.",
   },
   {
-    src: "/evidence/agenda-2030-poster-2.svg",
+    src: "/evidence/agenda-2030-poster-2.webp",
     alt: "פוסטר ויראלי שכותרתו תוכנית שבעת השלבים המוצעת של האו״ם",
     title: "מוצג 2.",
     caption: "פוסטר שמציג רשימה בת שבעה שלבים. הופעת תמונות בו אינה מוכיחה שהמצולמים כתבו או אישרו את הטקסט.",
