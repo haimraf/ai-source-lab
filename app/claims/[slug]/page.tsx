@@ -6,13 +6,14 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
   "gateway-process-out-of-body": "המסמך אמיתי — ההוכחה לא",
   "project-blue-beam-nasa": "נרטיב מוכר — מקור רשמי לא נמצא",
   "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
+  "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
 };
 const faqStructuredDataAnswerOverrides = new Map([
   [

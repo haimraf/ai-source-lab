@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import ChemtrailsPage, { metadata as chemtrailsMetadata } from "../../app/claims/chemtrails-aluminum/page";
+import ChemtrailsPage, { metadata as chemtrailsMetadata } from "../../app/claims/chemtrails-aluminum/legacy-page.fixture";
 import XrpPage, { metadata as xrpMetadata } from "../../app/claims/xrp-global-currency/page";
 import { chemtrailsAluminumClaimContent as chemtrails } from "../../content/claims/chemtrails-aluminum";
 import { xrpGlobalCurrencyClaimContent as xrp } from "../../content/claims/xrp-global-currency";

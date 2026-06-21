@@ -26,9 +26,9 @@ describe("chemtrails-aluminum and xrp-global-currency rich content records", () 
     expect(faq?.items?.map((item) => item.question)).not.toEqual(xrp.faq.map((item) => item.question));
   });
 
-  it("keeps both public routes owned by static pages", () => {
-    for (const claim of [chemtrails, xrp]) {
-      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"))).toBe(true);
-    }
+  it("cuts over only Chemtrails Aluminum and keeps XRP static", () => {
+    expect(existsSync(join(process.cwd(), "app", "claims", chemtrails.slug, "page.tsx"))).toBe(false);
+    expect(existsSync(join(process.cwd(), "app", "claims", chemtrails.slug, "legacy-page.fixture.tsx"))).toBe(true);
+    expect(existsSync(join(process.cwd(), "app", "claims", xrp.slug, "page.tsx"))).toBe(true);
   });
 });

@@ -14,6 +14,7 @@ describe("published content repository", () => {
       "app/claims/gateway-process-out-of-body/page.tsx",
       "app/claims/project-blue-beam-nasa/page.tsx",
       "app/claims/cloud-seeding-chemtrails/page.tsx",
+      "app/claims/chemtrails-aluminum/page.tsx",
     ]);
 
     const issues = findContentIntegrityIssues({
