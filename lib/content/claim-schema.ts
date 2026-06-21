@@ -263,9 +263,24 @@ export interface EditorialChecklist {
   primarySourcesChecked: boolean;
   sourceLinksVerified: boolean;
   verdictSupported: boolean;
+  conclusionWordingChecked: boolean;
   copyReviewed: boolean;
   seoReviewed: boolean;
+  shareCopyReviewed: boolean;
+  mobileReviewed: boolean;
 }
+
+export const editorialChecklistFields = [
+  "claimScopeChecked",
+  "primarySourcesChecked",
+  "sourceLinksVerified",
+  "verdictSupported",
+  "conclusionWordingChecked",
+  "copyReviewed",
+  "seoReviewed",
+  "shareCopyReviewed",
+  "mobileReviewed",
+] as const satisfies readonly (keyof EditorialChecklist)[];
 
 export interface EditorialWorkflow {
   revision: number;

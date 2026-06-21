@@ -27,6 +27,11 @@ describe("claim workflow fields", () => {
         testStatus: "covered",
         needsUpdate: false,
       });
+      expect(claim.workflow.checklist).toMatchObject({
+        conclusionWordingChecked: true,
+        shareCopyReviewed: true,
+        mobileReviewed: true,
+      });
     }
   });
 
@@ -42,6 +47,71 @@ describe("claim workflow fields", () => {
     expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
       `${validClaim.slug}: workflow.checkedAt must be an ISO YYYY-MM-DD date`,
     );
+  });
+
+  it("reports a missing checklist without throwing", () => {
+    const [validClaim] = claimContentRecords;
+    const invalidClaim = {
+      ...validClaim,
+      workflow: { ...validClaim.workflow, checklist: undefined },
+    } as unknown as ClaimContent;
+
+    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
+      `${validClaim.slug}: workflow.checklist is required`,
+    );
+  });
+
+  it("requires every checklist field to be boolean", () => {
+    const [validClaim] = claimContentRecords;
+    const { conclusionWordingChecked: _conclusionWordingChecked, ...missingFieldChecklist } =
+      validClaim.workflow.checklist;
+    const missingFieldClaim = {
+      ...validClaim,
+      workflow: { ...validClaim.workflow, checklist: missingFieldChecklist },
+    } as unknown as ClaimContent;
+    const nonBooleanClaim = {
+      ...validClaim,
+      workflow: {
+        ...validClaim.workflow,
+        checklist: { ...validClaim.workflow.checklist, mobileReviewed: "yes" },
+      },
+    } as unknown as ClaimContent;
+
+    expect(findClaimWorkflowIntegrityIssues(missingFieldClaim)).toContain(
+      `${validClaim.slug}: workflow.checklist.conclusionWordingChecked must be a boolean`,
+    );
+    expect(findClaimWorkflowIntegrityIssues(nonBooleanClaim)).toContain(
+      `${validClaim.slug}: workflow.checklist.mobileReviewed must be a boolean`,
+    );
+  });
+
+  it("requires every published checklist field to be true", () => {
+    const [validClaim] = claimContentRecords;
+    const invalidClaim = {
+      ...validClaim,
+      workflow: {
+        ...validClaim.workflow,
+        checklist: { ...validClaim.workflow.checklist, shareCopyReviewed: false },
+      },
+    } satisfies ClaimContent;
+
+    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
+      `${validClaim.slug}: published claim requires workflow.checklist.shareCopyReviewed`,
+    );
+  });
+
+  it("allows an incomplete boolean checklist before publication", () => {
+    const [validClaim] = claimContentRecords;
+    const draftClaim = {
+      ...validClaim,
+      status: "draft",
+      workflow: {
+        ...validClaim.workflow,
+        checklist: { ...validClaim.workflow.checklist, shareCopyReviewed: false },
+      },
+    } satisfies ClaimContent;
+
+    expect(findClaimWorkflowIntegrityIssues(draftClaim)).toEqual([]);
   });
 
   it("rejects invalid workflow vocabularies and missing published statuses", () => {

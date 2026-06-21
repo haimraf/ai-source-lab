@@ -4,6 +4,7 @@ import {
   changeFrequencies,
   claimStatuses,
   defineClaim,
+  editorialChecklistFields,
   editorialDecisions,
   editorialRoles,
   editorialWorkflowStatuses,
@@ -96,8 +97,11 @@ const checklist = {
   primarySourcesChecked: true,
   sourceLinksVerified: true,
   verdictSupported: true,
+  conclusionWordingChecked: true,
   copyReviewed: true,
   seoReviewed: true,
+  shareCopyReviewed: true,
+  mobileReviewed: true,
 } satisfies EditorialChecklist;
 
 const primarySource = {
@@ -246,6 +250,17 @@ describe("claim content schema", () => {
     expect(changeFrequencies).toEqual(["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]);
     expect(editorialRoles).toEqual(["author", "fact_checker", "editor"]);
     expect(editorialDecisions).toEqual(["pending", "approved", "changes_requested"]);
+    expect(editorialChecklistFields).toEqual([
+      "claimScopeChecked",
+      "primarySourcesChecked",
+      "sourceLinksVerified",
+      "verdictSupported",
+      "conclusionWordingChecked",
+      "copyReviewed",
+      "seoReviewed",
+      "shareCopyReviewed",
+      "mobileReviewed",
+    ]);
     expect(editorialWorkflowStatuses).toEqual(["draft", "reviewed", "published", "needs-review"]);
     expect(sourceWorkflowStatuses).toEqual(["missing", "partial", "verified", "needs-refresh"]);
     expect(seoWorkflowStatuses).toEqual(["missing", "basic", "complete", "needs-review"]);

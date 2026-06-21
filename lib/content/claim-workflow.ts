@@ -1,9 +1,11 @@
 import {
+  editorialChecklistFields,
   editorialWorkflowStatuses,
   seoWorkflowStatuses,
   sourceWorkflowStatuses,
   testWorkflowStatuses,
   type ClaimContent,
+  type EditorialChecklist,
 } from "./claim-schema";
 
 function includesStatus(statuses: readonly string[], value: unknown): value is string {
@@ -47,6 +49,22 @@ export function findClaimWorkflowIntegrityIssues(claim: ClaimContent): string[] 
     issues.push(`${prefix} workflow.needsUpdate must be a boolean`);
   }
 
+  const checklist = workflow.checklist as Partial<EditorialChecklist> | undefined;
+
+  if (!checklist) {
+    issues.push(`${prefix} workflow.checklist is required`);
+  } else {
+    for (const field of editorialChecklistFields) {
+      const value = checklist[field];
+
+      if (typeof value !== "boolean") {
+        issues.push(`${prefix} workflow.checklist.${field} must be a boolean`);
+      } else if (claim.status === "published" && value === false) {
+        issues.push(`${prefix} published claim requires workflow.checklist.${field}`);
+      }
+    }
+  }
+
   if (claim.status === "published") {
     if (workflow.sourceStatus === "missing") {
       issues.push(`${prefix} published claim cannot have workflow.sourceStatus missing`);
@@ -60,8 +78,9 @@ export function findClaimWorkflowIntegrityIssues(claim: ClaimContent): string[] 
   }
 
   if (
+    checklist &&
     workflow.sourceStatus === "verified" &&
-    (!workflow.checklist.primarySourcesChecked || !workflow.checklist.sourceLinksVerified)
+    (!checklist.primarySourcesChecked || !checklist.sourceLinksVerified)
   ) {
     issues.push(`${prefix} verified source status requires checked primary sources and links`);
   }

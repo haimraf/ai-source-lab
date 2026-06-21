@@ -367,8 +367,11 @@ export const aiAsSourcePyramidsClaimContent = defineClaim({
       primarySourcesChecked: true,
       sourceLinksVerified: true,
       verdictSupported: true,
+      conclusionWordingChecked: true,
       copyReviewed: true,
       seoReviewed: true,
+      shareCopyReviewed: true,
+      mobileReviewed: true,
     },
     credits: [
       {
