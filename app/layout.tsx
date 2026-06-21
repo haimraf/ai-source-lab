@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { House, LibraryBig, PencilLine, Search } from "lucide-react";
 import "@fontsource-variable/heebo";
+import "./design-tokens.css";
 import "./globals.css";
 import "./theme.css";
 import "./components.css";

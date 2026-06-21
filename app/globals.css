@@ -1,21 +1,10 @@
-:root {
-  --bg: #0b0d12;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel-strong: rgba(255, 255, 255, 0.1);
-  --text: #f5f7fb;
-  --muted: #aeb6c7;
-  --border: rgba(255, 255, 255, 0.14);
-  --accent: #dbeafe;
-  --warn: #fde68a;
-  --ok: #bbf7d0;
-}
 * { box-sizing: border-box; }
 html { direction: rtl; }
 body {
   margin: 0;
   background: radial-gradient(circle at top right, #172033 0, var(--bg) 42%);
   color: var(--text);
-  font-family: "Heebo Variable", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.75;
 }
 a { color: inherit; }
@@ -54,7 +43,7 @@ ul { padding-right: 22px; }
 .evidence-list { display:grid; gap:14px; margin-top:22px; }
 .evidence-item { display:grid; grid-template-columns:54px 1fr; gap:18px; padding:22px; border:1px solid var(--border); border-radius:20px; background:var(--panel); }
 .evidence-item h3 { margin:0 0 8px; }
-.evidence-number { font-family:monospace; color:var(--muted); font-size:14px; padding-top:3px; }
+.evidence-number { font-family:var(--font-mono); color:var(--muted); font-size:14px; padding-top:3px; }
 .logic-chain { display:flex; align-items:center; flex-wrap:wrap; gap:10px; border:1px solid var(--border); border-radius:18px; padding:18px; background:rgba(255,255,255,.035); margin-bottom:12px; }
 .logic-chain span, .logic-chain strong { padding:7px 10px; border-radius:12px; background:rgba(255,255,255,.055); }
 .logic-chain strong:last-child { border-color: rgba(253, 230, 138, 0.45); background: rgba(253, 230, 138, 0.09); }

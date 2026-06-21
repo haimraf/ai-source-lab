@@ -1,0 +1,52 @@
+:root {
+  /* Color */
+  --bg: #0a0f15;
+  --bg-soft: #0f151d;
+  --panel: rgba(16, 23, 32, 0.94);
+  --panel-strong: #121b25;
+  --text: #eef3f8;
+  --muted: #98a5b3;
+  --border: rgba(148, 163, 184, 0.22);
+  --accent: #d9b36a;
+  --accent-soft: rgba(217, 179, 106, 0.13);
+  --warn: #e0b35f;
+  --ok: #99d8ad;
+  --danger: #f0a0a0;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 22px;
+  --space-6: 24px;
+  --page-gap: 72px;
+
+  /* Radius and elevation */
+  --radius-sm: 7px;
+  --radius-control: 8px;
+  --radius-md: 12px;
+  --radius-card: 14px;
+  --radius-card-mobile: 13px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+
+  /* Typography */
+  --font-sans: "Heebo Variable", "Segoe UI", Arial, sans-serif;
+  --font-mono: monospace;
+  --font-size-body: 16px;
+
+  /* Layout */
+  --header-height: 76px;
+  --layout-shell-width: 1120px;
+  --layout-content-width: 1140px;
+  --layout-article-width: 920px;
+  --layout-reading-width: 850px;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --header-height: 62px;
+  }
+}
