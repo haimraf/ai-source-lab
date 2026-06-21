@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 
 import { ClaimBodyRenderer } from "@/components/ClaimBodyRenderer";
 import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
-import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
+import type { ClaimContent } from "@/lib/content/claim-schema";
+import { createClaimStructuredData } from "@/lib/content/claim-structured-data";
 import { siteUrl } from "@/lib/site";
 
 const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul", "agenda-2030-seven-steps", "who-pandemic-agreement-sovereignty", "15-minute-city-prison"] as const;
@@ -26,13 +27,6 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
 const headlineOverrides: Partial<Record<(typeof dynamicClaimSlugs)[number], string>> = {
   "agenda-2030-seven-steps": 'מהי "תוכנית שבעת השלבים" של אג׳נדה 2030?',
 };
-const faqStructuredDataAnswerOverrides = new Map([
-  [
-    "אז אסור להשתמש ב-AI למחקר?",
-    "מותר ואף שימושי. AI טוב כמפת דרכים, לא כתחנה אחרונה. משתמשים בו כדי למצוא מה לבדוק, ואז בודקים את המקור עצמו.",
-  ],
-]);
-
 type ClaimPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -43,55 +37,6 @@ function getDynamicClaim(slug: string): ClaimContent | undefined {
   if (!dynamicClaimSlugSet.has(slug)) return undefined;
   const routeSlug = slug as (typeof dynamicClaimSlugs)[number];
   return getClaimContentRecordBySlug(contentSlugByRouteSlug[routeSlug] ?? routeSlug);
-}
-
-function getStructuredDataEntry<TType extends ClaimStructuredDataEntry["type"]>(
-  claim: ClaimContent,
-  type: TType,
-): Extract<ClaimStructuredDataEntry, { type: TType }> | undefined {
-  if (!claim.structuredData || claim.structuredData.mode !== "configured") return undefined;
-  return claim.structuredData.entries.find(
-    (entry): entry is Extract<ClaimStructuredDataEntry, { type: TType }> => entry.type === type,
-  );
-}
-
-function createArticleJsonLd(claim: ClaimContent) {
-  const config = getStructuredDataEntry(claim, "article");
-  const author = claim.workflow.credits.find((credit) => credit.role === "author");
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: config?.headline ?? claim.title,
-    description: config?.description ?? claim.description,
-    datePublished: config?.datePublished ?? claim.workflow.publishedAt,
-    dateModified: config?.dateModified ?? claim.updated,
-    inLanguage: config?.inLanguage ?? "he-IL",
-    mainEntityOfPage: `${siteUrl}${claim.path}`,
-    author: author ? { "@type": "Person", name: author.name, url: `${siteUrl}/about` } : undefined,
-  };
-}
-
-function createFaqJsonLd(claim: ClaimContent, config: ClaimFaqStructuredData) {
-  const items = config.items ?? claim.faq;
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faqStructuredDataAnswerOverrides.get(item.question) ?? item.answer,
-      },
-    })),
-    ...(config.placement === "layout" || !config.items ? { mainEntityOfPage: `${siteUrl}${claim.path}` } : {}),
-  };
-}
-
-function withoutJsonLdContext(document: Record<string, unknown>) {
-  const { "@context": _context, ...entry } = document;
-  return entry;
 }
 
 export function generateStaticParams() {
@@ -154,15 +99,7 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
   const claim = getDynamicClaim(slug);
   if (!claim) notFound();
 
-  const usesStructuredData = claim.structuredData?.mode === "configured";
-  const articleJsonLd = usesStructuredData ? createArticleJsonLd(claim) : undefined;
-  const faqConfig = getStructuredDataEntry(claim, "faq");
-  const faqJsonLd = faqConfig ? createFaqJsonLd(claim, faqConfig) : undefined;
-  const usesGraph = claim.structuredData?.mode === "configured" && claim.structuredData.container === "graph";
-  const graphJsonLd = usesGraph && articleJsonLd ? {
-    "@context": "https://schema.org",
-    "@graph": [articleJsonLd, faqJsonLd].filter(Boolean).map((entry) => withoutJsonLdContext(entry!)),
-  } : undefined;
+  const structuredData = createClaimStructuredData(claim, siteUrl);
   const updatedLabel = new Intl.DateTimeFormat("he-IL", {
     day: "numeric",
     month: "long",
@@ -172,13 +109,21 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
 
   return (
     <>
-      {faqJsonLd && !usesGraph ? (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      ) : null}
+      {structuredData.beforeArticle.map((document, index) => (
+        <script
+          key={`before-article-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(document) }}
+        />
+      ))}
       <article>
-        {graphJsonLd ?? articleJsonLd ? (
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphJsonLd ?? articleJsonLd) }} />
-        ) : null}
+        {structuredData.insideArticle.map((document, index) => (
+          <script
+            key={`inside-article-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(document) }}
+          />
+        ))}
 
         <div className="claim-meta">
           <span className="badge verdict-badge">

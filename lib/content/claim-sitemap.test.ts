@@ -138,9 +138,3 @@ describe("claim sitemap", () => {
     expect(readFileSync(sitemapPath, "utf8")).toBe(generated);
   });
 });
-
-if (process.env.npm_lifecycle_event === "generate:sitemap") {
-  it("generates the public claim sitemap block from content", () => {
-    expect(typeof generateClaimSitemapFile()).toBe("boolean");
-  });
-}
