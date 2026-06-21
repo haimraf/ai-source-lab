@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import LegacyXrpPage, { metadata as legacyMetadata } from "../../app/claims/xrp-global-currency/legacy-page.fixture";
+import { metadata as legacyLayoutMetadata } from "../../app/claims/xrp-global-currency/layout";
 import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
 import { xrpGlobalCurrencyClaimContent as xrp } from "../../content/claims/xrp-global-currency";
 
@@ -27,8 +28,8 @@ describe("xrp-global-currency dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
-      twitter: { images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
+      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
+      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
     });
   });
 

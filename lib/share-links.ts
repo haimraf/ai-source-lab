@@ -19,6 +19,8 @@ export function buildGitHubIssueUrl(proposal: Proposal) {
 
 export function buildWhatsAppShareUrl(text: string, pageUrl: string) {
   const url = new URL("https://wa.me/");
-  url.searchParams.set("text", `${text.trim()}\n\n${pageUrl}`);
+  const preparedText = text.trim();
+  const message = /https?:\/\/\S+$/.test(preparedText) ? preparedText : `${preparedText}\n\n${pageUrl}`;
+  url.searchParams.set("text", message);
   return url.toString();
 }

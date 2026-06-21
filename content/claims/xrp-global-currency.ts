@@ -1,4 +1,5 @@
 import { defineClaim, type ClaimContent } from "../../lib/content/claim-schema";
+import { siteUrl } from "../../lib/site";
 import { defineMigratedClaimContent } from "./define-migrated-claim";
 
 const migratedXrpGlobalCurrencyClaimContent = defineMigratedClaimContent({
@@ -76,6 +77,12 @@ export const xrpGlobalCurrencyClaimContent = defineClaim({
       { question: "האם ISO 20022 מאשר את XRP?", answer: "לא. ISO 20022 הוא תקן למסרים ולמידע פיננסי. הוא אינו גוף שמאשר מטבעות." },
     ] },
   ] },
-  metadataOverrides: { title: "האם XRP נבחר להיות המטבע העולמי? | מקור בדיקה", description: migratedXrpGlobalCurrencyClaimContent.description, canonical: migratedXrpGlobalCurrencyClaimContent.path },
+  metadataOverrides: {
+    title: "האם XRP נבחר להיות המטבע העולמי? | מקור בדיקה",
+    description: migratedXrpGlobalCurrencyClaimContent.description,
+    canonical: migratedXrpGlobalCurrencyClaimContent.path,
+    openGraph: { title: "האם XRP נבחר להיות המטבע העולמי? | מקור בדיקה", description: migratedXrpGlobalCurrencyClaimContent.description, url: `${siteUrl}/claims/xrp-global-currency`, siteName: "מקור בדיקה", locale: "he_IL", type: "article" },
+    twitter: { card: "summary_large_image", title: "האם XRP נבחר להיות המטבע העולמי? | מקור בדיקה", description: migratedXrpGlobalCurrencyClaimContent.description },
+  },
   workflow: { ...migratedXrpGlobalCurrencyClaimContent.workflow, credits: [{ id: "haim-rafael", name: "חיים רפאל", role: "author" }] },
 } satisfies ClaimContent);

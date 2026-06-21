@@ -15,4 +15,12 @@ describe("share links", () => {
     expect(url.hostname).toBe("wa.me");
     expect(url.searchParams.get("text")).toBe("שורה תחתונה\n\nhttps://example.com/check");
   });
+
+  it("does not append a second page URL when the prepared response already ends with one", () => {
+    const prepared = "שורה תחתונה\nhttps://ai-source-lab.vercel.app/claims/chemtrails-aluminum";
+    const url = new URL(buildWhatsAppShareUrl(prepared, "https://ai-source-lab.vercel.app/claims/chemtrails-aluminum"));
+
+    expect(url.searchParams.get("text")).toBe(prepared);
+    expect(url.searchParams.get("text")?.match(/https?:\/\//g)).toHaveLength(1);
+  });
 });

@@ -85,7 +85,7 @@ function createFaqJsonLd(claim: ClaimContent, config: ClaimFaqStructuredData) {
         text: faqStructuredDataAnswerOverrides.get(item.question) ?? item.answer,
       },
     })),
-    ...(config.items ? {} : { mainEntityOfPage: `${siteUrl}${claim.path}` }),
+    ...(config.placement === "layout" || !config.items ? { mainEntityOfPage: `${siteUrl}${claim.path}` } : {}),
   };
 }
 

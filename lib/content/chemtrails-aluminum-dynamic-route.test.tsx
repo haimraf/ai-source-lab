@@ -2,17 +2,17 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import LegacyChemtrailsPage, { metadata as legacyMetadata } from "../../app/claims/chemtrails-aluminum/legacy-page.fixture";
+import LegacyChemtrailsLayout, { metadata as legacyLayoutMetadata } from "../../app/claims/chemtrails-aluminum/layout";
 import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
 import { chemtrailsAluminumClaimContent as chemtrails } from "../../content/claims/chemtrails-aluminum";
+import { siteUrl } from "../site";
 
 const params = Promise.resolve({ slug: chemtrails.slug });
 
 interface JsonLdDocument { "@type": string; [key: string]: unknown }
 
-function extractJsonLd(html: string): JsonLdDocument {
-  const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-  expect(match).not.toBeNull();
-  return JSON.parse(match![1]) as JsonLdDocument;
+function extractJsonLd(html: string): JsonLdDocument[] {
+  return Array.from(html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g), (match) => JSON.parse(match[1]) as JsonLdDocument);
 }
 
 describe("chemtrails-aluminum dynamic route cutover", () => {
@@ -31,14 +31,16 @@ describe("chemtrails-aluminum dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
-      twitter: { images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
+      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
+      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
     });
   });
 
-  it("preserves Article JSON-LD without adding FAQPage JSON-LD", async () => {
+  it("preserves the existing page Article and layout FAQPage JSON-LD", async () => {
     const dynamicHtml = renderToStaticMarkup(await DynamicClaimPage({ params }));
-    expect(extractJsonLd(dynamicHtml)).toEqual(extractJsonLd(renderToStaticMarkup(<LegacyChemtrailsPage />)));
-    expect(dynamicHtml).not.toContain('"@type":"FAQPage"');
+    const legacyHtml = renderToStaticMarkup(<LegacyChemtrailsLayout><LegacyChemtrailsPage /></LegacyChemtrailsLayout>);
+    expect(extractJsonLd(dynamicHtml)).toEqual(extractJsonLd(legacyHtml));
+    const faq = extractJsonLd(dynamicHtml).find((document) => document["@type"] === "FAQPage");
+    expect(faq?.mainEntityOfPage).toBe(`${siteUrl}${chemtrails.path}`);
   });
 });

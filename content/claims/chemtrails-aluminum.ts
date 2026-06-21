@@ -1,4 +1,5 @@
 import { defineClaim, type ClaimContent } from "../../lib/content/claim-schema";
+import { siteUrl } from "../../lib/site";
 import { defineMigratedClaimContent } from "./define-migrated-claim";
 
 const migratedChemtrailsAluminumClaimContent = defineMigratedClaimContent({
@@ -75,7 +76,20 @@ export const chemtrailsAluminumClaimContent = defineClaim({
     { id: "sources", type: "sources", title: "המקורות שנבדקו", source: "claim" },
     { id: "method", type: "method-note", title: "איך נבדקה הטענה?", paragraphs: ["הבדיקה הפרידה בין ארבעה נושאים: היווצרות שובלים, פליטות מנוע, פיזור מכוון ממטוסים והטענה המסוימת על אלומיניום. המסקנה מתייחסת רק לקשר שלא הוכח בין שובלי טיסות רגילות לריסוס מכוון של אוכלוסייה."] },
   ],
-  structuredData: { mode: "configured", entries: [{ type: "article", placement: "page", headline: migratedChemtrailsAluminumClaimContent.title, description: "בדיקה מול מקורות רשמיים לטענה ששובלי מטוסים הם ריסוס מכוון של אלומיניום.", datePublished: "2026-06-18", dateModified: "2026-06-18", inLanguage: "he-IL" }] },
-  metadataOverrides: { title: "האם מטוסים מרססים אלומיניום? | מקור בדיקה", description: migratedChemtrailsAluminumClaimContent.description, canonical: migratedChemtrailsAluminumClaimContent.path },
+  structuredData: { mode: "configured", entries: [
+    { type: "article", placement: "page", headline: migratedChemtrailsAluminumClaimContent.title, description: "בדיקה מול מקורות רשמיים לטענה ששובלי מטוסים הם ריסוס מכוון של אלומיניום.", datePublished: "2026-06-18", dateModified: "2026-06-18", inLanguage: "he-IL" },
+    { type: "faq", placement: "layout", items: [
+      { question: "האם שובלי מטוסים הם תמיד ריסוס?", answer: "לא. שובלים לבנים מאחורי מטוסים יכולים להיות שובלי התעבות שנוצרים מתנאי לחות, קור ופליטת מנועים בגובה." },
+      { question: "האם קיימת זריעת עננים?", answer: "כן, קיימות פעולות מוכרות לשינוי מזג אוויר או זריעת עננים. זה לא מוכיח שכל שובלי המטוסים הם ריסוס חשאי של אלומיניום." },
+      { question: "מה צריך כדי להוכיח ריסוס אלומיניום?", answer: "צריך ראיה ישירה שמקשרת בין טיסה מסוימת, חומר מסוים, כמות מדידה ומנגנון פעולה. צילום של פס לבן בשמיים אינו מספיק." },
+    ] },
+  ] },
+  metadataOverrides: {
+    title: "האם מטוסים מרססים אלומיניום? | מקור בדיקה",
+    description: migratedChemtrailsAluminumClaimContent.description,
+    canonical: migratedChemtrailsAluminumClaimContent.path,
+    openGraph: { title: "שובלי מטוסים וטענות על ריסוס | מקור בדיקה", description: "בדיקת מקור מול מקורות תעופה, סביבה ומזג אוויר.", url: `${siteUrl}/claims/chemtrails-aluminum`, siteName: "מקור בדיקה", locale: "he_IL", type: "article" },
+    twitter: { card: "summary_large_image", title: "שובלי מטוסים וטענות על ריסוס | מקור בדיקה", description: "בדיקת מקור מול מקורות תעופה, סביבה ומזג אוויר." },
+  },
   workflow: { ...migratedChemtrailsAluminumClaimContent.workflow, credits: [{ id: "haim-rafael", name: "חיים רפאל", role: "author" }] },
 } satisfies ClaimContent);
