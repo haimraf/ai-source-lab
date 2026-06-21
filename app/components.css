@@ -15,3 +15,32 @@
 .process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}.compact-process{grid-template-columns:repeat(3,1fr)}.process-card{border:1px solid var(--border);border-radius:20px;padding:22px;background:var(--panel)}.process-card span{color:var(--accent);font-family:monospace;font-size:12px}.process-card h3{margin:8px 0 7px}.process-card p{color:var(--muted)}.source-levels{display:grid;gap:12px}.source-level{display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;border:1px solid var(--border);border-radius:18px;padding:18px;background:var(--panel)}.source-level strong{color:var(--accent)}
 @media(max-width:860px){.home-hero,.feature-card{grid-template-columns:1fr}.home-hero{gap:26px}.feature-card{gap:20px}.trust-strip{grid-template-columns:repeat(2,1fr)}.topic-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column;gap:10px}.search-head{grid-template-columns:1fr}.search-guide,.compact-process{grid-template-columns:1fr}}
 @media(max-width:700px){.home-hero{padding:18px 0 10px;gap:22px}.home-hero .lead{max-width:100%}.claim-header{padding:28px 0 14px}.claim-header-meta{gap:8px}.hero-actions{gap:10px;margin-top:22px}.button-primary,.button-secondary{min-height:44px;padding:0 15px;border-radius:12px;font-size:14px}.hero-visual{min-height:300px;padding:18px;border-radius:22px}.signal-list{gap:9px}.signal-row{grid-template-columns:26px 1fr;gap:9px;padding:10px}.signal-row strong{font-size:13px}.signal-row small{font-size:12px}.trust-strip{grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 10px}.trust-item{padding:12px 10px;font-size:12px}.trust-item strong{font-size:18px}.feature-card{padding:18px;border-radius:20px}.feature-card img{height:210px}.tag-chip{font-size:11px;padding:4px 8px}.search-panel{margin-block:34px;padding:16px}.search-guide{gap:8px}.search-guide div{padding:10px}.search-input-row{display:grid;grid-template-columns:1fr}.search-input{min-height:50px;border-radius:14px}.search-clear{width:100%}.quick-tags{gap:7px}.search-result{padding:13px 14px;border-radius:14px}.topic-grid + .box{margin-top:48px}.topic-card,.process-card{padding:18px;border-radius:18px;min-height:auto}.card,.box{padding:18px;border-radius:18px}.grid{gap:12px;margin-top:20px}.section-head{margin-bottom:16px}.section-head p{font-size:14px}.copy-box{padding:16px;border-radius:17px}.copy-button{width:100%;min-height:44px}.exhibit-grid,.process-grid{grid-template-columns:1fr;gap:12px}.exhibit-card{border-radius:18px}.exhibit-card figcaption{padding:14px 15px 16px}.comparison-list div,.source-level{grid-template-columns:1fr;gap:4px;padding:13px 14px}.source-level{border-radius:16px}.exhibit-trigger img{height:auto;max-height:none}.lightbox{padding:12px}.lightbox-panel img{max-height:84vh;border-radius:12px}.lightbox-close{top:4px;left:4px;width:38px;height:38px}.verdict-grid{gap:10px}.evidence-list{gap:10px}.evidence-item{padding:17px}.faq-list details{padding:14px 15px}.topic-cluster-page .grid{gap:16px}}
+
+/* Keep card-style links clean on hover while preserving source link underline. */
+.card > a,
+.card > a:hover,
+.card > a:focus-visible,
+.card > a *,
+.card > a:hover *,
+.card > a:focus-visible *,
+.topic-card,
+.topic-card:hover,
+.topic-card:focus-visible,
+.topic-card *,
+.topic-card:hover *,
+.topic-card:focus-visible *,
+.search-result,
+.search-result:hover,
+.search-result:focus-visible,
+.search-result *,
+.search-result:hover *,
+.search-result:focus-visible *,
+.claim-signal,
+.claim-signal:hover,
+.claim-signal:focus-visible,
+.claim-signal *,
+.claim-signal:hover *,
+.claim-signal:focus-visible * {
+  text-decoration: none;
+  text-decoration-line: none;
+}

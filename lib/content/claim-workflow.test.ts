@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 
 import { claimContentRecords } from "../../content/claims";
 import type { ClaimContent } from "./claim-schema";
@@ -13,7 +13,7 @@ describe("claim workflow fields", () => {
   it("stores the approved Stage 10 workflow state on every claim", () => {
     const claims = claimContentRecords;
 
-    expect(claims).toHaveLength(10);
+    expect(claims).toHaveLength(12);
     for (const claim of claims) {
       expect(claim.workflow.checkedAt).toBe("2026-06-21");
       expect(allowedEditorialStatuses).toContain(claim.workflow.editorialStatus);
@@ -172,3 +172,4 @@ describe("claim workflow fields", () => {
     );
   });
 });
+

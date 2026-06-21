@@ -7,7 +7,7 @@ import type { ClaimContent } from "@/lib/content/claim-schema";
 import { createClaimStructuredData } from "@/lib/content/claim-structured-data";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul", "agenda-2030-seven-steps", "who-pandemic-agreement-sovereignty", "15-minute-city-prison"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "digital-shekel-spending-control", "ai-bci-synthetic-soul", "agenda-2030-seven-steps", "you-will-own-nothing-klaus-schwab", "who-pandemic-agreement-sovereignty", "15-minute-city-prison"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const contentSlugByRouteSlug: Partial<Record<(typeof dynamicClaimSlugs)[number], string>> = {
   "15-minute-city-prison": "fifteen-minute-city-prison",
@@ -19,8 +19,10 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
   "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
   "xrp-global-currency": "לא נמצא בסיס רשמי לטענה",
+  "digital-shekel-spending-control": "שאלות אמיתיות — תוכנית שליטה לא נמצאה",
   "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — קפיצה לא מוכחת",
   "agenda-2030-seven-steps": "לא נמצא מקור רשמי לשבעת השלבים",
+  "you-will-own-nothing-klaus-schwab": "מקור תרחישי — לא תוכנית הפקעה רשמית",
   "who-pandemic-agreement-sovereignty": "הטקסט שולל סמכות להכתיב מדיניות פנים",
   "15-minute-city-prison": "לא נמצא מקור רשמי לכליאה או איסור יציאה",
 };

@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+﻿import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import { claimContentRecords } from "../content/claims";
@@ -20,8 +20,10 @@ describe("published content repository", () => {
       "app/claims/cloud-seeding-chemtrails/page.tsx",
       "app/claims/chemtrails-aluminum/page.tsx",
       "app/claims/xrp-global-currency/page.tsx",
+      "app/claims/digital-shekel-spending-control/page.tsx",
       "app/claims/ai-bci-synthetic-soul/page.tsx",
       "app/claims/agenda-2030-seven-steps/page.tsx",
+      "app/claims/you-will-own-nothing-klaus-schwab/page.tsx",
       "app/claims/who-pandemic-agreement-sovereignty/page.tsx",
       "app/claims/15-minute-city-prison/page.tsx",
     ]);
@@ -41,3 +43,4 @@ describe("published content repository", () => {
     expect([...issues, ...workflowIssues]).toEqual([]);
   });
 });
+
