@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Heebo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./theme.css";
@@ -9,12 +8,7 @@ import "./accessibility.css";
 import "./editorial-system.css";
 import { ReadingTimeInjector } from "@/components/ReadingTimeInjector";
 import { siteUrl } from "@/lib/site";
-
-const heebo = Heebo({
-  subsets: ["hebrew", "latin"],
-  display: "swap",
-  variable: "--font-heebo",
-});
+import { createSiteSchema } from "@/lib/site-schema";
 
 const siteTitle = "מקור בדיקה | טענות, מקורות ומסקנות";
 const siteDescription = "אתר עברי שבודק טענות רשת מול מקורות ומראה איפה העובדות נגמרות והמסקנות מתחילות.";
@@ -28,8 +22,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={heebo.variable}>
-      <body className={heebo.className}>
+    <html lang="he" dir="rtl">
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(createSiteSchema(siteUrl)) }} />
         <a className="skip-link" href="#main-content">דילוג לתוכן הראשי</a>
 
         <header className="site-header">
@@ -44,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="mobile-header-actions" aria-label="פעולות מהירות במובייל">
               <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש</a>
               <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות</a>
-              <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצעה</a>
             </div>
             <div className="nav-links">
               <a href="/#checks"><span className="link-icon" aria-hidden="true">📚</span>בדיקות</a>

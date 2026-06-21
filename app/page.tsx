@@ -103,7 +103,6 @@ export default function HomePage() {
           <div className="hero-actions">
             <a className="button-primary" href="/topics#find-check">חפש בדיקה קיימת</a>
             <a className="button-secondary" href={homeFeaturedCheck.href}>פתח בדיקה לדוגמה</a>
-            <a className="button-secondary" href="/suggest-claim">הצע טענה</a>
           </div>
         </div>
 

@@ -63,6 +63,9 @@ export default function SuggestClaimPage() {
         </div>
       </div>
 
+      <h2>ממלאים כאן, בודקים לפני שליחה</h2>
+      <ClaimProposalForm />
+
       <section className="box method-note">
         <h2>לא כל הצעה תהפוך מיד לעמוד.</h2>
         <p>
@@ -72,3 +75,4 @@ export default function SuggestClaimPage() {
     </article>
   );
 }
+import { ClaimProposalForm } from "@/components/ClaimProposalForm";

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { buildWhatsAppShareUrl } from "@/lib/share-links";
 
 export function CopyBox({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -24,12 +25,17 @@ export function CopyBox({ text }: { text: string }) {
     window.setTimeout(() => setCopied(false), 1600);
   }
 
+  function handleWhatsAppShare() {
+    window.open(buildWhatsAppShareUrl(text, window.location.href), "_blank", "noopener,noreferrer");
+  }
+
   return (
     <div className="copy-box">
       <p>{text}</p>
-      <button className="copy-button" type="button" onClick={handleClick}>
-        העתקת תגובה
-      </button>
+      <div className="copy-actions">
+        <button className="copy-button" type="button" onClick={handleClick}>העתקת תגובה</button>
+        <button className="button-secondary" type="button" onClick={handleWhatsAppShare}>שיתוף ב-WhatsApp</button>
+      </div>
       <span className="copy-status" role="status" aria-live="polite">
         {copied ? "התגובה הועתקה ללוח" : ""}
       </span>

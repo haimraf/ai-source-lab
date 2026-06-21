@@ -85,6 +85,32 @@
 }
 
 @media (max-width: 700px) {
+  .site-nav {
+    gap: 8px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-copy strong {
+    font-size: 14px;
+  }
+
+  .mobile-header-actions {
+    min-width: 0;
+    gap: 5px;
+  }
+
+  .mobile-header-actions a {
+    padding-inline: 9px;
+  }
+
   .hero-visual > .topic-label {
     margin-bottom: 12px;
     padding-bottom: 10px;
