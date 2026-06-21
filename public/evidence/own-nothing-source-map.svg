@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Source trail illustration</title>
+  <desc id="desc">A text-free illustration showing a source document turning into a viral claim.</desc>
+  <rect width="1200" height="720" fill="#0b1118"/>
+  <circle cx="1010" cy="120" r="180" fill="#1f2b3a" opacity="0.55"/>
+  <circle cx="190" cy="650" r="260" fill="#2a2116" opacity="0.45"/>
+  <g fill="none" stroke="#314254" stroke-width="2" opacity="0.65">
+    <path d="M0 120H1200"/>
+    <path d="M0 240H1200"/>
+    <path d="M0 360H1200"/>
+    <path d="M0 480H1200"/>
+    <path d="M0 600H1200"/>
+    <path d="M200 0V720"/>
+    <path d="M400 0V720"/>
+    <path d="M600 0V720"/>
+    <path d="M800 0V720"/>
+    <path d="M1000 0V720"/>
+  </g>
+  <g transform="translate(105 125)">
+    <rect x="0" y="0" width="280" height="370" rx="22" fill="#f3efe6" stroke="#d9b36a" stroke-width="4"/>
+    <rect x="34" y="42" width="132" height="18" rx="9" fill="#172033"/>
+    <rect x="34" y="92" width="210" height="12" rx="6" fill="#657180"/>
+    <rect x="34" y="124" width="188" height="12" rx="6" fill="#657180"/>
+    <rect x="34" y="156" width="222" height="12" rx="6" fill="#657180"/>
+    <rect x="34" y="210" width="96" height="96" rx="18" fill="#d9b36a" opacity="0.35"/>
+    <path d="M176 246h62M176 274h46" stroke="#7b5b22" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="226" cy="318" r="34" fill="none" stroke="#b0473c" stroke-width="8"/>
+  </g>
+  <g transform="translate(462 190)">
+    <path d="M0 170C90 40 196 40 286 170" fill="none" stroke="#d9b36a" stroke-width="16" stroke-linecap="round"/>
+    <path d="M286 170l-52-16 21 49z" fill="#d9b36a"/>
+  </g>
+  <g transform="translate(805 135)">
+    <rect x="0" y="0" width="300" height="210" rx="28" fill="#111b25" stroke="#314254" stroke-width="4"/>
+    <circle cx="78" cy="82" r="38" fill="#d9b36a" opacity="0.95"/>
+    <circle cx="136" cy="82" r="38" fill="#b0473c" opacity="0.85"/>
+    <circle cx="194" cy="82" r="38" fill="#91a1b2" opacity="0.65"/>
+    <path d="M55 155h190" stroke="#eef3f8" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+    <path d="M78 178h144" stroke="#91a1b2" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  <g transform="translate(782 405)">
+    <rect x="0" y="0" width="330" height="140" rx="24" fill="#172033" stroke="#d9b36a" stroke-width="3"/>
+    <path d="M48 47h235M48 76h190M48 105h128" stroke="#eef3f8" stroke-width="13" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="278" cy="102" r="44" fill="none" stroke="#b0473c" stroke-width="8"/>
+    <path d="M254 102l17 17 33-39" fill="none" stroke="#b0473c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
