@@ -1,9 +1,11 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
+import { claimContentRecords } from "../content/claims";
 import { claimRecords } from "./claims-db";
 import { findContentIntegrityIssues } from "./content-integrity";
 import { updateClaimSitemapXml } from "./content/claim-sitemap";
+import { findClaimWorkflowIntegrityIssues } from "./content/claim-workflow";
 import { topicClusters } from "./topic-clusters";
 
 describe("published content repository", () => {
@@ -34,6 +36,8 @@ describe("published content repository", () => {
         (path.startsWith("app/topics/") && existsSync("app/topics/[slug]/page.tsx")),
     });
 
-    expect(issues).toEqual([]);
+    const workflowIssues = claimContentRecords.flatMap(findClaimWorkflowIntegrityIssues);
+
+    expect([...issues, ...workflowIssues]).toEqual([]);
   });
 });

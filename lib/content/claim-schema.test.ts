@@ -6,7 +6,11 @@ import {
   defineClaim,
   editorialDecisions,
   editorialRoles,
+  editorialWorkflowStatuses,
+  seoWorkflowStatuses,
   sourceLevels,
+  sourceWorkflowStatuses,
+  testWorkflowStatuses,
   type ClaimContent,
   type ClaimBodyBlock,
   type ClaimFaqItem,
@@ -117,6 +121,12 @@ const workflow = {
   createdAt: "2026-06-20",
   updatedAt: "2026-06-21",
   publishedAt: "2026-06-21",
+  checkedAt: "2026-06-21",
+  editorialStatus: "published",
+  sourceStatus: "verified",
+  seoStatus: "basic",
+  testStatus: "covered",
+  needsUpdate: false,
   reviewedBy: "editor",
   reviewedAt: "2026-06-21",
   checklist,
@@ -236,6 +246,10 @@ describe("claim content schema", () => {
     expect(changeFrequencies).toEqual(["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]);
     expect(editorialRoles).toEqual(["author", "fact_checker", "editor"]);
     expect(editorialDecisions).toEqual(["pending", "approved", "changes_requested"]);
+    expect(editorialWorkflowStatuses).toEqual(["draft", "reviewed", "published", "needs-review"]);
+    expect(sourceWorkflowStatuses).toEqual(["missing", "partial", "verified", "needs-refresh"]);
+    expect(seoWorkflowStatuses).toEqual(["missing", "basic", "complete", "needs-review"]);
+    expect(testWorkflowStatuses).toEqual(["missing", "partial", "covered", "needs-review"]);
   });
 
   it("preserves ordered rich body blocks and optional cutover metadata", () => {

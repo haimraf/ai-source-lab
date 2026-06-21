@@ -13,6 +13,18 @@ export type EditorialRole = (typeof editorialRoles)[number];
 export const editorialDecisions = ["pending", "approved", "changes_requested"] as const;
 export type EditorialDecision = (typeof editorialDecisions)[number];
 
+export const editorialWorkflowStatuses = ["draft", "reviewed", "published", "needs-review"] as const;
+export type EditorialWorkflowStatus = (typeof editorialWorkflowStatuses)[number];
+
+export const sourceWorkflowStatuses = ["missing", "partial", "verified", "needs-refresh"] as const;
+export type SourceWorkflowStatus = (typeof sourceWorkflowStatuses)[number];
+
+export const seoWorkflowStatuses = ["missing", "basic", "complete", "needs-review"] as const;
+export type SeoWorkflowStatus = (typeof seoWorkflowStatuses)[number];
+
+export const testWorkflowStatuses = ["missing", "partial", "covered", "needs-review"] as const;
+export type TestWorkflowStatus = (typeof testWorkflowStatuses)[number];
+
 export interface ClaimSource {
   id: string;
   title: string;
@@ -261,6 +273,13 @@ export interface EditorialWorkflow {
   createdAt: string;
   updatedAt: string;
   publishedAt?: string;
+  checkedAt: string;
+  editorialStatus: EditorialWorkflowStatus;
+  sourceStatus: SourceWorkflowStatus;
+  seoStatus: SeoWorkflowStatus;
+  testStatus: TestWorkflowStatus;
+  needsUpdate: boolean;
+  updateReason?: string;
   reviewedBy?: string;
   reviewedAt?: string;
   checklist: EditorialChecklist;

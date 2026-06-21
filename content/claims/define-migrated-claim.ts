@@ -54,6 +54,12 @@ export function defineMigratedClaimContent(input: MigratedClaimInput): ClaimCont
       createdAt: input.updated,
       updatedAt: input.updated,
       publishedAt: input.updated,
+      checkedAt: "2026-06-21",
+      editorialStatus: "published",
+      sourceStatus: "verified",
+      seoStatus: "basic",
+      testStatus: "covered",
+      needsUpdate: false,
       checklist: {
         claimScopeChecked: true,
         primarySourcesChecked: true,

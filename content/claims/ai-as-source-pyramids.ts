@@ -356,6 +356,12 @@ export const aiAsSourcePyramidsClaimContent = defineClaim({
     createdAt: "2026-06-19",
     updatedAt: "2026-06-19",
     publishedAt: "2026-06-19",
+    checkedAt: "2026-06-21",
+    editorialStatus: "published",
+    sourceStatus: "verified",
+    seoStatus: "basic",
+    testStatus: "covered",
+    needsUpdate: false,
     checklist: {
       claimScopeChecked: true,
       primarySourcesChecked: true,
