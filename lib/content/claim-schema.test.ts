@@ -8,11 +8,84 @@ import {
   editorialRoles,
   sourceLevels,
   type ClaimContent,
+  type ClaimBodyBlock,
   type ClaimFaqItem,
   type ClaimSource,
   type EditorialChecklist,
   type EditorialWorkflow,
 } from "./claim-schema";
+
+const richBody = [
+  {
+    id: "context",
+    type: "paragraph-section",
+    title: "Context",
+    paragraphs: ["A paragraph that must keep its place in the document."],
+  },
+  {
+    id: "answer",
+    type: "answer-box",
+    eyebrow: "Short answer",
+    title: "The narrow answer",
+    paragraphs: ["The answer box keeps its supporting copy."],
+    variant: "answer",
+  },
+  {
+    id: "verdict",
+    type: "verdict-grid",
+    items: [
+      { label: "Claim", text: "The statement being checked." },
+      { label: "Bottom line", text: "The supported conclusion.", emphasis: true },
+    ],
+  },
+  {
+    id: "evidence",
+    type: "evidence-list",
+    numbered: true,
+    items: [
+      { id: "evidence-1", number: "01", title: "Primary evidence", paragraphs: ["What the source establishes."] },
+    ],
+  },
+  {
+    id: "levels",
+    type: "source-levels",
+    rows: [
+      { label: "Document", title: "What exists", paragraphs: ["The primary document exists."] },
+    ],
+  },
+  {
+    id: "comparison",
+    type: "comparison-list",
+    items: [
+      { label: "Supported", text: "The narrow statement is documented.", tone: "supports" },
+      { label: "Unsupported", text: "The broader conclusion is not documented.", tone: "contradicts" },
+    ],
+  },
+  {
+    id: "logic",
+    type: "logic-chain",
+    ariaLabel: "Claim reasoning chain",
+    steps: ["A document exists", "The document discusses the topic"],
+    conclusion: "Therefore the broader claim is true",
+    note: "The conclusion does not follow from the preceding steps.",
+  },
+  {
+    id: "method",
+    type: "method-note",
+    title: "How the claim was checked",
+    paragraphs: ["The sources were compared with the exact claim."],
+  },
+  {
+    id: "bonus",
+    type: "bonus-note",
+    title: "Additional context",
+    paragraphs: ["A related fact that should remain visually distinct."],
+  },
+  { id: "faq", type: "faq", title: "Frequently asked questions", source: "claim" },
+  { id: "sources", type: "sources", title: "Sources checked", source: "claim" },
+  { id: "gallery", type: "gallery", title: "Exhibits", source: "claim", exhibitIds: ["exhibit-1"] },
+  { id: "share", type: "copy-share", title: "Copy a short response", source: "claim" },
+] satisfies readonly ClaimBodyBlock[];
 
 const checklist = {
   claimScopeChecked: true,
@@ -100,6 +173,55 @@ const validClaim = {
   },
 } satisfies ClaimContent;
 
+const richClaim = {
+  ...validClaim,
+  lead: "A dedicated editorial lead that is distinct from the SEO description.",
+  shareCopy: "A short response prepared for copying and sharing.",
+  exhibits: [
+    {
+      id: "exhibit-1",
+      src: "/evidence/example.svg",
+      alt: "A diagram separating the source from the conclusion",
+      title: "Source and conclusion",
+      caption: "The exhibit preserves its caption and accessible alternative text.",
+      label: "Exhibit 1",
+      credit: "Editorial illustration",
+      kind: "image",
+    },
+  ],
+  structuredData: {
+    mode: "configured",
+    entries: [
+      {
+        type: "article",
+        placement: "page",
+        headline: "Example claim",
+        datePublished: "2026-06-20",
+        dateModified: "2026-06-21",
+        inLanguage: "en",
+      },
+      { type: "faq", placement: "layout" },
+    ],
+  },
+  metadataOverrides: {
+    canonical: "/claims/example-claim",
+    openGraph: {
+      title: "Example claim",
+      description: "A social description for the example claim.",
+      url: "https://example.com/claims/example-claim",
+      image: "https://example.com/claims/example-claim/opengraph-image",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Example claim",
+      description: "A social description for the example claim.",
+      image: "https://example.com/claims/example-claim/opengraph-image",
+    },
+  },
+  body: richBody,
+} satisfies ClaimContent;
+
 describe("claim content schema", () => {
   it("preserves a complete statically typed claim document", () => {
     expect(defineClaim(validClaim)).toBe(validClaim);
@@ -111,5 +233,28 @@ describe("claim content schema", () => {
     expect(changeFrequencies).toEqual(["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"]);
     expect(editorialRoles).toEqual(["author", "fact_checker", "editor"]);
     expect(editorialDecisions).toEqual(["pending", "approved", "changes_requested"]);
+  });
+
+  it("preserves ordered rich body blocks and optional cutover metadata", () => {
+    const claim = defineClaim(richClaim);
+
+    expect(claim.body.map((block) => block.type)).toEqual([
+      "paragraph-section",
+      "answer-box",
+      "verdict-grid",
+      "evidence-list",
+      "source-levels",
+      "comparison-list",
+      "logic-chain",
+      "method-note",
+      "bonus-note",
+      "faq",
+      "sources",
+      "gallery",
+      "copy-share",
+    ]);
+    expect(claim.exhibits[0].id).toBe("exhibit-1");
+    expect(claim.structuredData.mode).toBe("configured");
+    expect(claim.metadataOverrides.openGraph?.type).toBe("article");
   });
 });

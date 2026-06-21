@@ -37,6 +37,186 @@ export interface ClaimSection {
   paragraphs: readonly string[];
 }
 
+export interface ClaimBodyBlockBase {
+  id: string;
+  title?: string;
+}
+
+export interface ClaimParagraphSectionBlock extends ClaimBodyBlockBase {
+  type: "paragraph-section";
+  paragraphs: readonly string[];
+}
+
+export interface ClaimAnswerBoxBlock extends ClaimBodyBlockBase {
+  type: "answer-box";
+  eyebrow?: string;
+  title: string;
+  paragraphs: readonly string[];
+  variant?: "answer" | "verdict";
+}
+
+export interface ClaimVerdictGridItem {
+  label: string;
+  text: string;
+  emphasis?: boolean;
+}
+
+export interface ClaimVerdictGridBlock extends ClaimBodyBlockBase {
+  type: "verdict-grid";
+  items: readonly ClaimVerdictGridItem[];
+}
+
+export interface ClaimEvidenceItem {
+  id: string;
+  number?: string;
+  title: string;
+  paragraphs: readonly string[];
+}
+
+export interface ClaimEvidenceListBlock extends ClaimBodyBlockBase {
+  type: "evidence-list";
+  numbered?: boolean;
+  items: readonly ClaimEvidenceItem[];
+}
+
+export interface ClaimSourceLevelRow {
+  label: string;
+  title: string;
+  paragraphs: readonly string[];
+}
+
+export interface ClaimSourceLevelsBlock extends ClaimBodyBlockBase {
+  type: "source-levels";
+  rows: readonly ClaimSourceLevelRow[];
+}
+
+export type ClaimComparisonTone = "neutral" | "supports" | "contradicts" | "caution";
+
+export interface ClaimComparisonItem {
+  label: string;
+  text: string;
+  tone?: ClaimComparisonTone;
+  emphasis?: boolean;
+}
+
+export interface ClaimComparisonListBlock extends ClaimBodyBlockBase {
+  type: "comparison-list";
+  items: readonly ClaimComparisonItem[];
+}
+
+export interface ClaimLogicChainBlock extends ClaimBodyBlockBase {
+  type: "logic-chain";
+  ariaLabel?: string;
+  steps: readonly string[];
+  conclusion?: string;
+  note?: string;
+}
+
+export interface ClaimMethodNoteBlock extends ClaimBodyBlockBase {
+  type: "method-note";
+  paragraphs: readonly string[];
+}
+
+export interface ClaimBonusNoteBlock extends ClaimBodyBlockBase {
+  type: "bonus-note";
+  paragraphs: readonly string[];
+}
+
+export interface ClaimFaqBlock extends ClaimBodyBlockBase {
+  type: "faq";
+  source: "claim";
+}
+
+export interface ClaimSourcesBlock extends ClaimBodyBlockBase {
+  type: "sources";
+  source: "claim";
+}
+
+export interface ClaimGalleryBlock extends ClaimBodyBlockBase {
+  type: "gallery";
+  source: "claim";
+  exhibitIds?: readonly string[];
+}
+
+export interface ClaimCopyShareBlock extends ClaimBodyBlockBase {
+  type: "copy-share";
+  source: "claim";
+}
+
+export type ClaimBodyBlock =
+  | ClaimParagraphSectionBlock
+  | ClaimAnswerBoxBlock
+  | ClaimVerdictGridBlock
+  | ClaimEvidenceListBlock
+  | ClaimSourceLevelsBlock
+  | ClaimComparisonListBlock
+  | ClaimLogicChainBlock
+  | ClaimMethodNoteBlock
+  | ClaimBonusNoteBlock
+  | ClaimFaqBlock
+  | ClaimSourcesBlock
+  | ClaimGalleryBlock
+  | ClaimCopyShareBlock;
+
+export interface ClaimExhibit {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  label?: string;
+  credit?: string;
+  kind?: "image" | "document";
+}
+
+export type ClaimStructuredDataPlacement = "page" | "layout";
+
+export interface ClaimArticleStructuredData {
+  type: "article";
+  placement: ClaimStructuredDataPlacement;
+  headline?: string;
+  description?: string;
+  datePublished?: string;
+  dateModified?: string;
+  inLanguage?: string;
+}
+
+export interface ClaimFaqStructuredData {
+  type: "faq";
+  placement: ClaimStructuredDataPlacement;
+}
+
+export type ClaimStructuredDataEntry = ClaimArticleStructuredData | ClaimFaqStructuredData;
+
+export type ClaimStructuredDataConfig =
+  | { mode: "none" }
+  | { mode: "configured"; entries: readonly ClaimStructuredDataEntry[] };
+
+export interface ClaimOpenGraphOverrides {
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: string;
+  siteName?: string;
+  locale?: string;
+  type?: "article" | "website";
+}
+
+export interface ClaimTwitterOverrides {
+  card?: "summary" | "summary_large_image";
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+export interface ClaimMetadataOverrides {
+  title?: string;
+  description?: string;
+  canonical?: `/claims/${string}`;
+  openGraph?: ClaimOpenGraphOverrides;
+  twitter?: ClaimTwitterOverrides;
+}
+
 export interface ClaimFindings {
   found: readonly string[];
   notFound: readonly string[];
@@ -109,6 +289,12 @@ export interface ClaimContent {
   sections: readonly ClaimSection[];
   workflow: EditorialWorkflow;
   seo: ClaimSeo;
+  lead?: string;
+  shareCopy?: string;
+  exhibits?: readonly ClaimExhibit[];
+  structuredData?: ClaimStructuredDataConfig;
+  metadataOverrides?: ClaimMetadataOverrides;
+  body?: readonly ClaimBodyBlock[];
 }
 
 // Compatibility aliases keep the schema additive until content migration starts.
