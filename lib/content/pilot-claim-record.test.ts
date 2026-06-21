@@ -62,7 +62,7 @@ describe("pilot claim content record", () => {
           placement: "page",
           headline: "האם תשובת AI היא מקור?",
           description:
-            "בדיקה של הטענה שתשובה של AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
+            "בדיקה של הטענה שתשובת AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
           datePublished: "2026-06-19",
           dateModified: "2026-06-19",
           inLanguage: "he-IL",
@@ -88,7 +88,8 @@ describe("pilot claim content record", () => {
 
   it("does not create or remove public page routes", () => {
     expect(countPageModules("app")).toBe(22);
-    expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(true);
+    expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
+    expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
   });
 
   it("keeps loader output aligned with the existing claim records", () => {

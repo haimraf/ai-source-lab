@@ -9,12 +9,16 @@ describe("published content repository", () => {
   it("keeps claims, topics, sitemap pages, and social images synchronized", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
     const sitemapPaths = new Set(Array.from(sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g), (match) => match[1] || "/"));
+    const pilotPageFile = "app/claims/ai-as-source-pyramids/page.tsx";
 
     const issues = findContentIntegrityIssues({
       claimPaths: claimRecords.map((claim) => claim.path),
       topicPaths: topicClusters.map((topic) => topic.path),
       sitemapPaths,
-      fileExists: (path) => existsSync(path) || (path.startsWith("app/topics/") && existsSync("app/topics/[slug]/page.tsx")),
+      fileExists: (path) =>
+        existsSync(path) ||
+        (path === pilotPageFile && existsSync("app/claims/[slug]/page.tsx")) ||
+        (path.startsWith("app/topics/") && existsSync("app/topics/[slug]/page.tsx")),
     });
 
     expect(issues).toEqual([]);

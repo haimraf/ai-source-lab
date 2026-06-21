@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import StaticClaimLayout from "../../app/claims/ai-as-source-pyramids/layout";
-import StaticClaimPage, { metadata as staticMetadata } from "../../app/claims/ai-as-source-pyramids/page";
+import StaticClaimPage, { metadata as staticMetadata } from "../../app/claims/ai-as-source-pyramids/legacy-page.fixture";
 import { aiAsSourcePyramidsClaimContent as pilotClaim } from "../../content/claims/ai-as-source-pyramids";
 import type { ClaimMetadataOverrides } from "./claim-schema";
 
@@ -54,11 +54,11 @@ describe("ai-as-source-pyramids metadata parity", () => {
       type: "article",
       placement: "page",
       headline: staticArticle.headline,
+      description: staticArticle.description,
       datePublished: staticArticle.datePublished,
       dateModified: staticArticle.dateModified,
       inLanguage: staticArticle.inLanguage,
     });
-    expect(articleConfig?.description).toBe(staticMetadata.description);
     for (const intentMarker of ["בדיקה של הטענה", "AI", "קייס הפירמידות", "מקור שניתן לפתוח"]) {
       expect(staticArticle.description).toContain(intentMarker);
       expect(articleConfig?.description).toContain(intentMarker);

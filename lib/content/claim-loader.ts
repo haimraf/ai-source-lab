@@ -50,6 +50,11 @@ export function getClaimContentBySlug(
   return claims.find((claim) => claim.slug === slug);
 }
 
+export function getClaimContentRecordBySlug(slug: string | null): ClaimContent | undefined {
+  if (!slug) return undefined;
+  return migratedClaimContentBySlug.get(slug);
+}
+
 export function getClaimContentByPath(
   path: string,
   claims: readonly ClaimContentIndexEntry[] = currentClaimContent,

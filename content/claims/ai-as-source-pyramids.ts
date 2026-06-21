@@ -333,7 +333,7 @@ export const aiAsSourcePyramidsClaimContent = defineClaim({
         placement: "page",
         headline: "האם תשובת AI היא מקור?",
         description:
-          "בדיקה של הטענה שתשובה של AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
+          "בדיקה של הטענה שתשובת AI יכולה לשמש מקור, דרך קייס הפירמידות והפער בין תשובה משכנעת לבין מקור שניתן לפתוח.",
         datePublished: "2026-06-19",
         dateModified: "2026-06-19",
         inLanguage: "he-IL",
