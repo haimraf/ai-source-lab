@@ -63,7 +63,7 @@
 
 .brand-copy small {
   margin-top: 5px;
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.2;
   letter-spacing: 0;
 }
@@ -127,5 +127,31 @@
     height: 22px;
     border-radius: 7px;
     font-size: 11px;
+  }
+}
+
+.topic-label,
+.status-chip,
+.footer-seal,
+.search-result-topic,
+.search-guide strong {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .mobile-header-actions a,
+  .mobile-bottom-nav a {
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .trust-item {
+    font-size: 13px;
+  }
+
+  .tag-chip {
+    font-size: 13px;
   }
 }

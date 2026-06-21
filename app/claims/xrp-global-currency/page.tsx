@@ -53,8 +53,9 @@ const jsonLd = {
       inLanguage: "he-IL",
       mainEntityOfPage: pageUrl,
       author: {
-        "@type": "Organization",
-        name: "מקור בדיקה",
+        "@type": "Person",
+        name: "חיים רפאל",
+        url: `${siteUrl}/about`,
       },
     },
     {

@@ -44,7 +44,7 @@ export function ReadingTimeInjector() {
 
     const readingTime = document.createElement("span");
     readingTime.className = "small reading-time";
-    readingTime.textContent = `⏱️ זמן קריאה: ${minutes} דק׳`;
+    readingTime.textContent = `זמן קריאה: ${minutes} דק׳`;
 
     row.appendChild(readingTime);
     title.parentNode.insertBefore(row, title.nextSibling);

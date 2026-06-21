@@ -39,16 +39,16 @@ export function TopicClusterPage({ cluster }: { cluster: TopicCluster }) {
       </section>
 
       <section className="trust-strip" aria-label="נתוני האשכול">
-        <div className="trust-item"><strong>{stats.publishedCount}</strong>🧾 בדיקות פורסמו</div>
-        <div className="trust-item"><strong>{stats.plannedCount}</strong>🧭 בדיקות בתכנון</div>
-        <div className="trust-item"><strong>{formatDate(stats.updated)}</strong>🕒 עדכון אחרון</div>
-        <div className="trust-item"><strong>{statusLabel(cluster.status)}</strong>🗂️ סטטוס</div>
+        <div className="trust-item"><strong>{stats.publishedCount}</strong>בדיקות פורסמו</div>
+        <div className="trust-item"><strong>{stats.plannedCount}</strong>בדיקות בתכנון</div>
+        <div className="trust-item"><strong>{formatDate(stats.updated)}</strong>עדכון אחרון</div>
+        <div className="trust-item"><strong>{statusLabel(cluster.status)}</strong>סטטוס</div>
       </section>
 
       <section id="published-checks" className="box answer">
         <div className="section-head">
           <div>
-            <span className="topic-label">📚 בדיקות באשכול</span>
+            <span className="topic-label">בדיקות באשכול</span>
             <h2>בדיקות שפורסמו תחת {cluster.shortTitle}.</h2>
           </div>
           <p>כל בדיקה מקבלת עמוד עצמאי כדי לשמור על טענה אחת, מקורות ברורים ומסקנה ממוקדת.</p>
@@ -79,7 +79,7 @@ export function TopicClusterPage({ cluster }: { cluster: TopicCluster }) {
       <section id="claim-map">
         <div className="section-head">
           <div>
-            <span className="topic-label">🧭 מפת המשך</span>
+            <span className="topic-label">מפת המשך</span>
             <h2>שאלות שכדאי לבדוק בנפרד.</h2>
           </div>
           <p>החלק הזה מונע מצב שבו עמוד אחד הופך לערימה של טענות. כל שאלה תיפתח רק אחרי שיש מקורות מספיק טובים.</p>

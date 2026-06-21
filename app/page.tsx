@@ -95,7 +95,7 @@ export default function HomePage() {
     <>
       <section className="home-hero">
         <div>
-          <span className="badge">🔎 מאגר בדיקות מקור</span>
+          <span className="badge">מאגר בדיקות מקור</span>
           <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
             זה לא צ׳אט שבודק כל פרומפט בזמן אמת. זה מאגר בדיקות: <a className="text-link" href="/topics#find-check">מחפשים בדיקה קיימת</a>, פותחים מקור, ורואים מה באמת אפשר לקבוע.
@@ -107,7 +107,7 @@ export default function HomePage() {
         </div>
 
         <div className="hero-visual" aria-label="טענות שנבדקות באתר">
-          <span className="topic-label">🧪 מה מקבלים?</span>
+          <span className="topic-label">מה מקבלים?</span>
           <p className="visual-intro">
             בכל בדיקה: הטענה, שורה תחתונה, מה כן נכון, איפה הקפיצה, ומה המקורות אומרים.
           </p>
@@ -126,14 +126,14 @@ export default function HomePage() {
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>{claimRecords.length}</strong>🗂️ בדיקות שפורסמו</div>
-        <div className="trust-item"><strong>{topicClusters.length}</strong>🧭 אשכולות נושא</div>
-        <div className="trust-item"><strong>100%</strong>🔓 קישורים פתוחים לבדיקה</div>
-        <div className="trust-item"><strong>{latestUpdated}</strong>🕒 עדכון אחרון</div>
+        <div className="trust-item"><strong>{claimRecords.length}</strong>בדיקות שפורסמו</div>
+        <div className="trust-item"><strong>{topicClusters.length}</strong>אשכולות נושא</div>
+        <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
+        <div className="trust-item"><strong>{latestUpdated}</strong>עדכון אחרון</div>
       </section>
 
       <section className="how-use box answer">
-        <span className="topic-label">🧭 איך משתמשים באתר?</span>
+        <span className="topic-label">איך משתמשים באתר?</span>
         <h2>שלושה צעדים פשוטים</h2>
         <div className="process-grid compact-process">
           <section className="process-card">
@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       <section className="box method-note">
-        <span className="topic-label">🔎 מחפש משהו ספציפי?</span>
+        <span className="topic-label">מחפש משהו ספציפי?</span>
         <h2><a className="text-link" href="/topics#find-check">החיפוש החי</a> נמצא במפת הנושאים.</h2>
         <p>
           שם אפשר להקליד טענה, מקור או תגית ולקבל תוצאות מיד מתוך המאגר הקיים. אם אין תוצאה, אפשר להציע טענה לבדיקה עתידית.
@@ -168,7 +168,7 @@ export default function HomePage() {
 
       <section id="checks">
         <div className="section-head">
-          <div><span className="topic-label">📚 בדיקות אחרונות</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
+          <div><span className="topic-label">בדיקות אחרונות</span><h2>הטענות עצמן, ואז הדרך אל המקור.</h2></div>
           <div>
             <p>בעמוד הבית מוצגות רק כמה בדיקות כדי לא להציף. <a className="text-link" href="/topics#all-checks">הרשימה המלאה</a> והחיפוש נמצאים במפת הנושאים.</p>
             <div className="hero-actions"><a className="button-secondary" href="/topics#all-checks">כל הבדיקות</a></div>
@@ -191,7 +191,7 @@ export default function HomePage() {
 
       <section>
         <div className="section-head">
-          <div><span className="topic-label">🧭 מפת נושאים</span><h2>אשכולות אמיתיים, לא רק קטגוריות.</h2></div>
+          <div><span className="topic-label">מפת נושאים</span><h2>אשכולות אמיתיים, לא רק קטגוריות.</h2></div>
           <p>כל אשכול מחזיק את הבדיקות שכבר פורסמו, את השאלות שעדיין פתוחות ואת הגבול בין מקור, פרשנות וקפיצה לוגית.</p>
         </div>
         <div className="topic-grid">
@@ -205,7 +205,7 @@ export default function HomePage() {
       </section>
 
       <section className="box answer">
-        <h2>🛡️ למה לסמוך על התהליך?</h2>
+        <h2>למה לסמוך על התהליך?</h2>
         <p>המטרה היא לא לנצח ויכוח ולא לבחור צד. המקורות מוצגים ליד המסקנה, תאריך הבדיקה גלוי, וטעויות ניתנות לתיקון. כלי בינה יכולים לסייע בסידור ובאיתור, אבל ההכרעה והפרסום עוברים בדיקה אנושית.</p>
         <div className="hero-actions"><a className="button-secondary" href="/editorial-policy">מדיניות עריכה</a><a className="button-secondary" href="/corrections">תיקונים ועדכונים</a></div>
       </section>

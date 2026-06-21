@@ -44,7 +44,7 @@ export default function TopicsPage() {
   return (
     <article>
       <section className="hero">
-        <span className="badge">🧭 מפת נושאים</span>
+        <span className="badge">מפת נושאים</span>
         <h1>טענה אחת כמעט תמיד מחוברת לעוד חמש.</h1>
         <p className="lead">לכן האתר בנוי גם לפי אשכולות ותגיות. כל אשכול מפריד בין המקור, הטענות שנוספו לו, השאלות הציבוריות והחלקים שעדיין פתוחים לבדיקה.</p>
       </section>
@@ -54,7 +54,7 @@ export default function TopicsPage() {
       <section className="box answer">
         <div className="section-head">
           <div>
-            <span className="topic-label">🗂️ אשכולות</span>
+            <span className="topic-label">אשכולות</span>
             <h2>אשכולות שמחזיקים בדיקות, לא רק תגיות.</h2>
           </div>
           <p>כל אשכול הוא עמוד עבודה עצמאי: בדיקות שפורסמו, שאלות להמשך, ומפת מקור מול פרשנות.</p>
@@ -68,7 +68,7 @@ export default function TopicsPage() {
 
       <section id="all-checks" className="box answer">
         <div className="section-head">
-          <div><span className="topic-label">📚 כל הבדיקות</span><h2>כל הבדיקות שפורסמו באתר.</h2></div>
+          <div><span className="topic-label">כל הבדיקות</span><h2>כל הבדיקות שפורסמו באתר.</h2></div>
           <p>ברגע שעולה בדיקה חדשה, היא מופיעה גם כאן — לפי נושא, תגיות, תאריך ומסקנה קצרה.</p>
         </div>
         <div className="grid">

@@ -15,6 +15,7 @@
     "video:render": "node --strip-types videos/xrp/render.ts"
   },
   "dependencies": {
+    "@fontsource-variable/heebo": "^5.2.8",
     "@remotion/bundler": "^4.0.481",
     "@remotion/cli": "^4.0.481",
     "@remotion/media": "^4.0.481",

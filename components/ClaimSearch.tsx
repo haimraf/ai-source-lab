@@ -133,7 +133,7 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
   return (
     <section id="find-check" className="search-panel box" aria-labelledby="claim-search-title">
       <div className="search-head">
-        <span className="topic-label">🔎 חיפוש במאגר</span>
+        <span className="topic-label">חיפוש במאגר</span>
         <div>
           <h2 id="claim-search-title">חיפוש בתוך בדיקות שכבר פורסמו.</h2>
           <p className="small">זה לא צ׳אט שבודק כל פרומפט בזמן אמת. כאן מחפשים בדיקה קיימת לפי טענה, מקור, מושג, אשכול או תגית. אם אין תוצאה — אפשר להציע טענה לבדיקה עתידית.</p>

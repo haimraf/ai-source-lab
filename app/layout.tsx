@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import "@fontsource-variable/heebo";
 import "./globals.css";
 import "./theme.css";
 import "./components.css";
@@ -33,20 +34,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="brand-mark" aria-hidden="true">מ</span>
               <span className="brand-copy">
                 <strong>מקור בדיקה</strong>
-                <small><span className="link-icon" aria-hidden="true">🔎</span>מקור לפני מסקנה</small>
+                <small>מקור לפני מסקנה</small>
               </span>
             </a>
             <div className="mobile-header-actions" aria-label="פעולות מהירות במובייל">
-              <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות</a>
+              <a href="/topics#find-check">חיפוש</a>
+              <a href="/topics">אשכולות</a>
             </div>
             <div className="nav-links">
-              <a href="/#checks"><span className="link-icon" aria-hidden="true">📚</span>בדיקות</a>
-              <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות</a>
-              <a href="/methodology"><span className="link-icon" aria-hidden="true">🧪</span>איך בודקים</a>
-              <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצע טענה</a>
-              <a href="/about"><span className="link-icon" aria-hidden="true">🧑‍💻</span>אודות</a>
+              <a href="/#checks">בדיקות</a>
+              <a href="/topics#find-check">חיפוש</a>
+              <a href="/topics">אשכולות</a>
+              <a href="/methodology">איך בודקים</a>
+              <a href="/suggest-claim">הצע טענה</a>
+              <a href="/about">אודות</a>
             </div>
           </nav>
         </header>
@@ -64,30 +65,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site-footer">
           <div className="footer-grid">
             <div className="footer-summary">
-              <a className="footer-brand" href="/"><span className="link-icon" aria-hidden="true">🔎</span>מקור בדיקה</a>
+              <a className="footer-brand" href="/">מקור בדיקה</a>
               <p>בודקים טענות רשת, מקורות ומסמכים בלי לדלג מהכותרת למסקנה.</p>
-              <span className="footer-seal"><span className="link-icon" aria-hidden="true">🧭</span>מקור לפני מסקנה</span>
+              <span className="footer-seal">מקור לפני מסקנה</span>
             </div>
             <div>
-              <strong><span className="link-icon" aria-hidden="true">🗂️</span>האתר</strong>
-              <a href="/#checks"><span className="link-icon" aria-hidden="true">📚</span>בדיקות</a>
-              <a href="/topics#find-check"><span className="link-icon" aria-hidden="true">🔎</span>חיפוש חי</a>
-              <a href="/topics"><span className="link-icon" aria-hidden="true">🧭</span>אשכולות נושא</a>
-              <a href="/methodology"><span className="link-icon" aria-hidden="true">🧪</span>איך בודקים</a>
-              <a href="/suggest-claim"><span className="link-icon" aria-hidden="true">✍️</span>הצע טענה לבדיקה</a>
-              <a href="/about"><span className="link-icon" aria-hidden="true">🧑‍💻</span>אודות</a>
+              <strong>האתר</strong>
+              <a href="/#checks">בדיקות</a>
+              <a href="/topics#find-check">חיפוש חי</a>
+              <a href="/topics">אשכולות נושא</a>
+              <a href="/methodology">איך בודקים</a>
+              <a href="/suggest-claim">הצע טענה לבדיקה</a>
+              <a href="/about">אודות</a>
             </div>
             <div>
-              <strong><span className="link-icon" aria-hidden="true">🛡️</span>אמון ושקיפות</strong>
-              <a href="/how-to-cite"><span className="link-icon" aria-hidden="true">🔗</span>איך לצטט אותנו</a>
-              <a href="/editorial-policy"><span className="link-icon" aria-hidden="true">📌</span>מדיניות עריכה</a>
-              <a href="/corrections"><span className="link-icon" aria-hidden="true">🛠️</span>תיקונים ועדכונים</a>
-              <a href="/privacy"><span className="link-icon" aria-hidden="true">🔒</span>פרטיות</a>
-              <a href="/accessibility"><span className="link-icon" aria-hidden="true">♿</span>הצהרת נגישות</a>
-              <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer"><span className="link-icon" aria-hidden="true">💻</span>שקיפות טכנית ב-GitHub</a>
+              <strong>אמון ושקיפות</strong>
+              <a href="/how-to-cite">איך לצטט אותנו</a>
+              <a href="/editorial-policy">מדיניות עריכה</a>
+              <a href="/corrections">תיקונים ועדכונים</a>
+              <a href="/privacy">פרטיות</a>
+              <a href="/accessibility">הצהרת נגישות</a>
+              <a href="https://github.com/haimraf/ai-source-lab" target="_blank" rel="noreferrer">שקיפות טכנית ב-GitHub</a>
             </div>
           </div>
-          <p className="footer-note"><span className="link-icon" aria-hidden="true">🧾</span>בכל עמוד מופיעים המקורות שנבדקו, תאריך העדכון והפרדה בין עובדה, פרשנות וקפיצה לוגית.</p>
+          <p className="footer-note">בכל עמוד מופיעים המקורות שנבדקו, תאריך העדכון והפרדה בין עובדה, פרשנות וקפיצה לוגית.</p>
         </footer>
 
         <Analytics />

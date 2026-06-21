@@ -46,7 +46,7 @@ const jsonLd = {
   dateModified: "2026-06-19",
   inLanguage: "he-IL",
   mainEntityOfPage: pageUrl,
-  author: { "@type": "Organization", name: "מקור בדיקה" },
+  author: { "@type": "Person", name: "חיים רפאל", url: `${siteUrl}/about` },
 };
 
 export default function Page() {

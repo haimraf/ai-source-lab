@@ -55,7 +55,7 @@ export default function SuggestClaimPage() {
       <h2>איך שולחים כרגע?</h2>
       <div className="box answer">
         <p>
-          בשלב הזה אין טופס באתר ואין איסוף פרטים אוטומטי. הדרך הנקייה ביותר היא לפתוח Issue בריפו הציבורי ולצרף את הפרטים. אין צורך בידע טכני.
+          הטופס בעמוד מכין טיוטת Issue מסודרת ופותח אותה ב-GitHub. שום פרט לא נשלח בזמן ההקלדה; אפשר לבדוק ולערוך את הטיוטה לפני השליחה. נדרש חשבון GitHub כדי לפרסם אותה.
         </p>
         <div className="hero-actions">
           <a className="button-primary" href="https://github.com/haimraf/ai-source-lab/issues/new" target="_blank" rel="noreferrer">פתיחת הצעה ב-GitHub</a>
@@ -63,7 +63,7 @@ export default function SuggestClaimPage() {
         </div>
       </div>
 
-      <h2>ממלאים כאן, בודקים לפני שליחה</h2>
+      <h2>ממלאים כאן ובודקים לפני שליחה</h2>
       <ClaimProposalForm />
 
       <section className="box method-note">
