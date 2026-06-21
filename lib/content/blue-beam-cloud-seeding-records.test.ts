@@ -18,9 +18,9 @@ describe("blue-beam and cloud-seeding rich content records", () => {
     expect(claim.workflow.credits).toContainEqual({ id: "haim-rafael", name: "חיים רפאל", role: "author" });
   });
 
-  it("keeps both public routes owned by their static pages", () => {
-    for (const slug of [blueBeam.slug, cloud.slug]) {
-      expect(existsSync(join(process.cwd(), "app", "claims", slug, "page.tsx"))).toBe(true);
-    }
+  it("cuts over only Blue Beam and keeps Cloud Seeding static", () => {
+    expect(existsSync(join(process.cwd(), "app", "claims", blueBeam.slug, "page.tsx"))).toBe(false);
+    expect(existsSync(join(process.cwd(), "app", "claims", blueBeam.slug, "legacy-page.fixture.tsx"))).toBe(true);
+    expect(existsSync(join(process.cwd(), "app", "claims", cloud.slug, "page.tsx"))).toBe(true);
   });
 });

@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import BlueBeamPage, { metadata as blueBeamMetadata } from "../../app/claims/project-blue-beam-nasa/page";
+import BlueBeamPage, { metadata as blueBeamMetadata } from "../../app/claims/project-blue-beam-nasa/legacy-page.fixture";
 import CloudPage, { metadata as cloudMetadata } from "../../app/claims/cloud-seeding-chemtrails/page";
 import { cloudSeedingChemtrailsClaimContent as cloud } from "../../content/claims/cloud-seeding-chemtrails";
 import { projectBlueBeamNasaClaimContent as blueBeam } from "../../content/claims/project-blue-beam-nasa";

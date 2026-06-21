@@ -18,7 +18,8 @@ function expectMarkersInOrder(subject: string, markers: readonly string[]) {
 }
 
 function verifyParity(claim: ClaimContent, markers: readonly string[]) {
-  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"), "utf8");
+  const sourceFile = claim.slug === "project-blue-beam-nasa" ? "legacy-page.fixture.tsx" : "page.tsx";
+  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, sourceFile), "utf8");
   const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&amp;", "&");
   expect(source).toContain(claim.lead);
   expect(html).toContain(claim.lead);

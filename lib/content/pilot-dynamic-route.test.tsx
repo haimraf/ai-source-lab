@@ -11,6 +11,7 @@ import DynamicClaimPage, {
 } from "../../app/claims/[slug]/page";
 import { aiAsSourcePyramidsClaimContent as pilotClaim } from "../../content/claims/ai-as-source-pyramids";
 import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../../content/claims/gateway-process-out-of-body";
+import { projectBlueBeamNasaClaimContent as blueBeamClaim } from "../../content/claims/project-blue-beam-nasa";
 
 const params = Promise.resolve({ slug: pilotClaim.slug });
 const otherStaticClaimPages = [
@@ -19,7 +20,6 @@ const otherStaticClaimPages = [
   "ai-bci-synthetic-soul",
   "chemtrails-aluminum",
   "cloud-seeding-chemtrails",
-  "project-blue-beam-nasa",
   "who-pandemic-agreement-sovereignty",
   "xrp-global-currency",
 ] as const;
@@ -40,6 +40,7 @@ describe("dynamic claim route cutovers", () => {
     expect(generateStaticParams()).toEqual([
       { slug: pilotClaim.slug },
       { slug: gatewayClaim.slug },
+      { slug: blueBeamClaim.slug },
     ]);
     expect(dynamicParams).toBe(false);
   });
@@ -48,6 +49,7 @@ describe("dynamic claim route cutovers", () => {
     expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
     expect(existsSync("app/claims/gateway-process-out-of-body/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/project-blue-beam-nasa/page.tsx")).toBe(false);
     for (const slug of otherStaticClaimPages) {
       expect(existsSync(`app/claims/${slug}/page.tsx`), `static page missing for ${slug}`).toBe(true);
     }
