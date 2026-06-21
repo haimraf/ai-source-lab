@@ -26,7 +26,7 @@ export function TopicClusterPage({ cluster }: { cluster: TopicCluster }) {
   const stats = getTopicClusterStats(cluster);
 
   return (
-    <article>
+    <article className="topic-cluster-page">
       <section className="hero">
         <span className="badge">{cluster.eyebrow}</span>
         <h1>{cluster.title}</h1>
