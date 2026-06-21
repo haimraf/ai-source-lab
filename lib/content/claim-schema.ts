@@ -198,6 +198,7 @@ export interface ClaimOpenGraphOverrides {
   description?: string;
   url?: string;
   image?: string;
+  images?: readonly ClaimSocialImage[];
   siteName?: string;
   locale?: string;
   type?: "article" | "website";
@@ -208,6 +209,14 @@ export interface ClaimTwitterOverrides {
   title?: string;
   description?: string;
   image?: string;
+  images?: readonly string[];
+}
+
+export interface ClaimSocialImage {
+  url: string;
+  width?: number;
+  height?: number;
+  alt?: string;
 }
 
 export interface ClaimMetadataOverrides {

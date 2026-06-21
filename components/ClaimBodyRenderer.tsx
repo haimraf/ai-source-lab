@@ -59,6 +59,24 @@ function renderBlock(block: ClaimBodyBlock, claim: ClaimContent): ReactNode {
         </section>
       );
 
+    case "source-levels":
+      return (
+        <section>
+          {block.title ? <h2>{block.title}</h2> : null}
+          <div className="source-levels">
+            {block.rows.map((row) => (
+              <div className="source-level" key={`${row.label}-${row.title}`}>
+                <strong>{row.label}</strong>
+                <div>
+                  <h3>{row.title}</h3>
+                  {row.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+
     case "comparison-list":
       return (
         <section>

@@ -211,6 +211,7 @@ const richClaim = {
       description: "A social description for the example claim.",
       url: "https://example.com/claims/example-claim",
       image: "https://example.com/claims/example-claim/opengraph-image",
+      images: [{ url: "https://example.com/claims/example-claim/opengraph-image", width: 1200, height: 630, alt: "Example claim" }],
       type: "article",
     },
     twitter: {
@@ -218,6 +219,7 @@ const richClaim = {
       title: "Example claim",
       description: "A social description for the example claim.",
       image: "https://example.com/claims/example-claim/opengraph-image",
+      images: ["https://example.com/claims/example-claim/opengraph-image"],
     },
   },
   body: richBody,
@@ -259,5 +261,6 @@ describe("claim content schema", () => {
     expect(claim.structuredData.container).toBe("graph");
     expect(claim.structuredData.entries[1]).toMatchObject({ type: "faq", items: [faqItem] });
     expect(claim.metadataOverrides.openGraph?.type).toBe("article");
+    expect(claim.metadataOverrides.openGraph?.images?.[0]).toMatchObject({ width: 1200, height: 630 });
   });
 });

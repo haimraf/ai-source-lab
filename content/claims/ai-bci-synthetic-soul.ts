@@ -1,7 +1,7 @@
-import type { ClaimContent } from "../../lib/content/claim-schema";
+import { defineClaim, type ClaimContent } from "../../lib/content/claim-schema";
 import { defineMigratedClaimContent } from "./define-migrated-claim";
 
-export const aiBciSyntheticSoulClaimContent = defineMigratedClaimContent({
+const migratedAiBciSyntheticSoulClaimContent = defineMigratedClaimContent({
   slug: "ai-bci-synthetic-soul",
   path: "/claims/ai-bci-synthetic-soul",
   title: "האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?",
@@ -36,4 +36,101 @@ export const aiBciSyntheticSoulClaimContent = defineMigratedClaimContent({
     { question: "מה לגבי כפיל דיגיטלי שמחקה אדם?", answer: "אפשר לבנות מודלים שמחקים קול, סגנון כתיבה, דמות או הרגלים. זה לא אותו דבר כמו העתקת תודעה, זיכרונות מלאים או שליטה בגוף." },
     { question: "למה הטענה נשמעת משכנעת?", answer: "כי היא משתמשת במונחים אמיתיים ומתקדמים. כשמחברים אותם מהר מדי, נוצרת תחושה שכל החלקים מוכיחים סיפור אחד. הבדיקה מפרידה בין החלקים." },
   ],
-}) satisfies ClaimContent;
+});
+
+export const aiBciSyntheticSoulClaimContent = defineClaim({
+  ...migratedAiBciSyntheticSoulClaimContent,
+  lead: migratedAiBciSyntheticSoulClaimContent.claim,
+  shareCopy: `קיימות טכנולוגיות אמיתיות כמו BCI, כפילים דיגיטליים, נוירופידבק ו-AI Agents.
+אבל זה לא מוכיח "נשמה סינטטית", השתלטות המונית על בני אדם, או שליטה דרך LED, Wi-Fi, אנטנות או ריסוס.
+הבדיקה הנכונה היא להפריד בין טכנולוגיה קיימת לבין הקפיצה: "לכן AI מפעיל את הגוף במקום האדם".
+https://ai-source-lab.vercel.app/claims/ai-bci-synthetic-soul`,
+  body: [
+    {
+      id: "bottom-line",
+      type: "answer-box",
+      title: "שורה תחתונה",
+      paragraphs: [
+        "קיימות טכנולוגיות אמיתיות שמחברות בין מוח, מחשב ומכשירים חיצוניים. אבל במקורות שנבדקו לא נמצאה ראיה לכך ש־AI, BCI או כפיל דיגיטלי מאפשרים \"נשמה סינטטית\", השתלטות המונית על הגוף, או שליטה בבני אדם דרך LED, Wi-Fi, אנטנות או ריסוס.",
+        "המסקנה אינה \"כל נוירוטכנולוגיה בטוחה או חסרת סיכון\". המסקנה צרה יותר: הטכנולוגיות הידועות אינן מוכיחות את הטענה על החלפת תודעה או הפעלת גוף אנושי במקום האדם.",
+      ],
+      variant: "answer",
+    },
+    {
+      id: "real-technologies",
+      type: "source-levels",
+      title: "מה כן אמיתי?",
+      rows: [
+        { label: "BCI", title: "ממשק מוח-מחשב קיים", paragraphs: [migratedAiBciSyntheticSoulClaimContent.summaryPoints[0]] },
+        { label: "AI", title: "מודלים וסוכנים קיימים", paragraphs: [migratedAiBciSyntheticSoulClaimContent.summaryPoints[1]] },
+        { label: "Digital Twin", title: "כפיל דיגיטלי הוא מודל", paragraphs: ["כפיל דיגיטלי הוא ייצוג, סימולציה או מודל של מערכת. הוא יכול לעזור לניטור ולחיזוי, אבל אינו \"עותק נשמה\"."] },
+        { label: "Neurofeedback", title: "אימון נוירולוגי אינו דיבוק", paragraphs: ["נוירופידבק וטיפולים התנהגותיים יכולים להשפיע על הרגלים, קשב וויסות רגשי. זה לא שקול להשתלטות חיצונית על אדם."] },
+      ],
+    },
+    {
+      id: "claim-jump",
+      type: "logic-chain",
+      title: "איפה הקפיצה?",
+      steps: ["BCI ו-AI קיימים", "יש ניסויים בשליטה במחשב או במכשיר חיצוני", "יש כפילים דיגיטליים ומודלים אישיים"],
+      conclusion: "לכן AI מחליף את נשמת האדם ומפעיל את הגוף",
+      note: "שלושת החלקים הראשונים מתארים תחומים אמיתיים. הקפיצה היא המעבר מהם לטענה טוטאלית על שליטה באוכלוסייה או החלפת תודעה.",
+    },
+    {
+      id: "not-found",
+      type: "comparison-list",
+      title: "מה לא נמצא במקורות?",
+      items: [
+        { label: "לא נמצא", text: "מסמך רשמי שמראה \"החדרת נשמה סינטטית\" לבני אדם." },
+        { label: "לא נמצא", text: "מקור שמחבר בין Firefly, AI Agents או כפילים דיגיטליים לבין הפעלת גוף אנושי." },
+        { label: "לא נמצא", text: "ראיה לכך ש־LED, Wi-Fi, אנטנות או ריסוס אוויר מטמיעים AI בגוף." },
+        { label: "לא נמצא", text: "ראיה שכל האוכלוסייה \"נגועה\" או שפועלת עם תודעה סינטטית." },
+      ],
+    },
+    {
+      id: "term-breakdown",
+      type: "comparison-list",
+      title: "פירוק המונחים",
+      items: [
+        { label: "BCI", text: "ממשק בין פעילות מוחית לבין מחשב או מכשיר. המכשיר מפענח אותות ומתרגם אותם לפקודות." },
+        { label: "Digital Twin", text: "מודל דיגיטלי של מערכת, מוצר או תהליך. לא הוכחה להעתקת תודעה." },
+        { label: "AI Agent", text: "תוכנה שמבצעת צעדים או מפעילה כלים דיגיטליים לפי הנחיות. לא ישות בתוך גוף." },
+        { label: "Neurofeedback", text: "שיטה לאימון תגובות מוחיות בעזרת מדידה ומשוב. לא \"תכנות נשמה\"." },
+      ],
+    },
+    { id: "faq", type: "faq", title: "שאלות נפוצות", source: "claim" },
+    { id: "copy-share", type: "copy-share", title: "תגובה קצרה להעתקה", source: "claim" },
+    { id: "sources", type: "sources", title: "המקורות שנבדקו", source: "claim" },
+    {
+      id: "method",
+      type: "method-note",
+      title: "איך נבדקה הטענה?",
+      paragraphs: ["פירקנו את הטענה למונחים: BCI, AI Agents, Digital Twins, Neurofeedback וטענות על LED, Wi-Fi, אנטנות וריסוס. לאחר מכן בדקנו מה כל תחום באמת עושה, ומה לא נמצא במקורות שנבדקו. הבדיקה אינה עוסקת בשאלה רוחנית על קיום נשמה, אלא בטענה העובדתית שיש טכנולוגיה שמחליפה או מפעילה את התודעה האנושית."],
+    },
+  ],
+  structuredData: { mode: "none" },
+  metadataOverrides: {
+    title: `${migratedAiBciSyntheticSoulClaimContent.title} | מקור בדיקה`,
+    description: migratedAiBciSyntheticSoulClaimContent.description,
+    canonical: migratedAiBciSyntheticSoulClaimContent.path,
+    openGraph: {
+      title: migratedAiBciSyntheticSoulClaimContent.title,
+      description: migratedAiBciSyntheticSoulClaimContent.description,
+      url: "https://ai-source-lab.vercel.app/claims/ai-bci-synthetic-soul",
+      siteName: "מקור בדיקה",
+      locale: "he_IL",
+      type: "article",
+      images: [{
+        url: "https://ai-source-lab.vercel.app/claims/ai-bci-synthetic-soul/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: migratedAiBciSyntheticSoulClaimContent.ogAlt,
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: migratedAiBciSyntheticSoulClaimContent.title,
+      description: migratedAiBciSyntheticSoulClaimContent.description,
+      images: ["https://ai-source-lab.vercel.app/claims/ai-bci-synthetic-soul/opengraph-image"],
+    },
+  },
+} satisfies ClaimContent);
