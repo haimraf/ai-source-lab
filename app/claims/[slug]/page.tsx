@@ -105,6 +105,18 @@ export async function generateMetadata({ params }: ClaimPageProps): Promise<Meta
     return parsed.pathname.startsWith(claim.path) ? `${siteUrl}${parsed.pathname}` : value;
   };
 
+  const openGraphImages = openGraphOverrides?.images
+    ? openGraphOverrides.images.map(({ url, width, height, alt }) => ({
+        url: resolveSiteUrl(url),
+        ...(width === undefined ? {} : { width }),
+        ...(height === undefined ? {} : { height }),
+        ...(alt === undefined ? {} : { alt }),
+      }))
+    : [socialImage];
+  const twitterImages = twitterOverrides?.images
+    ? twitterOverrides.images.map((image) => resolveSiteUrl(image))
+    : [socialImage];
+
   return {
     title,
     description,
@@ -116,13 +128,13 @@ export async function generateMetadata({ params }: ClaimPageProps): Promise<Meta
       ...(openGraphOverrides?.siteName ? { siteName: openGraphOverrides.siteName } : {}),
       ...(openGraphOverrides?.locale ? { locale: openGraphOverrides.locale } : {}),
       ...(openGraphOverrides?.type ? { type: openGraphOverrides.type } : {}),
-      images: openGraphOverrides?.images?.map((image) => ({ ...image, url: resolveSiteUrl(image.url) })) ?? [socialImage],
+      images: openGraphImages,
     },
     twitter: {
       card: twitterOverrides?.card ?? "summary_large_image",
       title: twitterOverrides?.title ?? title,
       description: twitterOverrides?.description ?? description,
-      images: twitterOverrides?.images?.map(resolveSiteUrl) ?? [socialImage],
+      images: twitterImages,
     },
   };
 }
