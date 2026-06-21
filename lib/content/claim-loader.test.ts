@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { claimContentRecords } from "../../content/claims";
 import { aiAsSourcePyramidsClaimContent } from "../../content/claims/ai-as-source-pyramids";
 import { allClaimTags, claimRecords, homeFeaturedClaimSlug } from "../claims-db";
 import {
@@ -22,6 +23,22 @@ describe("claim content loader", () => {
 
   it("prefers the migrated static content record for the pilot claim", () => {
     expect(getClaimContentBySlug(aiAsSourcePyramidsClaimContent.slug)).toBe(aiAsSourcePyramidsClaimContent);
+  });
+
+  it("registers one static content record for every existing claim", () => {
+    expect({
+      slugs: claimContentRecords.map((claim) => claim.slug),
+      allPreferred: claimContentRecords.every((claim) => getClaimContentBySlug(claim.slug) === claim),
+    }).toEqual({
+      slugs: claimRecords.map((claim) => claim.slug),
+      allPreferred: true,
+    });
+  });
+
+  it("preserves every existing claim metadata record", () => {
+    for (const claim of claimContentRecords) {
+      expect(claim).toMatchObject(claimRecords.find((record) => record.slug === claim.slug)!);
+    }
   });
 
   it("contains each claim slug exactly once", () => {
