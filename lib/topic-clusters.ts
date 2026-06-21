@@ -1,4 +1,9 @@
-import { claimRecords, type ClaimRecord, type ClaimSlug, type TopicClusterSlug } from "@/lib/claims-db";
+import { type ClaimSlug, type TopicClusterSlug } from "@/lib/claims-db";
+import {
+  getClaimContentByCluster,
+  getPublishedClaimContent,
+  type ClaimContentIndexEntry,
+} from "@/lib/content/claim-loader";
 
 export type TopicClusterStatus = "active" | "expanding" | "planned";
 export type PlannedClaimStatus = "בבדיקה" | "בתכנון";
@@ -272,7 +277,7 @@ export function getTopicClusterBySlug(slug: string | null | undefined): TopicClu
   return clusters.find((cluster) => cluster.slug === slug);
 }
 
-export function getTopicClusterForClaim(claim: ClaimRecord): TopicCluster {
+export function getTopicClusterForClaim(claim: Pick<ClaimContentIndexEntry, "cluster">): TopicCluster {
   const cluster = getTopicClusterBySlug(claim.cluster);
 
   if (!cluster) {
@@ -283,8 +288,7 @@ export function getTopicClusterForClaim(claim: ClaimRecord): TopicCluster {
 }
 
 export function getClaimsForTopicCluster(cluster: TopicCluster) {
-  const slugSet = new Set<ClaimSlug>(cluster.claimSlugs);
-  return claimRecords.filter((claim) => slugSet.has(claim.slug));
+  return getClaimContentByCluster(cluster.slug, getPublishedClaimContent());
 }
 
 export function getTopicClusterStats(cluster: TopicCluster) {

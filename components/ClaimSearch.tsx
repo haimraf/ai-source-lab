@@ -1,10 +1,17 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { allClaimTags, claimRecords } from "@/lib/claims-db";
+import {
+  getAllClaimTags,
+  getPublishedClaimContent,
+  type ClaimContentIndexEntry,
+} from "@/lib/content/claim-loader";
 import { getTopicClusterBySlug } from "@/lib/topic-clusters";
 
-type Claim = (typeof claimRecords)[number];
+type Claim = ClaimContentIndexEntry;
+
+const publishedClaims = getPublishedClaimContent();
+const claimTags = getAllClaimTags(publishedClaims);
 
 function normalizeSearchText(value: string) {
   return value
@@ -83,7 +90,7 @@ function scoreClaim(claim: Claim, query: string, activeTag: string | null) {
 }
 
 function getResults(query: string, activeTag: string | null) {
-  const scored = claimRecords
+  const scored = publishedClaims
     .map((claim) => ({ claim, score: scoreClaim(claim, query, activeTag) }))
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || b.claim.updated.localeCompare(a.claim.updated));
@@ -115,7 +122,7 @@ export function ClaimSearch({ compact = false }: { compact?: boolean }) {
   const [showAllTags, setShowAllTags] = useState(false);
 
   const results = useMemo(() => getResults(query, activeTag), [query, activeTag]);
-  const sortedTags = useMemo(() => sortTagsForDisplay(allClaimTags), []);
+  const sortedTags = useMemo(() => sortTagsForDisplay(claimTags), []);
   const initialTagCount = compact ? 10 : 14;
   const visibleTags = showAllTags ? sortedTags : sortedTags.slice(0, initialTagCount);
   const hiddenTagCount = Math.max(sortedTags.length - initialTagCount, 0);

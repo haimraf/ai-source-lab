@@ -1,5 +1,5 @@
 import { ClaimSearch } from "@/components/ClaimSearch";
-import { claimRecords } from "@/lib/claims-db";
+import { getPublishedClaimContent } from "@/lib/content/claim-loader";
 import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
 
 export const metadata = {
@@ -38,7 +38,9 @@ function ClusterCard({ cluster }: { cluster: TopicCluster }) {
 }
 
 const sortedClusters = [...topicClusters].sort((a, b) => b.priority - a.priority || b.updated.localeCompare(a.updated));
-const sortedClaims = [...claimRecords].sort((a, b) => b.updated.localeCompare(a.updated) || b.priority - a.priority);
+const sortedClaims = [...getPublishedClaimContent()].sort(
+  (a, b) => b.updated.localeCompare(a.updated) || b.priority - a.priority,
+);
 
 export default function TopicsPage() {
   return (

@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import { claimRecords, getClaimBySlug } from "./claims-db";
+import { getClaimContentBySlug } from "./content/claim-loader";
 import { getClaimsForTopicCluster, getTopicClusterBySlug } from "./topic-clusters";
 import { GET as getLlmsText } from "../app/llms.txt/route";
 
@@ -11,6 +12,7 @@ const path = `/claims/${slug}`;
 describe("WHO pandemic agreement claim integration", () => {
   it("publishes the claim through the shared claim and topic registries", () => {
     const claim = getClaimBySlug(slug);
+    const contentClaim = getClaimContentBySlug(slug);
     const cluster = getTopicClusterBySlug("institutional-narratives");
 
     expect(claim).toMatchObject({
@@ -21,7 +23,8 @@ describe("WHO pandemic agreement claim integration", () => {
     });
     expect(claimRecords).toContain(claim);
     expect(cluster?.claimSlugs).toContain(slug);
-    expect(cluster && getClaimsForTopicCluster(cluster)).toContain(claim);
+    expect(contentClaim).toMatchObject(claim!);
+    expect(cluster && getClaimsForTopicCluster(cluster)).toContain(contentClaim);
   });
 
   it("exposes the claim in llms.txt and the public sitemap", async () => {

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { claimRecords, getHomeFeaturedClaim } from "@/lib/claims-db";
+import {
+  getFeaturedClaimContent,
+  getPublishedClaimContent,
+  type ClaimContentIndexEntry,
+} from "@/lib/content/claim-loader";
 import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
 import { siteUrl } from "@/lib/site";
 
@@ -33,7 +37,7 @@ function formatDate(value: string) {
   return `${Number(day)}.${Number(month)}.${year.slice(2)}`;
 }
 
-function byHomepageFreshness(a: (typeof claimRecords)[number], b: (typeof claimRecords)[number]) {
+function byHomepageFreshness(a: ClaimContentIndexEntry, b: ClaimContentIndexEntry) {
   const dateCompare = b.updated.localeCompare(a.updated);
   if (dateCompare !== 0) return dateCompare;
   return b.priority - a.priority;
@@ -45,7 +49,7 @@ function byClusterPriority(a: TopicCluster, b: TopicCluster) {
   return b.updated.localeCompare(a.updated);
 }
 
-function toCheck(claim: (typeof claimRecords)[number]) {
+function toCheck(claim: ClaimContentIndexEntry) {
   return {
     title: claim.title,
     href: claim.path,
@@ -82,11 +86,12 @@ function ClusterCard({ cluster }: { cluster: TopicCluster }) {
   );
 }
 
-const sortedClaims = [...claimRecords].sort(byHomepageFreshness);
+const publishedClaims = getPublishedClaimContent();
+const sortedClaims = [...publishedClaims].sort(byHomepageFreshness);
 const checks = sortedClaims.map(toCheck);
 const featuredChecks = checks.slice(0, 3);
 const latestChecks = checks.slice(0, 3);
-const homeFeaturedCheck = toCheck(getHomeFeaturedClaim());
+const homeFeaturedCheck = toCheck(getFeaturedClaimContent() ?? sortedClaims[0]);
 const latestUpdated = formatDate(sortedClaims[0].updated);
 const homepageClusters = [...topicClusters].sort(byClusterPriority).slice(0, 3);
 
@@ -126,7 +131,7 @@ export default function HomePage() {
       </section>
 
       <section className="trust-strip" aria-label="נתוני אמון">
-        <div className="trust-item"><strong>{claimRecords.length}</strong>בדיקות שפורסמו</div>
+        <div className="trust-item"><strong>{publishedClaims.length}</strong>בדיקות שפורסמו</div>
         <div className="trust-item"><strong>{topicClusters.length}</strong>אשכולות נושא</div>
         <div className="trust-item"><strong>100%</strong>קישורים פתוחים לבדיקה</div>
         <div className="trust-item"><strong>{latestUpdated}</strong>עדכון אחרון</div>
