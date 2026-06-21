@@ -191,6 +191,7 @@ const richClaim = {
   ],
   structuredData: {
     mode: "configured",
+    container: "graph",
     entries: [
       {
         type: "article",
@@ -255,6 +256,7 @@ describe("claim content schema", () => {
     ]);
     expect(claim.exhibits[0].id).toBe("exhibit-1");
     expect(claim.structuredData.mode).toBe("configured");
+    expect(claim.structuredData.container).toBe("graph");
     expect(claim.structuredData.entries[1]).toMatchObject({ type: "faq", items: [faqItem] });
     expect(claim.metadataOverrides.openGraph?.type).toBe("article");
   });

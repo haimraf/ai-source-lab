@@ -191,7 +191,7 @@ export type ClaimStructuredDataEntry = ClaimArticleStructuredData | ClaimFaqStru
 
 export type ClaimStructuredDataConfig =
   | { mode: "none" }
-  | { mode: "configured"; entries: readonly ClaimStructuredDataEntry[] };
+  | { mode: "configured"; container?: "separate" | "graph"; entries: readonly ClaimStructuredDataEntry[] };
 
 export interface ClaimOpenGraphOverrides {
   title?: string;
