@@ -87,12 +87,12 @@ describe("pilot claim content record", () => {
   });
 
   it("does not create or remove public page routes", () => {
-    expect(countPageModules("app")).toBe(20);
+    expect(countPageModules("app")).toBe(19);
     expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
     expect(existsSync("app/claims/gateway-process-out-of-body/page.tsx")).toBe(false);
     expect(existsSync("app/claims/project-blue-beam-nasa/page.tsx")).toBe(false);
-    expect(existsSync("app/claims/cloud-seeding-chemtrails/page.tsx")).toBe(true);
+    expect(existsSync("app/claims/cloud-seeding-chemtrails/page.tsx")).toBe(false);
   });
 
   it("keeps loader output aligned with the existing claim records", () => {

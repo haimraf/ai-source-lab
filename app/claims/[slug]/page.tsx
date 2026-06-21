@@ -3,15 +3,16 @@ import { notFound } from "next/navigation";
 
 import { ClaimBodyRenderer } from "@/components/ClaimBodyRenderer";
 import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
-import type { ClaimContent, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
+import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
   "gateway-process-out-of-body": "המסמך אמיתי — ההוכחה לא",
   "project-blue-beam-nasa": "נרטיב מוכר — מקור רשמי לא נמצא",
+  "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
 };
 const faqStructuredDataAnswerOverrides = new Map([
   [
@@ -58,11 +59,12 @@ function createArticleJsonLd(claim: ClaimContent) {
   };
 }
 
-function createFaqJsonLd(claim: ClaimContent) {
+function createFaqJsonLd(claim: ClaimContent, config: ClaimFaqStructuredData) {
+  const items = config.items ?? claim.faq;
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: claim.faq.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -70,7 +72,7 @@ function createFaqJsonLd(claim: ClaimContent) {
         text: faqStructuredDataAnswerOverrides.get(item.question) ?? item.answer,
       },
     })),
-    mainEntityOfPage: `${siteUrl}${claim.path}`,
+    ...(config.items ? {} : { mainEntityOfPage: `${siteUrl}${claim.path}` }),
   };
 }
 
@@ -112,7 +114,8 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
   if (!claim) notFound();
 
   const articleJsonLd = createArticleJsonLd(claim);
-  const faqJsonLd = getStructuredDataEntry(claim, "faq") ? createFaqJsonLd(claim) : undefined;
+  const faqConfig = getStructuredDataEntry(claim, "faq");
+  const faqJsonLd = faqConfig ? createFaqJsonLd(claim, faqConfig) : undefined;
   const updatedLabel = new Intl.DateTimeFormat("he-IL", {
     day: "numeric",
     month: "long",

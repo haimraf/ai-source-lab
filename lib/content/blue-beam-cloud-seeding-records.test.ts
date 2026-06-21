@@ -18,9 +18,10 @@ describe("blue-beam and cloud-seeding rich content records", () => {
     expect(claim.workflow.credits).toContainEqual({ id: "haim-rafael", name: "חיים רפאל", role: "author" });
   });
 
-  it("cuts over only Blue Beam and keeps Cloud Seeding static", () => {
-    expect(existsSync(join(process.cwd(), "app", "claims", blueBeam.slug, "page.tsx"))).toBe(false);
-    expect(existsSync(join(process.cwd(), "app", "claims", blueBeam.slug, "legacy-page.fixture.tsx"))).toBe(true);
-    expect(existsSync(join(process.cwd(), "app", "claims", cloud.slug, "page.tsx"))).toBe(true);
+  it("keeps both cutover claims as legacy fixtures", () => {
+    for (const claim of [blueBeam, cloud]) {
+      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"))).toBe(false);
+      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
+    }
   });
 });
