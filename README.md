@@ -38,6 +38,8 @@ https://ai-source-lab.vercel.app/
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
 - `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
 - `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
+- `/claims/you-will-own-nothing-klaus-schwab` - האם קלאוס שוואב אמר שלא יהיה לכם כלום?
+- `/claims/digital-shekel-spending-control` - האם שקל דיגיטלי יאפשר להגביל קניות?
 
 ## תשתית אמון באתר
 
