@@ -19,6 +19,7 @@ describe("published content repository", () => {
       "app/claims/ai-bci-synthetic-soul/page.tsx",
       "app/claims/agenda-2030-seven-steps/page.tsx",
       "app/claims/who-pandemic-agreement-sovereignty/page.tsx",
+      "app/claims/15-minute-city-prison/page.tsx",
     ]);
 
     const issues = findContentIntegrityIssues({

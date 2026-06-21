@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
@@ -14,9 +14,10 @@ import { xrpGlobalCurrencyClaimContent as xrpClaim } from "../../content/claims/
 import { aiBciSyntheticSoulClaimContent as aiBciClaim } from "../../content/claims/ai-bci-synthetic-soul";
 import { agenda2030SevenStepsClaimContent as agendaClaim } from "../../content/claims/agenda-2030-seven-steps";
 import { whoPandemicAgreementSovereigntyClaimContent as whoClaim } from "../../content/claims/who-pandemic-agreement-sovereignty";
+import { fifteenMinuteCityPrisonClaimContent as cityClaim } from "../../content/claims/15-minute-city-prison";
 
 const params = Promise.resolve({ slug: pilotClaim.slug });
-const otherStaticClaimPages = ["15-minute-city-prison"] as const;
+const otherStaticClaimPages = [] as const;
 
 interface JsonLdDocument { "@type": string; [key: string]: unknown }
 
@@ -36,6 +37,7 @@ describe("dynamic claim route cutovers", () => {
       { slug: aiBciClaim.slug },
       { slug: agendaClaim.slug },
       { slug: whoClaim.slug },
+      { slug: "15-minute-city-prison" },
     ]);
     expect(dynamicParams).toBe(false);
   });
@@ -51,6 +53,13 @@ describe("dynamic claim route cutovers", () => {
     expect(existsSync("app/claims/ai-bci-synthetic-soul/page.tsx")).toBe(false);
     expect(existsSync("app/claims/agenda-2030-seven-steps/page.tsx")).toBe(false);
     expect(existsSync("app/claims/who-pandemic-agreement-sovereignty/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/15-minute-city-prison/page.tsx")).toBe(false);
+    expect(generateStaticParams()).not.toContainEqual({ slug: cityClaim.slug });
+    const activeStaticClaimPages = readdirSync("app/claims", { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && !entry.name.startsWith("["))
+      .filter((entry) => existsSync(`app/claims/${entry.name}/page.tsx`))
+      .map((entry) => entry.name);
+    expect(activeStaticClaimPages).toEqual([]);
     for (const slug of otherStaticClaimPages) {
       expect(existsSync(`app/claims/${slug}/page.tsx`), `static page missing for ${slug}`).toBe(true);
     }

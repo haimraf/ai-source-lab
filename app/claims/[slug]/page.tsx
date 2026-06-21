@@ -6,8 +6,11 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul", "agenda-2030-seven-steps", "who-pandemic-agreement-sovereignty"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul", "agenda-2030-seven-steps", "who-pandemic-agreement-sovereignty", "15-minute-city-prison"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
+const contentSlugByRouteSlug: Partial<Record<(typeof dynamicClaimSlugs)[number], string>> = {
+  "15-minute-city-prison": "fifteen-minute-city-prison",
+};
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
   "gateway-process-out-of-body": "המסמך אמיתי — ההוכחה לא",
@@ -18,6 +21,7 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — קפיצה לא מוכחת",
   "agenda-2030-seven-steps": "לא נמצא מקור רשמי לשבעת השלבים",
   "who-pandemic-agreement-sovereignty": "הטקסט שולל סמכות להכתיב מדיניות פנים",
+  "15-minute-city-prison": "לא נמצא מקור רשמי לכליאה או איסור יציאה",
 };
 const headlineOverrides: Partial<Record<(typeof dynamicClaimSlugs)[number], string>> = {
   "agenda-2030-seven-steps": 'מהי "תוכנית שבעת השלבים" של אג׳נדה 2030?',
@@ -37,7 +41,8 @@ export const dynamicParams = false;
 
 function getDynamicClaim(slug: string): ClaimContent | undefined {
   if (!dynamicClaimSlugSet.has(slug)) return undefined;
-  return getClaimContentRecordBySlug(slug);
+  const routeSlug = slug as (typeof dynamicClaimSlugs)[number];
+  return getClaimContentRecordBySlug(contentSlugByRouteSlug[routeSlug] ?? routeSlug);
 }
 
 function getStructuredDataEntry<TType extends ClaimStructuredDataEntry["type"]>(
@@ -177,12 +182,12 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
 
         <div className="claim-meta">
           <span className="badge verdict-badge">
-            {verdictLabels[claim.slug as (typeof dynamicClaimSlugs)[number]] ?? claim.verdict}
+            {verdictLabels[slug as (typeof dynamicClaimSlugs)[number]] ?? claim.verdict}
           </span>
           <span className="small">נבדק ועודכן: {updatedLabel}</span>
         </div>
 
-        <h1>{headlineOverrides[claim.slug as (typeof dynamicClaimSlugs)[number]] ?? claim.title}</h1>
+        <h1>{headlineOverrides[slug as (typeof dynamicClaimSlugs)[number]] ?? claim.title}</h1>
         <ClaimBodyRenderer claim={claim} />
       </article>
     </>
