@@ -1,3 +1,4 @@
+import { aiAsSourcePyramidsClaimContent } from "../../content/claims/ai-as-source-pyramids";
 import { claimRecords, homeFeaturedClaimSlug } from "../claims-db";
 import type { ClaimContent } from "./claim-schema";
 
@@ -19,11 +20,18 @@ export type ClaimContentIndexEntry = Pick<
   | "ogAlt"
 >;
 
-const currentClaimContent = claimRecords.map((claim) => ({
-  schemaVersion: 1 as const,
-  status: "published" as const,
-  ...claim,
-})) satisfies readonly ClaimContentIndexEntry[];
+const migratedClaimContentBySlug = new Map<string, ClaimContent>([
+  [aiAsSourcePyramidsClaimContent.slug, aiAsSourcePyramidsClaimContent],
+]);
+
+const currentClaimContent = claimRecords.map(
+  (claim) =>
+    migratedClaimContentBySlug.get(claim.slug) ?? {
+      schemaVersion: 1 as const,
+      status: "published" as const,
+      ...claim,
+    },
+) satisfies readonly ClaimContentIndexEntry[];
 
 export function getAllClaimContent(): readonly ClaimContentIndexEntry[] {
   return currentClaimContent;

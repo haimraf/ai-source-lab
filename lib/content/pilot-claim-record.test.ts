@@ -39,7 +39,7 @@ describe("pilot claim content record", () => {
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(true);
   });
 
-  it("leaves loader output backed by the existing claim records", () => {
+  it("keeps loader output aligned with the existing claim records", () => {
     expect(getAllClaimContent().map((claim) => claim.slug)).toEqual(claimRecords.map((claim) => claim.slug));
     expect(getClaimContentBySlug(typedPilotClaim.slug)).toMatchObject(
       claimRecords.find((claim) => claim.slug === typedPilotClaim.slug)!,

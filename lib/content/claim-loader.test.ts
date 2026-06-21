@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { aiAsSourcePyramidsClaimContent } from "../../content/claims/ai-as-source-pyramids";
 import { allClaimTags, claimRecords, homeFeaturedClaimSlug } from "../claims-db";
 import {
   getAllClaimContent,
@@ -13,7 +14,20 @@ import {
 
 describe("claim content loader", () => {
   it("returns all current claims through the content index shape", () => {
-    expect(getAllClaimContent().map((claim) => claim.slug)).toEqual(claimRecords.map((claim) => claim.slug));
+    const claims = getAllClaimContent();
+
+    expect(claims).toHaveLength(claimRecords.length);
+    expect(claims.map((claim) => claim.slug)).toEqual(claimRecords.map((claim) => claim.slug));
+  });
+
+  it("prefers the migrated static content record for the pilot claim", () => {
+    expect(getClaimContentBySlug(aiAsSourcePyramidsClaimContent.slug)).toBe(aiAsSourcePyramidsClaimContent);
+  });
+
+  it("contains each claim slug exactly once", () => {
+    const slugs = getAllClaimContent().map((claim) => claim.slug);
+
+    expect(new Set(slugs).size).toBe(slugs.length);
   });
 
   it("filters out claim content that is not published", () => {
@@ -28,18 +42,18 @@ describe("claim content loader", () => {
     expect(getPublishedClaimContent([published, draft]).map((claim) => claim.slug)).toEqual([claimRecords[0].slug]);
   });
 
-  it("finds claim content by slug", () => {
-    expect({
-      found: getClaimContentBySlug(claimRecords[1].slug)?.path,
-      missing: getClaimContentBySlug("missing-claim"),
-    }).toEqual({ found: claimRecords[1].path, missing: undefined });
+  it("finds every existing claim by slug", () => {
+    expect(claimRecords.map((claim) => getClaimContentBySlug(claim.slug)?.path)).toEqual(
+      claimRecords.map((claim) => claim.path),
+    );
+    expect(getClaimContentBySlug("missing-claim")).toBeUndefined();
   });
 
-  it("finds claim content by path", () => {
-    expect({
-      found: getClaimContentByPath(claimRecords[2].path)?.slug,
-      missing: getClaimContentByPath("/claims/missing-claim"),
-    }).toEqual({ found: claimRecords[2].slug, missing: undefined });
+  it("finds every existing claim by path", () => {
+    expect(claimRecords.map((claim) => getClaimContentByPath(claim.path)?.slug)).toEqual(
+      claimRecords.map((claim) => claim.slug),
+    );
+    expect(getClaimContentByPath("/claims/missing-claim")).toBeUndefined();
   });
 
   it("returns the claims assigned to a cluster", () => {
