@@ -6,7 +6,7 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
@@ -15,6 +15,7 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
   "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
   "xrp-global-currency": "לא נמצא בסיס רשמי לטענה",
+  "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — קפיצה לא מוכחת",
 };
 const faqStructuredDataAnswerOverrides = new Map([
   [
@@ -96,21 +97,32 @@ export async function generateMetadata({ params }: ClaimPageProps): Promise<Meta
   const description = claim.metadataOverrides?.description ?? claim.seo.description ?? claim.description;
   const canonical = claim.metadataOverrides?.canonical ?? claim.path;
   const socialImage = { url: `${claim.path}/opengraph-image`, alt: claim.ogAlt };
+  const openGraphOverrides = claim.metadataOverrides?.openGraph;
+  const twitterOverrides = claim.metadataOverrides?.twitter;
+
+  const resolveSiteUrl = (value: string) => {
+    const parsed = new URL(value, siteUrl);
+    return parsed.pathname.startsWith(claim.path) ? `${siteUrl}${parsed.pathname}` : value;
+  };
 
   return {
     title,
     description,
     alternates: { canonical },
     openGraph: {
-      title,
-      description,
-      images: [socialImage],
+      title: openGraphOverrides?.title ?? title,
+      description: openGraphOverrides?.description ?? description,
+      ...(openGraphOverrides?.url ? { url: resolveSiteUrl(openGraphOverrides.url) } : {}),
+      ...(openGraphOverrides?.siteName ? { siteName: openGraphOverrides.siteName } : {}),
+      ...(openGraphOverrides?.locale ? { locale: openGraphOverrides.locale } : {}),
+      ...(openGraphOverrides?.type ? { type: openGraphOverrides.type } : {}),
+      images: openGraphOverrides?.images?.map((image) => ({ ...image, url: resolveSiteUrl(image.url) })) ?? [socialImage],
     },
     twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [socialImage],
+      card: twitterOverrides?.card ?? "summary_large_image",
+      title: twitterOverrides?.title ?? title,
+      description: twitterOverrides?.description ?? description,
+      images: twitterOverrides?.images?.map(resolveSiteUrl) ?? [socialImage],
     },
   };
 }
@@ -120,11 +132,12 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
   const claim = getDynamicClaim(slug);
   if (!claim) notFound();
 
-  const articleJsonLd = createArticleJsonLd(claim);
+  const usesStructuredData = claim.structuredData?.mode === "configured";
+  const articleJsonLd = usesStructuredData ? createArticleJsonLd(claim) : undefined;
   const faqConfig = getStructuredDataEntry(claim, "faq");
   const faqJsonLd = faqConfig ? createFaqJsonLd(claim, faqConfig) : undefined;
   const usesGraph = claim.structuredData?.mode === "configured" && claim.structuredData.container === "graph";
-  const graphJsonLd = usesGraph ? {
+  const graphJsonLd = usesGraph && articleJsonLd ? {
     "@context": "https://schema.org",
     "@graph": [articleJsonLd, faqJsonLd].filter(Boolean).map((entry) => withoutJsonLdContext(entry!)),
   } : undefined;
@@ -141,7 +154,9 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       ) : null}
       <article>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphJsonLd ?? articleJsonLd) }} />
+        {graphJsonLd ?? articleJsonLd ? (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphJsonLd ?? articleJsonLd) }} />
+        ) : null}
 
         <div className="claim-meta">
           <span className="badge verdict-badge">

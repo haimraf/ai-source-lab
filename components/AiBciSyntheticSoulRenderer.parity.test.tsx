@@ -16,7 +16,7 @@ function expectMarkersInOrder(subject: string, markers: readonly string[]) {
 }
 
 describe("ai-bci-synthetic-soul renderer parity", () => {
-  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"), "utf8");
+  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"), "utf8");
 
   it("preserves visible content and section order", () => {
     const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&#x27;", "'").replaceAll("&amp;", "&");
