@@ -14,6 +14,7 @@ import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../../conte
 import { projectBlueBeamNasaClaimContent as blueBeamClaim } from "../../content/claims/project-blue-beam-nasa";
 import { cloudSeedingChemtrailsClaimContent as cloudClaim } from "../../content/claims/cloud-seeding-chemtrails";
 import { chemtrailsAluminumClaimContent as chemtrailsClaim } from "../../content/claims/chemtrails-aluminum";
+import { xrpGlobalCurrencyClaimContent as xrpClaim } from "../../content/claims/xrp-global-currency";
 
 const params = Promise.resolve({ slug: pilotClaim.slug });
 const otherStaticClaimPages = [
@@ -21,7 +22,6 @@ const otherStaticClaimPages = [
   "agenda-2030-seven-steps",
   "ai-bci-synthetic-soul",
   "who-pandemic-agreement-sovereignty",
-  "xrp-global-currency",
 ] as const;
 
 interface JsonLdDocument {
@@ -43,6 +43,7 @@ describe("dynamic claim route cutovers", () => {
       { slug: blueBeamClaim.slug },
       { slug: cloudClaim.slug },
       { slug: chemtrailsClaim.slug },
+      { slug: xrpClaim.slug },
     ]);
     expect(dynamicParams).toBe(false);
   });
@@ -54,6 +55,7 @@ describe("dynamic claim route cutovers", () => {
     expect(existsSync("app/claims/project-blue-beam-nasa/page.tsx")).toBe(false);
     expect(existsSync("app/claims/cloud-seeding-chemtrails/page.tsx")).toBe(false);
     expect(existsSync("app/claims/chemtrails-aluminum/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/xrp-global-currency/page.tsx")).toBe(false);
     for (const slug of otherStaticClaimPages) {
       expect(existsSync(`app/claims/${slug}/page.tsx`), `static page missing for ${slug}`).toBe(true);
     }

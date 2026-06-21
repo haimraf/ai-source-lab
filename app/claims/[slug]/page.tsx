@@ -6,7 +6,7 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
@@ -14,6 +14,7 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "project-blue-beam-nasa": "נרטיב מוכר — מקור רשמי לא נמצא",
   "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
   "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
+  "xrp-global-currency": "לא נמצא בסיס רשמי לטענה",
 };
 const faqStructuredDataAnswerOverrides = new Map([
   [
@@ -77,6 +78,11 @@ function createFaqJsonLd(claim: ClaimContent, config: ClaimFaqStructuredData) {
   };
 }
 
+function withoutJsonLdContext(document: Record<string, unknown>) {
+  const { "@context": _context, ...entry } = document;
+  return entry;
+}
+
 export function generateStaticParams() {
   return dynamicClaimSlugs.map((slug) => ({ slug }));
 }
@@ -117,6 +123,11 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
   const articleJsonLd = createArticleJsonLd(claim);
   const faqConfig = getStructuredDataEntry(claim, "faq");
   const faqJsonLd = faqConfig ? createFaqJsonLd(claim, faqConfig) : undefined;
+  const usesGraph = claim.structuredData?.mode === "configured" && claim.structuredData.container === "graph";
+  const graphJsonLd = usesGraph ? {
+    "@context": "https://schema.org",
+    "@graph": [articleJsonLd, faqJsonLd].filter(Boolean).map((entry) => withoutJsonLdContext(entry!)),
+  } : undefined;
   const updatedLabel = new Intl.DateTimeFormat("he-IL", {
     day: "numeric",
     month: "long",
@@ -126,11 +137,11 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
 
   return (
     <>
-      {faqJsonLd ? (
+      {faqJsonLd && !usesGraph ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       ) : null}
       <article>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphJsonLd ?? articleJsonLd) }} />
 
         <div className="claim-meta">
           <span className="badge verdict-badge">

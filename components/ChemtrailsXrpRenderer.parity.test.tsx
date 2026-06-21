@@ -18,7 +18,9 @@ function expectMarkersInOrder(subject: string, markers: readonly string[]) {
 }
 
 function verifyParity(claim: ClaimContent, markers: readonly string[]) {
-  const sourceFile = claim.slug === "chemtrails-aluminum" ? "legacy-page.fixture.tsx" : "page.tsx";
+  const sourceFile = ["chemtrails-aluminum", "xrp-global-currency"].includes(claim.slug)
+    ? "legacy-page.fixture.tsx"
+    : "page.tsx";
   const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, sourceFile), "utf8");
   const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&amp;", "&");
   expect(source).toContain(claim.lead);

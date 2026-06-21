@@ -15,6 +15,7 @@ describe("published content repository", () => {
       "app/claims/project-blue-beam-nasa/page.tsx",
       "app/claims/cloud-seeding-chemtrails/page.tsx",
       "app/claims/chemtrails-aluminum/page.tsx",
+      "app/claims/xrp-global-currency/page.tsx",
     ]);
 
     const issues = findContentIntegrityIssues({
