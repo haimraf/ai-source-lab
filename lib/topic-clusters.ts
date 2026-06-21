@@ -1,5 +1,4 @@
 import { claimRecords, type ClaimRecord, type ClaimSlug, type TopicClusterSlug } from "@/lib/claims-db";
-import { standaloneClaimRecords } from "@/lib/standalone-claims";
 
 export type TopicClusterStatus = "active" | "expanding" | "planned";
 export type PlannedClaimStatus = "בבדיקה" | "בתכנון";
@@ -166,7 +165,7 @@ export const topicClusters = [
     status: "expanding",
     updated: "2026-06-21",
     priority: 0.84,
-    claimSlugs: claimSlugs(["project-blue-beam-nasa"]),
+    claimSlugs: claimSlugs(["project-blue-beam-nasa", "who-pandemic-agreement-sovereignty"]),
     plannedClaims: [
       {
         title: "איך מזהים מקור רשמי של גוף ממשלתי או בינלאומי?",
@@ -284,11 +283,8 @@ export function getTopicClusterForClaim(claim: ClaimRecord): TopicCluster {
 }
 
 export function getClaimsForTopicCluster(cluster: TopicCluster) {
-  const slugSet = new Set<string>(cluster.claimSlugs);
-  const indexedClaims = claimRecords.filter((claim) => slugSet.has(claim.slug));
-  const standaloneClaims = standaloneClaimRecords.filter((claim) => claim.cluster === cluster.slug);
-
-  return [...indexedClaims, ...standaloneClaims];
+  const slugSet = new Set<ClaimSlug>(cluster.claimSlugs);
+  return claimRecords.filter((claim) => slugSet.has(claim.slug));
 }
 
 export function getTopicClusterStats(cluster: TopicCluster) {

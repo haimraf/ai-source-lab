@@ -1,11 +1,7 @@
+import { getClaimBySlug } from "@/lib/claims-db";
 import { createSocialImage, socialImageContentType, socialImageSize } from "@/lib/social-image";
 
-const claim = {
-  title: "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?",
-  kicker: "WHO ואמנת מגיפות",
-  verdict: "הטקסט הרשמי שולל סמכות להכתיב מדיניות פנים למדינות",
-  ogAlt: "מקור בדיקה - בדיקת הטענה שאמנת המגיפות נותנת ל-WHO סמכות כפייה",
-} as const;
+const claim = getClaimBySlug("who-pandemic-agreement-sovereignty")!;
 
 export const size = socialImageSize;
 export const contentType = socialImageContentType;

@@ -1,22 +1,10 @@
 import { ClaimHeader } from "@/components/ClaimHeader";
 import { CopyBox } from "@/components/CopyBox";
 import { EvidenceGallery } from "@/components/EvidenceGallery";
+import { getClaimBySlug } from "@/lib/claims-db";
 import { siteUrl } from "@/lib/site";
 
-const claim = {
-  slug: "who-pandemic-agreement-sovereignty",
-  path: "/claims/who-pandemic-agreement-sovereignty",
-  title: "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?",
-  description: "בדיקה של הטענה שאמנת המגיפות של WHO נותנת לארגון סמכות להכתיב למדינות מדיניות חירום, בריאות או חקיקה פנימית.",
-  kicker: "WHO ואמנת מגיפות",
-  tags: ["WHO", "אמנת מגיפות", "ריבונות", "מדיניות פנים", "בריאות ציבורית"],
-  verdict: "הטקסט הרשמי שולל סמכות להכתיב מדיניות פנים למדינות",
-  updated: "2026-06-21",
-  changeFrequency: "monthly",
-  priority: 0.9,
-  cluster: "institutional-narratives",
-  ogAlt: "מקור בדיקה - בדיקת הטענה שאמנת המגיפות נותנת ל-WHO סמכות כפייה",
-} as const;
+const claim = getClaimBySlug("who-pandemic-agreement-sovereignty")!;
 
 const pageUrl = `${siteUrl}${claim.path}`;
 const ogImage = `${pageUrl}/opengraph-image`;
@@ -107,7 +95,7 @@ ${pageUrl}`;
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <ClaimHeader claim={claim as any} verdictLabel="הטקסט שולל סמכות להכתיב מדיניות פנים" updatedLabel="נבדק ועודכן: 21 ביוני 2026" lead={lead} />
+      <ClaimHeader claim={claim} verdictLabel="הטקסט שולל סמכות להכתיב מדיניות פנים" updatedLabel="נבדק ועודכן: 21 ביוני 2026" lead={lead} />
 
       <section className="box answer">
         <span className="eyebrow">תשובה קצרה</span>
