@@ -124,7 +124,7 @@ export const topicClusters = [
     path: "/topics/ai-sources",
     title: "AI, מקורות וטענות טכנולוגיות",
     shortTitle: "AI ומקורות",
-    eyebrow: "🤖 אשכול פעיל",
+    eyebrow: "אשכול פעיל",
     description:
       "אשכול לטענות שבהן AI, תשובות מודל או טכנולוגיות מתקדמות משמשים כקיצור דרך למסקנות שלא תמיד מופיעות במקור.",
     status: "active",
