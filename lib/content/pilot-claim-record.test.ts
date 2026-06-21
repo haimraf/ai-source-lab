@@ -72,7 +72,7 @@ describe("pilot claim content record", () => {
   });
 
   it("does not create or remove public page routes", () => {
-    expect(countPageModules("app")).toBe(15);
+    expect(countPageModules("app")).toBe(14);
     expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
     expect(existsSync("app/claims/gateway-process-out-of-body/page.tsx")).toBe(false);
@@ -82,6 +82,8 @@ describe("pilot claim content record", () => {
     expect(existsSync("app/claims/xrp-global-currency/page.tsx")).toBe(false);
     expect(existsSync("app/claims/ai-bci-synthetic-soul/page.tsx")).toBe(false);
     expect(existsSync("app/claims/agenda-2030-seven-steps/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/who-pandemic-agreement-sovereignty/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/15-minute-city-prison/page.tsx")).toBe(true);
   });
 
   it("keeps loader output aligned with the existing claim records", () => {

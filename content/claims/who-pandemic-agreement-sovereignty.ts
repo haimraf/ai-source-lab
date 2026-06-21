@@ -1,7 +1,8 @@
-import type { ClaimContent } from "../../lib/content/claim-schema";
+import { defineClaim, type ClaimContent } from "../../lib/content/claim-schema";
+import { siteUrl } from "../../lib/site";
 import { defineMigratedClaimContent } from "./define-migrated-claim";
 
-export const whoPandemicAgreementSovereigntyClaimContent = defineMigratedClaimContent({
+const migratedWhoPandemicAgreementSovereigntyClaimContent = defineMigratedClaimContent({
   slug: "who-pandemic-agreement-sovereignty",
   path: "/claims/who-pandemic-agreement-sovereignty",
   title: "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?",
@@ -35,4 +36,150 @@ export const whoPandemicAgreementSovereigntyClaimContent = defineMigratedClaimCo
     { question: "מה עם International Health Regulations?", answer: "ההסכם וה-IHR הם מסגרות קשורות אבל לא אותו מסמך. גם שם צריך לבדוק סעיפים ספציפיים ולא לערבב בין הגדרות, המלצות, הכרזות חירום וסמכות כפייה." },
     { question: "ישראל הצביעה בעד?", answer: "לפי דיווח Reuters על ההצבעה ב-2025, ישראל הייתה בין המדינות שנמנעו. זה נתון פוליטי מעניין, אבל הוא לא משנה את נוסח סעיף הסמכות בטקסט הרשמי." },
   ],
-}) satisfies ClaimContent;
+});
+
+export const whoPandemicAgreementSovereigntyClaimContent = defineClaim({
+  ...migratedWhoPandemicAgreementSovereigntyClaimContent,
+  lead: "הטענה אומרת שאמנת המגיפות של ארגון הבריאות העולמי תאפשר ל-WHO להכתיב למדינות מדיניות פנים בזמן מגיפה. הבדיקה הזו מפרידה בין הסכם בינלאומי מחייב, תהליך אשרור מדינתי, וסמכות כפייה שלא מופיעה בטקסט.",
+  shareCopy: `אמנת המגיפות של ארגון הבריאות העולמי היא הסכם בינלאומי לשיתוף פעולה בהיערכות למגיפות. הטקסט הרשמי לא נותן ל-WHO סמכות להכתיב למדינה מדיניות פנים, לשנות חוק פנימי או להורות להפעיל צעדי חירום. סעיף 22(2) שולל במפורש פרשנות כזו. זה לא אומר שאין מה לבקר בהסכם, אבל טענת סמכות הכפייה לא מופיעה במקור הרשמי.
+${siteUrl}/claims/who-pandemic-agreement-sovereignty`,
+  exhibits: [
+    {
+      id: "who-pandemic-agreement-scope",
+      src: "/evidence/who-pandemic-agreement-scope.svg",
+      alt: "איור שמפריד בין ההסכם, יישום מדינתי וטענת כפייה של WHO",
+      title: "מוצג 1.",
+      caption: "איור פנימי שמפריד בין שלוש שכבות: הסכם בינלאומי, החלטות של מדינות, וטענת כפייה שלא נמצאה בטקסט.",
+    },
+    {
+      id: "who-pandemic-agreement-timeline",
+      src: "/evidence/who-pandemic-agreement-timeline.svg",
+      alt: "איור של שלבי האימוץ, נספח PABS, חתימה ואשרור של אמנת המגיפות",
+      title: "מוצג 2.",
+      caption: "איור פנימי לעובדת הבונוס: אימוץ בעצרת הבריאות אינו אותו דבר כמו כניסה מיידית לתוקף בכל מדינה.",
+    },
+  ],
+  body: [
+    {
+      id: "short-answer",
+      type: "answer-box",
+      eyebrow: "תשובה קצרה",
+      title: "לא במובן שמופץ ברשת.",
+      paragraphs: [
+        migratedWhoPandemicAgreementSovereigntyClaimContent.sections[0].paragraphs[0],
+        "המסקנה צרה: יש מקום לבדוק ולבקר סעיפים, מימון, שקיפות או מנגנוני יישום. אבל טענת “WHO יקבע למדינה מה לעשות” דורשת סמכות כפייה שלא נמצאה בטקסט.",
+      ],
+      variant: "answer",
+    },
+    {
+      id: "verdict",
+      type: "verdict-grid",
+      items: [
+        { label: "הטענה", text: migratedWhoPandemicAgreementSovereigntyClaimContent.claim },
+        { label: "השורה התחתונה", text: migratedWhoPandemicAgreementSovereigntyClaimContent.bottomLine, emphasis: true },
+        { label: "מה כן נכון", text: migratedWhoPandemicAgreementSovereigntyClaimContent.summaryPoints[0] },
+        { label: "איפה הקפיצה", text: migratedWhoPandemicAgreementSovereigntyClaimContent.summaryPoints[1] },
+      ],
+    },
+    {
+      id: "three-layers",
+      type: "source-levels",
+      title: "שלוש שכבות שלא לערבב",
+      rows: [
+        { label: "ההסכם", title: "שיתוף פעולה בינלאומי", paragraphs: ["המסמך קובע מסגרת להיערכות, תגובה, מימון, שיתוף מידע וגישה לכלים רפואיים בזמן מגיפות."] },
+        { label: "מדינה", title: "יישום דרך חוק פנימי", paragraphs: ["מדינה שמצטרפת להסכם עדיין פועלת דרך מוסדותיה, חוקיה ותהליכי האשרור שלה."] },
+        { label: "טענה", title: "כפייה של WHO", paragraphs: ["כאן צריך סעיף שנותן ל-WHO סמכות להורות למדינה לבצע מדיניות פנים מסוימת. הסעיף שנבדק שולל זאת."] },
+      ],
+    },
+    {
+      id: "exhibits-intro",
+      type: "paragraph-section",
+      title: "מוצגים ואיורים",
+      paragraphs: ["אלה לא צילומי מקור, אלא איורים פנימיים שנועדו להסביר את ההפרדה בבדיקה."],
+    },
+    { id: "exhibits", type: "gallery", source: "claim" },
+    { id: "bonus-heading", type: "paragraph-section", title: "עובדת בונוס", paragraphs: [] },
+    {
+      id: "adoption-timeline",
+      type: "method-note",
+      title: "אימוץ בעצרת הבריאות אינו כניסה מיידית לתוקף",
+      paragraphs: ["ההסכם אומץ בעצרת הבריאות העולמית במאי 2025, אבל לפי עמוד WHO והטקסט הרשמי, הוא אמור להיפתח לחתימה רק אחרי אימוץ נספח PABS. לאחר מכן הוא ייכנס לתוקף רק 30 יום אחרי הפקדת 60 מסמכי אשרור, קבלה, אישור או הצטרפות. כלומר גם “אומץ” וגם “בתוקף במדינה” הם שלבים שונים לגמרי."],
+    },
+    {
+      id: "valid-criticism",
+      type: "comparison-list",
+      title: "מה כן אפשר לבקר?",
+      items: [
+        { label: "מנגנוני מימון", text: "אפשר לשאול מי מממן, מי מחליט, ואיך נמנעים מעומס רגולטורי על מדינות חלשות." },
+        { label: "שקיפות ופיקוח", text: "אפשר לבדוק כיצד הוועידה העתידית של הצדדים תדווח לציבור ואיך יפורסמו דוחות." },
+        { label: "PABS", text: "נספח שיתוף פתוגנים והטבות עדיין דורש פרטים, ולכן לא נכון להתייחס אליו כאילו הוא כבר נוסח סופי ומופעל." },
+        { label: "יישום מקומי", text: "הוויכוח האמיתי במדינה יהיה על חקיקה, אשרור ומדיניות מקומית, לא על הוראה ישירה של WHO." },
+      ],
+    },
+    {
+      id: "claim-chain",
+      type: "logic-chain",
+      title: "שרשרת הקפיצה",
+      steps: ["ההסכם מחייב מדינות שמצטרפות אליו", "WHO משמש מזכירות ומסייע בתיאום", "יש חשש מצעדי חירום מהעבר"],
+      conclusion: "לכן WHO יוכל לכפות מדיניות על מדינה",
+      note: "הקפיצה היא להפוך תיאום בינלאומי ומסגרת מחייבת למדינות לסמכות ישירה של WHO על חוקי מדינה, בלי סעיף שנותן סמכות כזו.",
+    },
+    {
+      id: "not-found",
+      type: "comparison-list",
+      title: "מה לא נמצא במקורות?",
+      items: [
+        { label: "לא נמצא", text: "סעיף שנותן למנכ״ל WHO סמכות להורות למדינה להפעיל צעדי חירום." },
+        { label: "לא נמצא", text: "סעיף שמאפשר ל-WHO להכתיב מדיניות פנים לאזרחים." },
+        { label: "לא נמצא", text: "סעיף שמאפשר ל-WHO לשנות חוק פנימי של מדינה." },
+        { label: "לא נמצא", text: "סעיף שמדלג על תהליך חתימה, אשרור או הצטרפות של מדינות." },
+      ],
+    },
+    { id: "faq", type: "faq", title: "שאלות נפוצות", source: "claim" },
+    { id: "copy-share", type: "copy-share", title: "תגובה קצרה להעתקה", source: "claim" },
+    { id: "sources", type: "sources", title: "המקורות שנבדקו", source: "claim" },
+    {
+      id: "method",
+      type: "method-note",
+      title: "איך נבדקה הטענה?",
+      paragraphs: ["בדקנו את נוסח ההסכם שאומץ בעצרת הבריאות העולמית, את עמוד ההסבר הרשמי של WHO ואת שאלות-התשובות של WHO. לאחר מכן הפרדנו בין מסגרת בינלאומית מחייבת למדינות לבין סמכות ישירה של WHO על חוקי מדינה, וחיפשנו במיוחד סעיף שמאפשר להכתיב מדיניות פנים."],
+    },
+  ],
+  structuredData: {
+    mode: "configured",
+    entries: [{
+      type: "article",
+      placement: "page",
+      headline: migratedWhoPandemicAgreementSovereigntyClaimContent.title,
+      description: migratedWhoPandemicAgreementSovereigntyClaimContent.description,
+      datePublished: "2026-06-21",
+      dateModified: "2026-06-21",
+      inLanguage: "he-IL",
+    }],
+  },
+  metadataOverrides: {
+    title: `${migratedWhoPandemicAgreementSovereigntyClaimContent.title} | מקור בדיקה`,
+    description: migratedWhoPandemicAgreementSovereigntyClaimContent.description,
+    canonical: migratedWhoPandemicAgreementSovereigntyClaimContent.path,
+    openGraph: {
+      title: migratedWhoPandemicAgreementSovereigntyClaimContent.title,
+      description: migratedWhoPandemicAgreementSovereigntyClaimContent.description,
+      url: `${siteUrl}${migratedWhoPandemicAgreementSovereigntyClaimContent.path}`,
+      siteName: "מקור בדיקה",
+      locale: "he_IL",
+      type: "article",
+      images: [{
+        url: `${siteUrl}${migratedWhoPandemicAgreementSovereigntyClaimContent.path}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: migratedWhoPandemicAgreementSovereigntyClaimContent.ogAlt,
+      }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: migratedWhoPandemicAgreementSovereigntyClaimContent.title,
+      description: migratedWhoPandemicAgreementSovereigntyClaimContent.description,
+      images: [`${siteUrl}${migratedWhoPandemicAgreementSovereigntyClaimContent.path}/opengraph-image`],
+    },
+  },
+} satisfies ClaimContent);

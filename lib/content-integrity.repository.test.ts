@@ -18,6 +18,7 @@ describe("published content repository", () => {
       "app/claims/xrp-global-currency/page.tsx",
       "app/claims/ai-bci-synthetic-soul/page.tsx",
       "app/claims/agenda-2030-seven-steps/page.tsx",
+      "app/claims/who-pandemic-agreement-sovereignty/page.tsx",
     ]);
 
     const issues = findContentIntegrityIssues({
