@@ -182,10 +182,12 @@ article > .lead,
   background: #121b25;
 }
 
-.card a,
-.card a *,
+article.card > a,
+article.card > a *,
 a.topic-card,
 a.topic-card *,
+a.search-result,
+a.search-result *,
 a.signal-row,
 a.signal-row * {
   text-decoration: none !important;
