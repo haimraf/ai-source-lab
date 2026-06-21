@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from "node:fs";
+﻿import { existsSync, readdirSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
@@ -11,8 +11,10 @@ import { projectBlueBeamNasaClaimContent as blueBeamClaim } from "../../content/
 import { cloudSeedingChemtrailsClaimContent as cloudClaim } from "../../content/claims/cloud-seeding-chemtrails";
 import { chemtrailsAluminumClaimContent as chemtrailsClaim } from "../../content/claims/chemtrails-aluminum";
 import { xrpGlobalCurrencyClaimContent as xrpClaim } from "../../content/claims/xrp-global-currency";
+import { digitalShekelSpendingControlClaimContent as digitalShekelClaim } from "../../content/claims/digital-shekel-spending-control";
 import { aiBciSyntheticSoulClaimContent as aiBciClaim } from "../../content/claims/ai-bci-synthetic-soul";
 import { agenda2030SevenStepsClaimContent as agendaClaim } from "../../content/claims/agenda-2030-seven-steps";
+import { ownNothingKlausSchwabClaimContent as ownNothingClaim } from "../../content/claims/you-will-own-nothing-klaus-schwab";
 import { whoPandemicAgreementSovereigntyClaimContent as whoClaim } from "../../content/claims/who-pandemic-agreement-sovereignty";
 import { fifteenMinuteCityPrisonClaimContent as cityClaim } from "../../content/claims/15-minute-city-prison";
 
@@ -34,8 +36,10 @@ describe("dynamic claim route cutovers", () => {
       { slug: cloudClaim.slug },
       { slug: chemtrailsClaim.slug },
       { slug: xrpClaim.slug },
+      { slug: digitalShekelClaim.slug },
       { slug: aiBciClaim.slug },
       { slug: agendaClaim.slug },
+      { slug: ownNothingClaim.slug },
       { slug: whoClaim.slug },
       { slug: "15-minute-city-prison" },
     ]);
@@ -93,3 +97,6 @@ describe("dynamic claim route cutovers", () => {
     expect(dynamicDocuments.find((document) => document["@type"] === "FAQPage")).toEqual(legacyFaqPage);
   });
 });
+
+
+

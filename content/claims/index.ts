@@ -5,7 +5,9 @@ import { aiAsSourcePyramidsClaimContent } from "./ai-as-source-pyramids";
 import { aiBciSyntheticSoulClaimContent } from "./ai-bci-synthetic-soul";
 import { chemtrailsAluminumClaimContent } from "./chemtrails-aluminum";
 import { cloudSeedingChemtrailsClaimContent } from "./cloud-seeding-chemtrails";
+import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spending-control";
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
+import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
 import { whoPandemicAgreementSovereigntyClaimContent } from "./who-pandemic-agreement-sovereignty";
 import { xrpGlobalCurrencyClaimContent } from "./xrp-global-currency";
@@ -19,6 +21,8 @@ export const claimContentRecords = [
   cloudSeedingChemtrailsClaimContent,
   fifteenMinuteCityPrisonClaimContent,
   agenda2030SevenStepsClaimContent,
+  ownNothingKlausSchwabClaimContent,
+  digitalShekelSpendingControlClaimContent,
   xrpGlobalCurrencyClaimContent,
   chemtrailsAluminumClaimContent,
 ] satisfies readonly ClaimContent[];

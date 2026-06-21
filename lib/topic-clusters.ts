@@ -48,9 +48,9 @@ export const topicClusters = [
     description:
       "אשכול שמפריד בין החלטת האו״ם, יעדי SDGs, מסמכים של גופים אחרים וטענות שמופצות ברשת כאילו הן תוכנית אחת סגורה.",
     status: "active",
-    updated: "2026-06-20",
+    updated: "2026-06-21",
     priority: 0.95,
-    claimSlugs: claimSlugs(["fifteen-minute-city-prison", "agenda-2030-seven-steps"]),
+    claimSlugs: claimSlugs(["you-will-own-nothing-klaus-schwab", "fifteen-minute-city-prison", "agenda-2030-seven-steps"]),
     plannedClaims: [
       {
         title: "האם אג׳נדה 2030 מחייבת מדינות כחוק?",
@@ -61,11 +61,6 @@ export const topicClusters = [
         title: "האם יש קשר רשמי בין אג׳נדה 2030 לזהות דיגיטלית?",
         status: "בבדיקה",
         note: "לבדוק מסמכי או״ם, יוזמות ID4D וקפיצות בין גופים שונים.",
-      },
-      {
-        title: "מאיפה הגיע המשפט ״לא יהיה לכם כלום ותהיו מאושרים״?",
-        status: "בתכנון",
-        note: "לאתר את המקור המדויק ולהפריד בין WEF, מאמר דעה ומסמך מדיניות.",
       },
       {
         title: "האם מטבע דיגיטלי של בנק מרכזי הוא חלק מהאג׳נדה?",
@@ -233,9 +228,9 @@ export const topicClusters = [
     description:
       "אשכול לטענות על XRP, CBDC, תקני תשלום ומטבעות עתידיים — עם הפרדה בין שימוש טכנולוגי לבין בחירה רשמית.",
     status: "expanding",
-    updated: "2026-06-18",
+    updated: "2026-06-21",
     priority: 0.78,
-    claimSlugs: claimSlugs(["xrp-global-currency"]),
+    claimSlugs: claimSlugs(["digital-shekel-spending-control", "xrp-global-currency"]),
     plannedClaims: [
       {
         title: "מה ההבדל בין ISO 20022 לבין בחירה במטבע מסוים?",
