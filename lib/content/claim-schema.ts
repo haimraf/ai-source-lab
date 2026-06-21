@@ -184,6 +184,7 @@ export interface ClaimArticleStructuredData {
 export interface ClaimFaqStructuredData {
   type: "faq";
   placement: ClaimStructuredDataPlacement;
+  items?: readonly ClaimFaqItem[];
 }
 
 export type ClaimStructuredDataEntry = ClaimArticleStructuredData | ClaimFaqStructuredData;

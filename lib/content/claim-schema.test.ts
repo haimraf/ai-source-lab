@@ -200,7 +200,7 @@ const richClaim = {
         dateModified: "2026-06-21",
         inLanguage: "en",
       },
-      { type: "faq", placement: "layout" },
+      { type: "faq", placement: "layout", items: [faqItem] },
     ],
   },
   metadataOverrides: {
@@ -255,6 +255,7 @@ describe("claim content schema", () => {
     ]);
     expect(claim.exhibits[0].id).toBe("exhibit-1");
     expect(claim.structuredData.mode).toBe("configured");
+    expect(claim.structuredData.entries[1]).toMatchObject({ type: "faq", items: [faqItem] });
     expect(claim.metadataOverrides.openGraph?.type).toBe("article");
   });
 });
