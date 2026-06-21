@@ -10,6 +10,7 @@ import DynamicClaimPage, {
   generateStaticParams,
 } from "../../app/claims/[slug]/page";
 import { aiAsSourcePyramidsClaimContent as pilotClaim } from "../../content/claims/ai-as-source-pyramids";
+import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../../content/claims/gateway-process-out-of-body";
 
 const params = Promise.resolve({ slug: pilotClaim.slug });
 const otherStaticClaimPages = [
@@ -18,7 +19,6 @@ const otherStaticClaimPages = [
   "ai-bci-synthetic-soul",
   "chemtrails-aluminum",
   "cloud-seeding-chemtrails",
-  "gateway-process-out-of-body",
   "project-blue-beam-nasa",
   "who-pandemic-agreement-sovereignty",
   "xrp-global-currency",
@@ -35,15 +35,19 @@ function extractJsonLdDocuments(html: string): JsonLdDocument[] {
   ));
 }
 
-describe("ai-as-source-pyramids dynamic route cutover", () => {
-  it("generates only the pilot slug and disables unlisted dynamic params", () => {
-    expect(generateStaticParams()).toEqual([{ slug: pilotClaim.slug }]);
+describe("dynamic claim route cutovers", () => {
+  it("generates only the approved dynamic slugs and disables unlisted params", () => {
+    expect(generateStaticParams()).toEqual([
+      { slug: pilotClaim.slug },
+      { slug: gatewayClaim.slug },
+    ]);
     expect(dynamicParams).toBe(false);
   });
 
-  it("moves only the pilot page to dynamic route ownership", () => {
+  it("moves only the approved pages to dynamic route ownership", () => {
     expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
+    expect(existsSync("app/claims/gateway-process-out-of-body/page.tsx")).toBe(false);
     for (const slug of otherStaticClaimPages) {
       expect(existsSync(`app/claims/${slug}/page.tsx`), `static page missing for ${slug}`).toBe(true);
     }

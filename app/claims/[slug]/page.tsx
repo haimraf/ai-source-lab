@@ -6,8 +6,12 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const pilotSlug = "ai-as-source-pyramids";
-const pilotVerdictLabel = "AI אינו מקור — הוא כלי שמוביל למקורות";
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body"] as const;
+const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
+const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
+  "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
+  "gateway-process-out-of-body": "המסמך אמיתי — ההוכחה לא",
+};
 const faqStructuredDataAnswerOverrides = new Map([
   [
     "אז אסור להשתמש ב-AI למחקר?",
@@ -21,8 +25,8 @@ type ClaimPageProps = {
 
 export const dynamicParams = false;
 
-function getPilotClaim(slug: string): ClaimContent | undefined {
-  if (slug !== pilotSlug) return undefined;
+function getDynamicClaim(slug: string): ClaimContent | undefined {
+  if (!dynamicClaimSlugSet.has(slug)) return undefined;
   return getClaimContentRecordBySlug(slug);
 }
 
@@ -70,12 +74,12 @@ function createFaqJsonLd(claim: ClaimContent) {
 }
 
 export function generateStaticParams() {
-  return [{ slug: pilotSlug }];
+  return dynamicClaimSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: ClaimPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const claim = getPilotClaim(slug);
+  const claim = getDynamicClaim(slug);
   if (!claim) return {};
 
   const title = claim.metadataOverrides?.title ?? claim.seo.title ?? claim.title;
@@ -103,11 +107,11 @@ export async function generateMetadata({ params }: ClaimPageProps): Promise<Meta
 
 export default async function ClaimPage({ params }: ClaimPageProps) {
   const { slug } = await params;
-  const claim = getPilotClaim(slug);
+  const claim = getDynamicClaim(slug);
   if (!claim) notFound();
 
   const articleJsonLd = createArticleJsonLd(claim);
-  const faqJsonLd = createFaqJsonLd(claim);
+  const faqJsonLd = getStructuredDataEntry(claim, "faq") ? createFaqJsonLd(claim) : undefined;
   const updatedLabel = new Intl.DateTimeFormat("he-IL", {
     day: "numeric",
     month: "long",
@@ -117,12 +121,16 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      {faqJsonLd ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      ) : null}
       <article>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
         <div className="claim-meta">
-          <span className="badge verdict-badge">{pilotVerdictLabel}</span>
+          <span className="badge verdict-badge">
+            {verdictLabels[claim.slug as (typeof dynamicClaimSlugs)[number]] ?? claim.verdict}
+          </span>
           <span className="small">נבדק ועודכן: {updatedLabel}</span>
         </div>
 

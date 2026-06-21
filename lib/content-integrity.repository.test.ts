@@ -9,7 +9,10 @@ describe("published content repository", () => {
   it("keeps claims, topics, sitemap pages, and social images synchronized", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
     const sitemapPaths = new Set(Array.from(sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g), (match) => match[1] || "/"));
-    const pilotPageFile = "app/claims/ai-as-source-pyramids/page.tsx";
+    const dynamicClaimPageFiles = new Set([
+      "app/claims/ai-as-source-pyramids/page.tsx",
+      "app/claims/gateway-process-out-of-body/page.tsx",
+    ]);
 
     const issues = findContentIntegrityIssues({
       claimPaths: claimRecords.map((claim) => claim.path),
@@ -17,7 +20,7 @@ describe("published content repository", () => {
       sitemapPaths,
       fileExists: (path) =>
         existsSync(path) ||
-        (path === pilotPageFile && existsSync("app/claims/[slug]/page.tsx")) ||
+        (dynamicClaimPageFiles.has(path) && existsSync("app/claims/[slug]/page.tsx")) ||
         (path.startsWith("app/topics/") && existsSync("app/topics/[slug]/page.tsx")),
     });
 
