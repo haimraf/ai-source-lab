@@ -3,11 +3,13 @@ import { describe, expect, it } from "vitest";
 
 import { claimRecords } from "./claims-db";
 import { findContentIntegrityIssues } from "./content-integrity";
+import { updateClaimSitemapXml } from "./content/claim-sitemap";
 import { topicClusters } from "./topic-clusters";
 
 describe("published content repository", () => {
   it("keeps claims, topics, sitemap pages, and social images synchronized", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
+    expect(updateClaimSitemapXml(sitemap)).toBe(sitemap);
     const sitemapPaths = new Set(Array.from(sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g), (match) => match[1] || "/"));
     const dynamicClaimPageFiles = new Set([
       "app/claims/ai-as-source-pyramids/page.tsx",
