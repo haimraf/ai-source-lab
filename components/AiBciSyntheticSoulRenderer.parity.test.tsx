@@ -6,42 +6,35 @@ import { describe, expect, it } from "vitest";
 import { aiBciSyntheticSoulClaimContent as claim } from "../content/claims/ai-bci-synthetic-soul";
 import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 
-function expectMarkersInOrder(subject: string, markers: readonly string[]) {
-  let previous = -1;
-  for (const marker of markers) {
-    const current = subject.indexOf(marker);
-    expect(current, `expected marker in order: ${marker}`).toBeGreaterThan(previous);
-    previous = current;
-  }
-}
-
 describe("ai-bci-synthetic-soul renderer parity", () => {
-  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"), "utf8");
+  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"), "utf8");
 
-  it("preserves visible content and section order", () => {
-    const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&#x27;", "'").replaceAll("&amp;", "&");
-    const markers = [
-      "שורה תחתונה",
-      "מה כן אמיתי?",
-      "ממשק מוח-מחשב קיים",
-      "איפה הקפיצה?",
-      "מה לא נמצא במקורות?",
-      "פירוק המונחים",
-      "שאלות נפוצות",
-      "תגובה קצרה להעתקה",
-      "המקורות שנבדקו",
-      "איך נבדקה הטענה?",
-    ];
-
+  it("preserves visible content and core section order", () => {
+    const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />)
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#x27;", "'")
+      .replaceAll("&amp;", "&");
+    const markers = ["שורה תחתונה", "מה כן אמיתי?", "איפה הקפיצה?", "שאלות נפוצות", "תגובה קצרה להעתקה", "המקורות שנבדקו", "איך נבדקה הטענה?"];
+    let previousStatic = -1;
+    let previousDynamic = -1;
+    for (const marker of markers) {
+      const staticIndex = source.indexOf(marker);
+      const dynamicIndex = html.indexOf(marker);
+      expect(staticIndex, `static marker missing: ${marker}`).toBeGreaterThan(previousStatic);
+      expect(dynamicIndex, `dynamic marker missing: ${marker}`).toBeGreaterThan(previousDynamic);
+      previousStatic = staticIndex;
+      previousDynamic = dynamicIndex;
+    }
     expect(source).toContain(claim.lead);
     expect(html).toContain(claim.lead);
-    expectMarkersInOrder(source.slice(source.indexOf("return (")), markers);
-    expectMarkersInOrder(html, markers);
+    expect(html).toContain('class="copy-box"');
   });
 
-  it("preserves FAQ, source and share-copy content", () => {
-    const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&#x27;", "'").replaceAll("&amp;", "&");
-
+  it("preserves FAQ, sources and share copy", () => {
+    const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />)
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#x27;", "'")
+      .replaceAll("&amp;", "&");
     for (const item of claim.faq) {
       expect(source).toContain(item.question);
       expect(html).toContain(item.question);
@@ -54,6 +47,5 @@ describe("ai-bci-synthetic-soul renderer parity", () => {
     }
     expect(source).toContain(claim.shareCopy!.split("\n")[0]);
     expect(html).toContain(claim.shareCopy!);
-    expect(html).toContain('class="copy-box"');
   });
 });

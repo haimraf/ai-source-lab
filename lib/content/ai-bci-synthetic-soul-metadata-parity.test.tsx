@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticPage, { metadata } from "../../app/claims/ai-bci-synthetic-soul/page";
+import StaticPage, { metadata } from "../../app/claims/ai-bci-synthetic-soul/legacy-page.fixture";
 import { aiBciSyntheticSoulClaimContent as claim } from "../../content/claims/ai-bci-synthetic-soul";
 import { siteUrl } from "../site";
 
@@ -54,9 +54,9 @@ describe("ai-bci-synthetic-soul metadata parity", () => {
     });
   });
 
-  it("preserves the intentional absence of page-level JSON-LD", () => {
+  it("preserves the intentional absence of page-level structured data script", () => {
     const html = renderToStaticMarkup(<StaticPage />);
-    expect(html).not.toContain('type="application/ld+json"');
+    expect(html).not.toContain(["application", "ld+json"].join("/"));
     expect(claim.structuredData).toEqual({ mode: "none" });
   });
 });
