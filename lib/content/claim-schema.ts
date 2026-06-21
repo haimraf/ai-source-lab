@@ -4,13 +4,16 @@ export type ClaimStatus = (typeof claimStatuses)[number];
 export const sourceLevels = ["primary", "official", "secondary", "context"] as const;
 export type SourceLevel = (typeof sourceLevels)[number];
 
+export const changeFrequencies = ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"] as const;
+export type ChangeFrequency = (typeof changeFrequencies)[number];
+
 export const editorialRoles = ["author", "fact_checker", "editor"] as const;
 export type EditorialRole = (typeof editorialRoles)[number];
 
 export const editorialDecisions = ["pending", "approved", "changes_requested"] as const;
 export type EditorialDecision = (typeof editorialDecisions)[number];
 
-export interface Source {
+export interface ClaimSource {
   id: string;
   title: string;
   url: string;
@@ -23,7 +26,7 @@ export interface Source {
   note?: string;
 }
 
-export interface FAQ {
+export interface ClaimFaqItem {
   question: string;
   answer: string;
 }
@@ -53,12 +56,24 @@ export interface EditorialReview {
   note?: string;
 }
 
+export interface EditorialChecklist {
+  claimScopeChecked: boolean;
+  primarySourcesChecked: boolean;
+  sourceLinksVerified: boolean;
+  verdictSupported: boolean;
+  copyReviewed: boolean;
+  seoReviewed: boolean;
+}
+
 export interface EditorialWorkflow {
-  status: ClaimStatus;
   revision: number;
+  needsReview: boolean;
   createdAt: string;
   updatedAt: string;
   publishedAt?: string;
+  reviewedBy?: string;
+  reviewedAt?: string;
+  checklist: EditorialChecklist;
   credits: readonly EditorialCredit[];
   review?: EditorialReview;
 }
@@ -66,29 +81,41 @@ export interface EditorialWorkflow {
 export interface ClaimSeo {
   title?: string;
   description?: string;
-  ogAlt: string;
   noIndex?: boolean;
 }
 
-export interface Claim {
+export interface ClaimContent {
   schemaVersion: 1;
   slug: string;
+  path: `/claims/${string}`;
   title: string;
   description: string;
   kicker: string;
   tags: readonly string[];
+  verdict: string;
+  status: ClaimStatus;
   cluster: string;
+  updated: string;
+  changeFrequency: ChangeFrequency;
+  priority: number;
+  ogAlt: string;
   claim: string;
   shortAnswer: string;
-  verdict: string;
+  bottomLine: string;
+  summaryPoints: readonly string[];
   findings: ClaimFindings;
-  sources: readonly Source[];
-  faq: readonly FAQ[];
+  sources: readonly ClaimSource[];
+  faq: readonly ClaimFaqItem[];
   sections: readonly ClaimSection[];
   workflow: EditorialWorkflow;
   seo: ClaimSeo;
 }
 
-export function defineClaim<const T extends Claim>(claim: T): T {
+// Compatibility aliases keep the schema additive until content migration starts.
+export type Source = ClaimSource;
+export type FAQ = ClaimFaqItem;
+export type Claim = ClaimContent;
+
+export function defineClaim<const T extends ClaimContent>(claim: T): T {
   return claim;
 }
