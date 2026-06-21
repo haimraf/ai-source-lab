@@ -6,7 +6,7 @@ import { getClaimContentRecordBySlug } from "@/lib/content/claim-loader";
 import type { ClaimContent, ClaimFaqStructuredData, ClaimStructuredDataEntry } from "@/lib/content/claim-schema";
 import { siteUrl } from "@/lib/site";
 
-const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul"] as const;
+const dynamicClaimSlugs = ["ai-as-source-pyramids", "gateway-process-out-of-body", "project-blue-beam-nasa", "cloud-seeding-chemtrails", "chemtrails-aluminum", "xrp-global-currency", "ai-bci-synthetic-soul", "agenda-2030-seven-steps"] as const;
 const dynamicClaimSlugSet = new Set<string>(dynamicClaimSlugs);
 const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
@@ -16,6 +16,10 @@ const verdictLabels: Record<(typeof dynamicClaimSlugs)[number], string> = {
   "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
   "xrp-global-currency": "לא נמצא בסיס רשמי לטענה",
   "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — קפיצה לא מוכחת",
+  "agenda-2030-seven-steps": "לא נמצא מקור רשמי לשבעת השלבים",
+};
+const headlineOverrides: Partial<Record<(typeof dynamicClaimSlugs)[number], string>> = {
+  "agenda-2030-seven-steps": 'מהי "תוכנית שבעת השלבים" של אג׳נדה 2030?',
 };
 const faqStructuredDataAnswerOverrides = new Map([
   [
@@ -177,7 +181,7 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
           <span className="small">נבדק ועודכן: {updatedLabel}</span>
         </div>
 
-        <h1>{claim.title}</h1>
+        <h1>{headlineOverrides[claim.slug as (typeof dynamicClaimSlugs)[number]] ?? claim.title}</h1>
         <ClaimBodyRenderer claim={claim} />
       </article>
     </>

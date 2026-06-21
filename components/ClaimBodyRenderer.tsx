@@ -1,6 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 
 import { CopyBox } from "./CopyBox";
+import { EvidenceGallery } from "./EvidenceGallery";
 import type { ClaimBodyBlock, ClaimContent } from "../lib/content/claim-schema";
 
 interface ClaimBodyRendererProps {
@@ -151,6 +152,18 @@ function renderBlock(block: ClaimBodyBlock, claim: ClaimContent): ReactNode {
           </ol>
         </section>
       );
+
+    case "gallery": {
+      const exhibits = block.exhibitIds
+        ? claim.exhibits?.filter((exhibit) => block.exhibitIds?.includes(exhibit.id))
+        : claim.exhibits;
+      return exhibits?.length ? (
+        <section>
+          {block.title ? <h2>{block.title}</h2> : null}
+          <EvidenceGallery exhibits={exhibits.map(({ src, alt, title, caption }) => ({ src, alt, title, caption }))} />
+        </section>
+      ) : null;
+    }
 
     case "copy-share":
       return claim.shareCopy ? (

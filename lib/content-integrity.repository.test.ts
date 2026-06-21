@@ -17,6 +17,7 @@ describe("published content repository", () => {
       "app/claims/chemtrails-aluminum/page.tsx",
       "app/claims/xrp-global-currency/page.tsx",
       "app/claims/ai-bci-synthetic-soul/page.tsx",
+      "app/claims/agenda-2030-seven-steps/page.tsx",
     ]);
 
     const issues = findContentIntegrityIssues({
