@@ -33,4 +33,15 @@ describe("read-only content status page", () => {
     expect(layout).not.toContain("/internal/content-status");
     expect(llmsRoute).not.toContain("/internal/content-status");
   });
+
+  it("uses the site's dark theme tokens instead of white fallback surfaces", () => {
+    const css = readFileSync("app/internal/content-status/page.module.css", "utf8");
+
+    expect(css).toContain("background: var(--panel);");
+    expect(css).toContain("background: var(--panel-strong);");
+    expect(css).toContain("border: 1px solid var(--border);");
+    expect(css).toContain("color: var(--muted);");
+    expect(css).not.toContain("--color-surface");
+    expect(css).not.toContain("#fff");
+  });
 });
