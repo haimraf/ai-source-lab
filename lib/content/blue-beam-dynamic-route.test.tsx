@@ -35,8 +35,8 @@ describe("project-blue-beam-nasa dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { images: [{ url: `${blueBeam.path}/opengraph-image`, alt: blueBeam.ogAlt }] },
-      twitter: { images: [{ url: `${blueBeam.path}/opengraph-image`, alt: blueBeam.ogAlt }] },
+      openGraph: { images: [{ url: `${blueBeam.path}/opengraph-image?version=og-v11`, alt: blueBeam.ogAlt }] },
+      twitter: { images: [{ url: `${blueBeam.path}/opengraph-image?version=og-v11`, alt: blueBeam.ogAlt }] },
     });
   });
 

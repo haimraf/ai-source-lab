@@ -57,8 +57,8 @@ describe("dynamic claim route cutovers", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { title: legacyMetadata.title, description: legacyMetadata.description, images: [{ url: `${pilotClaim.path}/opengraph-image`, alt: pilotClaim.ogAlt }] },
-      twitter: { card: "summary_large_image", title: legacyMetadata.title, description: legacyMetadata.description, images: [{ url: `${pilotClaim.path}/opengraph-image`, alt: pilotClaim.ogAlt }] },
+      openGraph: { title: legacyMetadata.title, description: legacyMetadata.description, images: [{ url: `${pilotClaim.path}/opengraph-image?version=og-v11`, alt: pilotClaim.ogAlt }] },
+      twitter: { card: "summary_large_image", title: legacyMetadata.title, description: legacyMetadata.description, images: [{ url: `${pilotClaim.path}/opengraph-image?version=og-v11`, alt: pilotClaim.ogAlt }] },
     });
   });
 });

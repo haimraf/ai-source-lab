@@ -30,8 +30,8 @@ describe("agenda-2030-seven-steps dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { images: [{ url: `${claim.path}/opengraph-image`, alt: claim.ogAlt }] },
-      twitter: { images: [{ url: `${claim.path}/opengraph-image`, alt: claim.ogAlt }] },
+      openGraph: { images: [{ url: `${claim.path}/opengraph-image?version=og-v11`, alt: claim.ogAlt }] },
+      twitter: { images: [{ url: `${claim.path}/opengraph-image?version=og-v11`, alt: claim.ogAlt }] },
     });
   });
 
