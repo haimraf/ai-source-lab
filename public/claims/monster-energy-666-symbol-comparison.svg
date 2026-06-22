@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract symbol comparison without text</title>
+  <desc id="desc">Abstract dark illustration with three green claw-like strokes and three pale vertical strokes, no letters or words.</desc>
+  <rect width="1200" height="675" fill="#050806"/>
+  <rect x="70" y="70" width="500" height="535" rx="38" fill="#0b130d" stroke="#1d2a20" stroke-width="2"/>
+  <rect x="630" y="70" width="500" height="535" rx="38" fill="#0b130d" stroke="#1d2a20" stroke-width="2"/>
+  <path d="M300 115 C270 205 265 310 285 405 C295 460 292 515 260 570 C330 500 352 420 350 325 C348 235 335 170 370 105 C345 120 323 123 300 115 Z" fill="#47e03e"/>
+  <path d="M405 105 C370 205 365 315 390 415 C405 470 400 525 365 580 C440 505 462 420 458 320 C455 225 443 160 480 100 C455 116 430 120 405 105 Z" fill="#47e03e"/>
+  <path d="M505 115 C475 205 470 310 492 407 C505 462 500 516 468 570 C538 500 560 420 558 325 C555 235 544 170 578 105 C555 120 530 123 505 115 Z" fill="#47e03e"/>
+  <path d="M765 130 L765 520" stroke="#e8efe3" stroke-width="42" stroke-linecap="round"/>
+  <path d="M875 130 L875 520" stroke="#e8efe3" stroke-width="42" stroke-linecap="round"/>
+  <path d="M985 130 L985 520" stroke="#e8efe3" stroke-width="42" stroke-linecap="round"/>
+  <path d="M590 135 L610 540" stroke="#283228" stroke-width="3" opacity="0.8"/>
+  <circle cx="320" cy="340" r="210" fill="none" stroke="#47e03e" stroke-width="2" opacity="0.16"/>
+  <circle cx="875" cy="340" r="210" fill="none" stroke="#e8efe3" stroke-width="2" opacity="0.12"/>
+</svg>

@@ -4,7 +4,8 @@ import {
   getPublishedClaimContent,
   type ClaimContentIndexEntry,
 } from "@/lib/content/claim-loader";
-import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
+import { getClaimsForTopicCluster, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
+import { getTopicClusterStats } from "@/lib/topic-stats";
 import { siteUrl } from "@/lib/site";
 
 const title = "מקור בדיקה | טענות, מקורות ומסקנות";

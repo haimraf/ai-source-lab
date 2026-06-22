@@ -75,9 +75,10 @@ describe("claim sitemap", () => {
         priority: claim.priority,
       })),
     );
-    expect(sitemapEntries).toHaveLength(13);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(13);
+    expect(sitemapEntries).toHaveLength(14);
+    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(14);
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/monster-energy-666-logo");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 

@@ -1,4 +1,5 @@
-import { getClaimsForTopicCluster, getTopicClusterStats, type TopicCluster } from "@/lib/topic-clusters";
+import { getClaimsForTopicCluster, type TopicCluster } from "@/lib/topic-clusters";
+import { getTopicClusterStats } from "@/lib/topic-stats";
 
 function formatDate(value: string) {
   const [year, month, day] = value.split("-");

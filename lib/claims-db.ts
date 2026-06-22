@@ -19,6 +19,7 @@ export type TopicClusterSlug =
   | "ai-sources"
   | "agenda-2030"
   | "sky-climate"
+  | "pop-culture-symbols"
   | "consciousness-intelligence"
   | "institutional-narratives"
   | "digital-money";
