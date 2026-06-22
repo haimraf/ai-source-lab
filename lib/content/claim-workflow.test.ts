@@ -11,7 +11,7 @@ const allowedTestStatuses = ["missing", "partial", "covered", "needs-review"] as
 
 describe("claim workflow fields", () => {
   it("accepts the current published claim set", () => {
-    expect(claimContentRecords).toHaveLength(13);
+    expect(claimContentRecords).toHaveLength(14);
     expect(claimContentRecords.flatMap(findClaimWorkflowIntegrityIssues)).toEqual([]);
   });
 
