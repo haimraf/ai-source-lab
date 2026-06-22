@@ -59,7 +59,7 @@ export const monsterEnergy666LogoClaimContent = defineClaim({
   shareCopy: "הלוגו של Monster Energy באמת יכול להזכיר לשלושה אנשים שונים שלושה דברים שונים: M, טפרים, או שלוש צורות דומות לאות ו׳. ו׳ אכן שווה 6 בגימטריה, אבל לא נמצאה ראיה שהלוגו תוכנן בכוונה כ־666 בעברית. זה קייס טוב להבדל בין דמיון חזותי לבין הוכחת כוונה.\nhttps://ai-source-lab.vercel.app/claims/monster-energy-666-logo",
   body: [
     { id: "answer", type: "answer-box", eyebrow: "תשובה קצרה", title: migratedMonsterEnergy666LogoClaimContent.shortAnswer, paragraphs: [migratedMonsterEnergy666LogoClaimContent.bottomLine], variant: "answer" },
-    { id: "visual", type: "gallery", title: "למה הטענה תופסת את העין?", exhibitIds: ["symbol-comparison"] },
+    { id: "visual", type: "gallery", title: "למה הטענה תופסת את העין?", source: "claim", exhibitIds: ["symbol-comparison"] },
     { id: "verdict", type: "verdict-grid", items: [
       { label: "הטענה", text: migratedMonsterEnergy666LogoClaimContent.claim },
       { label: "מה כן נכון", text: migratedMonsterEnergy666LogoClaimContent.summaryPoints[0] },
@@ -81,12 +81,12 @@ export const monsterEnergy666LogoClaimContent = defineClaim({
     { id: "evidence", type: "evidence-list", title: "מה בדקנו", numbered: true, items: [
       { id: "vav", title: "האות ו׳ והמספר 6", paragraphs: ["החלק הזה בטענה נכון: בגימטריה עברית האות ו׳ מייצגת את המספר 6. לכן שלוש ווין יכולות ליצור קריאה של 6־6־6."] },
       { id: "viral", title: "הטענה הוויראלית", paragraphs: ["הקשר בין Monster Energy לבין 666 וסמליות שטנית הופץ במיוחד דרך סרטונים נוצריים ויראליים, ובהם הטענה שהלוגו מציג את מספר החיה."] },
-      { id: "logo", title: "ההסבר העיצובי", paragraphs: ["במקורות הרקע הלוגו מתואר כ־M ירוקה בשלושה קווים על רקע שחור, בעיצוב שמרמז על טפרים של מפלצת שקורעים את הפחית. זה הסבר פשוט שתואם את שם המותג." ] },
+      { id: "logo", title: "ההסבר העיצובי", paragraphs: ["במקורות הרקע הלוגו מתואר כ־M ירוקה בשלושה קווים על רקע שחור, בעיצוב שמרמז על טפרים של מפלצת שקורעים את הפחית. זה הסבר פשוט שתואם את שם המותג."] },
       { id: "missing-proof", title: "מה חסר כדי לאשר", paragraphs: ["לא נמצא מקור ישיר שמראה שהמעצב או החברה התכוונו לשלוש ווין בעברית, ל־666 או למסר דתי נסתר. בלי מקור כזה, הדמיון נשאר פרשנות ולא הוכחה."] },
     ] },
     { id: "method", type: "method-note", title: "כלל בדיקה לשימוש חוזר", paragraphs: ["כשבודקים סמלים ויראליים, השאלה אינה רק 'האם אפשר לראות את זה'. כמעט תמיד אפשר למצוא צורות בתוך צורות. השאלה היא מה מחבר בין הדמיון לבין כוונה מוכחת: מסמך, מקור רשמי, ראיון, תהליך עיצוב או ראיה ישירה אחרת."] },
-    { id: "faq", type: "faq", title: "שאלות קצרות" },
-    { id: "sources", type: "sources", title: "מקורות שנבדקו" },
-    { id: "share", type: "copy-share", title: "טקסט קצר לשיתוף" },
+    { id: "faq", type: "faq", title: "שאלות קצרות", source: "claim" },
+    { id: "sources", type: "sources", title: "מקורות שנבדקו", source: "claim" },
+    { id: "share", type: "copy-share", title: "טקסט קצר לשיתוף", source: "claim" },
   ],
 } satisfies ClaimContent);
