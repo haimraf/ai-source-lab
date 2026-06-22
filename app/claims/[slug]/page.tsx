@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: ClaimPageProps): Promise<Meta
   const title = claim.metadataOverrides?.title ?? claim.seo.title ?? claim.title;
   const description = claim.metadataOverrides?.description ?? claim.seo.description ?? claim.description;
   const canonical = claim.metadataOverrides?.canonical ?? claim.path;
-  const socialImage = { url: `${claim.path}/opengraph-image`, alt: claim.ogAlt };
+  const socialImage = { url: `${claim.path}/opengraph-image?version=og-v11`, alt: claim.ogAlt };
   const openGraphOverrides = claim.metadataOverrides?.openGraph;
   const twitterOverrides = claim.metadataOverrides?.twitter;
 

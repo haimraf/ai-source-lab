@@ -31,8 +31,8 @@ describe("chemtrails-aluminum dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
-      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${chemtrails.path}/opengraph-image`, alt: chemtrails.ogAlt }] },
+      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${chemtrails.path}/opengraph-image?version=og-v11`, alt: chemtrails.ogAlt }] },
+      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${chemtrails.path}/opengraph-image?version=og-v11`, alt: chemtrails.ogAlt }] },
     });
   });
 

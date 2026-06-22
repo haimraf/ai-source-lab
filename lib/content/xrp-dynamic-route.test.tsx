@@ -28,8 +28,8 @@ describe("xrp-global-currency dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
-      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${xrp.path}/opengraph-image`, alt: xrp.ogAlt }] },
+      openGraph: { ...legacyLayoutMetadata.openGraph, images: [{ url: `${xrp.path}/opengraph-image?version=og-v11`, alt: xrp.ogAlt }] },
+      twitter: { ...legacyLayoutMetadata.twitter, images: [{ url: `${xrp.path}/opengraph-image?version=og-v11`, alt: xrp.ogAlt }] },
     });
   });
 

@@ -39,13 +39,13 @@ describe("gateway-process-out-of-body dynamic route cutover", () => {
       openGraph: {
         title: legacyMetadata.title,
         description: legacyMetadata.description,
-        images: [{ url: `${gatewayClaim.path}/opengraph-image`, alt: gatewayClaim.ogAlt }],
+        images: [{ url: `${gatewayClaim.path}/opengraph-image?version=og-v11`, alt: gatewayClaim.ogAlt }],
       },
       twitter: {
         card: "summary_large_image",
         title: legacyMetadata.title,
         description: legacyMetadata.description,
-        images: [{ url: `${gatewayClaim.path}/opengraph-image`, alt: gatewayClaim.ogAlt }],
+        images: [{ url: `${gatewayClaim.path}/opengraph-image?version=og-v11`, alt: gatewayClaim.ogAlt }],
       },
     });
   });

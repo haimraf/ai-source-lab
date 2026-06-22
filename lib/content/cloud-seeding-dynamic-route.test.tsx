@@ -35,8 +35,8 @@ describe("cloud-seeding-chemtrails dynamic route cutover", () => {
       title: legacyMetadata.title,
       description: legacyMetadata.description,
       alternates: legacyMetadata.alternates,
-      openGraph: { images: [{ url: `${cloud.path}/opengraph-image`, alt: cloud.ogAlt }] },
-      twitter: { images: [{ url: `${cloud.path}/opengraph-image`, alt: cloud.ogAlt }] },
+      openGraph: { images: [{ url: `${cloud.path}/opengraph-image?version=og-v11`, alt: cloud.ogAlt }] },
+      twitter: { images: [{ url: `${cloud.path}/opengraph-image?version=og-v11`, alt: cloud.ogAlt }] },
     });
   });
 
