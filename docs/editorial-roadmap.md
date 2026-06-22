@@ -54,7 +54,9 @@
 12. ✅🌐 **feat: add read-only internal content status page** — הושלם ב־2026-06-22, מוזג ל־`main` ואומת בפרודקשן.
    - **מה בוצע:** דוח סטטי לקריאה בלבד ב־`/internal/content-status`, שנגזר מ־12 רשומות ה־claim ומציג workflow, checklist, מקורות, metadata/share, מובייל ומצב רענון; ללא auth, DB, עריכה או קישור בניווט הציבורי.
    - **איך אומת:** לאחר ה־merge עברו 144 בדיקות, `check:content`, typecheck ו־production build של 44 routes; CI ו־Vercel עברו ב־SHA `1026f59`, והנתיב החי החזיר 200 עם 12 claims, `noindex, nofollow` וללא כניסה ל־sitemap.
-13. ⏳ **docs: add dashboard architecture decision record** — החלטה מתועדת לפני בניית dashboard ניתן לעריכה.
+13. ✅ **docs: add dashboard architecture decision record** — הושלם ב־2026-06-22 ומוזג ל־`main`; Stage 2 טרם התחיל.
+   - **מה בוצע:** ADR 0001 קבע מודל דו־שכבתי וספק־ניטרלי, גבולות ישויות, Git-backed publishing, הרשאות ראשוניות, PII/retention, מדיה, audit, recovery, sync ו־schema migrations.
+   - **איך אומת:** coverage scan סגר את כל 11 ההחלטות, ולאחר ה־merge עברו 145 בדיקות, `check:content`, typecheck ו־build של 44 routes ללא שינוי runtime או route חדש.
 
 ### כללי ארכיטקטורה ל-v0.3
 
