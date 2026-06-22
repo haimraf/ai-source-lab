@@ -120,6 +120,41 @@ export const topicClusters = [
     },
   },
   {
+    slug: "pop-culture-symbols",
+    path: "/topics/pop-culture-symbols",
+    title: "סמלים נסתרים בתרבות פופולרית",
+    shortTitle: "סמלים ותרבות",
+    eyebrow: "🎭 אשכול חדש",
+    description:
+      "אשכול לטענות שבהן לוגואים, קומיקס וסמלים מוכרים מקבלים פרשנות נסתרת — עם הפרדה בין דמיון חזותי, השראה תרבותית וכוונה מוכחת.",
+    status: "expanding",
+    updated: "2026-06-22",
+    priority: 0.82,
+    claimSlugs: claimSlugs(["monster-energy-666-logo"]),
+    plannedClaims: [
+      {
+        title: "האם סימן ירי הקורים של ספיידרמן הוא סמל שטני?",
+        status: "בתכנון",
+        note: "להפריד בין דמיון חזותי לסימן הקרניים לבין שימוש סיפורי/מכני בתוך הדמות.",
+      },
+      {
+        title: "האם Kal-El הוא רמז עברי מכוון?",
+        status: "בתכנון",
+        note: "לבדוק בזהירות את הרקע היהודי של יוצרי סופרמן מול פרשנות בדיעבד.",
+      },
+    ],
+    sourceMap: [
+      ["דמיון חזותי", "מה באמת נראה בסמל או בלוגו, ומה אפשר לפרש ממנו."],
+      ["גרעין אמת", "ערך מספרי, הקשר תרבותי או רקע היסטורי שאכן קיימים."],
+      ["כוונה מוכחת", "ראיון, מסמך עיצוב, מקור רשמי או עדות ישירה שמחברים בין הסמל לפרשנות."],
+    ],
+    admin: {
+      dashboardSection: "clusters",
+      editorialStage: "new-cluster-first-claim",
+      nextAction: "להוסיף רק בדיקות צרות על סמל אחד בכל פעם, בלי לפתוח נרטיב רחב על 'כל התרבות'.",
+    },
+  },
+  {
     slug: "ai-sources",
     path: "/topics/ai-sources",
     title: "AI, מקורות וטענות טכנולוגיות",
@@ -284,14 +319,4 @@ export function getTopicClusterForClaim(claim: Pick<ClaimContentIndexEntry, "clu
 
 export function getClaimsForTopicCluster(cluster: TopicCluster) {
   return getClaimContentByCluster(cluster.slug, getPublishedClaimContent());
-}
-
-export function getTopicClusterStats(cluster: TopicCluster) {
-  const publishedClaims = getClaimsForTopicCluster(cluster);
-
-  return {
-    publishedCount: publishedClaims.length,
-    plannedCount: cluster.plannedClaims.length,
-    updated: cluster.updated,
-  };
 }
