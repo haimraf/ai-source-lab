@@ -129,9 +129,9 @@ describe("claim sitemap", () => {
     const sitemapPath = join(directory, "sitemap.xml");
     writeFileSync(sitemapPath, fixture.replaceAll("\r\n", "\n"), "utf8");
 
-    generateClaimSitemapFile(sitemapPath, entries);
+    generateClaimSitemapFile(sitemapPath);
     const firstGenerated = readFileSync(sitemapPath, "utf8");
-    generateClaimSitemapFile(sitemapPath, entries);
+    generateClaimSitemapFile(sitemapPath);
 
     expect(readFileSync(sitemapPath, "utf8")).toBe(firstGenerated);
   });
