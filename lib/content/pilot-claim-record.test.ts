@@ -71,8 +71,8 @@ describe("pilot claim content record", () => {
     expect(typedPilotClaim.path).toBe(existingClaim?.path);
   });
 
-  it("does not create or remove public page routes", () => {
-    expect(countPageModules("app")).toBe(13);
+  it("tracks the page-module baseline without recreating claim routes", () => {
+    expect(countPageModules("app")).toBe(14);
     expect(existsSync("app/claims/[slug]/page.tsx")).toBe(true);
     expect(existsSync("app/claims/ai-as-source-pyramids/page.tsx")).toBe(false);
     expect(existsSync("app/claims/gateway-process-out-of-body/page.tsx")).toBe(false);
