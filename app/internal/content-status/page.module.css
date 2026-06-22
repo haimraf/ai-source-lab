@@ -17,7 +17,7 @@
 }
 
 .eyebrow {
-  color: var(--color-text-muted, #5f6368);
+  color: var(--muted);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -34,9 +34,9 @@
   gap: 0.2rem;
   margin: 0;
   padding: 1rem;
-  border: 1px solid var(--color-border, #d8dadd);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
-  background: var(--color-surface, #fff);
+  background: var(--panel);
 }
 
 .summary strong {
@@ -44,13 +44,13 @@
 }
 
 .summary span {
-  color: var(--color-text-muted, #5f6368);
+  color: var(--muted);
   font-size: 0.85rem;
 }
 
 .tableWrapper {
   overflow-x: auto;
-  border: 1px solid var(--color-border, #d8dadd);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
 }
 
@@ -58,7 +58,7 @@
   width: 100%;
   min-width: 76rem;
   border-collapse: collapse;
-  background: var(--color-surface, #fff);
+  background: var(--panel);
   text-align: start;
 }
 
@@ -71,12 +71,12 @@
 .table th,
 .table td {
   padding: 0.9rem;
-  border-block-start: 1px solid var(--color-border, #d8dadd);
+  border-block-start: 1px solid var(--border);
   vertical-align: top;
 }
 
 .table thead th {
-  background: var(--color-surface-muted, #f4f5f6);
+  background: var(--panel-strong);
   white-space: nowrap;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .code {
-  color: var(--color-text-muted, #5f6368);
+  color: var(--muted);
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 0.75rem;
   font-weight: 400;
