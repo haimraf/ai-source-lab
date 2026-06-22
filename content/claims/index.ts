@@ -7,6 +7,7 @@ import { chemtrailsAluminumClaimContent } from "./chemtrails-aluminum";
 import { cloudSeedingChemtrailsClaimContent } from "./cloud-seeding-chemtrails";
 import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spending-control";
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
+import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-project-anchor";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
 import { whoPandemicAgreementSovereigntyClaimContent } from "./who-pandemic-agreement-sovereignty";
@@ -14,6 +15,7 @@ import { xrpGlobalCurrencyClaimContent } from "./xrp-global-currency";
 
 export const claimContentRecords = [
   aiBciSyntheticSoulClaimContent,
+  gravityLoss2026ProjectAnchorClaimContent,
   projectBlueBeamNasaClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   gatewayProcessOutOfBodyClaimContent,

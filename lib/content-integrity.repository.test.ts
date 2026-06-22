@@ -13,20 +13,9 @@ describe("published content repository", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
     expect(updateClaimSitemapXml(sitemap)).toBe(sitemap);
     const sitemapPaths = new Set(Array.from(sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g), (match) => match[1] || "/"));
-    const dynamicClaimPageFiles = new Set([
-      "app/claims/ai-as-source-pyramids/page.tsx",
-      "app/claims/gateway-process-out-of-body/page.tsx",
-      "app/claims/project-blue-beam-nasa/page.tsx",
-      "app/claims/cloud-seeding-chemtrails/page.tsx",
-      "app/claims/chemtrails-aluminum/page.tsx",
-      "app/claims/xrp-global-currency/page.tsx",
-      "app/claims/digital-shekel-spending-control/page.tsx",
-      "app/claims/ai-bci-synthetic-soul/page.tsx",
-      "app/claims/agenda-2030-seven-steps/page.tsx",
-      "app/claims/you-will-own-nothing-klaus-schwab/page.tsx",
-      "app/claims/who-pandemic-agreement-sovereignty/page.tsx",
-      "app/claims/15-minute-city-prison/page.tsx",
-    ]);
+    const dynamicClaimPageFiles = new Set(
+      claimContentRecords.map((claim) => `app${claim.path}/page.tsx`),
+    );
 
     const issues = findContentIntegrityIssues({
       claimPaths: claimRecords.map((claim) => claim.path),
@@ -43,4 +32,3 @@ describe("published content repository", () => {
     expect([...issues, ...workflowIssues]).toEqual([]);
   });
 });
-

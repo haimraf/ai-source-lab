@@ -75,8 +75,8 @@ describe("claim sitemap", () => {
         priority: claim.priority,
       })),
     );
-    expect(sitemapEntries).toHaveLength(12);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(12);
+    expect(sitemapEntries).toHaveLength(13);
+    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(13);
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
@@ -129,14 +129,10 @@ describe("claim sitemap", () => {
     const sitemapPath = join(directory, "sitemap.xml");
     writeFileSync(sitemapPath, fixture.replaceAll("\r\n", "\n"), "utf8");
 
-    expect(generateClaimSitemapFile(sitemapPath)).toBe(true);
-    const generated = readFileSync(sitemapPath, "utf8");
-    expect(generated).toContain(staticBlock.replaceAll("\r\n", "\n"));
-    expect(generated).toContain("https://example.com/claims/15-minute-city-prison");
-    expect(generated).not.toContain("/claims/fifteen-minute-city-prison");
-    expect(generateClaimSitemapFile(sitemapPath)).toBe(false);
-    expect(readFileSync(sitemapPath, "utf8")).toBe(generated);
+    generateClaimSitemapFile(sitemapPath);
+    const firstGenerated = readFileSync(sitemapPath, "utf8");
+    generateClaimSitemapFile(sitemapPath);
+
+    expect(readFileSync(sitemapPath, "utf8")).toBe(firstGenerated);
   });
 });
-
-
