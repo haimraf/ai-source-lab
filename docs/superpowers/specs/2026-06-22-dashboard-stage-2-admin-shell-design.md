@@ -1,6 +1,6 @@
 # Stage 2 Dashboard Admin Shell Design
 
-- **Status:** Draft for review
+- **Status:** Approved for implementation planning
 - **Date:** 2026-06-22
 - **Scope:** Private, read-only dashboard foundation
 - **Depends on:** [ADR 0001](../../adr/0001-dashboard-foundation.md) and completion of dashboard roadmap Stages 0–1
