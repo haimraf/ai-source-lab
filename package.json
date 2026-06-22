@@ -24,6 +24,7 @@
     "@remotion/renderer": "^4.0.481",
     "@remotion/transitions": "^4.0.481",
     "@vercel/analytics": "latest",
+    "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "^1.21.0",
     "next": "^16.2.9",
     "react": "19.2.0",
