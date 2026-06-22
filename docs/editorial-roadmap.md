@@ -51,7 +51,9 @@
 9. ✅ **feat: centralize structured data for claims and FAQs** — לוגיקת Article/FAQ מרוכזת, תוך שימור parity; `ClaimReview` אינו נוסף אוטומטית.
 10. ✅ **feat: add editorial workflow fields to claims** — סטטוסי עריכה, מקורות, SEO ובדיקות, יחד עם תאריכי בדיקה ועדכון.
 11. ✅ **feat: add internal editorial checklist for claims** — checklist קבוע לטענה, מקורות, מסקנה, SEO, שיתוף ומובייל.
-12. ⏳ **feat: add read-only internal content status page** — עמוד פנימי/סטטי למוכנות claims, חוסרי metadata, sources, OG/share copy וצורך ברענון; טרם שולב בענף הנוכחי.
+12. ⏳ **feat: add read-only internal content status page** — הושלם ואומת ב־`codex/stage-0-editorial-status`, אך טרם מוזג ל־`main` ולכן אינו מסומן ✅ או 🌐.
+   - **מה בוצע:** דוח סטטי לקריאה בלבד ב־`/internal/content-status`, שנגזר מ־12 רשומות ה־claim ומציג workflow, checklist, מקורות, metadata/share, מובייל ומצב רענון; ללא auth, DB, עריכה או קישור בניווט הציבורי.
+   - **איך אומת:** 144 בדיקות, `check:content`, typecheck ו־production build של 44 routes עברו; הנתיב נבנה סטטית עם `noindex, nofollow`, וה־sitemap נשאר זהה בבייטים. נדרש merge לפני ✅ ואימות production לפני 🌐.
 13. ⏳ **docs: add dashboard architecture decision record** — החלטה מתועדת לפני בניית dashboard ניתן לעריכה.
 
 ### כללי ארכיטקטורה ל-v0.3
