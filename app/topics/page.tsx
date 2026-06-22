@@ -1,6 +1,7 @@
 import { ClaimSearch } from "@/components/ClaimSearch";
 import { getPublishedClaimContent } from "@/lib/content/claim-loader";
-import { getClaimsForTopicCluster, getTopicClusterStats, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
+import { getClaimsForTopicCluster, topicClusters, type TopicCluster } from "@/lib/topic-clusters";
+import { getTopicClusterStats } from "@/lib/topic-stats";
 
 export const metadata = {
   title: "מפת נושאים | מקור בדיקה",
@@ -38,60 +39,25 @@ function ClusterCard({ cluster }: { cluster: TopicCluster }) {
 }
 
 const sortedClusters = [...topicClusters].sort((a, b) => b.priority - a.priority || b.updated.localeCompare(a.updated));
-const sortedClaims = [...getPublishedClaimContent()].sort(
-  (a, b) => b.updated.localeCompare(a.updated) || b.priority - a.priority,
-);
 
 export default function TopicsPage() {
+  const claims = getPublishedClaimContent();
+
   return (
-    <article>
+    <main className="container topics-page">
       <section className="hero">
-        <span className="badge">מפת נושאים</span>
-        <h1>טענה אחת כמעט תמיד מחוברת לעוד חמש.</h1>
-        <p className="lead">לכן האתר בנוי גם לפי אשכולות ותגיות. כל אשכול מפריד בין המקור, הטענות שנוספו לו, השאלות הציבוריות והחלקים שעדיין פתוחים לבדיקה.</p>
+        <span className="eyebrow">מפת נושאים</span>
+        <h1>אשכולות הבדיקה של מקור בדיקה</h1>
+        <p>
+          כל אשכול מחבר בין טענות קרובות, מקורות חוזרים וקפיצות לוגיות דומות. המטרה היא לאסוף בדיקות קטנות לתמונה רחבה יותר — בלי להפוך נושא אחד לסיפור כוללני.
+        </p>
       </section>
 
-      <ClaimSearch />
+      <ClaimSearch claims={claims} />
 
-      <section className="box answer">
-        <div className="section-head">
-          <div>
-            <span className="topic-label">אשכולות</span>
-            <h2>אשכולות שמחזיקים בדיקות, לא רק תגיות.</h2>
-          </div>
-          <p>כל אשכול הוא עמוד עבודה עצמאי: בדיקות שפורסמו, שאלות להמשך, ומפת מקור מול פרשנות.</p>
-        </div>
-        <div className="topic-grid">
-          {sortedClusters.map((cluster) => (
-            <ClusterCard cluster={cluster} key={cluster.slug} />
-          ))}
-        </div>
+      <section className="topic-grid" aria-label="אשכולות תוכן">
+        {sortedClusters.map((cluster) => <ClusterCard cluster={cluster} key={cluster.slug} />)}
       </section>
-
-      <section id="all-checks" className="box answer">
-        <div className="section-head">
-          <div><span className="topic-label">כל הבדיקות</span><h2>כל הבדיקות שפורסמו באתר.</h2></div>
-          <p>ברגע שעולה בדיקה חדשה, היא מופיעה גם כאן — לפי נושא, תגיות, תאריך ומסקנה קצרה.</p>
-        </div>
-        <div className="grid">
-          {sortedClaims.map((claim) => (
-            <article className="card" key={claim.path}>
-              <a href={claim.path}>
-                <div className="card-meta"><span>{claim.kicker}</span><span>•</span><span>{formatDate(claim.updated)}</span></div>
-                <h3>{claim.title}</h3>
-                <p className="small">{claim.description}</p>
-                <TagList tags={claim.tags} limit={4} />
-                <span className="status-chip">{claim.verdict}</span>
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="box method-note">
-        <h2>למה אשכול ולא עמוד ענק?</h2>
-        <p>עמוד אחד צריך לענות על שאלה אחת. אשכול מאפשר לקשר בין שאלות בלי לערבב אותן למסקנה אחת גדולה, וזה גם מכין את האתר לניהול עתידי דרך לוח בקרה.</p>
-      </section>
-    </article>
+    </main>
   );
 }
