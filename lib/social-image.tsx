@@ -29,14 +29,27 @@ function normalizeHebrewOgText(text: string) {
     .replaceAll("17", "שבעה עשר");
 }
 
-// The Vercel ImageResponse renderer can render Hebrew text left-to-right in OG images.
-// Until the generated image renderer handles bidi text consistently, we provide visual-order
-// Hebrew strings for the image only. Regular page HTML and metadata remain semantic RTL Hebrew.
-function ogHebrew(text: string) {
-  return Array.from(normalizeHebrewOgText(text)).reverse().join("");
+// The ImageResponse renderer can lay out Hebrew text left-to-right. Build visual-order text for
+// the image only, while protecting Latin and numeric runs so their internal order stays LTR.
+// Regular page HTML and metadata remain semantic RTL Hebrew.
+export function toVisualOgText(text: string) {
+  const ltrRuns: string[] = [];
+  const protectedText = normalizeHebrewOgText(text).replace(
+    /[\p{Script=Latin}\p{Number}]+(?:[ \t./:+&'’_-]+[\p{Script=Latin}\p{Number}]+)*/gu,
+    (run) => {
+      const marker = String.fromCodePoint(0xe000 + ltrRuns.length);
+      ltrRuns.push(run);
+      return marker;
+    },
+  );
+
+  return Array.from(protectedText)
+    .reverse()
+    .join("")
+    .replace(/[\uE000-\uF8FF]/g, (marker) => ltrRuns[marker.codePointAt(0)! - 0xe000]);
 }
 
-function splitTitleLines(title: string) {
+export function splitSocialImageTitle(title: string) {
   const normalizedTitle = normalizeHebrewOgText(title);
 
   const explicitTitleLines: Record<string, string[]> = {
@@ -77,6 +90,21 @@ function splitTitleLines(title: string) {
       "למטבע עולמי",
     ],
     "האם מטוסים מרססים אלומיניום?": ["לא נמצאה ראיה", "לריסוס אלומיניום"],
+    "האם הלוגו של Monster Energy מסתיר 666 בעברית?": [
+      "האם הלוגו של",
+      "Monster Energy מסתיר 666",
+      "בעברית?",
+    ],
+    "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?": [
+      "האם אמנת המגיפות",
+      "נותנת ל-WHO סמכות",
+      "על מדיניות פנים?",
+    ],
+    "האם כדור הארץ יאבד כבידה ל־7 שניות ב־12 באוגוסט 2026?": [
+      "האם כדור הארץ",
+      "יאבד כבידה ל־7 שניות",
+      "ב־12 באוגוסט 2026?",
+    ],
   };
 
   if (explicitTitleLines[normalizedTitle]) return explicitTitleLines[normalizedTitle];
@@ -102,9 +130,9 @@ function splitTitleLines(title: string) {
 }
 
 export function createSocialImage({ kicker, title, verdict }: SocialImageInput) {
-  const safeKicker = ogHebrew(clampText(kicker, 44));
-  const safeTitleLines = splitTitleLines(clampText(title, 78)).map(ogHebrew);
-  const safeVerdict = ogHebrew(clampText(verdict, 96));
+  const safeKicker = toVisualOgText(clampText(kicker, 44));
+  const safeTitleLines = splitSocialImageTitle(clampText(title, 78)).map(toVisualOgText);
+  const safeVerdict = toVisualOgText(clampText(verdict, 96));
 
   return new ImageResponse(
     (
@@ -173,9 +201,9 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
               מ
             </div>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-              <div style={{ fontSize: 31, fontWeight: 900 }}>{ogHebrew("מקור בדיקה")}</div>
+              <div style={{ fontSize: 31, fontWeight: 900 }}>{toVisualOgText("מקור בדיקה")}</div>
               <div style={{ fontSize: 17, color: "#91a1b2", letterSpacing: "0.04em" }}>
-                {ogHebrew("טענה • מקור • פער • מסקנה")}
+                {toVisualOgText("טענה • מקור • פער • מסקנה")}
               </div>
             </div>
           </div>
@@ -190,7 +218,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
               fontWeight: 800,
             }}
           >
-            {ogHebrew("בדיקת מקור")}
+            {toVisualOgText("בדיקת מקור")}
           </div>
         </div>
 
@@ -217,7 +245,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>{ogHebrew("מסמך מקור")}</div>
+              <div style={{ fontSize: 16, fontWeight: 900, color: "#7b5b22" }}>{toVisualOgText("מסמך מקור")}</div>
               <div style={{ fontSize: 14, color: "#6e7682" }}>01</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -241,9 +269,9 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
                   fontWeight: 900,
                 }}
               >
-                {ogHebrew("נבדק")}
+                {toVisualOgText("נבדק")}
               </div>
-              <div style={{ fontSize: 13, color: "#6e7682" }}>{ogHebrew("קישורים פתוחים")}</div>
+              <div style={{ fontSize: 13, color: "#6e7682" }}>{toVisualOgText("קישורים פתוחים")}</div>
             </div>
           </div>
 
@@ -283,7 +311,7 @@ export function createSocialImage({ kicker, title, verdict }: SocialImageInput) 
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", color: "#91a1b2", fontSize: 16, position: "relative" }}>
-          <div>{ogHebrew("מקור פתוח • בדיקה אנושית • מסקנה זהירה")}</div>
+          <div>{toVisualOgText("מקור פתוח • בדיקה אנושית • מסקנה זהירה")}</div>
           <div>ai-source-lab.vercel.app</div>
         </div>
       </div>
