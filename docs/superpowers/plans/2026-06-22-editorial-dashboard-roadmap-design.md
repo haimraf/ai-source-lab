@@ -176,9 +176,12 @@
 **משך משוער:** 2–4 ימי עבודה  
 **תלות:** אין
 
-**סטטוס:** ✅🌐 הושלם ב־2026-06-22  
-**מה בוצע:** נוסף `/internal/content-status` סטטי לקריאה בלבד, שנגזר בזמן build מ־12 רשומות claim ומציג workflow, checklist, מקורות, metadata/share ומצב רענון; המשטחים הותאמו לערכת העיצוב הכהה.  
-**איך אומת:** 145 בדיקות, `check:content`, typecheck ו־build של 44 routes עברו; CI ו־Vercel הצליחו, והנתיב החי החזיר 200 עם `noindex, nofollow` וללא כניסה ל־sitemap.  
+**סטטוס:** ✅🌐 הושלם ב־2026-06-22
+
+**מה בוצע:** נוסף `/internal/content-status` סטטי לקריאה בלבד, שנגזר בזמן build מ־12 רשומות claim ומציג workflow, checklist, מקורות, metadata/share ומצב רענון; המשטחים הותאמו לערכת העיצוב הכהה.
+
+**איך אומת:** 145 בדיקות, `check:content`, typecheck ו־build של 44 routes עברו; CI ו־Vercel הצליחו, והנתיב החי החזיר 200 עם `noindex, nofollow` וללא כניסה ל־sitemap.
+
 **הערה:** הנתונים מתעדכנים אוטומטית בכל build/deployment הבא לאחר שינוי ברשומות התוכן; אין רענון חי ללא פריסה.
 
 ### מטרה
