@@ -57,6 +57,9 @@
 13. ✅ **docs: add dashboard architecture decision record** — הושלם ב־2026-06-22 ומוזג ל־`main`; Stage 2 טרם התחיל.
    - **מה בוצע:** ADR 0001 קבע מודל דו־שכבתי וספק־ניטרלי, גבולות ישויות, Git-backed publishing, הרשאות ראשוניות, PII/retention, מדיה, audit, recovery, sync ו־schema migrations.
    - **איך אומת:** coverage scan סגר את כל 11 ההחלטות, ולאחר ה־merge עברו 145 בדיקות, `check:content`, typecheck ו־build של 44 routes ללא שינוי runtime או route חדש.
+14. 🟡 **docs: design Stage 2 read-only admin shell** — בעבודה מ־2026-06-22; design ו־ADR לבחירת Supabase נכתבים לפני implementation.
+   - **היקף:** Magic Link למייל admin יחיד, authorization בצד שרת, audit, rate limiting durable, health ותצוגת content status מוגנת; ללא עריכה, publish, submissions או CMS.
+   - **גבול:** Git נשאר מקור האמת לתוכן, ו־Stage 2 לא יסומן כהושלם לפני merge, בדיקות, restore drill ואימות production.
 
 ### כללי ארכיטקטורה ל-v0.3
 
