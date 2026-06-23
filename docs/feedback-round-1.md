@@ -166,6 +166,42 @@ Current evaluation:
 - virality / sharpness: medium;
 - estimated editorial quality: about 7.5/10 compared with stronger pages like Pallavicini and Event 201.
 
+  ## Handled after round 1
+
+The first polish sequence after this feedback round already handled several high-priority items:
+
+* `great-reset-global-government` — handled and merged.
+* `event-201-pandemic-exercise` — handled and merged.
+* `who-pandemic-agreement-sovereignty` — handled, merged and deployed to production.
+
+### WHO Gemini feedback status
+
+Gemini’s review of the WHO page was accepted into the plan.
+
+Handled:
+
+* three-layer separation: treaty language / national implementation / viral claim about direct WHO control;
+* Article 22(2) as the source anchor;
+* legitimate criticism block for funding, transparency, PABS and implementation;
+* share copy pointing to `/claims/who-pandemic-agreement-sovereignty`.
+
+Still open:
+
+* mobile QA for WHO evidence SVGs;
+* mobile QA for source-level blocks and logic-chain layout;
+* future route-hygiene test for the 15-minute city public path.
+
+### Updated follow-up order
+
+The next content-polish PR should not be Great Reset, Event 201 or WHO, because those have already been handled.
+
+Recommended order:
+
+1. `agenda-2030-seven-steps`
+2. `you-will-own-nothing-klaus-schwab`
+3. then a new claim: Lockstep or HAARP
+
+
 ### What works
 
 - The page admits the real kernel clearly: The Great Reset is a real WEF phrase / initiative.
