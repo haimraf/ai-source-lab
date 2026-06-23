@@ -20,6 +20,14 @@ The project is still proving three things first:
 
 Until those questions are clearer, a heavy branding process would be premature.
 
+## Timing
+
+Branding remains parked during the current 14-day stabilization window.
+
+Estimated first review date: around `2026-07-08`, after the 14-day window ends and only if there are real signals from content, indexing, readers or domain traction.
+
+This date is a checkpoint, not a commitment to rename, redesign or buy a domain.
+
 ## When to reopen branding
 
 Reopen branding only if one of these becomes true:
