@@ -13,6 +13,34 @@ The goal is not to rewrite all claims in one risky pass. The goal is to turn bro
 - Main risk: some checks may become longer or softer than needed, especially when the claim includes a real source but the viral conclusion is not proven.
 - Editorial direction: keep the project centered on the pattern: real kernel, logical jump, careful conclusion.
 
+## Site-level feedback
+
+The site is moving in the right direction because its core idea is differentiated: a Hebrew source-first archive that separates the real kernel from the logical jump. This is meaningfully different from many public “fact check” experiences that feel like they are trying to win a side argument.
+
+What works now:
+
+- Methodology: “source before conclusion” is repeated enough to build trust with suspicious readers.
+- Topic clusters: claims are connected without turning everything into one giant conspiracy narrative.
+- Fairness: the pages admit the real kernel first instead of mocking the claim.
+- UX: search, topic map, copyable responses and focused claim pages make the site usable.
+- Pace: 19 checks is a strong early base for this stage.
+
+What is still weak:
+
+- Scale: 19 checks is still too small to become a repeat destination. The archive should aim for 50-70 checks before it can feel like a serious reference library.
+- Sharpness: some pages are accurate but too soft or long. The target reader still needs a direct bottom line.
+- Discovery: the site is not yet easy to find unless someone already knows what to search for.
+- Depth vs breadth: the site has broad topic coverage, but several clusters still feel thin.
+
+Operational direction for the next stage:
+
+- keep quality and fairness;
+- publish 2-4 focused checks per week when possible;
+- sharpen verdicts and short answers;
+- add more legitimate-criticism framing for institutions like WEF and WHO without becoming partisan;
+- grow toward 50-70 checks as the first meaningful archive milestone;
+- define a 6-12 month goal: for example, 100 checks, 10k monthly visitors, or becoming a trusted Hebrew source-checking reference.
+
 ## Safe scope for this feedback round
 
 This round is documentation only.
