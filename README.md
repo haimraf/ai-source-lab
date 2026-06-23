@@ -8,7 +8,7 @@
 
 https://ai-source-lab.vercel.app/
 
-האתר מתפרס אוטומטית ב-Vercel בכל עדכון לענף `main`.
+האתר מתפרס אוטומטית ב-Vercel בכל עדכון לענף `main`, אבל production יכול להיות בפיגור כאשר יש build-rate-limit. במצב כזה GitHub `main` הוא מקור האמת.
 
 ## מודל שימוש ציבורי
 
@@ -30,7 +30,7 @@ https://ai-source-lab.vercel.app/
 
 הפרויקט עבר משלב MVP ראשוני לשלב מאגר תוכן פעיל.
 
-- יש 22 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
+- יש 23 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
 - יעד קצר: להגיע ל-24 בדיקות בלי לשנות ארכיטקטורה.
 - יעד מאגר ראשון: 50-70 בדיקות איכותיות כדי להפוך לכתובת שחוזרים אליה.
 - כל בדיקה חדשה צריכה להישאר claim צר עם מקור מרכזי פתוח, אשכול ברור, OG, sitemap, llms ותיעוד מסונכרן.
@@ -43,6 +43,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/spider-man-hand-sign` - האם תנועת היד של ספיידרמן היא סמל נסתר?
 - `/claims/kal-el-hebrew-meaning` - האם Kal-El בעברית אומר קול האל?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
+- `/claims/moon-landing-flag-shadows-stars` - האם הדגל, הצללים והכוכבים מוכיחים שהנחיתה על הירח זויפה?
 - `/claims/rockefeller-lock-step-pandemic-scenario` - האם דוח Lock Step של רוקפלר חזה או תכנן את הקורונה?
 - `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
@@ -75,9 +76,10 @@ https://ai-source-lab.vercel.app/
 
 ## מפת דוקס
 
-- `docs/feedback-round-1.md` - משוב עריכה ראשון, סדרי עדיפויות ותוכנית שיוף לבדיקות הראשונות.
+- `docs/feedback-round-1.md` - משוב עריכה ראשון, baseline היסטורי ותוכנית שיוף.
 - `docs/editorial-roadmap.md` - רודמאפ תוכן, אשכולות, backlog ובדיקות עתידיות.
-- `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step ו-HAARP.
+- `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step, HAARP וטריגר batch.
+- `docs/schema-audit-checkpoint.md` - שלב בקרה עתידי לבחינת schema ודפי דגל לפני יצירת batch תוכן נוסף.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
@@ -148,20 +150,3 @@ https://ai-source-lab.vercel.app/
 - `public/sitemap.xml` - sitemap סטטי שנוצר מרשומות התוכן.
 - `public/robots.txt` - robots סטטי.
 - `app/llms.txt/route.ts` - llms.txt דינמי.
-- `lib/site.ts` - URL האתר לפי סביבה.
-- `lib/social-image.tsx` - תבנית Open Graph לעמודי בדיקה.
-
-## זרימת פרסום בדיקה חדשה
-
-1. מחקר ראשוני בקובץ `docs/research/...` כשצריך.
-2. יצירת רשומת תוכן תחת `content/claims/<slug>.ts`.
-3. רישום הרשומה ב-`content/claims/index.ts`.
-4. חיבור לאשכול מתאים ב-`lib/topic-clusters.ts`.
-5. יצירת `app/claims/<slug>/opengraph-image.tsx`.
-6. הרצת בדיקות תוכן ו-sitemap.
-7. בדיקת `/topics`, `/llms.txt`, `/sitemap.xml`, OG ושיתוף.
-8. הגשת URL לאינדוקס אחרי פריסה תקינה.
-
-## סטטוס
-
-הפרויקט הוא מאגר תוכן פעיל בשלבי גדילה. הדגש כרגע הוא על עוד בדיקות איכותיות, שיוף הבדיקות החזקות, אינדוקס, חיפוש פנימי, תגיות ומבנה יציב לפני הרחבת פיצ׳רים כבדים.
