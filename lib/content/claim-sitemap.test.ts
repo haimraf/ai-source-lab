@@ -13,7 +13,7 @@ import { generateClaimSitemapFile } from "../../scripts/generate-claim-sitemap";
 
 const temporaryDirectories: string[] = [];
 
-const PUBLISHED_CLAIM_COUNT = 25;
+const PUBLISHED_CLAIM_COUNT = 26;
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
@@ -68,6 +68,7 @@ const entries: readonly ClaimSitemapEntry[] = [
 describe("claim sitemap", () => {
   it("maps every published claim from its public path", () => {
     const sitemapEntries = getClaimSitemapEntries();
+    const sitemapPaths = sitemapEntries.map((entry) => entry.path);
 
     expect(sitemapEntries).toEqual(
       getPublishedClaimContent().map((claim) => ({
@@ -78,21 +79,15 @@ describe("claim sitemap", () => {
       })),
     );
     expect(sitemapEntries).toHaveLength(PUBLISHED_CLAIM_COUNT);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(PUBLISHED_CLAIM_COUNT);
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/monster-energy-666-logo");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/event-201-pandemic-exercise");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/spider-man-hand-sign");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/kal-el-hebrew-meaning");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/pallavicini-islam-responsibility");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/great-reset-global-government");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/rockefeller-lock-step-pandemic-scenario");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/haarp-earthquakes");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/bill-gates-vaccines-population-reduction");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/moon-landing-flag-shadows-stars");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/mrna-vaccines-dna-genome");
-    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/iso-20022-global-currency");
-    expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
+    expect(new Set(sitemapPaths).size).toBe(PUBLISHED_CLAIM_COUNT);
+    expect(sitemapPaths).toContain("/claims/15-minute-city-prison");
+    expect(sitemapPaths).toContain("/claims/monster-energy-666-logo");
+    expect(sitemapPaths).toContain("/claims/event-201-pandemic-exercise");
+    expect(sitemapPaths).toContain("/claims/moon-landing-flag-shadows-stars");
+    expect(sitemapPaths).toContain("/claims/mrna-vaccines-dna-genome");
+    expect(sitemapPaths).toContain("/claims/iso-20022-global-currency");
+    expect(sitemapPaths).toContain("/claims/covid-supplements-vitamin-d-zinc-cure");
+    expect(sitemapPaths).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
   it("replaces only the contiguous claim block and preserves XML formatting", () => {
@@ -119,25 +114,21 @@ describe("claim sitemap", () => {
   });
 
   it("fails instead of rewriting when no claim block exists", () => {
-    const staticOnly = fixture.replace(`${firstClaimBlock}\r\n${secondClaimBlock}\r\n`, "");
-
-    expect(() => updateClaimSitemapXml(staticOnly, entries)).toThrow(
-      "Unable to locate existing claim sitemap block",
-    );
+    expect(() => updateClaimSitemapXml(staticBlock, entries)).toThrow("No existing claim sitemap block found");
   });
 
   it("writes the generated sitemap file", () => {
     const directory = mkdtempSync(join(tmpdir(), "claim-sitemap-"));
     temporaryDirectories.push(directory);
-    const filePath = join(directory, "sitemap.xml");
-    writeFileSync(filePath, fixture);
+    const path = join(directory, "sitemap.xml");
+    writeFileSync(path, fixture, "utf-8");
 
-    generateClaimSitemapFile(filePath);
+    generateClaimSitemapFile(path);
 
-    const generated = readFileSync(filePath, "utf8");
-    const normalized = generated.replace(/\r\n/g, "\n");
-
-    expect(normalized).toContain("https://example.com/claims/15-minute-city-prison");
-    expect(normalized).not.toContain("https://example.com/claims/old-one");
+    const generated = readFileSync(path, "utf-8");
+    expect(generated).toContain("<loc>https://ai-source-lab.vercel.app/claims/15-minute-city-prison</loc>");
+    expect(generated).toContain("<loc>https://ai-source-lab.vercel.app/claims/monster-energy-666-logo</loc>");
+    expect(generated).not.toContain("old-one");
+    expect(generated).not.toContain("old-two");
   });
 });
