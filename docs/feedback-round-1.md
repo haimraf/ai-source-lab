@@ -157,6 +157,9 @@ Do not soften every claim into neutral fog. The site can be fair and still direc
 
 ## Immediate pilot: Great Reset polish
 
+> Status note — 2026-06-23:
+> This original pilot recommendation has already been completed. Great Reset was polished and merged after this feedback round. Keep the notes below as historical evaluation, not as the next active step.
+
 The first follow-up content PR should probably focus on [`great-reset-global-government`](../content/claims/great-reset-global-government.ts) as a pilot, before touching the full institutional cluster.
 
 Current evaluation:
@@ -166,13 +169,14 @@ Current evaluation:
 - virality / sharpness: medium;
 - estimated editorial quality: about 7.5/10 compared with stronger pages like Pallavicini and Event 201.
 
-  ## Handled after round 1
+## Handled after round 1
 
 The first polish sequence after this feedback round already handled several high-priority items:
 
 * `great-reset-global-government` — handled and merged.
 * `event-201-pandemic-exercise` — handled and merged.
 * `who-pandemic-agreement-sovereignty` — handled, merged and deployed to production.
+* `agenda-2030-seven-steps` — handled, merged and deployed to production.
 
 ### WHO Gemini feedback status
 
@@ -193,14 +197,12 @@ Still open:
 
 ### Updated follow-up order
 
-The next content-polish PR should not be Great Reset, Event 201 or WHO, because those have already been handled.
+The next content-polish PR should not be Great Reset, Event 201, WHO or Agenda 2030, because those have already been handled.
 
 Recommended order:
 
-1. `agenda-2030-seven-steps`
-2. `you-will-own-nothing-klaus-schwab`
-3. then a new claim: Lockstep or HAARP
-
+1. `you-will-own-nothing-klaus-schwab`
+2. then a new claim: Lockstep or HAARP
 
 ### What works
 
@@ -284,7 +286,7 @@ These already match the site’s editorial model well. Touch carefully.
 ### Group B - good claims, medium editorial tightening
 
 - [`great-reset-global-government`](../content/claims/great-reset-global-government.ts)
-  - Priority: highest pilot for the first content-polish PR.
+  - Status: handled and merged after this feedback round.
   - Keep the current framing: real WEF initiative, no official world-government / NWO plan found.
   - Preserve the bonus facts, but make sure they do not become a separate article about WEF.
   - Strengthen legitimate criticism so the page does not feel like a defense of WEF.
@@ -294,14 +296,17 @@ These already match the site’s editorial model well. Touch carefully.
   - Add a stronger “what would prove the stronger claim” FAQ item.
 
 - [`you-will-own-nothing-klaus-schwab`](../content/claims/you-will-own-nothing-klaus-schwab.ts)
+  - Status: next active content-polish target.
   - Keep focus on attribution: who wrote the phrase, where it appeared, and whether Schwab personally said it.
   - Avoid turning it into a general WEF article.
 
 - [`agenda-2030-seven-steps`](../content/claims/agenda-2030-seven-steps.ts)
+  - Status: handled, merged and deployed to production after this feedback round.
   - Keep the check narrow: whether the seven-step list is an official UN document.
   - Separate Agenda 2030 / SDGs from viral posters and merged narratives.
 
 - [`who-pandemic-agreement-sovereignty`](../content/claims/who-pandemic-agreement-sovereignty.ts)
+  - Status: handled, merged and deployed to production after this feedback round.
   - Keep neutrality high.
   - Make sure the page separates treaty language, national implementation, and viral claims about direct WHO control.
 
@@ -352,43 +357,44 @@ These already match the site’s editorial model well. Touch carefully.
   - Keep BCI, AI, research demos, and “external body control” separate.
   - Avoid science-fiction drift.
 
-## Suggested follow-up PR order
+## Updated follow-up PR order after initial sequence
 
-### PR 1 - Great Reset pilot polish
+### Completed after this feedback round
 
-Scope:
+- Great Reset pilot polish.
+- Event 201 polish.
+- WHO pandemic agreement polish.
+- Agenda 2030 seven-steps polish.
 
-- [`great-reset-global-government`](../content/claims/great-reset-global-government.ts)
+These should not be treated as the next active work items unless a regression or small QA issue is found.
 
-Reason: it is currently high-potential, homepage-featured, and worth sharpening before using it as a public example.
-
-Allowed changes:
-
-- sharpen verdict and claim wording;
-- add FAQ;
-- reduce repeated paragraphs;
-- strengthen legitimate criticism without changing the conclusion;
-- keep sources and architecture unchanged unless a source link is clearly broken.
-
-### PR 2 - Institutional claims polish
+### Active next PR - You Will Own Nothing attribution polish
 
 Scope:
 
-- [`event-201-pandemic-exercise`](../content/claims/event-201-pandemic-exercise.ts)
-- [`who-pandemic-agreement-sovereignty`](../content/claims/who-pandemic-agreement-sovereignty.ts)
-- [`agenda-2030-seven-steps`](../content/claims/agenda-2030-seven-steps.ts)
 - [`you-will-own-nothing-klaus-schwab`](../content/claims/you-will-own-nothing-klaus-schwab.ts)
 
-Reason: these are connected by institution / policy / viral narrative logic and likely share language patterns.
+Reason: it completes the current institutional / WEF narrative sequence without opening a large new cluster.
 
 Allowed changes:
 
-- tighten verdicts;
+- keep the question narrow: attribution and source trail;
+- separate the viral phrase from the original WEF article / video context;
+- clarify whether Klaus Schwab personally said the phrase;
 - add or improve FAQ;
-- reduce repeated methodology copy;
-- ensure legitimate criticism is explicitly separated from proof.
+- include legitimate criticism without turning the page into a general WEF article;
+- avoid schema, route, runtime or visual changes.
 
-### PR 3 - Money and systems polish
+### Next new-claim candidate
+
+After the institutional sequence is closed, choose one new high-potential claim:
+
+- Lockstep
+- HAARP
+
+Do not start both at once.
+
+### Later PR - Money and systems polish
 
 Scope:
 
@@ -403,7 +409,7 @@ Allowed changes:
 - clearer “technical possibility vs policy proof” wording;
 - FAQ additions.
 
-### PR 4 - Sky and climate polish
+### Later PR - Sky and climate polish
 
 Scope:
 
@@ -418,7 +424,7 @@ Allowed changes:
 - strengthen source hierarchy;
 - add a compact “terms not to mix” note.
 
-### PR 5 - Symbols and pop culture polish
+### Later PR - Symbols and pop culture polish
 
 Scope:
 
@@ -428,7 +434,7 @@ Scope:
 
 Reason: lighter claims that can improve readability and shareability without heavy source work.
 
-### PR 6 - AI / science interpretation polish
+### Later PR - AI / science interpretation polish
 
 Scope:
 
@@ -445,7 +451,7 @@ Reason: all need clean boundaries between document, model answer, research, inte
 | Group | Claims | Priority | Status |
 | --- | ---: | --- | --- |
 | Group A - strong claims | 3 | Low | Mostly ready; light polish only |
-| Group B - institutional / policy claims | 5 | High | Great Reset becomes the pilot |
+| Group B - institutional / policy claims | 5 | High | Great Reset, Event 201, WHO and Agenda 2030 handled; You Will Own Nothing next |
 | Group C - high-traffic careful strengthening | 9 | Medium | Needs staged source/copy review |
 | Group D - AI and technology | 2 | Medium | Useful as reusable method pages |
 | Future product ideas | n/a | Later | Wait until engineering window |
@@ -465,8 +471,8 @@ Before implementing any of these, decide whether they belong in schema, UI, CI, 
 
 ## Decision for now
 
-The next safe move is not to rewrite all 19 claims. The next safe move is to use this document as a queue and open small PRs by claim or cluster.
+The next safe move is not to rewrite all 19 claims. The next safe move is to keep using this document as a queue and open small PRs by claim or tiny cluster.
 
-The first content polish PR should be only Great Reset, because it is already homepage-featured and has clear viral potential, but still needs sharper wording and a complete FAQ.
+Great Reset, Event 201, WHO pandemic agreement and Agenda 2030 were already handled after this feedback round.
 
-**Recommended next step:** open a first content-polish PR focused only on [`great-reset-global-government`](../content/claims/great-reset-global-government.ts) and apply the points listed in the “Immediate pilot” section: sharper verdict, clearer NWO framing, completed FAQ, reduced repetition, and stronger legitimate-criticism wording.
+**Recommended next step:** open a small content-polish PR focused only on [`you-will-own-nothing-klaus-schwab`](../content/claims/you-will-own-nothing-klaus-schwab.ts). Keep the scope narrow: attribution, original source context, whether Schwab personally said the phrase, FAQ, and legitimate criticism.
