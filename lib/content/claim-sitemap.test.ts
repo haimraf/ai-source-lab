@@ -75,11 +75,12 @@ describe("claim sitemap", () => {
         priority: claim.priority,
       })),
     );
-    expect(sitemapEntries).toHaveLength(15);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(15);
+    expect(sitemapEntries).toHaveLength(16);
+    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(16);
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/monster-energy-666-logo");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/event-201-pandemic-exercise");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/spider-man-hand-sign");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
