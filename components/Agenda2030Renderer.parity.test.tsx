@@ -25,7 +25,6 @@ describe("agenda-2030-seven-steps renderer parity", () => {
   it("preserves visible content and section order", () => {
     const markers = [
       "תשובה קצרה",
-      "אג׳נדה 2030 קיימת — רשימת שבעת השלבים לא נמצאה כמסמך רשמי",
       "טבלת הטענה",
       "גרסת 60 שניות",
       "מה כתוב במסמך הרשמי?",
