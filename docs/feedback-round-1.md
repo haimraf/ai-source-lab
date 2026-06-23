@@ -118,6 +118,87 @@ Example:
 
 This is especially useful for WEF, WHO, CBDC, Event 201, and similar claims.
 
+### 8. Virality without losing trust
+
+Some claims should be sharper than “balanced”. Viral potential improves when the article clearly names both sides:
+
+- the real reason people are suspicious;
+- the exact point where the source stops supporting the viral conclusion.
+
+Do not soften every claim into neutral fog. The site can be fair and still direct.
+
+## Immediate pilot: Great Reset polish
+
+The first follow-up content PR should probably focus on `great-reset-global-government` as a pilot, before touching the full institutional cluster.
+
+Current evaluation:
+
+- factual accuracy: good;
+- structure: good;
+- virality / sharpness: medium;
+- estimated editorial quality: about 7.5/10 compared with stronger pages like Pallavicini and Event 201.
+
+### What works
+
+- The page admits the real kernel clearly: The Great Reset is a real WEF phrase / initiative.
+- The official WEF / Schwab / Davos Manifesto source base is appropriate.
+- The logical-jump section works.
+- The share copy is strong and usable.
+
+### What should be tightened
+
+1. Verdict should be sharper.
+
+Current direction:
+
+> יוזמה אמיתית; תוכנית רשמית לממשלה עולמית לא נמצאה
+
+Preferred direction:
+
+> יוזמה רשמית של WEF קיימת — אין בה תוכנית להקמת ממשלה עולמית או ביטול ריבונות מדינות.
+
+Shorter social version:
+
+> יוזמה רשמית של WEF קיימת — אין תוכנית להקמת ממשלה עולמית.
+
+2. Claim wording should include the common viral framing.
+
+The claim should mention not only “world government” but also the common online framing around “שלטון עולמי”, “NWO” or “New World Order”, while still keeping the tested question narrow.
+
+3. Short answer should be more direct.
+
+Draft direction:
+
+> The Great Reset הוא שם רשמי ליוזמה של World Economic Forum מ-2020, שקוראת לאיפוס קפיטליזם, קפיטליזם של בעלי עניין, ESG וטכנולוגיה. אין במסמכים הרשמיים תוכנית להקמת ממשלה עולמית, ביטול מדינות או שליטה ישירה באזרחים.
+
+4. Reduce repetition.
+
+The current page repeats the same distinction in the short answer, verdict grid, source guidance and criticism section. The next pass should keep the distinction but reduce repeated paragraphs.
+
+5. FAQ must be completed.
+
+Suggested FAQ items:
+
+- האם The Great Reset הוא דבר אמיתי?
+- האם WEF באמת קידם שינוי כלכלי גדול?
+- איפה מתרחשת הקפיצה לטענת NWO / ממשלה עולמית?
+- האם מותר לבקר את WEF?
+- מה היה מחזק את הטענה?
+
+6. Keep and sharpen legitimate criticism.
+
+Important wording direction:
+
+> מותר ואפילו רצוי לבקר את WEF על השפעה בלתי פרופורציונלית של אליטות, קשרי הון-שלטון והדחיפה של ESG. אבל ביקורת על השפעה אינה הוכחה לתוכנית שלטון עולמי סודית.
+
+7. OG / title direction for future review.
+
+Candidate framing:
+
+> The Great Reset: מה באמת כתוב במסמכים של WEF?
+
+Do not change OG in this documentation PR. Treat it as a future content/SEO review item.
+
 ## Priority groups
 
 ### Group A - strong claims, light polish only
@@ -139,9 +220,10 @@ These already match the site’s editorial model well. Touch carefully.
 ### Group B - good claims, medium editorial tightening
 
 - `great-reset-global-government`
-  - Priority: high.
-  - Keep the current framing: real WEF initiative, no official world-government plan found.
+  - Priority: highest pilot for the first content-polish PR.
+  - Keep the current framing: real WEF initiative, no official world-government / NWO plan found.
   - Preserve the bonus facts, but make sure they do not become a separate article about WEF.
+  - Strengthen legitimate criticism so the page does not feel like a defense of WEF.
 
 - `15-minute-city-prison`
   - Emphasize the distinction between urban planning model and prison/control claim.
@@ -208,11 +290,26 @@ These already match the site’s editorial model well. Touch carefully.
 
 ## Suggested follow-up PR order
 
-### PR 1 - Institutional claims polish
+### PR 1 - Great Reset pilot polish
 
 Scope:
 
 - `great-reset-global-government`
+
+Reason: it is currently high-potential, homepage-featured, and worth sharpening before using it as a public example.
+
+Allowed changes:
+
+- sharpen verdict and claim wording;
+- add FAQ;
+- reduce repeated paragraphs;
+- strengthen legitimate criticism without changing the conclusion;
+- keep sources and architecture unchanged unless a source link is clearly broken.
+
+### PR 2 - Institutional claims polish
+
+Scope:
+
 - `event-201-pandemic-exercise`
 - `who-pandemic-agreement-sovereignty`
 - `agenda-2030-seven-steps`
@@ -227,7 +324,7 @@ Allowed changes:
 - reduce repeated methodology copy;
 - ensure legitimate criticism is explicitly separated from proof.
 
-### PR 2 - Money and systems polish
+### PR 3 - Money and systems polish
 
 Scope:
 
@@ -242,7 +339,7 @@ Allowed changes:
 - clearer “technical possibility vs policy proof” wording;
 - FAQ additions.
 
-### PR 3 - Sky and climate polish
+### PR 4 - Sky and climate polish
 
 Scope:
 
@@ -257,7 +354,7 @@ Allowed changes:
 - strengthen source hierarchy;
 - add a compact “terms not to mix” note.
 
-### PR 4 - Symbols and pop culture polish
+### PR 5 - Symbols and pop culture polish
 
 Scope:
 
@@ -267,7 +364,7 @@ Scope:
 
 Reason: lighter claims that can improve readability and shareability without heavy source work.
 
-### PR 5 - AI / science interpretation polish
+### PR 6 - AI / science interpretation polish
 
 Scope:
 
@@ -294,6 +391,6 @@ Before implementing any of these, decide whether they belong in schema, UI, CI, 
 
 ## Decision for now
 
-The next safe move is not to rewrite all 19 claims. The next safe move is to use this document as a queue and open small PRs by cluster.
+The next safe move is not to rewrite all 19 claims. The next safe move is to use this document as a queue and open small PRs by claim or cluster.
 
-The first content polish PR should probably be institutional claims, because that group has the strongest current traffic potential and the clearest shared editorial pattern.
+The first content polish PR should probably be only Great Reset, because it is already homepage-featured and has clear viral potential, but still needs sharper wording and a complete FAQ.
