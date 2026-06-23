@@ -14,6 +14,7 @@ import { greatResetGlobalGovernmentClaimContent } from "./great-reset-global-gov
 import { haarpEarthquakesClaimContent } from "./haarp-earthquakes";
 import { kalElHebrewMeaningClaimContent } from "./kal-el-hebrew-meaning";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
+import { moonLandingFlagShadowsStarsClaimContent } from "./moon-landing-flag-shadows-stars";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { pallaviciniIslamResponsibilityClaimContent } from "./pallavicini-islam-responsibility";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
@@ -29,6 +30,7 @@ export const claimContentRecords = [
   popCultureHandSymbolClaimContent,
   kalElHebrewMeaningClaimContent,
   projectBlueBeamNasaClaimContent,
+  moonLandingFlagShadowsStarsClaimContent,
   rockefellerLockStepPandemicClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,
