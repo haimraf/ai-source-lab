@@ -8,10 +8,11 @@ const allowedEditorialStatuses = ["draft", "reviewed", "published", "needs-revie
 const allowedSourceStatuses = ["missing", "partial", "verified", "needs-refresh"] as const;
 const allowedSeoStatuses = ["missing", "basic", "complete", "needs-review"] as const;
 const allowedTestStatuses = ["missing", "partial", "covered", "needs-review"] as const;
+const PUBLISHED_CLAIM_COUNT = 20;
 
 describe("claim workflow fields", () => {
   it("accepts the current published claim set", () => {
-    expect(claimContentRecords).toHaveLength(19);
+    expect(claimContentRecords).toHaveLength(PUBLISHED_CLAIM_COUNT);
     expect(claimContentRecords.flatMap(findClaimWorkflowIntegrityIssues)).toEqual([]);
   });
 
