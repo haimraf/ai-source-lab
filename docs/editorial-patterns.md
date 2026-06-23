@@ -104,6 +104,7 @@ Use this order for high-value claims:
 - `haarp-earthquakes`
 - `event-201-pandemic-exercise`
 - `who-pandemic-agreement-sovereignty`
+- `covid-supplements-vitamin-d-zinc-cure`
 
 ## Current rule for new content
 
@@ -115,14 +116,14 @@ Do block large content batches if the same structure is being copied repeatedly 
 
 ## Health taxonomy note
 
-Health-adjacent claims currently use existing clusters until a dedicated health/public-health cluster is approved.
+A dedicated `public-health` cluster now exists for health-specific claims.
 
-Current temporary rule:
+Current rule:
 
-- use `institutional-narratives` when the claim is mainly about public interpretation of official health sources, regulators, institutions or source wording;
+- use `public-health` when the claim is mainly about medical evidence, public-health guidance, supplements, treatment claims, vaccine mechanisms, health-product claims or regulatory health wording;
+- keep `institutional-narratives` when the claim is mainly about institutional power, treaty interpretation, sovereignty, quote attribution or broad public narratives;
 - add precise health tags on the claim itself;
-- revisit this before creating more health pages.
+- include a visible scope boundary: source checking is not medical advice;
+- keep health pages narrow and source-backed.
 
-Likely future decision:
-
-Create a dedicated `public-health` cluster once there are at least 2-3 health-specific claim pages and the topic is no longer just an institutional-source interpretation.
+Schema remains unchanged. The health decision is taxonomy-only.
