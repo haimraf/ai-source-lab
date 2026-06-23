@@ -80,8 +80,9 @@ https://ai-source-lab.vercel.app/
 
 - `docs/feedback-round-1.md` - משוב עריכה ראשון, baseline היסטורי ותוכנית שיוף.
 - `docs/editorial-roadmap.md` - רודמאפ תוכן, אשכולות, backlog ובדיקות עתידיות.
+- `docs/editorial-patterns.md` - תבנית עריכה חוזרת לדפי דגל בלי שינוי schema.
 - `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step, HAARP וטריגר batch.
-- `docs/schema-audit-checkpoint.md` - שלב בקרה עתידי לבחינת schema, דפי דגל וטקסונומיית בריאות לפני יצירת batch תוכן נוסף.
+- `docs/schema-audit-checkpoint.md` - תוצאת checkpoint: schema נשאר כמו שהוא, וטקסונומיית בריאות תיבחן לפני batch בריאות נוסף.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
