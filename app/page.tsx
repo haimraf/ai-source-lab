@@ -89,10 +89,11 @@ function ClusterCard({ cluster }: { cluster: TopicCluster }) {
 
 const publishedClaims = getPublishedClaimContent();
 const sortedClaims = [...publishedClaims].sort(byHomepageFreshness);
-const checks = sortedClaims.map(toCheck);
-const featuredChecks = checks.slice(0, 3);
-const latestChecks = checks.slice(0, 3);
 const homeFeaturedCheck = toCheck(getFeaturedClaimContent() ?? sortedClaims[0]);
+const checks = sortedClaims.map(toCheck);
+const homepageChecks = [homeFeaturedCheck, ...checks.filter((check) => check.href !== homeFeaturedCheck.href)].slice(0, 3);
+const featuredChecks = homepageChecks;
+const latestChecks = homepageChecks;
 const latestUpdated = formatDate(sortedClaims[0].updated);
 const homepageClusters = [...topicClusters].sort(byClusterPriority).slice(0, 3);
 
