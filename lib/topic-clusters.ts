@@ -187,9 +187,9 @@ export const topicClusters = [
     description:
       "אשכול לטענות שמייחסות לגופים רשמיים תוכניות גדולות, אבל דורשות בדיקה פשוטה: האם יש מקור רשמי שניתן לפתוח.",
     status: "expanding",
-    updated: "2026-06-21",
+    updated: "2026-06-23",
     priority: 0.84,
-    claimSlugs: claimSlugs(["project-blue-beam-nasa", "who-pandemic-agreement-sovereignty", "event-201-pandemic-exercise", "pallavicini-islam-responsibility"]),
+    claimSlugs: claimSlugs(["project-blue-beam-nasa", "who-pandemic-agreement-sovereignty", "event-201-pandemic-exercise", "pallavicini-islam-responsibility", "great-reset-global-government"]),
     plannedClaims: [
       {
         title: "איך מזהים מקור רשמי של גוף ממשלתי או בינלאומי?",

@@ -1,7 +1,7 @@
 import { claimContentRecords } from "../content/claims";
 
 export const staticPages = [
-  { path: "/", updated: "2026-06-20", changeFrequency: "weekly", priority: 1 },
+  { path: "/", updated: "2026-06-23", changeFrequency: "weekly", priority: 1 },
   { path: "/about", updated: "2026-06-19", changeFrequency: "weekly", priority: 0.7 },
   { path: "/privacy", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
   { path: "/accessibility", updated: "2026-06-18", changeFrequency: "weekly", priority: 0.7 },
@@ -13,7 +13,7 @@ export const staticPages = [
   { path: "/topics", updated: "2026-06-20", changeFrequency: "weekly", priority: 0.8 },
 ] as const;
 
-export const homeFeaturedClaimSlug = "ai-bci-synthetic-soul";
+export const homeFeaturedClaimSlug = "great-reset-global-government";
 
 export type TopicClusterSlug =
   | "ai-sources"

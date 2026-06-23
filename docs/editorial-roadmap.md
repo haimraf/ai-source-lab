@@ -4,7 +4,7 @@
 
 ## נקודת פתיחה ל-v0.3
 
-נכון ל-22 ביוני 2026, המערכת היא אתר Next.js סטטי-תחילה עם תוכן בדיקות typed, loader משותף, route דינמי ויצירת metadata, sitemap ונתונים מובנים מתוך רשומות התוכן. השלבים הבאים צריכים להשלים את כלי העריכה הפנימיים והתיעוד הארכיטקטוני בלי לשנות את חוויית הקריאה הציבורית.
+נכון ל-23 ביוני 2026, המערכת היא אתר Next.js סטטי-תחילה עם תוכן בדיקות typed, loader משותף, route דינמי ויצירת metadata, sitemap ונתונים מובנים מתוך רשומות התוכן. יעד התוכן הראשון של 18 בדיקות הושלם, והמאגר מתקדם כעת ליעד תוכן הבא בלי לשנות את חוויית הקריאה הציבורית.
 
 ### הושלם ונחשב לבסיס קיים
 
@@ -21,7 +21,7 @@
 ### מצב התוכן הנוכחי
 
 - schema ו-workflow typed מוגדרים ב-`lib/content/claim-schema.ts`.
-- 12 הבדיקות שפורסמו נשמרות כרשומות תחת `content/claims/`.
+- 19 הבדיקות שפורסמו נשמרות כרשומות תחת `content/claims/`.
 - `lib/content/claim-loader.ts` מספק API אחיד ל-routes, לחיפוש, לאשכולות ולצרכני SEO/GEO.
 - עמודי הבדיקות מרונדרים דרך `app/claims/[slug]` עם `generateStaticParams`.
 - metadata, sitemap, `llms.txt` ונתונים מובנים נוצרים מרשומות התוכן.
@@ -46,20 +46,14 @@
 5. ✅ **refactor: move first claims into content records** — pilot עם בדיקות parity לפני cutover רחב.
 6. ✅ **refactor: migrate remaining claim records to content files** — כל תוכן הבדיקות עבר ל-`content/claims/`.
 7. ✅ **refactor: render claims through dynamic slug route** — כל ה-claims מרונדרים דרך `app/claims/[slug]`; ה-cutover שמר URL, canonical, metadata, Open Graph/Twitter, תוכן גלוי, FAQ, sources, share copy ו-JSON-LD קיים בלי להוסיף schema חדש כחלק מהמיגרציה.
-7.9. ✅ **SEO parity audit after migration** — בדיקות parity מכסות כתובות, canonical, metadata, sitemap, structured data ותוכן. baseline היסטורי של 39 routes נשמר בזמן המיגרציה; ה-build הנוכחי כולל 43 routes בעקבות שתי בדיקות חדשות ונתיבי Open Graph שלהן.
+7.9. ✅ **SEO parity audit after migration** — בדיקות parity מכסות כתובות, canonical, metadata, sitemap, structured data ותוכן.
 8. ✅ **feat: generate claim metadata and sitemap from content** — metadata ו-claim entries ב-sitemap נגזרים משכבת התוכן, עם בדיקת repository נגד sitemap ישן.
 9. ✅ **feat: centralize structured data for claims and FAQs** — לוגיקת Article/FAQ מרוכזת, תוך שימור parity; `ClaimReview` אינו נוסף אוטומטית.
 10. ✅ **feat: add editorial workflow fields to claims** — סטטוסי עריכה, מקורות, SEO ובדיקות, יחד עם תאריכי בדיקה ועדכון.
 11. ✅ **feat: add internal editorial checklist for claims** — checklist קבוע לטענה, מקורות, מסקנה, SEO, שיתוף ומובייל.
-12. ✅🌐 **feat: add read-only internal content status page** — הושלם ב־2026-06-22, מוזג ל־`main` ואומת בפרודקשן.
-   - **מה בוצע:** דוח סטטי לקריאה בלבד ב־`/internal/content-status`, שנגזר מ־12 רשומות ה־claim ומציג workflow, checklist, מקורות, metadata/share, מובייל ומצב רענון; ללא auth, DB, עריכה או קישור בניווט הציבורי.
-   - **איך אומת:** לאחר ה־merge עברו 144 בדיקות, `check:content`, typecheck ו־production build של 44 routes; CI ו־Vercel עברו ב־SHA `1026f59`, והנתיב החי החזיר 200 עם 12 claims, `noindex, nofollow` וללא כניסה ל־sitemap.
-13. ✅ **docs: add dashboard architecture decision record** — הושלם ב־2026-06-22 ומוזג ל־`main`; Stage 2 טרם התחיל.
-   - **מה בוצע:** ADR 0001 קבע מודל דו־שכבתי וספק־ניטרלי, גבולות ישויות, Git-backed publishing, הרשאות ראשוניות, PII/retention, מדיה, audit, recovery, sync ו־schema migrations.
-   - **איך אומת:** coverage scan סגר את כל 11 ההחלטות, ולאחר ה־merge עברו 145 בדיקות, `check:content`, typecheck ו־build של 44 routes ללא שינוי runtime או route חדש.
-14. 🟡 **docs: design Stage 2 read-only admin shell** — בעבודה מ־2026-06-22; design ו־ADR לבחירת Supabase נכתבים לפני implementation.
-   - **היקף:** Magic Link למייל admin יחיד, authorization בצד שרת, audit, rate limiting durable, health ותצוגת content status מוגנת; ללא עריכה, publish, submissions או CMS.
-   - **גבול:** Git נשאר מקור האמת לתוכן, ו־Stage 2 לא יסומן כהושלם לפני merge, בדיקות, restore drill ואימות production.
+12. ✅🌐 **feat: add read-only internal content status page** — הושלם ב-2026-06-22, מוזג ל-`main` ואומת בפרודקשן.
+13. ✅ **docs: add dashboard architecture decision record** — הושלם ב-2026-06-22 ומוזג ל-`main`; Stage 2 טרם התחיל.
+14. 🟡 **docs: design Stage 2 read-only admin shell** — בעבודה מ-2026-06-22; design ו-ADR לבחירת Supabase נכתבים לפני implementation.
 
 ### כללי ארכיטקטורה ל-v0.3
 
@@ -109,75 +103,68 @@
 ## בדיקות שפורסמו
 
 - `/claims/ai-bci-synthetic-soul` - האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?
+- `/claims/gravity-loss-2026-project-anchor` - האם פרויקט Anchor של 2026 מוכיח איבוד כוח כבידה?
+- `/claims/monster-energy-666-logo` - האם הלוגו של Monster Energy הוא 666 מוסתר?
+- `/claims/spider-man-hand-sign` - האם תנועת היד של ספיידרמן היא סמל נסתר?
+- `/claims/kal-el-hebrew-meaning` - האם Kal-El בעברית אומר קול האל?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA או האו״ם?
+- `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
+- `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את הקורונה מראש?
+- `/claims/pallavicini-islam-responsibility` - האם משפחת Pallavicini אחראית על האסלאם?
+- `/claims/great-reset-global-government` - האם The Great Reset הוא תוכנית רשמית להקמת ממשלה עולמית?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
 - `/claims/15-minute-city-prison` - האם עיר 15 דקות היא כלא עירוני?
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
-- `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
-- `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
-- `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/you-will-own-nothing-klaus-schwab` - האם קלאוס שוואב אמר שלא יהיה לכם כלום?
 - `/claims/digital-shekel-spending-control` - האם שקל דיגיטלי יאפשר להגביל קניות?
+- `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
+- `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
 
 ## יעד המערכת הבא
 
-באתר פורסמו כעת 12 בדיקות. שכבת התוכן של v0.3 הושלמה דרך שלב 11; המיילסטונים הבאים הם עמוד סטטוס פנימי לקריאה בלבד ו-ADR לפני כל החלטה על dashboard ניתן לעריכה. יעד התוכן נשאר 18 בדיקות, וה-backlog העריכתי אינו רצף העבודה של תשתית v0.3.
+יעד התוכן הראשון של 18 בדיקות הושלם. היעד הבא הוא להגיע ל-24 בדיקות בלי לשנות ארכיטקטורה: כל בדיקה חדשה צריכה להיות claim צר, עם מקור מרכזי פתוח, OG, sitemap, llms, אשכול, README ורודמאפ מסונכרנים.
 
-## Backlog מוצע ל-7 בדיקות נוספות
+## Backlog מוצע לבדיקות הבאות
 
-1. **HAARP ורעידות אדמה** - האם מתקן HAARP יכול לגרום לרעידות אדמה?
-   - אשכול מוצע: שמיים ואקלים / טכנולוגיה ומדע.
-   - הערה עריכתית: מתקן אמיתי, שאלה צרה, מקור ראשוני של אוניברסיטת אלסקה.
-
-2. **WEF כממשלה עולמית סמויה** - האם The Great Reset הוא תוכנית שלטון עולמית?
-   - אשכול מוצע: מוסדות ונרטיבים.
-   - הערה עריכתית: לעבוד בפורמט של מקור רשמי מול קפיצה לוגית, בדומה למסמך Gateway.
-
-3. **Lockstep / Rockefeller** - האם המסמך ניבא את COVID?
+1. **Lockstep / Rockefeller** - האם המסמך ניבא את COVID?
    - אשכול מוצע: מוסדות ונרטיבים / תרחישים.
    - הערה עריכתית: להפריד בין תרחיש עתידי, סימולציה, ניבוי ומזימה.
 
-4. **Event 201** - האם הפנדמיה תוכננה מראש?
-   - אשכול מוצע: בריאות ציבורית / סימולציות.
-   - הערה עריכתית: יש חומר רשמי ומתועד; חשוב להפריד בין תרגיל הכנה לבין תכנון אירוע אמיתי.
+2. **HAARP ורעידות אדמה** - האם מתקן HAARP יכול לגרום לרעידות אדמה?
+   - אשכול מוצע: שמיים ואקלים / טכנולוגיה ומדע.
+   - הערה עריכתית: מתקן אמיתי, שאלה צרה, מקור ראשוני של אוניברסיטת אלסקה.
 
-5. **mRNA ו-DNA** - האם חיסון mRNA משנה את הגנום?
+3. **mRNA ו-DNA** - האם חיסון mRNA משנה את הגנום?
    - אשכול מוצע: בריאות ציבורית.
    - הערה עריכתית: נושא רגיש ובריאותי; לפרסם רק אחרי בדיקה זהירה מול FDA/EMA/CDC או מקורות רפואיים רשמיים, בלי עצות רפואיות.
 
-6. **נחיתה על הירח** - האם הנחיתה זויפה?
+4. **נחיתה על הירח** - האם הנחיתה זויפה?
    - אשכול מוצע: מוסדות ונרטיבים / NASA.
    - הערה עריכתית: נפח חיפוש גדול, אבל דורש גבולות חזקים כדי לא לפתוח עמוד ענק מדי.
 
-7. **ביל גייטס ו"הורדת אוכלוסייה"** - האם הוא אמר שחיסונים יורידו אוכלוסייה?
+5. **ביל גייטס ו״הורדת אוכלוסייה״** - האם הוא אמר שחיסונים יורידו אוכלוסייה?
    - אשכול מוצע: בריאות ציבורית / ציטוטים ויראליים.
    - הערה עריכתית: לבדוק מול TED 2010 והטרנסקריפט המקורי, ולהפריד בין ציטוט, הקשר ופרשנות.
 
 ### פורסמו והוצאו מה-backlog הפעיל
 
 - **WHO / אמנת מגיפות** - האם ההסכם נותן ל-WHO סמכות לכפות סגרים, חיסונים או שינויי חוק?
-  - אשכול: מוסדות ונרטיבים / בריאות ציבורית.
-  - הערה עריכתית שנשמרה: להתחיל מהטקסט הרשמי ומהסעיף שמגביל סמכות על מדיניות פנים.
 - **האם קלאוס שוואב אמר "you will own nothing"?**
-  - אשכול: אג׳נדה 2030 / מוסדות ונרטיבים.
-  - הערה עריכתית שנשמרה: לבדוק מקור הביטוי, WEF, Ida Auken, ולקבוע האם זה ציטוט של שוואב או ייחוס שגוי.
 - **CBDC / שקל דיגיטלי** - האם שקל דיגיטלי יאפשר שליטה בהוצאות?
-  - אשכול: כסף דיגיטלי.
-  - הערה עריכתית שנשמרה: מקור ראשון ישראלי חזק - בנק ישראל. להפריד בין יכולת טכנולוגית, עיצוב מדיניות וטענה על שליטה בפועל.
+- **Event 201** - האם הפנדמיה תוכננה מראש?
+- **WEF / The Great Reset** - האם זו תוכנית רשמית להקמת ממשלה עולמית?
 
 ## סדר עדיפות מעשי
 
-- להתחיל עכשיו: Event 201 או Lockstep, כי שניהם נקיים עריכתית ומבוססי מסמכים.
+- להתחיל עכשיו אחרי Great Reset: Lockstep או HAARP.
 - לדחות בזהירות: mRNA ו-DNA, בגלל רגישות בריאותית וצורך בבדיקת מקורות רפואיים ברמה גבוהה.
 - לשמור כקלף SEO גדול: נחיתה על הירח, אבל רק אחרי שיש תבנית יציבה לבדיקות ענק.
 
-הערות עדיפות היסטוריות שהושלמו: להתחיל ב-WHO / אמנת מגיפות; ולהכניס לזרם מהיר את "you will own nothing" אחרי התכנון הראשוני באשכול אג׳נדה 2030.
-
 ## עדיפות תפעולית לכל בדיקה חדשה
 
-1. לוודא שכל עמוד בדיקה חדש רשום ב-`lib/claims-db.ts`.
+1. לוודא שכל עמוד בדיקה חדש רשום ב-`content/claims/index.ts`.
 2. לוודא שלכל עמוד בדיקה יש 4-5 תגיות מדויקות.
 3. לוודא שלכל עמוד בדיקה יש `opengraph-image.tsx`.
 4. להוסיף שבירת שורות ידנית ב-`lib/social-image.tsx` לכל כותרת עברית שנשברת לא נכון.
@@ -187,7 +174,7 @@
 8. בלוק מקור עקבי לכל מקור מרכזי.
 9. טבלת טענה קצרה בכל בדיקה.
 10. Schema מדויק יותר לפי עמוד.
-11. לשפר את החיפוש החי אחרי 10-15 בדיקות: סינון לפי אשכול, מיון לפי רלוונטיות ותוצאות מוצעות.
+11. לשפר את החיפוש החי אחרי 20-24 בדיקות: סינון לפי אשכול, מיון לפי רלוונטיות ותוצאות מוצעות.
 12. עמוד מחבר או הרחבה של עמוד האודות.
 13. גרסת 60 שניות לכל בדיקה.
 14. מילון גופים ומונחים.
@@ -260,7 +247,7 @@
 
 לפני שמעלים בדיקה חדשה:
 
-- לרשום אותה ב-`claimRecords`.
+- לרשום אותה ב-`content/claims/index.ts`.
 - להוסיף תגיות.
 - ליצור `opengraph-image.tsx` בתיקיית העמוד.
 - לבדוק אם הכותרת בעברית נשברת עקום בתמונה.

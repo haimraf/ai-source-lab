@@ -37,6 +37,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
 - `/claims/pallavicini-islam-responsibility` - האם משפחת Pallavicini אחראית על האסלאם?
+- `/claims/great-reset-global-government` - האם The Great Reset הוא תוכנית רשמית להקמת ממשלה עולמית?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
