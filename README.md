@@ -30,8 +30,8 @@ https://ai-source-lab.vercel.app/
 
 הפרויקט עבר משלב MVP ראשוני לשלב מאגר תוכן פעיל.
 
-- יש 23 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
-- יעד קצר: להגיע ל-24 בדיקות בלי לשנות ארכיטקטורה.
+- יש 25 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
+- יעד קצר ראשון של 24 בדיקות הושלם.
 - יעד מאגר ראשון: 50-70 בדיקות איכותיות כדי להפוך לכתובת שחוזרים אליה.
 - כל בדיקה חדשה צריכה להישאר claim צר עם מקור מרכזי פתוח, אשכול ברור, OG, sitemap, llms ותיעוד מסונכרן.
 
@@ -44,6 +44,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/kal-el-hebrew-meaning` - האם Kal-El בעברית אומר קול האל?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
 - `/claims/moon-landing-flag-shadows-stars` - האם הדגל, הצללים והכוכבים מוכיחים שהנחיתה על הירח זויפה?
+- `/claims/mrna-vaccines-dna-genome` - האם חיסון mRNA משנה את ה-DNA או הגנום?
 - `/claims/rockefeller-lock-step-pandemic-scenario` - האם דוח Lock Step של רוקפלר חזה או תכנן את הקורונה?
 - `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
@@ -58,6 +59,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
 - `/claims/you-will-own-nothing-klaus-schwab` - האם קלאוס שוואב אמר שלא יהיה לכם כלום?
 - `/claims/digital-shekel-spending-control` - האם שקל דיגיטלי יאפשר להגביל קניות?
+- `/claims/iso-20022-global-currency` - האם ISO 20022 הוא מטבע עולמי או בחירה ב-XRP?
 - `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
 - `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
 
@@ -79,7 +81,7 @@ https://ai-source-lab.vercel.app/
 - `docs/feedback-round-1.md` - משוב עריכה ראשון, baseline היסטורי ותוכנית שיוף.
 - `docs/editorial-roadmap.md` - רודמאפ תוכן, אשכולות, backlog ובדיקות עתידיות.
 - `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step, HAARP וטריגר batch.
-- `docs/schema-audit-checkpoint.md` - שלב בקרה עתידי לבחינת schema ודפי דגל לפני יצירת batch תוכן נוסף.
+- `docs/schema-audit-checkpoint.md` - שלב בקרה עתידי לבחינת schema, דפי דגל וטקסונומיית בריאות לפני יצירת batch תוכן נוסף.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
