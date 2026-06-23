@@ -85,6 +85,7 @@ https://ai-source-lab.vercel.app/
 - `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step, HAARP וטריגר batch.
 - `docs/schema-audit-checkpoint.md` - תוצאת checkpoint: schema נשאר כמו שהוא; טקסונומיית בריאות קיבלה אשכול `public-health` בלי שינוי schema.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
+- `docs/CLAIM_PUBLICATION_RULES.md` - חוקי פרסום claim חדש: שכבות חובה, published count, sitemap, OG ודוקס.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
 - `docs/OG_CHECKLIST.md` - בדיקות Open Graph ותמונות שיתוף.
