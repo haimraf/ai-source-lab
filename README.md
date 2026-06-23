@@ -86,7 +86,7 @@ https://ai-source-lab.vercel.app/
 - `docs/schema-audit-checkpoint.md` - תוצאת checkpoint: schema נשאר כמו שהוא; טקסונומיית בריאות קיבלה אשכול `public-health` בלי שינוי schema.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
 - `docs/CLAIM_PUBLICATION_RULES.md` - חוקי פרסום claim חדש: שכבות חובה, published count, sitemap, OG ודוקס.
-- `docs/BRANDING.md` - סטטוס מיתוג: השם והדומיין הם working brand עד בדיקת מיתוג מסודרת בעתיד.
+- `docs/BRANDING.md` - סטטוס מיתוג: השם והדומיין הם working brand; בדיקה ראשונה משוערת סביב 2026-07-08, בתום חלון 14 הימים.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
 - `docs/OG_CHECKLIST.md` - בדיקות Open Graph ותמונות שיתוף.
@@ -132,6 +132,7 @@ https://ai-source-lab.vercel.app/
 - איורים ותמונות פנימיים ככל האפשר כדי להימנע מבעיות זכויות יוצרים
 - פחות קישוטים, יותר היררכיית מידע
 - תמונות Open Graph בסגנון source file / editorial file
+- מיתוג מלא לא נפתח לפני תום חלון 14 הימים; בדיקה ראשונה משוערת סביב 2026-07-08.
 
 ## תשתית טכנית
 
