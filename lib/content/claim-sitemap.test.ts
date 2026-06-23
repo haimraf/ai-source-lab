@@ -1,4 +1,4 @@
-﻿import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
@@ -75,10 +75,11 @@ describe("claim sitemap", () => {
         priority: claim.priority,
       })),
     );
-    expect(sitemapEntries).toHaveLength(14);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(14);
+    expect(sitemapEntries).toHaveLength(15);
+    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(15);
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/monster-energy-666-logo");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/event-201-pandemic-exercise");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
