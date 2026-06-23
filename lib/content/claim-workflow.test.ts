@@ -81,7 +81,7 @@ describe("claim workflow fields", () => {
     } as unknown as ClaimContent;
 
     expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
-      `${validClaim.slug}: workflow.checklist.shareCopyReviewed must be true for published claims`,
+      `${validClaim.slug}: published claim requires workflow.checklist.shareCopyReviewed`,
     );
   });
 });
