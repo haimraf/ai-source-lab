@@ -10,7 +10,7 @@ const migratedMrnaVaccinesDnaGenomeClaimContent = defineMigratedClaimContent({
   kicker: "בריאות וטכנולוגיה",
   tags: ["mRNA", "DNA", "חיסונים", "גנטיקה", "בריאות ציבורית"],
   verdict: "לפי מקורות רפואיים רשמיים: חיסוני mRNA לא נכנסים לגרעין התא ולא משנים את ה-DNA",
-  cluster: "institutional-narratives",
+  cluster: "public-health",
   updated: "2026-06-23",
   changeFrequency: "monthly",
   priority: 0.9,
