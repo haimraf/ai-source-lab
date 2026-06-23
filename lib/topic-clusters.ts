@@ -200,7 +200,7 @@ export const topicClusters = [
     status: "expanding",
     updated: "2026-06-21",
     priority: 0.84,
-    claimSlugs: claimSlugs(["project-blue-beam-nasa", "who-pandemic-agreement-sovereignty"]),
+    claimSlugs: claimSlugs(["project-blue-beam-nasa", "who-pandemic-agreement-sovereignty", "event-201-pandemic-exercise"]),
     plannedClaims: [
       {
         title: "איך מזהים מקור רשמי של גוף ממשלתי או בינלאומי?",
