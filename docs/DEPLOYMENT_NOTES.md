@@ -1,3 +1,25 @@
+## 2026-06-23 — production deploy after Vercel build-rate-limit
+
+PR #40 was merged to `main`, but production did not deploy immediately because Vercel failed the production status with `build-rate-limit`.
+
+The confusing part: preview deployments for the PR branch were ready, but production was still blocked.
+
+Resolution:
+
+* confirmed the PR was merged to `main`;
+* confirmed GitHub CI was green;
+* confirmed the visible ready deployments were previews, not production;
+* triggered one clean deployment from `main` after the Vercel limit cleared;
+* production deployed successfully.
+
+Operational guardrail:
+
+* Do not use repeated no-op commits as the default debugging path.
+* Read GitHub CI and Vercel production status separately.
+* A ready Preview does not mean Production deployed.
+* If production is blocked by `build-rate-limit`, wait or use one clean `main` trigger only.
+
+
 # Deployment Notes
 
 ## 2026-06-20
