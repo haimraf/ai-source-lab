@@ -135,7 +135,7 @@ describe("claim sitemap", () => {
     const generated = readFileSync(filePath, "utf8");
     const normalized = generated.replace(/\r\n/g, "\n");
 
-    expect(normalized).toContain("https://ai-source-lab.vercel.app/claims/15-minute-city-prison");
+    expect(normalized).toContain("https://example.com/claims/15-minute-city-prison");
     expect(normalized).not.toContain("https://example.com/claims/old-one");
   });
 });
