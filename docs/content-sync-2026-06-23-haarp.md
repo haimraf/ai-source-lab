@@ -19,6 +19,22 @@ This note records the content-state sync after the Lock Step work landed on `mai
 - Updates `public/sitemap.xml` for the new claim path.
 - Syncs README claim count and claim list.
 
+## Deployment note
+
+GitHub `main` is the source of truth for accepted work.
+
+Because Vercel preview / production deployments can hit rate limits during heavy content work, this project should not trigger a production deploy after every small PR.
+
+Recommended flow while rate-limited:
+
+1. Keep working through small PRs.
+2. Merge to `main` only after GitHub CI is green.
+3. Allow Vercel preview to be stale or skipped when rate-limited.
+4. Do one intentional production trigger after a small batch of merged PRs.
+5. After that production trigger, verify `/sitemap.xml`, `/llms.txt`, the new claim pages and Open Graph routes.
+
+Do not treat a stale Vercel preview as a code failure when GitHub CI is green and the PR is content/docs only.
+
 ## Editorial boundary
 
 The HAARP page keeps the claim narrow:
@@ -42,10 +58,12 @@ The answer separates:
 
 ## Next likely content step
 
-After this PR, the next backlog candidates are:
+After this PR is merged, the next safe step is not another broad feature. Keep momentum with one narrow content PR.
+
+Recommended next backlog candidates:
 
 1. `mRNA ו-DNA` — only with careful official medical sources and no medical advice.
 2. `נחיתה על הירח` — high search potential, but needs tight boundaries.
 3. `ביל גייטס והורדת אוכלוסייה` — quote/context check around the TED 2010 source.
 
-Do not start any of these until this PR passes CI and the Vercel preview is stable.
+Do not start any of these until this PR passes CI again after this documentation update.
