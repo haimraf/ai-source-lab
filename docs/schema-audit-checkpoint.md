@@ -2,36 +2,59 @@
 
 Date: 2026-06-23
 
-This checkpoint documents a deliberate control step before scaling the archive beyond the next small batch of claim pages.
+This checkpoint documents a deliberate control step before scaling the archive beyond the current claim batch.
+
+## Result of this checkpoint
+
+Decision: do not change the content schema now.
+
+The current schema and body renderer already support the stronger flagship-page structure through existing blocks:
+
+- `answer-box`
+- `verdict-grid`
+- `comparison-list`
+- `method-note`
+- `evidence-list`
+- `logic-chain`
+- `faq`
+- `sources`
+- `copy-share`
+
+The repeated structure should become an editorial pattern first, not a schema migration.
+
+A reusable pattern is now documented in `docs/editorial-patterns.md`.
 
 ## Why this exists
 
-The Moon landing page is intended to be a stronger editorial page while still using the existing claim schema and existing body blocks.
+The Moon landing page was intended to be a stronger editorial page while still using the existing claim schema and existing body blocks.
 
-That is intentional:
+That worked.
 
-- no schema change in the Moon landing PR;
-- no migration of existing pages during content momentum;
-- no broad rewrite before Codex / deeper engineering support is available again;
-- keep building toward the 24-claim short-term target.
+The follow-up pages also used the same structure successfully:
 
-After this page is reviewed, the team should decide whether its repeated structure should remain an editorial pattern or become part of the schema.
+- `mrna-vaccines-dna-genome`
+- `iso-20022-global-currency`
 
-## Review timing
+That means the current schema is not the bottleneck yet.
 
-Run this audit after the current content push, ideally around or after 2026-06-28, before opening a larger batch of new claim pages.
+## Current decision
 
-This is not a blocker for the Moon landing PR or the immediate two-claim content batch.
+Keep the schema as-is until at least one of these becomes true:
+
+1. 3-5 more pages repeat the same manual structure and it becomes hard to maintain.
+2. The UI needs to display a field automatically across many pages.
+3. The content team wants filtering/reporting by claim type, source strength or viral pattern.
+4. The same editorial ideas are copied manually so often that mistakes become likely.
 
 ## Temporary taxonomy note
 
 The current code does not yet have a dedicated `public-health` or `health-technology` topic cluster.
 
-Until the schema/taxonomy audit is complete:
+Until the next taxonomy review:
 
 - health-adjacent claim pages may temporarily use `institutional-narratives` when the claim is primarily about public interpretation of official health institutions, regulators or source wording;
 - health-specific tags should still be added to the claim, for example `mRNA`, `DNA`, `חיסונים`, `גנטיקה`, `בריאות ציבורית`;
-- this temporary placement should be revisited during the checkpoint;
+- this temporary placement should be revisited before creating more health pages;
 - do not add a new topic cluster inside a content PR unless the audit explicitly approves it.
 
 Candidate future cluster names:
@@ -40,33 +63,50 @@ Candidate future cluster names:
 - `health-technology`
 - `health-public-sources`
 
-Decision to make during the checkpoint:
+Decision for later:
 
-> Should health claims remain under institutional narratives, or should the site add a dedicated health/public-health topic cluster before creating more health pages?
+> Add a dedicated health/public-health cluster once there are at least 2-3 health-specific claim pages, or once health pages are no longer mainly about institutional-source interpretation.
 
-## Questions to answer
+## Questions answered
 
-1. Which existing blocks are enough?
-   - `answer-box`
-   - `verdict-grid`
-   - `comparison-list`
-   - `evidence-list`
-   - `method-note`
-   - `logic-chain`
-   - `faq`
-   - `sources`
-   - `copy-share`
+### 1. Which existing blocks are enough?
 
-2. Which repeated editorial ideas are appearing across strong pages?
-   - real kernel;
-   - viral claim;
-   - what was checked;
-   - what was not found;
-   - logical jump;
-   - legitimate criticism / fair framing;
-   - what evidence would change the conclusion.
+Enough for now:
 
-3. Should any of those become optional schema fields?
+- `answer-box`
+- `verdict-grid`
+- `comparison-list`
+- `evidence-list`
+- `method-note`
+- `logic-chain`
+- `faq`
+- `sources`
+- `copy-share`
+
+Optional / situational:
+
+- `source-levels`
+- `bonus-note`
+- `gallery`
+- `paragraph-section`
+
+### 2. Which editorial ideas repeat?
+
+Repeated across flagship pages:
+
+- real kernel;
+- viral claim;
+- what was checked;
+- what was not found;
+- logical jump;
+- fair framing / legitimate criticism;
+- what evidence would change the conclusion.
+
+These should be treated as editorial pattern items for now.
+
+### 3. Should any of those become optional schema fields?
+
+Not yet.
 
 Possible future fields, only if useful:
 
@@ -80,7 +120,7 @@ Possible future fields, only if useful:
 
 Do not add these fields unless at least 3-5 strong pages would benefit from them.
 
-## Safe implementation path if schema changes are approved
+## Safe implementation path if schema changes are approved later
 
 1. Create a separate schema-only PR.
 2. Add optional fields first, not required fields.
@@ -88,7 +128,7 @@ Do not add these fields unless at least 3-5 strong pages would benefit from them
 4. Update 2-3 flagship pages as pilots.
 5. Only then consider gradual adoption across older pages.
 
-## Pages to inspect first
+## Pages inspected first
 
 - `moon-landing-flag-shadows-stars` — flagship visual-claim structure.
 - `mrna-vaccines-dna-genome` — health mechanism / official-source wording structure.
@@ -106,8 +146,8 @@ Do not add these fields unless at least 3-5 strong pages would benefit from them
 - Do not mix schema changes with a new claim page.
 - Do not use this as a reason to build CMS, AI search or dashboard work.
 
-## Decision rule
+## Decision rule going forward
 
-If the Moon landing page and 2-3 other strong pages work well using existing blocks, keep the schema as-is and document the editorial pattern.
+If flagship pages keep working well using existing blocks, keep the schema as-is and maintain `docs/editorial-patterns.md`.
 
 If the same manual structure repeats across several pages and creates maintenance friction, add optional schema fields in a dedicated engineering PR.
