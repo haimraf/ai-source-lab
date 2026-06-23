@@ -13,7 +13,7 @@ import { generateClaimSitemapFile } from "../../scripts/generate-claim-sitemap";
 
 const temporaryDirectories: string[] = [];
 
-const PUBLISHED_CLAIM_COUNT = 21;
+const PUBLISHED_CLAIM_COUNT = 22;
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
@@ -88,6 +88,7 @@ describe("claim sitemap", () => {
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/great-reset-global-government");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/rockefeller-lock-step-pandemic-scenario");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/haarp-earthquakes");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/bill-gates-vaccines-population-reduction");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
@@ -134,7 +135,7 @@ describe("claim sitemap", () => {
     ].join("\r\n");
 
     expect(() => updateClaimSitemapXml(nonContiguous, entries)).toThrow(
-      "Existing claim sitemap block is not contiguous",
+      "Existing claim block is not contiguous",
     );
   });
 
