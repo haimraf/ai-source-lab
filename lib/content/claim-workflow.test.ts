@@ -8,7 +8,7 @@ const allowedEditorialStatuses = ["draft", "reviewed", "published", "needs-revie
 const allowedSourceStatuses = ["missing", "partial", "verified", "needs-refresh"] as const;
 const allowedSeoStatuses = ["missing", "basic", "complete", "needs-review"] as const;
 const allowedTestStatuses = ["missing", "partial", "covered", "needs-review"] as const;
-const PUBLISHED_CLAIM_COUNT = 21;
+const PUBLISHED_CLAIM_COUNT = 22;
 
 describe("claim workflow fields", () => {
   it("accepts the current published claim set", () => {

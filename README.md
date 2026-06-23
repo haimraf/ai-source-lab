@@ -30,7 +30,7 @@ https://ai-source-lab.vercel.app/
 
 הפרויקט עבר משלב MVP ראשוני לשלב מאגר תוכן פעיל.
 
-- יש 21 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
+- יש 22 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
 - יעד קצר: להגיע ל-24 בדיקות בלי לשנות ארכיטקטורה.
 - יעד מאגר ראשון: 50-70 בדיקות איכותיות כדי להפוך לכתובת שחוזרים אליה.
 - כל בדיקה חדשה צריכה להישאר claim צר עם מקור מרכזי פתוח, אשכול ברור, OG, sitemap, llms ותיעוד מסונכרן.
@@ -48,6 +48,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
 - `/claims/pallavicini-islam-responsibility` - האם משפחת Pallavicini אחראית על האסלאם?
 - `/claims/great-reset-global-government` - האם The Great Reset הוא תוכנית רשמית לשלטון עולמי?
+- `/claims/bill-gates-vaccines-population-reduction` - האם ביל גייטס אמר שחיסונים יורידו אוכלוסייה?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?

@@ -3,6 +3,7 @@ import { fifteenMinuteCityPrisonClaimContent } from "./15-minute-city-prison";
 import { agenda2030SevenStepsClaimContent } from "./agenda-2030-seven-steps";
 import { aiAsSourcePyramidsClaimContent } from "./ai-as-source-pyramids";
 import { aiBciSyntheticSoulClaimContent } from "./ai-bci-synthetic-soul";
+import { billGatesVaccinesPopulationReductionClaimContent } from "./bill-gates-vaccines-population-reduction";
 import { chemtrailsAluminumClaimContent } from "./chemtrails-aluminum";
 import { cloudSeedingChemtrailsClaimContent } from "./cloud-seeding-chemtrails";
 import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spending-control";
@@ -33,6 +34,7 @@ export const claimContentRecords = [
   event201PandemicExerciseClaimContent,
   pallaviciniIslamResponsibilityClaimContent,
   greatResetGlobalGovernmentClaimContent,
+  billGatesVaccinesPopulationReductionClaimContent,
   gatewayProcessOutOfBodyClaimContent,
   aiAsSourcePyramidsClaimContent,
   cloudSeedingChemtrailsClaimContent,
