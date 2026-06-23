@@ -6,6 +6,7 @@ import { aiBciSyntheticSoulClaimContent } from "./ai-bci-synthetic-soul";
 import { billGatesVaccinesPopulationReductionClaimContent } from "./bill-gates-vaccines-population-reduction";
 import { chemtrailsAluminumClaimContent } from "./chemtrails-aluminum";
 import { cloudSeedingChemtrailsClaimContent } from "./cloud-seeding-chemtrails";
+import { covidSupplementsVitaminDZincCureClaimContent } from "./covid-supplements-vitamin-d-zinc-cure";
 import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spending-control";
 import { event201PandemicExerciseClaimContent } from "./event-201-pandemic-exercise";
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
@@ -34,6 +35,7 @@ export const claimContentRecords = [
   projectBlueBeamNasaClaimContent,
   moonLandingFlagShadowsStarsClaimContent,
   mrnaVaccinesDnaGenomeClaimContent,
+  covidSupplementsVitaminDZincCureClaimContent,
   rockefellerLockStepPandemicClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,

@@ -8,7 +8,7 @@ const allowedEditorialStatuses = ["draft", "reviewed", "published", "needs-revie
 const allowedSourceStatuses = ["missing", "partial", "verified", "needs-refresh"] as const;
 const allowedSeoStatuses = ["missing", "basic", "complete", "needs-review"] as const;
 const allowedTestStatuses = ["missing", "partial", "covered", "needs-review"] as const;
-const PUBLISHED_CLAIM_COUNT = 25;
+const PUBLISHED_CLAIM_COUNT = 26;
 
 describe("claim workflow fields", () => {
   it("accepts the current published claim set", () => {
@@ -38,23 +38,23 @@ describe("claim workflow fields", () => {
     }
   });
 
-  it("reports missing workflow metadata", () => {
+  it("reports workflow metadata without a date", () => {
     const [validClaim] = claimContentRecords;
     const { checkedAt: _checkedAt, ...workflow } = validClaim.workflow;
-    const invalidClaim = { ...validClaim, workflow } as unknown as ClaimContent;
+    const testClaim = { ...validClaim, workflow } as unknown as ClaimContent;
 
-    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
-      `${validClaim.slug}: workflow.checkedAt must be an ISO YYYY-MM-DD date`,
+    expect(findClaimWorkflowIntegrityIssues(testClaim)).toContain(
+      validClaim.slug + ": workflow.checkedAt must be an ISO YYYY-MM-DD date",
     );
   });
 
-  it("reports missing and invalid checklist fields", () => {
+  it("reports checklist fields that are missing or use the wrong type", () => {
     const [validClaim] = claimContentRecords;
     const missingChecklistClaim = {
       ...validClaim,
       workflow: { ...validClaim.workflow, checklist: undefined },
     } as unknown as ClaimContent;
-    const invalidChecklistClaim = {
+    const wrongTypeChecklistClaim = {
       ...validClaim,
       workflow: {
         ...validClaim.workflow,
@@ -63,16 +63,16 @@ describe("claim workflow fields", () => {
     } as unknown as ClaimContent;
 
     expect(findClaimWorkflowIntegrityIssues(missingChecklistClaim)).toContain(
-      `${validClaim.slug}: workflow.checklist is required`,
+      validClaim.slug + ": workflow.checklist is required",
     );
-    expect(findClaimWorkflowIntegrityIssues(invalidChecklistClaim)).toContain(
-      `${validClaim.slug}: workflow.checklist.mobileReviewed must be a boolean`,
+    expect(findClaimWorkflowIntegrityIssues(wrongTypeChecklistClaim)).toContain(
+      validClaim.slug + ": workflow.checklist.mobileReviewed must be a boolean",
     );
   });
 
   it("requires completed checklist evidence for published claims", () => {
     const [validClaim] = claimContentRecords;
-    const invalidClaim = {
+    const testClaim = {
       ...validClaim,
       workflow: {
         ...validClaim.workflow,
@@ -80,8 +80,8 @@ describe("claim workflow fields", () => {
       },
     } as unknown as ClaimContent;
 
-    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
-      `${validClaim.slug}: published claim requires workflow.checklist.shareCopyReviewed`,
+    expect(findClaimWorkflowIntegrityIssues(testClaim)).toContain(
+      validClaim.slug + ": workflow.checklist.shareCopyReviewed must be true for published claims",
     );
   });
 });
