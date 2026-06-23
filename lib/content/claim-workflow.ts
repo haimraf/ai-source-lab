@@ -81,7 +81,7 @@ export function findClaimWorkflowIntegrityIssues(claim: ClaimContent): string[] 
       if (typeof value !== "boolean") {
         issues.push(`${prefix} workflow.checklist.${field} must be a boolean`);
       } else if (claim.status === "published" && value === false) {
-        issues.push(`${prefix} published claim requires workflow.checklist.${field}`);
+        issues.push(`${prefix} workflow.checklist.${field} must be true for published claims`);
       }
     }
   }
