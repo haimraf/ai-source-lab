@@ -6,6 +6,7 @@ import { aiBciSyntheticSoulClaimContent } from "./ai-bci-synthetic-soul";
 import { chemtrailsAluminumClaimContent } from "./chemtrails-aluminum";
 import { cloudSeedingChemtrailsClaimContent } from "./cloud-seeding-chemtrails";
 import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spending-control";
+import { event201PandemicExerciseClaimContent } from "./event-201-pandemic-exercise";
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
 import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-project-anchor";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
@@ -20,6 +21,7 @@ export const claimContentRecords = [
   monsterEnergy666LogoClaimContent,
   projectBlueBeamNasaClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
+  event201PandemicExerciseClaimContent,
   gatewayProcessOutOfBodyClaimContent,
   aiAsSourcePyramidsClaimContent,
   cloudSeedingChemtrailsClaimContent,
