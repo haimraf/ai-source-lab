@@ -1,5 +1,20 @@
 # Deployment Notes
 
+## 2026-06-24 — git trigger after Vercel API check
+
+Tried to use the available Vercel API tooling for a direct redeploy, but the API path available here does not perform a production redeploy directly.
+
+The returned guidance was to use the Vercel CLI from the project root or rely on the Git integration by committing and pushing to the Git origin.
+
+Decision for this project:
+
+- use a small Git commit on `main` as the controlled production trigger;
+- do not repeatedly try API redeploys from this workspace;
+- after the trigger, verify the aliased production deployment separately from ready Preview deployments;
+- production is considered current only if `ai-source-lab.vercel.app` points to the latest `main` commit.
+
+This note also acts as the single clean Git trigger for the current `main` state after PR #52 and the docs sync notes.
+
 ## 2026-06-24 — production trigger after public-health batch
 
 Triggered one clean `main` deployment after the public-health content batch was merged.
