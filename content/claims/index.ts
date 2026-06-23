@@ -12,9 +12,11 @@ import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-bo
 import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-project-anchor";
 import { greatResetGlobalGovernmentClaimContent } from "./great-reset-global-government";
 import { haarpEarthquakesClaimContent } from "./haarp-earthquakes";
+import { iso20022GlobalCurrencyClaimContent } from "./iso-20022-global-currency";
 import { kalElHebrewMeaningClaimContent } from "./kal-el-hebrew-meaning";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
 import { moonLandingFlagShadowsStarsClaimContent } from "./moon-landing-flag-shadows-stars";
+import { mrnaVaccinesDnaGenomeClaimContent } from "./mrna-vaccines-dna-genome";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { pallaviciniIslamResponsibilityClaimContent } from "./pallavicini-islam-responsibility";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
@@ -31,6 +33,7 @@ export const claimContentRecords = [
   kalElHebrewMeaningClaimContent,
   projectBlueBeamNasaClaimContent,
   moonLandingFlagShadowsStarsClaimContent,
+  mrnaVaccinesDnaGenomeClaimContent,
   rockefellerLockStepPandemicClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,
@@ -45,6 +48,7 @@ export const claimContentRecords = [
   agenda2030SevenStepsClaimContent,
   ownNothingKlausSchwabClaimContent,
   digitalShekelSpendingControlClaimContent,
+  iso20022GlobalCurrencyClaimContent,
   xrpGlobalCurrencyClaimContent,
   chemtrailsAluminumClaimContent,
 ] satisfies readonly ClaimContent[];

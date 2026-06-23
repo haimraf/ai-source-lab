@@ -13,7 +13,7 @@ import { generateClaimSitemapFile } from "../../scripts/generate-claim-sitemap";
 
 const temporaryDirectories: string[] = [];
 
-const PUBLISHED_CLAIM_COUNT = 23;
+const PUBLISHED_CLAIM_COUNT = 25;
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
@@ -90,6 +90,8 @@ describe("claim sitemap", () => {
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/haarp-earthquakes");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/bill-gates-vaccines-population-reduction");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/moon-landing-flag-shadows-stars");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/mrna-vaccines-dna-genome");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/iso-20022-global-currency");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 

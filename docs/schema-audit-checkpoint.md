@@ -21,7 +21,28 @@ After this page is reviewed, the team should decide whether its repeated structu
 
 Run this audit after the current content push, ideally around or after 2026-06-28, before opening a larger batch of new claim pages.
 
-This is not a blocker for the Moon landing PR.
+This is not a blocker for the Moon landing PR or the immediate two-claim content batch.
+
+## Temporary taxonomy note
+
+The current code does not yet have a dedicated `public-health` or `health-technology` topic cluster.
+
+Until the schema/taxonomy audit is complete:
+
+- health-adjacent claim pages may temporarily use `institutional-narratives` when the claim is primarily about public interpretation of official health institutions, regulators or source wording;
+- health-specific tags should still be added to the claim, for example `mRNA`, `DNA`, `חיסונים`, `גנטיקה`, `בריאות ציבורית`;
+- this temporary placement should be revisited during the checkpoint;
+- do not add a new topic cluster inside a content PR unless the audit explicitly approves it.
+
+Candidate future cluster names:
+
+- `public-health`
+- `health-technology`
+- `health-public-sources`
+
+Decision to make during the checkpoint:
+
+> Should health claims remain under institutional narratives, or should the site add a dedicated health/public-health topic cluster before creating more health pages?
 
 ## Questions to answer
 
@@ -70,6 +91,8 @@ Do not add these fields unless at least 3-5 strong pages would benefit from them
 ## Pages to inspect first
 
 - `moon-landing-flag-shadows-stars` — flagship visual-claim structure.
+- `mrna-vaccines-dna-genome` — health mechanism / official-source wording structure.
+- `iso-20022-global-currency` — standard vs currency selection structure.
 - `bill-gates-vaccines-population-reduction` — quote/context structure.
 - `you-will-own-nothing-klaus-schwab` — attribution/logical-jump structure.
 - `haarp-earthquakes` — real facility vs viral capability structure.
