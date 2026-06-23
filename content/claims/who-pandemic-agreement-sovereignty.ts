@@ -68,7 +68,7 @@ ${siteUrl}/claims/who-pandemic-agreement-sovereignty`,
       id: "short-answer",
       type: "answer-box",
       eyebrow: "תשובה קצרה",
-      title: "הסכם אמיתי — לא סמכות ישירה להכתיב מדיניות פנים.",
+      title: "לא במובן שמופץ ברשת.",
       paragraphs: [
         migratedWhoPandemicAgreementSovereigntyClaimContent.bottomLine,
         "המסקנה צרה: יש מקום לבדוק ולבקר סעיפים, מימון, שקיפות או מנגנוני יישום. אבל טענת “WHO יקבע למדינה מה לעשות” דורשת סמכות כפייה שלא נמצאה בטקסט.",
