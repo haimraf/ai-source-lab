@@ -13,6 +13,8 @@ import { generateClaimSitemapFile } from "../../scripts/generate-claim-sitemap";
 
 const temporaryDirectories: string[] = [];
 
+const PUBLISHED_CLAIM_COUNT = 20;
+
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
     rmSync(directory, { recursive: true, force: true });
@@ -75,8 +77,8 @@ describe("claim sitemap", () => {
         priority: claim.priority,
       })),
     );
-    expect(sitemapEntries).toHaveLength(19);
-    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(19);
+    expect(sitemapEntries).toHaveLength(PUBLISHED_CLAIM_COUNT);
+    expect(new Set(sitemapEntries.map((entry) => entry.path)).size).toBe(PUBLISHED_CLAIM_COUNT);
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/15-minute-city-prison");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/monster-energy-666-logo");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/event-201-pandemic-exercise");
@@ -84,6 +86,7 @@ describe("claim sitemap", () => {
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/kal-el-hebrew-meaning");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/pallavicini-islam-responsibility");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/great-reset-global-government");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/rockefeller-lock-step-pandemic-scenario");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
