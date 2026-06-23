@@ -37,7 +37,7 @@ The follow-up pages also used the same structure successfully:
 
 That means the current schema is not the bottleneck yet.
 
-## Current decision
+## Current schema decision
 
 Keep the schema as-is until at least one of these becomes true:
 
@@ -46,26 +46,32 @@ Keep the schema as-is until at least one of these becomes true:
 3. The content team wants filtering/reporting by claim type, source strength or viral pattern.
 4. The same editorial ideas are copied manually so often that mistakes become likely.
 
-## Temporary taxonomy note
+## Taxonomy decision: public health
 
-The current code does not yet have a dedicated `public-health` or `health-technology` topic cluster.
+Decision: add a dedicated `public-health` topic cluster without changing the claim schema.
 
-Until the next taxonomy review:
+Why now:
 
-- health-adjacent claim pages may temporarily use `institutional-narratives` when the claim is primarily about public interpretation of official health institutions, regulators or source wording;
-- health-specific tags should still be added to the claim, for example `mRNA`, `DNA`, `חיסונים`, `גנטיקה`, `בריאות ציבורית`;
-- this temporary placement should be revisited before creating more health pages;
-- do not add a new topic cluster inside a content PR unless the audit explicitly approves it.
+- `mrna-vaccines-dna-genome` already created a health-specific official-source page.
+- `covid-supplements-vitamin-d-zinc-cure` adds a second health-specific page with a different public-health pattern: supplement / research / regulatory claims.
+- The previous temporary rule explicitly said to revisit health placement before creating more health pages.
+- The dedicated cluster keeps health claims out of broad `institutional-narratives` when the claim is mainly about medical/public-health evidence.
 
-Candidate future cluster names:
+Chosen slug:
 
 - `public-health`
-- `health-technology`
-- `health-public-sources`
 
-Decision for later:
+Rejected / deferred names:
 
-> Add a dedicated health/public-health cluster once there are at least 2-3 health-specific claim pages, or once health pages are no longer mainly about institutional-source interpretation.
+- `health-technology` — too narrow for supplements, official guidance and treatment-claim checks.
+- `health-public-sources` — accurate but too internal and less readable as a public topic.
+
+Current placement rule:
+
+- use `public-health` when the claim is mainly about medical evidence, public-health guidance, supplements, treatment claims, vaccine mechanisms, health-product claims or regulatory health wording;
+- keep `institutional-narratives` for claims whose main question is institutional power, treaty interpretation, sovereignty, quote attribution or broad public narratives, even when health institutions are involved;
+- keep health pages narrow and include a clear “not medical advice” boundary;
+- do not turn the site into a medical advice product.
 
 ## Questions answered
 
@@ -138,13 +144,14 @@ Do not add these fields unless at least 3-5 strong pages would benefit from them
 - `haarp-earthquakes` — real facility vs viral capability structure.
 - `event-201-pandemic-exercise` — real exercise vs planning claim structure.
 - `who-pandemic-agreement-sovereignty` — treaty text vs direct-control claim structure.
+- `covid-supplements-vitamin-d-zinc-cure` — supplement / public-health evidence / regulatory-claim structure.
 
 ## Non-goals
 
 - Do not force every old claim into a new schema at once.
 - Do not block small content PRs that use the existing schema correctly.
-- Do not mix schema changes with a new claim page.
 - Do not use this as a reason to build CMS, AI search or dashboard work.
+- Do not create medical-advice pages or personalized treatment guidance.
 
 ## Decision rule going forward
 
