@@ -1,4 +1,4 @@
-# Round 1 editorial feedback - 19 published claims
+# Round 1 Editorial Feedback - 19 Claims (23.6.2026)
 
 Date: 2026-06-23
 
@@ -12,6 +12,34 @@ The goal is not to rewrite all claims in one risky pass. The goal is to turn bro
 - Main strength: consistent source-first structure, careful wording, human editorial tone, and reusable share copy.
 - Main risk: some checks may become longer or softer than needed, especially when the claim includes a real source but the viral conclusion is not proven.
 - Editorial direction: keep the project centered on the pattern: real kernel, logical jump, careful conclusion.
+
+## Site-level feedback
+
+The site is moving in the right direction because its core idea is differentiated: a Hebrew source-first archive that separates the real kernel from the logical jump. This is meaningfully different from many public “fact check” experiences that feel like they are trying to win a side argument.
+
+What works now:
+
+- Methodology: “source before conclusion” is repeated enough to build trust with suspicious readers.
+- Topic clusters: claims are connected without turning everything into one giant conspiracy narrative.
+- Fairness: the pages admit the real kernel first instead of mocking the claim.
+- UX: search, topic map, copyable responses and focused claim pages make the site usable.
+- Pace: 19 checks is a strong early base for this stage.
+
+What is still weak:
+
+- Scale: 19 checks is still too small to become a repeat destination. The archive should aim for 50-70 checks before it can feel like a serious reference library.
+- Sharpness: some pages are accurate but too soft or long. The target reader still needs a direct bottom line.
+- Discovery: the site is not yet easy to find unless someone already knows what to search for.
+- Depth vs breadth: the site has broad topic coverage, but several clusters still feel thin.
+
+Operational direction for the next stage:
+
+- keep quality and fairness;
+- publish 2-4 focused checks per week when possible;
+- sharpen verdicts and short answers;
+- add more legitimate-criticism framing for institutions like WEF and WHO without becoming partisan;
+- grow toward 50-70 checks as the first meaningful archive milestone;
+- define a 6-12 month goal: for example, 100 checks, 10k monthly visitors, or becoming a trusted Hebrew source-checking reference.
 
 ## Safe scope for this feedback round
 
@@ -129,7 +157,7 @@ Do not soften every claim into neutral fog. The site can be fair and still direc
 
 ## Immediate pilot: Great Reset polish
 
-The first follow-up content PR should probably focus on `great-reset-global-government` as a pilot, before touching the full institutional cluster.
+The first follow-up content PR should probably focus on [`great-reset-global-government`](../content/claims/great-reset-global-government.ts) as a pilot, before touching the full institutional cluster.
 
 Current evaluation:
 
@@ -205,86 +233,86 @@ Do not change OG in this documentation PR. Treat it as a future content/SEO revi
 
 These already match the site’s editorial model well. Touch carefully.
 
-- `pallavicini-islam-responsibility`
+- [`pallavicini-islam-responsibility`](../content/claims/pallavicini-islam-responsibility.ts)
   - Strength: very clear “real connection does not prove control over a whole religion” logic.
   - Next pass: tighten verdict and ensure FAQ is complete.
 
-- `event-201-pandemic-exercise`
+- [`event-201-pandemic-exercise`](../content/claims/event-201-pandemic-exercise.ts)
   - Strength: excellent real-kernel vs conclusion structure.
   - Next pass: check whether any source links need refresh; avoid expanding beyond the exercise.
 
-- `kal-el-hebrew-meaning`
+- [`kal-el-hebrew-meaning`](../content/claims/kal-el-hebrew-meaning.ts)
   - Strength: good for the symbols / pop-culture cluster.
   - Next pass: keep it short and avoid over-academic treatment.
 
 ### Group B - good claims, medium editorial tightening
 
-- `great-reset-global-government`
+- [`great-reset-global-government`](../content/claims/great-reset-global-government.ts)
   - Priority: highest pilot for the first content-polish PR.
   - Keep the current framing: real WEF initiative, no official world-government / NWO plan found.
   - Preserve the bonus facts, but make sure they do not become a separate article about WEF.
   - Strengthen legitimate criticism so the page does not feel like a defense of WEF.
 
-- `15-minute-city-prison`
+- [`15-minute-city-prison`](../content/claims/15-minute-city-prison.ts)
   - Emphasize the distinction between urban planning model and prison/control claim.
   - Add a stronger “what would prove the stronger claim” FAQ item.
 
-- `you-will-own-nothing-klaus-schwab`
+- [`you-will-own-nothing-klaus-schwab`](../content/claims/you-will-own-nothing-klaus-schwab.ts)
   - Keep focus on attribution: who wrote the phrase, where it appeared, and whether Schwab personally said it.
   - Avoid turning it into a general WEF article.
 
-- `agenda-2030-seven-steps`
+- [`agenda-2030-seven-steps`](../content/claims/agenda-2030-seven-steps.ts)
   - Keep the check narrow: whether the seven-step list is an official UN document.
   - Separate Agenda 2030 / SDGs from viral posters and merged narratives.
 
-- `who-pandemic-agreement-sovereignty`
+- [`who-pandemic-agreement-sovereignty`](../content/claims/who-pandemic-agreement-sovereignty.ts)
   - Keep neutrality high.
   - Make sure the page separates treaty language, national implementation, and viral claims about direct WHO control.
 
 ### Group C - important claims that need careful strengthening
 
-- `monster-energy-666-logo`
+- [`monster-energy-666-logo`](../content/claims/monster-energy-666-logo.ts)
   - Strengthen design / symbol context if primary or official sources support it.
   - Avoid overexplaining gematria-like comparisons.
 
-- `spider-man-hand-sign`
+- [`spider-man-hand-sign`](../content/claims/spider-man-hand-sign.ts)
   - Keep it as a cultural-symbol check.
   - Add source context only if it stays narrow and readable.
 
-- `xrp-global-currency`
+- [`xrp-global-currency`](../content/claims/xrp-global-currency.ts)
   - Needs a future refresh against current 2025-2026 sources.
   - Keep ISO 20022, Ripple, XRP, and “chosen world currency” clearly separated.
 
-- `digital-shekel-spending-control`
+- [`digital-shekel-spending-control`](../content/claims/digital-shekel-spending-control.ts)
   - Sensitive and important.
   - Separate technical possibility, policy design, law, and proof of actual intended control.
 
-- `chemtrails-aluminum`
+- [`chemtrails-aluminum`](../content/claims/chemtrails-aluminum.ts)
   - Important traffic candidate.
   - Keep aluminum, contrails, atmospheric measurements, and mass spraying as separate claims.
 
-- `cloud-seeding-chemtrails`
+- [`cloud-seeding-chemtrails`](../content/claims/cloud-seeding-chemtrails.ts)
   - Strengthen the distinction between legitimate cloud seeding and claims about hidden mass spraying.
 
-- `gravity-loss-2026-project-anchor`
+- [`gravity-loss-2026-project-anchor`](../content/claims/gravity-loss-2026-project-anchor.ts)
   - Confirm source strength before further promotion.
   - If the source base is weak, keep the page cautious and avoid making it a homepage example.
 
-- `project-blue-beam-nasa`
+- [`project-blue-beam-nasa`](../content/claims/project-blue-beam-nasa.ts)
   - Classic claim with strong search potential.
   - Keep the wording fair: the story exists, but official NASA / UN proof is the tested question.
 
-- `gateway-process-out-of-body`
+- [`gateway-process-out-of-body`](../content/claims/gateway-process-out-of-body.ts)
   - Good example of real document vs broad interpretation.
   - Keep it in the “document is real, interpretation is not proven” lane.
 
 ### Group D - AI and technology checks
 
-- `ai-as-source-pyramids`
+- [`ai-as-source-pyramids`](../content/claims/ai-as-source-pyramids.ts)
   - Strengthen the reusable principle: AI can help search, but it is not a primary source.
   - Make this page useful as an internal reference for future AI-source claims.
 
-- `ai-bci-synthetic-soul`
+- [`ai-bci-synthetic-soul`](../content/claims/ai-bci-synthetic-soul.ts)
   - Keep BCI, AI, research demos, and “external body control” separate.
   - Avoid science-fiction drift.
 
@@ -294,7 +322,7 @@ These already match the site’s editorial model well. Touch carefully.
 
 Scope:
 
-- `great-reset-global-government`
+- [`great-reset-global-government`](../content/claims/great-reset-global-government.ts)
 
 Reason: it is currently high-potential, homepage-featured, and worth sharpening before using it as a public example.
 
@@ -310,10 +338,10 @@ Allowed changes:
 
 Scope:
 
-- `event-201-pandemic-exercise`
-- `who-pandemic-agreement-sovereignty`
-- `agenda-2030-seven-steps`
-- `you-will-own-nothing-klaus-schwab`
+- [`event-201-pandemic-exercise`](../content/claims/event-201-pandemic-exercise.ts)
+- [`who-pandemic-agreement-sovereignty`](../content/claims/who-pandemic-agreement-sovereignty.ts)
+- [`agenda-2030-seven-steps`](../content/claims/agenda-2030-seven-steps.ts)
+- [`you-will-own-nothing-klaus-schwab`](../content/claims/you-will-own-nothing-klaus-schwab.ts)
 
 Reason: these are connected by institution / policy / viral narrative logic and likely share language patterns.
 
@@ -328,8 +356,8 @@ Allowed changes:
 
 Scope:
 
-- `digital-shekel-spending-control`
-- `xrp-global-currency`
+- [`digital-shekel-spending-control`](../content/claims/digital-shekel-spending-control.ts)
+- [`xrp-global-currency`](../content/claims/xrp-global-currency.ts)
 
 Reason: both need strong separation between technology, standard, policy, and claim.
 
@@ -343,8 +371,8 @@ Allowed changes:
 
 Scope:
 
-- `chemtrails-aluminum`
-- `cloud-seeding-chemtrails`
+- [`chemtrails-aluminum`](../content/claims/chemtrails-aluminum.ts)
+- [`cloud-seeding-chemtrails`](../content/claims/cloud-seeding-chemtrails.ts)
 
 Reason: this is a likely high-traffic area and benefits from sharper term separation.
 
@@ -358,9 +386,9 @@ Allowed changes:
 
 Scope:
 
-- `monster-energy-666-logo`
-- `spider-man-hand-sign`
-- `kal-el-hebrew-meaning`
+- [`monster-energy-666-logo`](../content/claims/monster-energy-666-logo.ts)
+- [`spider-man-hand-sign`](../content/claims/spider-man-hand-sign.ts)
+- [`kal-el-hebrew-meaning`](../content/claims/kal-el-hebrew-meaning.ts)
 
 Reason: lighter claims that can improve readability and shareability without heavy source work.
 
@@ -368,13 +396,23 @@ Reason: lighter claims that can improve readability and shareability without hea
 
 Scope:
 
-- `ai-as-source-pyramids`
-- `ai-bci-synthetic-soul`
-- `gateway-process-out-of-body`
-- `gravity-loss-2026-project-anchor`
-- `project-blue-beam-nasa`
+- [`ai-as-source-pyramids`](../content/claims/ai-as-source-pyramids.ts)
+- [`ai-bci-synthetic-soul`](../content/claims/ai-bci-synthetic-soul.ts)
+- [`gateway-process-out-of-body`](../content/claims/gateway-process-out-of-body.ts)
+- [`gravity-loss-2026-project-anchor`](../content/claims/gravity-loss-2026-project-anchor.ts)
+- [`project-blue-beam-nasa`](../content/claims/project-blue-beam-nasa.ts)
 
 Reason: all need clean boundaries between document, model answer, research, interpretation, and proof.
+
+## Status table
+
+| Group | Claims | Priority | Status |
+| --- | ---: | --- | --- |
+| Group A - strong claims | 3 | Low | Mostly ready; light polish only |
+| Group B - institutional / policy claims | 5 | High | Great Reset becomes the pilot |
+| Group C - high-traffic careful strengthening | 9 | Medium | Needs staged source/copy review |
+| Group D - AI and technology | 2 | Medium | Useful as reusable method pages |
+| Future product ideas | n/a | Later | Wait until engineering window |
 
 ## Candidate future product ideas - not for immediate implementation
 
@@ -393,4 +431,6 @@ Before implementing any of these, decide whether they belong in schema, UI, CI, 
 
 The next safe move is not to rewrite all 19 claims. The next safe move is to use this document as a queue and open small PRs by claim or cluster.
 
-The first content polish PR should probably be only Great Reset, because it is already homepage-featured and has clear viral potential, but still needs sharper wording and a complete FAQ.
+The first content polish PR should be only Great Reset, because it is already homepage-featured and has clear viral potential, but still needs sharper wording and a complete FAQ.
+
+**Recommended next step:** open a first content-polish PR focused only on [`great-reset-global-government`](../content/claims/great-reset-global-government.ts) and apply the points listed in the “Immediate pilot” section: sharper verdict, clearer NWO framing, completed FAQ, reduced repetition, and stronger legitimate-criticism wording.
