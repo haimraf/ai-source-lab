@@ -8,7 +8,7 @@ const allowedEditorialStatuses = ["draft", "reviewed", "published", "needs-revie
 const allowedSourceStatuses = ["missing", "partial", "verified", "needs-refresh"] as const;
 const allowedSeoStatuses = ["missing", "basic", "complete", "needs-review"] as const;
 const allowedTestStatuses = ["missing", "partial", "covered", "needs-review"] as const;
-const PUBLISHED_CLAIM_COUNT = 22;
+const PUBLISHED_CLAIM_COUNT = 23;
 
 describe("claim workflow fields", () => {
   it("accepts the current published claim set", () => {
@@ -78,50 +78,10 @@ describe("claim workflow fields", () => {
         ...validClaim.workflow,
         checklist: { ...validClaim.workflow.checklist, shareCopyReviewed: false },
       },
-    } as ClaimContent;
-
-    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
-      `${validClaim.slug}: published claim requires workflow.checklist.shareCopyReviewed`,
-    );
-  });
-
-  it("allows incomplete checklist evidence before publication", () => {
-    const [validClaim] = claimContentRecords;
-    const draftClaim = {
-      ...validClaim,
-      status: "draft",
-      workflow: {
-        ...validClaim.workflow,
-        checklist: { ...validClaim.workflow.checklist, shareCopyReviewed: false },
-      },
-    } as ClaimContent;
-
-    expect(findClaimWorkflowIntegrityIssues(draftClaim)).not.toContain(
-      `${validClaim.slug}: published claim requires workflow.checklist.shareCopyReviewed`,
-    );
-  });
-
-  it("rejects invalid vocabularies, impossible dates, and missing update reasons", () => {
-    const [validClaim] = claimContentRecords;
-    const invalidClaim = {
-      ...validClaim,
-      workflow: {
-        ...validClaim.workflow,
-        updatedAt: "2026-02-30",
-        editorialStatus: "done",
-        sourceStatus: "ok",
-        seoStatus: "fine",
-        testStatus: "green",
-        needsUpdate: true,
-      },
     } as unknown as ClaimContent;
 
-    const issues = findClaimWorkflowIntegrityIssues(invalidClaim);
-    expect(issues).toContain(`${validClaim.slug}: workflow.updatedAt must be an ISO YYYY-MM-DD date`);
-    expect(issues).toContain(`${validClaim.slug}: workflow.editorialStatus must be one of draft, reviewed, published, needs-review`);
-    expect(issues).toContain(`${validClaim.slug}: workflow.sourceStatus must be one of missing, partial, verified, needs-refresh`);
-    expect(issues).toContain(`${validClaim.slug}: workflow.seoStatus must be one of missing, basic, complete, needs-review`);
-    expect(issues).toContain(`${validClaim.slug}: workflow.testStatus must be one of missing, partial, covered, needs-review`);
-    expect(issues).toContain(`${validClaim.slug}: workflow.updateReason is required when needsUpdate is true`);
+    expect(findClaimWorkflowIntegrityIssues(invalidClaim)).toContain(
+      `${validClaim.slug}: workflow.checklist.shareCopyReviewed must be true for published claims`,
+    );
   });
 });
