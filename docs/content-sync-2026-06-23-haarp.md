@@ -8,15 +8,17 @@ This note records the content-state sync after the Lock Step work landed on `mai
 
 - Before Lock Step: 19 published claim checks.
 - After Lock Step on `main`: 20 published claim checks.
-- After this PR: 21 claim checks ready for publication.
+- After HAARP PR: 21 claim checks ready for publication.
+- After Bill Gates quote PR: 22 claim checks ready for publication.
 - Short-term target remains: 24 claim checks without architecture changes.
 
-## What this PR does
+## What this batch does
 
 - Adds `haarp-earthquakes` as a narrow source-check claim.
-- Registers the claim in `content/claims/index.ts`.
-- Adds the claim Open Graph route.
-- Updates `public/sitemap.xml` for the new claim path.
+- Adds `bill-gates-vaccines-population-reduction` as a narrow quote/context claim.
+- Registers both claims in `content/claims/index.ts`.
+- Adds dedicated Open Graph routes.
+- Updates `public/sitemap.xml` for the new claim paths.
 - Syncs README claim count and claim list.
 
 ## Deployment note
@@ -35,18 +37,32 @@ Recommended flow while rate-limited:
 
 Do not treat a stale Vercel preview as a code failure when GitHub CI is green and the PR is content/docs only.
 
+## Production trigger attempt
+
+A production deployment trigger was attempted after the small content batch that included:
+
+- PR #45 — HAARP earthquakes claim.
+- PR #46 — deferred Vercel trigger documentation.
+- PR #47 — Bill Gates population quote claim.
+
+This commit intentionally updates documentation on `main` so the Vercel Git integration can deploy the current `main` state once the build-rate limit allows it.
+
 ## Editorial boundary
 
 The HAARP page keeps the claim narrow:
 
 > Does HAARP have evidence-backed capability to cause earthquakes?
 
+The Bill Gates page keeps the claim narrow:
+
+> Did the TED 2010 quote say vaccines are meant to kill, sterilize or reduce existing population?
+
 The answer separates:
 
-1. the real facility;
-2. the viral earthquake claim;
-3. known human-induced seismicity mechanisms;
-4. the missing causal link between HAARP activity and a specific earthquake.
+1. the real source;
+2. the viral claim;
+3. the original context;
+4. the missing causal or textual link behind the viral interpretation.
 
 ## Not included
 
@@ -58,12 +74,12 @@ The answer separates:
 
 ## Next likely content step
 
-After this PR is merged, the next safe step is not another broad feature. Keep momentum with one narrow content PR.
+After this batch reaches production, the next safe step is not another broad feature. Keep momentum with one narrow content PR.
 
 Recommended next backlog candidates:
 
 1. `mRNA ו-DNA` — only with careful official medical sources and no medical advice.
 2. `נחיתה על הירח` — high search potential, but needs tight boundaries.
-3. `ביל גייטס והורדת אוכלוסייה` — quote/context check around the TED 2010 source.
+3. `Bill Gates / TED context follow-up` — only if the current page needs wording polish after review.
 
-Do not start any of these until this PR passes CI again after this documentation update.
+Do not start the next content batch until the production trigger status is known.
