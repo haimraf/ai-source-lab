@@ -9,6 +9,7 @@ import { digitalShekelSpendingControlClaimContent } from "./digital-shekel-spend
 import { event201PandemicExerciseClaimContent } from "./event-201-pandemic-exercise";
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
 import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-project-anchor";
+import { kalElHebrewMeaningClaimContent } from "./kal-el-hebrew-meaning";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
@@ -21,6 +22,7 @@ export const claimContentRecords = [
   gravityLoss2026ProjectAnchorClaimContent,
   monsterEnergy666LogoClaimContent,
   popCultureHandSymbolClaimContent,
+  kalElHebrewMeaningClaimContent,
   projectBlueBeamNasaClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,

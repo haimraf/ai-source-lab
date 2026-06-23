@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="kal-el-cultural-reading-title">
+  <title id="kal-el-cultural-reading-title">Text-free internal illustration for a cultural reading of a superhero identity</title>
+  <defs>
+    <radialGradient id="skyGlow" cx="50%" cy="34%" r="72%">
+      <stop offset="0%" stop-color="#203e78"/>
+      <stop offset="45%" stop-color="#0d1830"/>
+      <stop offset="100%" stop-color="#050913"/>
+    </radialGradient>
+    <linearGradient id="capeGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b04646"/>
+      <stop offset="100%" stop-color="#551d34"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe9a9"/>
+      <stop offset="100%" stop-color="#bd8f3d"/>
+    </linearGradient>
+    <linearGradient id="cityGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#21314b"/>
+      <stop offset="100%" stop-color="#0a0f1d"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.95  0 1 0 0 0.72  0 0 1 0 0.34  0 0 0 0.75 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#skyGlow)"/>
+
+  <g opacity="0.85">
+    <circle cx="145" cy="96" r="2.5" fill="#eaf2ff"/>
+    <circle cx="246" cy="156" r="1.8" fill="#eaf2ff"/>
+    <circle cx="360" cy="84" r="2.2" fill="#eaf2ff"/>
+    <circle cx="842" cy="110" r="2" fill="#eaf2ff"/>
+    <circle cx="1035" cy="180" r="2.4" fill="#eaf2ff"/>
+    <circle cx="1110" cy="78" r="1.7" fill="#eaf2ff"/>
+    <circle cx="980" cy="310" r="1.4" fill="#eaf2ff"/>
+    <circle cx="420" cy="224" r="1.5" fill="#eaf2ff"/>
+  </g>
+
+  <path d="M0 518 C150 488 268 508 386 536 C502 564 628 594 740 560 C872 520 1004 486 1200 518 L1200 760 L0 760 Z" fill="#071020" opacity="0.88"/>
+  <path d="M0 614 C164 578 315 584 474 626 C624 665 747 660 884 621 C1018 583 1114 588 1200 608 L1200 760 L0 760 Z" fill="#03070f"/>
+
+  <g opacity="0.7">
+    <rect x="42" y="432" width="58" height="194" fill="url(#cityGradient)"/>
+    <rect x="112" y="392" width="74" height="234" fill="url(#cityGradient)"/>
+    <rect x="202" y="456" width="54" height="170" fill="url(#cityGradient)"/>
+    <rect x="930" y="418" width="64" height="210" fill="url(#cityGradient)"/>
+    <rect x="1014" y="366" width="78" height="262" fill="url(#cityGradient)"/>
+    <rect x="1110" y="452" width="48" height="176" fill="url(#cityGradient)"/>
+  </g>
+
+  <g filter="url(#softGlow)" opacity="0.9">
+    <ellipse cx="604" cy="332" rx="150" ry="74" fill="#f0c46b" opacity="0.14"/>
+    <path d="M588 82 C630 146 704 206 769 268 C720 261 662 276 604 316 C540 271 488 260 432 268 C505 206 554 145 588 82 Z" fill="url(#goldGlow)" opacity="0.65"/>
+  </g>
+
+  <g transform="translate(0 12)">
+    <path d="M585 245 C489 285 410 398 357 596 C435 548 512 523 585 519 C659 523 734 548 812 596 C760 398 681 285 585 245 Z" fill="url(#capeGradient)" opacity="0.94"/>
+    <path d="M585 236 C623 236 654 268 654 306 C654 344 623 374 585 374 C547 374 516 344 516 306 C516 268 547 236 585 236 Z" fill="#111827"/>
+    <path d="M495 392 C525 365 551 356 585 356 C619 356 646 365 675 392 C644 431 627 475 624 525 L546 525 C543 475 526 431 495 392 Z" fill="#101827"/>
+    <path d="M542 526 L628 526 L650 660 L520 660 Z" fill="#090e1a"/>
+    <path d="M535 405 C555 388 616 388 636 405 C629 429 613 445 585 445 C557 445 542 429 535 405 Z" fill="#1b2d4b" opacity="0.9"/>
+    <path d="M568 397 L602 397 L622 420 L585 482 L548 420 Z" fill="none" stroke="#d9b36a" stroke-width="10" stroke-linejoin="round" opacity="0.7"/>
+  </g>
+
+  <g opacity="0.4">
+    <path d="M604 93 C604 93 632 172 689 217" fill="none" stroke="#f2cf87" stroke-width="3" stroke-linecap="round"/>
+    <path d="M588 98 C588 98 564 174 504 218" fill="none" stroke="#f2cf87" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="604" cy="93" r="7" fill="#f2cf87"/>
+  </g>
+
+  <g opacity="0.5">
+    <path d="M328 659 C430 624 520 620 606 657 C704 615 792 622 872 660" fill="none" stroke="#d9b36a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M368 694 C457 670 530 674 606 701 C688 673 758 672 836 694" fill="none" stroke="#d9b36a" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
