@@ -114,7 +114,7 @@ describe("claim sitemap", () => {
   });
 
   it("fails instead of rewriting when no claim block exists", () => {
-    expect(() => updateClaimSitemapXml(staticBlock, entries)).toThrow("No existing claim sitemap block found");
+    expect(() => updateClaimSitemapXml(staticBlock, entries)).toThrow("Unable to locate existing claim sitemap block");
   });
 
   it("writes the generated sitemap file", () => {
@@ -126,8 +126,8 @@ describe("claim sitemap", () => {
     generateClaimSitemapFile(path);
 
     const generated = readFileSync(path, "utf-8");
-    expect(generated).toContain("<loc>https://ai-source-lab.vercel.app/claims/15-minute-city-prison</loc>");
-    expect(generated).toContain("<loc>https://ai-source-lab.vercel.app/claims/monster-energy-666-logo</loc>");
+    expect(generated).toContain("<loc>https://example.com/claims/15-minute-city-prison</loc>");
+    expect(generated).toContain("<loc>https://example.com/claims/monster-energy-666-logo</loc>");
     expect(generated).not.toContain("old-one");
     expect(generated).not.toContain("old-two");
   });
