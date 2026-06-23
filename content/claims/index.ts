@@ -12,6 +12,7 @@ import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-pr
 import { kalElHebrewMeaningClaimContent } from "./kal-el-hebrew-meaning";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
+import { pallaviciniIslamResponsibilityClaimContent } from "./pallavicini-islam-responsibility";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
 import { spiderManHandSignClaimContent as popCultureHandSymbolClaimContent } from "./spider-man-hand-sign";
 import { whoPandemicAgreementSovereigntyClaimContent } from "./who-pandemic-agreement-sovereignty";
@@ -26,6 +27,7 @@ export const claimContentRecords = [
   projectBlueBeamNasaClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,
+  pallaviciniIslamResponsibilityClaimContent,
   gatewayProcessOutOfBodyClaimContent,
   aiAsSourcePyramidsClaimContent,
   cloudSeedingChemtrailsClaimContent,
