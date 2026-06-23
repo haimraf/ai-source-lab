@@ -1,5 +1,26 @@
-
 # Deployment Notes
+
+## 2026-06-24 — production trigger after public-health batch
+
+Triggered one clean `main` deployment after the public-health content batch was merged.
+
+Included in this deployment attempt:
+
+- PR #45 through PR #52 content and documentation work already merged to `main`;
+- the `public-health` topic cluster;
+- the COVID supplements claim page;
+- `CLAIM_PUBLICATION_RULES.md`;
+- `BRANDING.md`;
+- sitemap test expectation fixes;
+- the current 26-claim content state.
+
+Purpose:
+
+- use one explicit Git trigger instead of waiting for a later docs-only PR;
+- avoid repeated no-op production triggers;
+- keep `main` as the source of truth if Vercel is still rate-limited.
+
+If Vercel is still blocked by `build-rate-limit`, this commit is harmless and documents the deployment attempt.
 
 ## 2026-06-23 — production deploy after Vercel build-rate-limit
 
@@ -21,8 +42,6 @@ Operational guardrail:
 * Read GitHub CI and Vercel production status separately.
 * A ready Preview does not mean Production deployed.
 * If production is blocked by `build-rate-limit`, wait or use one clean `main` trigger only.
-
-
 
 ## 2026-06-20
 
