@@ -120,7 +120,7 @@ describe("claim sitemap", () => {
     const staticOnly = fixture.replace(`${firstClaimBlock}\r\n${secondClaimBlock}\r\n`, "");
 
     expect(() => updateClaimSitemapXml(staticOnly, entries)).toThrow(
-      "Could not find contiguous claim sitemap block to replace",
+      "Unable to locate existing claim sitemap block",
     );
   });
 
@@ -130,12 +130,12 @@ describe("claim sitemap", () => {
     const filePath = join(directory, "sitemap.xml");
     writeFileSync(filePath, fixture);
 
-    generateClaimSitemapFile({ filePath, siteUrl: "https://example.com" });
+    generateClaimSitemapFile(filePath);
 
     const generated = readFileSync(filePath, "utf8");
     const normalized = generated.replace(/\r\n/g, "\n");
 
-    expect(normalized).toContain("https://example.com/claims/15-minute-city-prison");
+    expect(normalized).toContain("https://ai-source-lab.vercel.app/claims/15-minute-city-prison");
     expect(normalized).not.toContain("https://example.com/claims/old-one");
   });
 });
