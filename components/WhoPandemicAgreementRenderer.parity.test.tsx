@@ -25,7 +25,7 @@ describe("who-pandemic-agreement-sovereignty renderer parity", () => {
   it("preserves visible content and section order", () => {
     const markers = [
       "תשובה קצרה",
-      "לא במובן שמופץ ברשת.",
+      "הסכם אמיתי — לא סמכות ישירה להכתיב מדיניות פנים.",
       "שלוש שכבות שלא לערבב",
       "מוצגים ואיורים",
       "עובדת בונוס",
