@@ -12,6 +12,7 @@ import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-pr
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
 import { projectBlueBeamNasaClaimContent } from "./project-blue-beam-nasa";
+import { spiderManHandSignClaimContent as popCultureHandSymbolClaimContent } from "./spider-man-hand-sign";
 import { whoPandemicAgreementSovereigntyClaimContent } from "./who-pandemic-agreement-sovereignty";
 import { xrpGlobalCurrencyClaimContent } from "./xrp-global-currency";
 
@@ -19,6 +20,7 @@ export const claimContentRecords = [
   aiBciSyntheticSoulClaimContent,
   gravityLoss2026ProjectAnchorClaimContent,
   monsterEnergy666LogoClaimContent,
+  popCultureHandSymbolClaimContent,
   projectBlueBeamNasaClaimContent,
   whoPandemicAgreementSovereigntyClaimContent,
   event201PandemicExerciseClaimContent,

@@ -128,15 +128,10 @@ export const topicClusters = [
     description:
       "אשכול לטענות שבהן לוגואים, קומיקס וסמלים מוכרים מקבלים פרשנות נסתרת — עם הפרדה בין דמיון חזותי, השראה תרבותית וכוונה מוכחת.",
     status: "expanding",
-    updated: "2026-06-22",
+    updated: "2026-06-23",
     priority: 0.82,
-    claimSlugs: claimSlugs(["monster-energy-666-logo"]),
+    claimSlugs: claimSlugs(["monster-energy-666-logo", "spider-man-hand-sign"]),
     plannedClaims: [
-      {
-        title: "האם סימן ירי הקורים של ספיידרמן הוא סמל שטני?",
-        status: "בתכנון",
-        note: "להפריד בין דמיון חזותי לסימן הקרניים לבין שימוש סיפורי/מכני בתוך הדמות.",
-      },
       {
         title: "האם Kal-El הוא רמז עברי מכוון?",
         status: "בתכנון",
@@ -150,8 +145,8 @@ export const topicClusters = [
     ],
     admin: {
       dashboardSection: "clusters",
-      editorialStage: "new-cluster-first-claim",
-      nextAction: "להוסיף רק בדיקות צרות על סמל אחד בכל פעם, בלי לפתוח נרטיב רחב על 'כל התרבות'.",
+      editorialStage: "second-claim-added",
+      nextAction: "להוסיף את Kal-El רק אחרי בדיקת מקורות זהירה, כי שם יש יותר מקום לפרשנות תרבותית אמיתית.",
     },
   },
   {
