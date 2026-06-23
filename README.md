@@ -29,17 +29,23 @@ https://ai-source-lab.vercel.app/
 ## בדיקות שפורסמו
 
 - `/claims/ai-bci-synthetic-soul` - האם BCI ו-AI מוכיחים שליטה חיצונית בגוף?
+- `/claims/gravity-loss-2026-project-anchor` - האם פרויקט Anchor של 2026 מוכיח איבוד כוח כבידה?
+- `/claims/monster-energy-666-logo` - האם הלוגו של Monster Energy הוא 666 מוסתר?
+- `/claims/spider-man-hand-sign` - האם תנועת היד של ספיידרמן היא סמל נסתר?
+- `/claims/kal-el-hebrew-meaning` - האם Kal-El בעברית אומר קול האל?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
 - `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
+- `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
+- `/claims/pallavicini-islam-responsibility` - האם משפחת Pallavicini אחראית על האסלאם?
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
 - `/claims/15-minute-city-prison` - האם עיר 15 דקות היא כלא עירוני?
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
-- `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
-- `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
 - `/claims/you-will-own-nothing-klaus-schwab` - האם קלאוס שוואב אמר שלא יהיה לכם כלום?
 - `/claims/digital-shekel-spending-control` - האם שקל דיגיטלי יאפשר להגביל קניות?
+- `/claims/xrp-global-currency` - האם XRP נבחר להיות המטבע העולמי?
+- `/claims/chemtrails-aluminum` - האם מטוסים מרססים אלומיניום?
 
 ## תשתית אמון באתר
 
