@@ -1,3 +1,6 @@
+
+# Deployment Notes
+
 ## 2026-06-23 — production deploy after Vercel build-rate-limit
 
 PR #40 was merged to `main`, but production did not deploy immediately because Vercel failed the production status with `build-rate-limit`.
@@ -20,7 +23,6 @@ Operational guardrail:
 * If production is blocked by `build-rate-limit`, wait or use one clean `main` trigger only.
 
 
-# Deployment Notes
 
 ## 2026-06-20
 
