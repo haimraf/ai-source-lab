@@ -135,7 +135,7 @@ describe("claim sitemap", () => {
     ].join("\r\n");
 
     expect(() => updateClaimSitemapXml(nonContiguous, entries)).toThrow(
-      "Existing claim block is not contiguous",
+      "Existing claim sitemap block is not contiguous",
     );
   });
 
