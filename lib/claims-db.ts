@@ -22,6 +22,7 @@ export type TopicClusterSlug =
   | "pop-culture-symbols"
   | "consciousness-intelligence"
   | "institutional-narratives"
+  | "public-health"
   | "digital-money";
 
 export const claimRecords = claimContentRecords.map((claim) => ({
