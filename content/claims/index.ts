@@ -10,6 +10,7 @@ import { event201PandemicExerciseClaimContent } from "./event-201-pandemic-exerc
 import { gatewayProcessOutOfBodyClaimContent } from "./gateway-process-out-of-body";
 import { gravityLoss2026ProjectAnchorClaimContent } from "./gravity-loss-2026-project-anchor";
 import { greatResetGlobalGovernmentClaimContent } from "./great-reset-global-government";
+import { haarpEarthquakesClaimContent } from "./haarp-earthquakes";
 import { kalElHebrewMeaningClaimContent } from "./kal-el-hebrew-meaning";
 import { monsterEnergy666LogoClaimContent } from "./monster-energy-666-logo";
 import { ownNothingKlausSchwabClaimContent } from "./you-will-own-nothing-klaus-schwab";
@@ -35,6 +36,7 @@ export const claimContentRecords = [
   gatewayProcessOutOfBodyClaimContent,
   aiAsSourcePyramidsClaimContent,
   cloudSeedingChemtrailsClaimContent,
+  haarpEarthquakesClaimContent,
   fifteenMinuteCityPrisonClaimContent,
   agenda2030SevenStepsClaimContent,
   ownNothingKlausSchwabClaimContent,

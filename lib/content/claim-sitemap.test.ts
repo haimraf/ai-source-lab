@@ -13,7 +13,7 @@ import { generateClaimSitemapFile } from "../../scripts/generate-claim-sitemap";
 
 const temporaryDirectories: string[] = [];
 
-const PUBLISHED_CLAIM_COUNT = 20;
+const PUBLISHED_CLAIM_COUNT = 21;
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
@@ -87,6 +87,7 @@ describe("claim sitemap", () => {
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/pallavicini-islam-responsibility");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/great-reset-global-government");
     expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/rockefeller-lock-step-pandemic-scenario");
+    expect(sitemapEntries.map((entry) => entry.path)).toContain("/claims/haarp-earthquakes");
     expect(sitemapEntries.map((entry) => entry.path)).not.toContain("/claims/fifteen-minute-city-prison");
   });
 
@@ -122,10 +123,15 @@ describe("claim sitemap", () => {
   });
 
   it("fails instead of rewriting a non-contiguous claim block", () => {
-    const nonContiguous = fixture.replace(
-      `${firstClaimBlock}\r\n${secondClaimBlock}`,
-      `${firstClaimBlock}\r\n${staticBlock}\r\n${secondClaimBlock}`,
-    );
+    const nonContiguous = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      firstClaimBlock,
+      staticBlock,
+      secondClaimBlock,
+      "</urlset>",
+      "",
+    ].join("\r\n");
 
     expect(() => updateClaimSitemapXml(nonContiguous, entries)).toThrow(
       "Existing claim sitemap block is not contiguous",
@@ -136,12 +142,13 @@ describe("claim sitemap", () => {
     const directory = mkdtempSync(join(tmpdir(), "claim-sitemap-"));
     temporaryDirectories.push(directory);
     const sitemapPath = join(directory, "sitemap.xml");
-    writeFileSync(sitemapPath, fixture.replaceAll("\r\n", "\n"), "utf8");
+    const stale = updateClaimSitemapXml(fixture, entries);
+    writeFileSync(sitemapPath, stale.replace("2026-06-20", "2026-01-01"));
 
-    generateClaimSitemapFile(sitemapPath);
-    const firstGenerated = readFileSync(sitemapPath, "utf8");
-    generateClaimSitemapFile(sitemapPath);
-
-    expect(readFileSync(sitemapPath, "utf8")).toBe(firstGenerated);
+    expect(generateClaimSitemapFile(sitemapPath)).toBe(true);
+    const generated = readFileSync(sitemapPath, "utf8");
+    expect(generated).toContain("2026-06-20");
+    expect(generateClaimSitemapFile(sitemapPath)).toBe(false);
+    expect(readFileSync(sitemapPath, "utf8")).toBe(generated);
   });
 });

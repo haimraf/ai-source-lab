@@ -30,7 +30,7 @@ https://ai-source-lab.vercel.app/
 
 הפרויקט עבר משלב MVP ראשוני לשלב מאגר תוכן פעיל.
 
-- יש 19 בדיקות שפורסמו.
+- יש 21 בדיקות שפורסמו או מוכנות לפרסום בענף הנוכחי.
 - יעד קצר: להגיע ל-24 בדיקות בלי לשנות ארכיטקטורה.
 - יעד מאגר ראשון: 50-70 בדיקות איכותיות כדי להפוך לכתובת שחוזרים אליה.
 - כל בדיקה חדשה צריכה להישאר claim צר עם מקור מרכזי פתוח, אשכול ברור, OG, sitemap, llms ותיעוד מסונכרן.
@@ -43,6 +43,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/spider-man-hand-sign` - האם תנועת היד של ספיידרמן היא סמל נסתר?
 - `/claims/kal-el-hebrew-meaning` - האם Kal-El בעברית אומר קול האל?
 - `/claims/project-blue-beam-nasa` - האם Project Blue Beam הוא תוכנית רשמית של NASA?
+- `/claims/rockefeller-lock-step-pandemic-scenario` - האם דוח Lock Step של רוקפלר חזה או תכנן את הקורונה?
 - `/claims/who-pandemic-agreement-sovereignty` - האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?
 - `/claims/event-201-pandemic-exercise` - האם Event 201 מוכיח שתכננו את מגפת הקורונה?
 - `/claims/pallavicini-islam-responsibility` - האם משפחת Pallavicini אחראית על האסלאם?
@@ -50,6 +51,7 @@ https://ai-source-lab.vercel.app/
 - `/claims/gateway-process-out-of-body` - האם מסמך Gateway מוכיח יציאה מהגוף?
 - `/claims/ai-as-source-pyramids` - האם תשובת AI היא מקור?
 - `/claims/cloud-seeding-chemtrails` - האם זריעת עננים מוכיחה Chemtrails?
+- `/claims/haarp-earthquakes` - האם HAARP יכול לגרום לרעידות אדמה?
 - `/claims/15-minute-city-prison` - האם עיר 15 דקות היא כלא עירוני?
 - `/claims/agenda-2030-seven-steps` - האם קיימת תוכנית רשמית בת שבעה שלבים של אג׳נדה 2030?
 - `/claims/you-will-own-nothing-klaus-schwab` - האם קלאוס שוואב אמר שלא יהיה לכם כלום?
@@ -72,8 +74,9 @@ https://ai-source-lab.vercel.app/
 
 ## מפת דוקס
 
-- `docs/feedback-round-1.md` - משוב עריכה ראשון, סדרי עדיפויות ותוכנית שיוף ל-19 הבדיקות.
+- `docs/feedback-round-1.md` - משוב עריכה ראשון, סדרי עדיפויות ותוכנית שיוף לבדיקות הראשונות.
 - `docs/editorial-roadmap.md` - רודמאפ תוכן, אשכולות, backlog ובדיקות עתידיות.
+- `docs/content-sync-2026-06-23-haarp.md` - סטטוס סנכרון אחרי Lock Step ו-HAARP.
 - `docs/OPERATIONS.md` - צ׳קליסט תפעול לפרסום בדיקה חדשה, SEO, GEO ופריסה.
 - `docs/TECHNICAL_STATUS.md` - מצב טכני של הפרויקט והחלטות תשתית.
 - `docs/DEPLOYMENT_NOTES.md` - הערות פריסה, תקלות Vercel/Search Console ומה לא לחזור עליו.
