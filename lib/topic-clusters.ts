@@ -130,14 +130,8 @@ export const topicClusters = [
     status: "expanding",
     updated: "2026-06-23",
     priority: 0.82,
-    claimSlugs: claimSlugs(["monster-energy-666-logo", "spider-man-hand-sign"]),
-    plannedClaims: [
-      {
-        title: "האם Kal-El הוא רמז עברי מכוון?",
-        status: "בתכנון",
-        note: "לבדוק בזהירות את הרקע היהודי של יוצרי סופרמן מול פרשנות בדיעבד.",
-      },
-    ],
+    claimSlugs: claimSlugs(["monster-energy-666-logo", "spider-man-hand-sign", "kal-el-hebrew-meaning"]),
+    plannedClaims: [],
     sourceMap: [
       ["דמיון חזותי", "מה באמת נראה בסמל או בלוגו, ומה אפשר לפרש ממנו."],
       ["גרעין אמת", "ערך מספרי, הקשר תרבותי או רקע היסטורי שאכן קיימים."],
@@ -145,8 +139,8 @@ export const topicClusters = [
     ],
     admin: {
       dashboardSection: "clusters",
-      editorialStage: "second-claim-added",
-      nextAction: "להוסיף את Kal-El רק אחרי בדיקת מקורות זהירה, כי שם יש יותר מקום לפרשנות תרבותית אמיתית.",
+      editorialStage: "third-claim-added",
+      nextAction: "לעצור לפני נושאים רגישים יותר ולבדוק שהאשכול מציג טוב את ההבדל בין פרשנות, השראה וכוונה מוכחת.",
     },
   },
   {
