@@ -20,7 +20,7 @@ const verdictLabels: Record<string, string> = {
   "agenda-2030-seven-steps": "במקורות שנבדקו לא נמצא מקור רשמי לשבעת השלבים",
   "you-will-own-nothing-klaus-schwab": "מקור תרחישי — לא נמצאה בו תוכנית הפקעה רשמית",
   "who-pandemic-agreement-sovereignty": "הטקסט שנבדק שולל סמכות להכתיב מדיניות פנים",
-  "15-minute-city-prison": "במקורות שנבדקו לא נמצא בסיס רשמי לכליאה או איסור יציאה",
+  "15-minute-city-prison": "במקורות שנבדקו לא נמצא מקור רשמי לכליאה או איסור יציאה",
 };
 const headlineOverrides: Record<string, string> = {
   "agenda-2030-seven-steps": 'מהי "תוכנית שבעת השלבים" של אג׳נדה 2030?',
