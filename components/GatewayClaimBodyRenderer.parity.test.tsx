@@ -20,7 +20,7 @@ const rendererClaimBody = rendererHtml.slice(rendererHtml.indexOf(gatewayClaim.l
 function expectMarkersInOrder(subject: string, markers: readonly string[]) {
   let previousIndex = -1;
   for (const marker of markers) {
-    const currentIndex = subject.indexOf(marker);
+    const currentIndex = subject.indexOf(marker, previousIndex + 1);
     expect(currentIndex, `expected marker in order: ${marker}`).toBeGreaterThan(previousIndex);
     previousIndex = currentIndex;
   }
