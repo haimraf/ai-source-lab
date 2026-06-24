@@ -11,7 +11,7 @@ import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 function expectMarkersInOrder(subject: string, markers: readonly string[]) {
   let previous = -1;
   for (const marker of markers) {
-    const current = subject.indexOf(marker);
+    const current = subject.indexOf(marker, previous + 1);
     expect(current, `expected marker in order: ${marker}`).toBeGreaterThan(previous);
     previous = current;
   }
