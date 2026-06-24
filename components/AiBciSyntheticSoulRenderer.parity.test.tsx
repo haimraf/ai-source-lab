@@ -6,6 +6,15 @@ import { describe, expect, it } from "vitest";
 import { aiBciSyntheticSoulClaimContent as claim } from "../content/claims/ai-bci-synthetic-soul";
 import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 
+function expectMarkersInOrder(subject: string, markers: readonly string[], label: string) {
+  let previous = -1;
+  for (const marker of markers) {
+    const current = subject.indexOf(marker, previous + 1);
+    expect(current, `${label} marker missing: ${marker}`).toBeGreaterThan(previous);
+    previous = current;
+  }
+}
+
 describe("ai-bci-synthetic-soul renderer parity", () => {
   const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"), "utf8");
   it("preserves visible content and core section order", () => {
@@ -13,17 +22,10 @@ describe("ai-bci-synthetic-soul renderer parity", () => {
       .replaceAll("&quot;", '"')
       .replaceAll("&#x27;", "'")
       .replaceAll("&amp;", "&");
-    const markers = ["שורה תחתונה", "מה כן אמיתי?", "איפה הקפיצה?", "שאלות נפוצות", "תגובה קצרה להעתקה", "המקורות שנבדקו", "איך נבדקה הטענה?"];
-    let previousStatic = -1;
-    let previousDynamic = -1;
-    for (const marker of markers) {
-      const staticIndex = source.indexOf(marker, previousStatic + 1);
-      const dynamicIndex = html.indexOf(marker, previousDynamic + 1);
-      expect(staticIndex, `static marker missing: ${marker}`).toBeGreaterThan(previousStatic);
-      expect(dynamicIndex, `dynamic marker missing: ${marker}`).toBeGreaterThan(previousDynamic);
-      previousStatic = staticIndex;
-      previousDynamic = dynamicIndex;
-    }
+    const legacyMarkers = ["שורה תחתונה", "מה כן אמיתי?", "איפה הקפיצה?", "שאלות נפוצות", "תגובה קצרה להעתקה", "המקורות שנבדקו", "איך נבדקה הטענה?"];
+    const dynamicMarkers = [claim.shortAnswer, "מה כן אמיתי?", "איפה הקפיצה?", "שאלות נפוצות", "תגובה קצרה להעתקה", "המקורות שנבדקו", "איך נבדקה הטענה?"];
+    expectMarkersInOrder(source, legacyMarkers, "static");
+    expectMarkersInOrder(html, dynamicMarkers, "dynamic");
     expect(source).toContain(claim.lead);
     expect(html).toContain(claim.lead);
     expect(html).toContain('class="copy-box"');
