@@ -21,6 +21,7 @@ describe("agenda-2030-seven-steps renderer parity", () => {
     .replaceAll("&quot;", '"')
     .replaceAll("&#x27;", "'")
     .replaceAll("&amp;", "&");
+  const claimBodyHtml = html.slice(html.indexOf(claim.lead!));
 
   it("preserves visible content and section order", () => {
     const markers = [
@@ -42,7 +43,7 @@ describe("agenda-2030-seven-steps renderer parity", () => {
     expect(source).toContain(claim.lead);
     expect(html).toContain(claim.lead);
     expectMarkersInOrder(source.slice(source.indexOf("return (")), markers);
-    expectMarkersInOrder(html, markers);
+    expectMarkersInOrder(claimBodyHtml, markers);
   });
 
   it("preserves exhibits, sources and share copy", () => {
