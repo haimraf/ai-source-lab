@@ -246,7 +246,7 @@ function renderBlock(block: ClaimBodyBlock, claim: ClaimContent): ReactNode {
           <ol className="source-list source-cards">
             {claim.sources.map((source) => (
               <li key={source.id}>
-                <span className="badge">{getSourceLabel(source)}</span>
+                <span className="badge">{getSourceLabel(source)}</span>{" "}
                 <a href={source.url} target="_blank" rel="noreferrer"><strong>{source.title}</strong></a>
                 {source.note ? <p className="small">{source.note}</p> : null}
               </li>
