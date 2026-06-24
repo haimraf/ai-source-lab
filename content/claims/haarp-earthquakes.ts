@@ -25,12 +25,33 @@ const migratedHaarpEarthquakesClaimContent = defineMigratedClaimContent({
     "לא נמצא מקור פתוח שמראה מנגנון, ניסוי או מסמך פעולה שמחבר בין HAARP לבין יצירת רעידת אדמה ממשית.",
   ],
   overview: "הטענה על HAARP חזקה כי יש לה גרעין אמיתי: המתקן קיים, יש לו עבר צבאי, והוא משדר אנרגיית רדיו חזקה אל אזור קטן ביונוספירה. הקפיצה מתחילה כשמתרגמים את זה ליכולת לשלוט במזג אוויר, באורות בשמיים או ברעידות אדמה. בבדיקה הזאת לא נמצא מקור שמראה ש-HAARP יכול להפעיל שברים גיאולוגיים או לגרום לרעידות אדמה מרחוק.",
+  reviewScope: {
+    whatThisChecks: [
+      "האם המקורות שנבדקו תומכים בטענה שמתקן HAARP מסוגל לגרום לרעידות אדמה או שימש ליצירת רעידות אדמה בעולם.",
+      "האם העובדה ש-HAARP הוא מתקן אמיתי לחקר היונוספירה מספיקה כדי להוכיח יכולת סיסמית או קשר לאירוע רעידת אדמה מסוים.",
+    ],
+    whatThisDoesNotCheck: [
+      "העמוד אינו בודק את כל הטענות האפשריות על HAARP, מזג אוויר, אורות בשמיים או פרויקטים צבאיים היסטוריים.",
+      "העמוד אינו שולל עצם קיום רעידות אדמה מושרות מפעילות אנושית; הוא בודק אם המקורות שנבדקו מחברים את המנגנון הזה ל-HAARP.",
+    ],
+    evidenceLimitations: [
+      "הבדיקה נשענת על מקורות פתוחים, בדיקות עובדה ומקור סיסמולוגי רשמי. היא לא חקירה טכנית מלאה של כל יכולות המתקן או כל תיעוד היסטורי סביבו.",
+      "היעדר ראיה במקורות שנבדקו אינו מוכיח שכל ביקורת על HAARP אינה לגיטימית; הוא רק לא מספיק כדי להוכיח את טענת רעידות האדמה.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מסמך טכני מאומת, ניסוי פתוח, נתוני מדידה או מחקר סיסמולוגי שמראה קשר סיבתי ברור בין פעילות HAARP לבין אירוע רעידת אדמה מסוים.",
+    ],
+    sourceQualityNotes: [
+      "Reuters משמש לבדיקת טענות ויראליות ספציפיות; USGS משמש כמקור סיסמולוגי רשמי להבנת רעידות אדמה מושרות ומנגנונים מוכרים.",
+    ],
+  },
   sources: [
     {
       id: "reuters-turkey-haarp",
       title: "Reuters Fact Check — Nighttime footage unrelated to 2023 Turkey earthquake",
       url: "https://www.reuters.com/fact-check/nighttime-footage-bright-light-sky-unrelated-2023-turkey-earthquake-2024-02-22/",
       level: "secondary",
+      quality: "journalism",
       note: "בדיקת טענה שקישרה סרטון אור בשמיים ל-HAARP ולרעידת האדמה בטורקיה; Reuters לא מצא קשר בין הסרטון, HAARP והרעידה.",
     },
     {
@@ -38,6 +59,7 @@ const migratedHaarpEarthquakesClaimContent = defineMigratedClaimContent({
       title: "Reuters Fact Check — HAARP did not modify weather to create Hurricane Helene or Milton",
       url: "https://www.reuters.com/fact-check/haarp-did-not-modify-weather-create-hurricane-helene-or-milton-2024-10-14/",
       level: "secondary",
+      quality: "journalism",
       note: "כולל תיאור של HAARP כתוכנית מחקר של השכבה העליונה באטמוספירה וציטוטים שמבהירים שאינה יכולה ליצור או לשנות הוריקנים.",
     },
     {
@@ -45,6 +67,7 @@ const migratedHaarpEarthquakesClaimContent = defineMigratedClaimContent({
       title: "USGS — Induced Earthquakes",
       url: "https://www.usgs.gov/programs/earthquake-hazards/science/induced-earthquakes",
       level: "official",
+      quality: "official-document",
       note: "מקור רשמי שמסביר מחקר על רעידות אדמה מושרות מפעילות אנושית, בעיקר דרך תהליכים תת-קרקעיים כמו הזרקת או חילוץ נוזלים.",
     },
   ],
