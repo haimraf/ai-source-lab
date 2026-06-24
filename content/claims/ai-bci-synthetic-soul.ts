@@ -15,20 +15,40 @@ const migratedAiBciSyntheticSoulClaimContent = defineMigratedClaimContent({
   priority: 0.9,
   ogAlt: "מקור בדיקה - בדיקת הטענה ש-BCI ו-AI מוכיחים שליטה חיצונית בגוף",
   claim: "הטענה מערבבת מונחים אמיתיים כמו BCI, כפילים דיגיטליים, AI Agents ונוירופידבק עם מסקנה גדולה בהרבה: כאילו קיימת מערכת שמחליפה את התודעה האנושית ומפעילה את הגוף במקום האדם.",
-  shortAnswer: "שורה תחתונה",
+  shortAnswer: "לא לפי המקורות שנבדקו. קיימות טכנולוגיות BCI ו-AI, אבל הן לא תומכות בטענה על החלפת תודעה או הפעלת גוף אנושי במקום האדם.",
   bottomLine: "המסקנה אינה \"כל נוירוטכנולוגיה בטוחה או חסרת סיכון\". המסקנה צרה יותר: הדוגמאות והמקורות שנבדקו כאן לא תומכים בטענה על החלפת תודעה או הפעלת גוף אנושי במקום האדם.",
   summaryPoints: [
     "יש מערכות שקוראות אותות עצביים ומתרגמות אותם לפעולות במחשב, סמן, מקלדת או מכשיר חיצוני. ברוב הדוגמאות הציבוריות מדובר בסיוע לאנשים עם שיתוק.",
     "מודלי שפה וסוכני AI יכולים לנתח מידע, לתכנן צעדים ולהפעיל תוכנה. זה לא אומר שהם נטמעים בגוף או מחליפים תודעה אנושית.",
   ],
   overview: "קיימות טכנולוגיות אמיתיות שמחברות בין מוח, מחשב ומכשירים חיצוניים. אבל במקורות ובמקרי הבוחן שנבדקו כאן לא נמצאה תמיכה בטענה ש־AI, BCI או כפיל דיגיטלי מאפשרים \"נשמה סינטטית\", השתלטות המונית על הגוף, או שליטה בבני אדם דרך LED, Wi-Fi, אנטנות או ריסוס. הבדיקה אינה מכריעה את כל הסיכונים העתידיים של נוירוטכנולוגיה, פרטיות או ממשקי מוח־מחשב.",
+  reviewScope: {
+    whatThisChecks: [
+      "האם המקורות שנבדקו תומכים בטענה ש-BCI, AI Agents או כפיל דיגיטלי מאפשרים החלפת תודעה או הפעלת גוף אנושי במקום האדם.",
+      "האם הדוגמאות הציבוריות שנבדקו מציגות שליטה בגוף, או בעיקר קריאת אותות, הפעלת מחשב/מכשיר חיצוני וסימולציה דיגיטלית.",
+    ],
+    whatThisDoesNotCheck: [
+      "את כל הסיכונים העתידיים של נוירוטכנולוגיה, פרטיות, שתלים, שיווק AI או ממשקי מוח־מחשב.",
+      "שאלות רוחניות או פילוסופיות על נשמה, תודעה וזהות אישית.",
+    ],
+    evidenceLimitations: [
+      "הבדיקה נשענת על מקורות ציבוריים, דיווחים עיתונאיים, מאמרי סקירה ומידע גלוי על כלים קיימים. היא אינה סקירה מלאה של כל מחקר BCI או מוצר נוירוטכנולוגי.",
+      "מקורות על ניסויים מסחריים ומוצרים עדיין מוגבלים במה שהם חושפים על ביצועים, סיכונים ונתוני בטיחות לאורך זמן.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מחקר, תיעוד טכני, הודאה, מסמך רשמי או הדגמה מאומתת שמראים שליטה בגוף אנושי או החלפת תודעה באמצעות AI/BCI, ולא רק שליטה במחשב או במכשיר חיצוני.",
+    ],
+    sourceQualityNotes: [
+      "דיווחים עיתונאיים משמשים להבנת ניסויי Neuralink הציבוריים; מאמרי arXiv משמשים להגדרת Digital Twin; מקור Adobe משמש רק להבהרת סוג הכלי Firefly ולא כראיה לגבי BCI.",
+    ],
+  },
   sources: [
-    { id: "wired-neuralink-trial", title: "Wired - Everything We Know About Neuralink's Brain Implant Trial", url: "https://www.wired.com/story/everything-we-know-about-neuralinks-brain-implant-trial", level: "secondary", note: "מסביר ש-BCI אוסף אותות מוח, מנתח אותם ומתרגם אותם לפקודות לשליטה במכשיר חיצוני. הניסוי המתואר מכוון לאנשים עם שיתוק ולשליטה בסמן או מקלדת." },
-    { id: "reuters-neuralink-arm", title: "Reuters - Neuralink feasibility trial with brain implant and robotic arm", url: "https://www.reuters.com/business/healthcare-pharmaceuticals/musks-neuralink-launch-new-feasibility-trial-with-brain-implant-2024-11-25/", level: "secondary", note: "מתאר ניסוי היתכנות שבו אנשים עם שיתוק משתמשים בממשק מוח-מחשב כדי לשלוט במכשירים חיצוניים, כולל בדיקה של זרוע רובוטית." },
-    { id: "wired-neuralink-demonstration", title: "Wired - Neuralink first human subject demonstration", url: "https://www.wired.com/story/neuralink-implant-first-human-patient-demonstration", level: "secondary", note: "מתאר הדגמה של שליטה במחשב באמצעות שתל BCI, ומדגיש שמדובר בטכנולוגיה ניסיונית שעדיין דורשת עבודה ומעקב." },
-    { id: "digital-twins-state-of-art", title: "Digital Twins: State of the Art Theory and Practice", url: "https://arxiv.org/abs/2011.02833", level: "primary", note: "סקירה על כפילים דיגיטליים כמערכות מודל, ניטור וסימולציה. לא מדובר בהעתקה של נשמה או תודעה אנושית." },
-    { id: "what-is-digital-twin", title: "What is a Digital Twin Anyway?", url: "https://arxiv.org/abs/2409.19005", level: "primary", note: "מאמר שמראה שגם להגדרת Digital Twin יש שונות ומגבלות, ושיכולות מתקדמות אינן בהכרח בשלות בכל תחום." },
-    { id: "adobe-firefly", title: "Adobe Firefly", url: "https://firefly.adobe.com/", level: "official", note: "כלי יצירה גנרטיבי לתוכן. לא מערכת BCI ולא כלי שמפעיל גוף אנושי." },
+    { id: "wired-neuralink-trial", title: "Wired - Everything We Know About Neuralink's Brain Implant Trial", url: "https://www.wired.com/story/everything-we-know-about-neuralinks-brain-implant-trial", level: "secondary", quality: "journalism", note: "מסביר ש-BCI אוסף אותות מוח, מנתח אותם ומתרגם אותם לפקודות לשליטה במכשיר חיצוני. הניסוי המתואר מכוון לאנשים עם שיתוק ולשליטה בסמן או מקלדת." },
+    { id: "reuters-neuralink-arm", title: "Reuters - Neuralink feasibility trial with brain implant and robotic arm", url: "https://www.reuters.com/business/healthcare-pharmaceuticals/musks-neuralink-launch-new-feasibility-trial-with-brain-implant-2024-11-25/", level: "secondary", quality: "journalism", note: "מתאר ניסוי היתכנות שבו אנשים עם שיתוק משתמשים בממשק מוח-מחשב כדי לשלוט במכשירים חיצוניים, כולל בדיקה של זרוע רובוטית." },
+    { id: "wired-neuralink-demonstration", title: "Wired - Neuralink first human subject demonstration", url: "https://www.wired.com/story/neuralink-implant-first-human-patient-demonstration", level: "secondary", quality: "journalism", note: "מתאר הדגמה של שליטה במחשב באמצעות שתל BCI, ומדגיש שמדובר בטכנולוגיה ניסיונית שעדיין דורשת עבודה ומעקב." },
+    { id: "digital-twins-state-of-art", title: "Digital Twins: State of the Art Theory and Practice", url: "https://arxiv.org/abs/2011.02833", level: "primary", quality: "academic-research", note: "סקירה על כפילים דיגיטליים כמערכות מודל, ניטור וסימולציה. לא מדובר בהעתקה של נשמה או תודעה אנושית." },
+    { id: "what-is-digital-twin", title: "What is a Digital Twin Anyway?", url: "https://arxiv.org/abs/2409.19005", level: "primary", quality: "academic-research", note: "מאמר שמראה שגם להגדרת Digital Twin יש שונות ומגבלות, ושיכולות מתקדמות אינן בהכרח בשלות בכל תחום." },
+    { id: "adobe-firefly", title: "Adobe Firefly", url: "https://firefly.adobe.com/", level: "official", quality: "official-document", note: "כלי יצירה גנרטיבי לתוכן. לא מערכת BCI ולא כלי שמפעיל גוף אנושי." },
   ],
   faq: [
     { question: "אז BCI לא מסוכן בכלל?", answer: "לא זו המסקנה. BCI הוא תחום רפואי וטכנולוגי רגיש, עם שאלות בטיחות, פרטיות ואתיקה. הבדיקה כאן רק אומרת שהמקורות שנבדקו לא תומכים בטענה על השתלטות המונית או \"נשמה סינטטית\"." },
@@ -49,7 +69,7 @@ https://ai-source-lab.vercel.app/claims/ai-bci-synthetic-soul`,
     {
       id: "bottom-line",
       type: "answer-box",
-      title: "שורה תחתונה",
+      title: migratedAiBciSyntheticSoulClaimContent.shortAnswer,
       paragraphs: [
         "קיימות טכנולוגיות אמיתיות שמחברות בין מוח, מחשב ומכשירים חיצוניים. אבל במקורות ובמקרי הבוחן שנבדקו כאן לא נמצאה תמיכה לכך ש־AI, BCI או כפיל דיגיטלי מאפשרים \"נשמה סינטטית\", השתלטות המונית על הגוף, או שליטה בבני אדם דרך LED, Wi-Fi, אנטנות או ריסוס.",
         "המסקנה אינה \"כל נוירוטכנולוגיה בטוחה או חסרת סיכון\". המסקנה צרה יותר: הדוגמאות והמקורות שנבדקו כאן לא תומכים בטענה על החלפת תודעה או הפעלת גוף אנושי במקום האדם.",
