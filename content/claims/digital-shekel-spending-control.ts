@@ -9,20 +9,20 @@ const migratedDigitalShekelControlClaimContent = defineMigratedClaimContent({
   description: "בדיקה של הטענה ששקל דיגיטלי יאפשר למדינה או לבנק ישראל לקבוע מה אזרחים יכולים לקנות, ממי, מתי ובאיזה מקום.",
   kicker: "שקל דיגיטלי ו-CBDC",
   tags: ["שקל דיגיטלי", "CBDC", "בנק ישראל", "פרטיות", "כסף דיגיטלי"],
-  verdict: "יש שאלות אמיתיות על CBDC ופרטיות; לא נמצאה תוכנית ישראלית להגביל קניות אזרחים",
+  verdict: "יש שאלות אמיתיות על CBDC ופרטיות; במקורות שנבדקו לא נמצאה תוכנית ישראלית להגביל קניות אזרחים",
   cluster: "digital-money",
-  updated: "2026-06-21",
+  updated: "2026-06-24",
   changeFrequency: "monthly",
   priority: 0.9,
   ogAlt: "מקור בדיקה - בדיקת הטענה ששקל דיגיטלי יאפשר להגביל קניות",
   claim: "שקל דיגיטלי יאפשר לבנק ישראל או למדינה להגביל לאזרחים מה הם יכולים לקנות, ממי, מתי ובאיזה מקום.",
   shortAnswer: "החשש עוסק בנושא אמיתי, אבל הטענה על שליטה בפועל לא הוכחה במקורות שנבדקו.",
-  bottomLine: "לא נמצא מקור רשמי שמראה תוכנית ישראלית להגביל קניות אזרחים באמצעות שקל דיגיטלי.",
+  bottomLine: "במקורות שנבדקו לא נמצא מקור רשמי שמראה תוכנית ישראלית להגביל קניות אזרחים באמצעות שקל דיגיטלי.",
   summaryPoints: [
     "בנק ישראל אכן בוחן שקל דיגיטלי, ו-CBDC מעלה שאלות אמיתיות על פרטיות, עיצוב מערכת ותשלומים מותנים.",
     "הקפיצה היא ממחקר והיערכות למטבע דיגיטלי למסקנה שכבר קיימת תוכנית לשלוט בהוצאות אזרחים.",
   ],
-  overview: "שקל דיגיטלי הוא נושא אמיתי שבנק ישראל חוקר ומכין סביבו תרחישים וניסויים. אבל צריך להפריד בין עצם המחקר, שאלות לגיטימיות על פרטיות ועיצוב, לבין טענה חזקה בהרבה: שכבר קיימת תוכנית להגביל לאזרחים מה לקנות. בבדיקה הזו לא נמצא מקור רשמי שמראה תוכנית כזו.",
+  overview: "שקל דיגיטלי הוא נושא אמיתי שבנק ישראל חוקר ומכין סביבו תרחישים וניסויים. אבל צריך להפריד בין עצם המחקר, שאלות לגיטימיות על פרטיות ועיצוב, לבין טענה חזקה בהרבה: שכבר קיימת תוכנית להגביל לאזרחים מה לקנות. במקורות שנבדקו כאן לא נמצא מקור רשמי שמראה תוכנית כזו.",
   sources: [
     {
       id: "reuters-digital-shekel",
@@ -49,7 +49,7 @@ const migratedDigitalShekelControlClaimContent = defineMigratedClaimContent({
   faq: [
     {
       question: "האם אין בכלל סיכון בפרויקט כזה?",
-      answer: "לא זו המסקנה. CBDC מעלה שאלות אמיתיות על פרטיות, זהות, תפקיד מתווכים, תשלומים לא מקוונים ואמון ציבורי. המסקנה הצרה היא שלא נמצא מקור שמוכיח תוכנית ישראלית להגביל קניות.",
+      answer: "לא זו המסקנה. CBDC מעלה שאלות אמיתיות על פרטיות, זהות, תפקיד מתווכים, תשלומים לא מקוונים ואמון ציבורי. המסקנה הצרה היא שבמקורות שנבדקו לא נמצא מקור שמוכיח תוכנית ישראלית להגביל קניות.",
     },
     {
       question: "האם בנק ישראל כבר החליט להנפיק שקל דיגיטלי?",
@@ -68,7 +68,7 @@ const migratedDigitalShekelControlClaimContent = defineMigratedClaimContent({
 
 export const digitalShekelSpendingControlClaimContent = defineClaim({
   ...migratedDigitalShekelControlClaimContent,
-  lead: "החשש משקל דיגיטלי לא נולד משום מקום: מטבעות דיגיטליים של בנקים מרכזיים באמת מעלים שאלות על פרטיות, תפקיד המדינה ועיצוב המערכת. אבל הבדיקה כאן שואלת דבר חד יותר: האם נמצא מקור שמראה שבישראל כבר מתוכננת שליטה במה שאזרחים קונים.",
+  lead: "החשש משקל דיגיטלי לא נולד משום מקום: מטבעות דיגיטליים של בנקים מרכזיים באמת מעלים שאלות על פרטיות, תפקיד המדינה ועיצוב המערכת. אבל הבדיקה כאן שואלת דבר חד יותר: האם במקורות שנבדקו נמצא מקור שמראה שבישראל כבר מתוכננת שליטה במה שאזרחים קונים.",
   shareCopy: `בנק ישראל אכן בוחן שקל דיגיטלי, ויש שאלות אמיתיות על פרטיות ועיצוב המערכת. אבל מהמקורות שנבדקו כאן לא עולה שכבר קיימת תוכנית ישראלית להגביל לאזרחים מה הם יכולים לקנות. הקפיצה היא מ״CBDC נחקר״ ל״שליטה בפועל בהוצאות״.
 ${siteUrl}/claims/digital-shekel-spending-control`,
   body: [
@@ -100,85 +100,39 @@ ${siteUrl}/claims/digital-shekel-spending-control`,
       items: [
         { label: "מה נטען:", text: "שקל דיגיטלי יאפשר למדינה להגביל בפועל מה אזרחים קונים." },
         { label: "מה נמצא:", text: "מחקר, היערכות וניסויים סביב שקל דיגיטלי ומטבעות בנק מרכזי." },
-        { label: "מה לא נמצא:", text: "מקור רשמי שמציג תוכנית ישראלית להגבלת רכישות אזרחים." },
+        { label: "מה לא נמצא:", text: "במקורות שנבדקו לא נמצא מקור רשמי שמציג תוכנית ישראלית להגבלת רכישות אזרחים." },
         { label: "המסקנה:", text: "החשש שווה בדיקה, אבל הטענה הנחרצת דורשת ראיה שלא נמצאה כאן.", emphasis: true },
       ],
     },
     {
-      id: "bonus",
+      id: "method",
       type: "method-note",
-      title: "עובדת בונוס",
+      title: "מה גבול הבדיקה?",
       paragraphs: [
-        "הנקודה הכי חזקה בבדיקה היא שבנק ישראל עצמו, לפי הדיווחים, עדיין לא בהכרח החליט להנפיק שקל דיגיטלי. כלומר הטענה הוויראלית מדלגת לא רק משאלת עיצוב לשאלת שליטה, אלא גם ממחקר והיערכות להנחה שהמערכת כבר בדרך להשקה מלאה.",
+        "הבדיקה אינה אומרת שאין סיכוני פרטיות או עיצוב בשקל דיגיטלי. היא בודקת טענה צרה יותר: האם במקורות שנבדקו נמצא מקור שמראה תוכנית ישראלית להגביל בפועל קניות אזרחים לפי מוצר, מקום, זמן או זהות.",
       ],
-    },
-    {
-      id: "evidence",
-      type: "evidence-list",
-      title: "מה המקורות מראים",
-      numbered: true,
-      items: [
-        {
-          id: "research",
-          number: "01",
-          title: "היערכות אינה השקה",
-          paragraphs: [
-            "המקורות מתארים מחקר, ניסויים והיערכות. אלה שלבים חשובים, אבל הם אינם שקולים להחלטה סופית להנפיק מטבע או לקבוע כללי שימוש מחייבים.",
-          ],
-        },
-        {
-          id: "privacy",
-          number: "02",
-          title: "פרטיות היא שאלה אמיתית",
-          paragraphs: [
-            "CBDC יכול להיות מתוכנן בדרכים שונות. לכן פרטיות, זהות, מידע על עסקאות ותפקיד מתווכים הם נושאים אמיתיים לבדיקה ציבורית.",
-          ],
-        },
-        {
-          id: "programmability",
-          number: "03",
-          title: "תשלום מותנה אינו בהכרח שליטה בהוצאות",
-          paragraphs: [
-            "בדיונים על מטבעות דיגיטליים קיימת הבחנה בין תשלומים שמותנים באירוע לבין כסף שמוגבל מראש לשימושים מסוימים. ערבוב ביניהם מייצר מסקנה חזקה מדי.",
-          ],
-        },
-      ],
-    },
-    {
-      id: "logic",
-      type: "logic-chain",
-      title: "שרשרת הקפיצה",
-      steps: [
-        "בנק ישראל בוחן שקל דיגיטלי",
-        "CBDC יכול להיות מתוכנן בדרכים שונות",
-        "תיאורטית אפשר לחשוש ממגבלות",
-        "לכן כבר יש תוכנית לשלוט בקניות",
-      ],
-      conclusion: "מסקנה שלא הוכחה במקורות שנבדקו",
-      note: "החוליות הראשונות אמיתיות, אבל המסקנה האחרונה דורשת מקור נוסף.",
     },
     { id: "faq", type: "faq", title: "שאלות נפוצות", source: "claim" },
-    { id: "share", type: "copy-share", title: "תגובה קצרה להעתקה", source: "claim" },
-    { id: "sources", type: "sources", title: "מקורות ישירים", source: "claim" },
+    { id: "copy", type: "copy-share", title: "תגובה קצרה להעתקה", source: "claim" },
+    { id: "sources", type: "sources", title: "מקורות שנבדקו", source: "claim" },
   ],
-  structuredData: {
-    mode: "configured",
-    entries: [
-      {
-        type: "article",
-        placement: "page",
-        headline: migratedDigitalShekelControlClaimContent.title,
-        description: migratedDigitalShekelControlClaimContent.description,
-        datePublished: "2026-06-21",
-        dateModified: "2026-06-21",
-        inLanguage: "he-IL",
-      },
-      { type: "faq", placement: "page" },
-    ],
-  },
+  structuredData: { mode: "none" },
   metadataOverrides: {
-    title: "האם שקל דיגיטלי יאפשר להגביל קניות? | מקור בדיקה",
+    title: `${migratedDigitalShekelControlClaimContent.title} | מקור בדיקה`,
     description: migratedDigitalShekelControlClaimContent.description,
-    canonical: "/claims/digital-shekel-spending-control",
+    canonical: migratedDigitalShekelControlClaimContent.path,
+    openGraph: {
+      title: migratedDigitalShekelControlClaimContent.title,
+      description: migratedDigitalShekelControlClaimContent.description,
+      url: `${siteUrl}${migratedDigitalShekelControlClaimContent.path}`,
+      siteName: "מקור בדיקה",
+      locale: "he_IL",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: migratedDigitalShekelControlClaimContent.title,
+      description: migratedDigitalShekelControlClaimContent.description,
+    },
   },
 } satisfies ClaimContent);
