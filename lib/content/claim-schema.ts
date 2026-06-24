@@ -4,6 +4,16 @@ export type ClaimStatus = (typeof claimStatuses)[number];
 export const sourceLevels = ["primary", "official", "secondary", "context"] as const;
 export type SourceLevel = (typeof sourceLevels)[number];
 
+export const sourceQualityLabels = [
+  "official-document",
+  "academic-research",
+  "journalism",
+  "primary-source",
+  "secondary-analysis",
+  "claim-source-social-media",
+] as const;
+export type SourceQualityLabel = (typeof sourceQualityLabels)[number];
+
 export const changeFrequencies = ["always", "hourly", "daily", "weekly", "monthly", "yearly", "never"] as const;
 export type ChangeFrequency = (typeof changeFrequencies)[number];
 
@@ -30,6 +40,7 @@ export interface ClaimSource {
   title: string;
   url: string;
   level: SourceLevel;
+  quality?: SourceQualityLabel;
   publisher?: string;
   publishedAt?: string;
   accessedAt: string;
@@ -245,6 +256,14 @@ export interface ClaimFindings {
   conclusion: string;
 }
 
+export interface ClaimReviewScope {
+  whatThisChecks: readonly string[];
+  whatThisDoesNotCheck?: readonly string[];
+  evidenceLimitations?: readonly string[];
+  strongerEvidenceWouldBe?: readonly string[];
+  sourceQualityNotes?: readonly string[];
+}
+
 export interface EditorialCredit {
   id: string;
   name: string;
@@ -338,6 +357,7 @@ export interface ClaimContent {
   exhibits?: readonly ClaimExhibit[];
   structuredData?: ClaimStructuredDataConfig;
   metadataOverrides?: ClaimMetadataOverrides;
+  reviewScope?: ClaimReviewScope;
   body?: readonly ClaimBodyBlock[];
 }
 

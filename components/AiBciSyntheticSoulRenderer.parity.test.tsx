@@ -17,8 +17,8 @@ describe("ai-bci-synthetic-soul renderer parity", () => {
     let previousStatic = -1;
     let previousDynamic = -1;
     for (const marker of markers) {
-      const staticIndex = source.indexOf(marker);
-      const dynamicIndex = html.indexOf(marker);
+      const staticIndex = source.indexOf(marker, previousStatic + 1);
+      const dynamicIndex = html.indexOf(marker, previousDynamic + 1);
       expect(staticIndex, `static marker missing: ${marker}`).toBeGreaterThan(previousStatic);
       expect(dynamicIndex, `dynamic marker missing: ${marker}`).toBeGreaterThan(previousDynamic);
       previousStatic = staticIndex;

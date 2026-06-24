@@ -15,11 +15,12 @@ const rendererHtml = renderToStaticMarkup(<ClaimBodyRenderer claim={gatewayClaim
   .replace(/&#x27;/g, "'")
   .replace(/&quot;/g, '"')
   .replace(/&amp;/g, "&");
+const rendererClaimBody = rendererHtml.slice(rendererHtml.indexOf(gatewayClaim.lead!));
 
 function expectMarkersInOrder(subject: string, markers: readonly string[]) {
   let previousIndex = -1;
   for (const marker of markers) {
-    const currentIndex = subject.indexOf(marker);
+    const currentIndex = subject.indexOf(marker, previousIndex + 1);
     expect(currentIndex, `expected marker in order: ${marker}`).toBeGreaterThan(previousIndex);
     previousIndex = currentIndex;
   }
@@ -63,7 +64,7 @@ describe("gateway-process-out-of-body renderer parity", () => {
     ];
 
     expectMarkersInOrder(staticPageBody, orderedMarkers);
-    expectMarkersInOrder(rendererHtml, orderedMarkers);
+    expectMarkersInOrder(rendererClaimBody, orderedMarkers);
   });
 
   it("keeps FAQ questions, sources and share copy aligned", () => {

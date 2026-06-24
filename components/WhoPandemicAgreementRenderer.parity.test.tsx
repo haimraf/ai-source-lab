@@ -9,7 +9,7 @@ import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 function expectMarkersInOrder(subject: string, markers: readonly string[]) {
   let previous = -1;
   for (const marker of markers) {
-    const current = subject.indexOf(marker);
+    const current = subject.indexOf(marker, previous + 1);
     expect(current, `expected marker in order: ${marker}`).toBeGreaterThan(previous);
     previous = current;
   }
@@ -21,6 +21,7 @@ describe("who-pandemic-agreement-sovereignty renderer parity", () => {
     .replaceAll("&quot;", '"')
     .replaceAll("&#x27;", "'")
     .replaceAll("&amp;", "&");
+  const claimBodyHtml = html.slice(html.indexOf(claim.lead!));
 
   it("preserves visible content and section order", () => {
     const markers = [
@@ -42,7 +43,7 @@ describe("who-pandemic-agreement-sovereignty renderer parity", () => {
     expect(source).toContain(claim.lead);
     expect(html).toContain(claim.lead);
     expectMarkersInOrder(source.slice(source.indexOf("return (")), markers);
-    expectMarkersInOrder(html, markers);
+    expectMarkersInOrder(claimBodyHtml, markers);
   });
 
   it("preserves exhibits, FAQ, sources and share copy", () => {

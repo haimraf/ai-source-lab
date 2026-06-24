@@ -9,18 +9,18 @@ import { siteUrl } from "@/lib/site";
 
 const dynamicClaimSlugs = claimContentRecords.map((claim) => claim.path.split("/").at(-1)!);
 const verdictLabels: Record<string, string> = {
-  "ai-as-source-pyramids": "AI אינו מקור — הוא כלי שמוביל למקורות",
-  "gateway-process-out-of-body": "המסמך אמיתי — ההוכחה לא",
-  "project-blue-beam-nasa": "נרטיב מוכר — מקור רשמי לא נמצא",
-  "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מוכיחה Chemtrails",
-  "chemtrails-aluminum": "לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
-  "xrp-global-currency": "לא נמצא בסיס רשמי לטענה",
-  "digital-shekel-spending-control": "שאלות אמיתיות — תוכנית שליטה לא נמצאה",
-  "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — קפיצה לא מוכחת",
-  "agenda-2030-seven-steps": "לא נמצא מקור רשמי לשבעת השלבים",
-  "you-will-own-nothing-klaus-schwab": "מקור תרחישי — לא תוכנית הפקעה רשמית",
-  "who-pandemic-agreement-sovereignty": "הטקסט שולל סמכות להכתיב מדיניות פנים",
-  "15-minute-city-prison": "לא נמצא מקור רשמי לכליאה או איסור יציאה",
+  "ai-as-source-pyramids": "AI אינו מקור בפני עצמו — הוא כלי שמוביל למקורות",
+  "gateway-process-out-of-body": "המסמך אמיתי — הטענה הרחבה דורשת ראיות נוספות",
+  "project-blue-beam-nasa": "נרטיב מוכר — במקורות שנבדקו לא נמצא בסיס רשמי",
+  "cloud-seeding-chemtrails": "זריעת עננים קיימת; היא לא מספיקה לבדה כדי להוכיח Chemtrails",
+  "chemtrails-aluminum": "במקורות שנבדקו לא נמצא בסיס לריסוס אלומיניום מטיסות רגילות",
+  "xrp-global-currency": "במקורות שנבדקו לא נמצא בסיס רשמי לטענה",
+  "digital-shekel-spending-control": "שאלות אמיתיות — במקורות שנבדקו לא נמצאה תוכנית שליטה",
+  "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — הטענה על שליטה חיצונית לא נתמכת במקורות שנבדקו",
+  "agenda-2030-seven-steps": "במקורות שנבדקו לא נמצא מקור רשמי לשבעת השלבים",
+  "you-will-own-nothing-klaus-schwab": "מקור תרחישי — לא נמצאה בו תוכנית הפקעה רשמית",
+  "who-pandemic-agreement-sovereignty": "הטקסט שולל סמכות להכתיב מדיניות פנים — לפי הסעיף שנבדק",
+  "15-minute-city-prison": "במקורות שנבדקו לא נמצא מקור רשמי לכליאה או איסור יציאה",
 };
 const headlineOverrides: Record<string, string> = {
   "agenda-2030-seven-steps": 'מהי "תוכנית שבעת השלבים" של אג׳נדה 2030?',

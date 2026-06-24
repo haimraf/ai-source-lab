@@ -26,10 +26,34 @@ interface MigratedClaimInput extends ClaimMetadata {
   overview: string;
   sources: readonly MigratedSource[];
   faq: readonly ClaimFaqItem[];
+  reviewScope?: ClaimContent["reviewScope"];
+}
+
+function defaultReviewScope(input: MigratedClaimInput): ClaimContent["reviewScope"] {
+  return {
+    whatThisChecks: [
+      `את הטענה כפי שנוסחה בעמוד: ${input.claim}`,
+      "את המקורות המופיעים בבדיקה ואת ההקשר שבו הם פורסמו.",
+    ],
+    whatThisDoesNotCheck: [
+      "את כל הדיון הרחב סביב הנושא או כל טענה קרובה שאינה מנוסחת כאן.",
+      "מקורות שלא צורפו, לא אותרו או לא נבדקו בעדכון הנוכחי.",
+    ],
+    evidenceLimitations: [
+      "המסקנה מוגבלת למקורות שנבדקו ולתאריך העדכון של העמוד.",
+      "היעדר מקור בבדיקה אינו הוכחה מוחלטת שאין מקור כזה; הוא אומר שהמקורות שנבדקו אינם תומכים בנוסח הטענה.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מקור ראשוני, מסמך רשמי, מחקר, תחקיר עצמאי או נתונים גולמיים שמחברים במפורש בין הטענה לבין המסקנה הרחבה.",
+    ],
+    sourceQualityNotes: [
+      "כאשר הבדיקה עוסקת בגוף מוסדי, מקורות רשמיים משמשים להבין מה הגוף פרסם בפועל; מקורות חיצוניים דרושים כדי לבחון ביקורת, פרשנות והשפעה רחבה יותר.",
+    ],
+  };
 }
 
 export function defineMigratedClaimContent(input: MigratedClaimInput): ClaimContent {
-  const { overview, sources, ...content } = input;
+  const { overview, sources, reviewScope, ...content } = input;
 
   return defineClaim({
     schemaVersion: 1,
@@ -84,5 +108,6 @@ export function defineMigratedClaimContent(input: MigratedClaimInput): ClaimCont
       description: input.description,
       noIndex: false,
     },
+    reviewScope: reviewScope ?? defaultReviewScope(input),
   });
 }

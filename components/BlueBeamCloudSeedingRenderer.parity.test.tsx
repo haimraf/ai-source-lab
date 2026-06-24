@@ -11,7 +11,7 @@ import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 function expectMarkersInOrder(subject: string, markers: readonly string[]) {
   let previous = -1;
   for (const marker of markers) {
-    const current = subject.indexOf(marker);
+    const current = subject.indexOf(marker, previous + 1);
     expect(current, `expected marker in order: ${marker}`).toBeGreaterThan(previous);
     previous = current;
   }
@@ -23,10 +23,12 @@ function verifyParity(claim: ClaimContent, markers: readonly string[]) {
     : "page.tsx";
   const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, sourceFile), "utf8");
   const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&amp;", "&");
+  const claimBodyHtml = html.slice(html.indexOf(claim.lead ?? claim.shortAnswer));
+
   expect(source).toContain(claim.lead);
   expect(html).toContain(claim.lead);
   expectMarkersInOrder(source.slice(source.indexOf("return (")), markers);
-  expectMarkersInOrder(html, markers);
+  expectMarkersInOrder(claimBodyHtml, markers);
   for (const item of claim.faq) {
     expect(source).toContain(item.question);
     expect(html).toContain(item.question);
