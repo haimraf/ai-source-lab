@@ -106,6 +106,9 @@ Initial topic pages to review:
 - `ai-sources`
 - `sky-climate`
 - `pop-culture-symbols`
+- `consciousness-intelligence`
+
+Gate 2 first-pass audit: `docs/topic-page-trust-gate-audit.md`.
 
 ## Gate 3: suggest and correction flow
 
