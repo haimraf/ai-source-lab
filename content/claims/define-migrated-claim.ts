@@ -53,7 +53,7 @@ function defaultReviewScope(input: MigratedClaimInput): ClaimContent["reviewScop
 }
 
 export function defineMigratedClaimContent(input: MigratedClaimInput): ClaimContent {
-  const { overview, sources, ...content } = input;
+  const { overview, sources, reviewScope, ...content } = input;
 
   return defineClaim({
     schemaVersion: 1,
@@ -108,6 +108,6 @@ export function defineMigratedClaimContent(input: MigratedClaimInput): ClaimCont
       description: input.description,
       noIndex: false,
     },
-    reviewScope: input.reviewScope ?? defaultReviewScope(input),
+    reviewScope: reviewScope ?? defaultReviewScope(input),
   });
 }
