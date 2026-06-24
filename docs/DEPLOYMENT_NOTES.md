@@ -1,5 +1,17 @@
 # Deployment Notes
 
+## 2026-06-24 — second controlled git trigger
+
+Triggered one more small `main` commit because production was still aliased to the older `6f4c2a9` deployment after the previous trigger attempt.
+
+Purpose:
+
+- force the Vercel Git integration to see a fresh `main` push;
+- keep the trigger documented instead of using an unexplained no-op change;
+- verify afterward whether `ai-source-lab.vercel.app` moves to the latest `main` commit.
+
+Do not stack more trigger commits without first checking the production alias and deployment list.
+
 ## 2026-06-24 — git trigger after Vercel API check
 
 Tried to use the available Vercel API tooling for a direct redeploy, but the API path available here does not perform a production redeploy directly.
