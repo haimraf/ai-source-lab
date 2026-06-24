@@ -25,12 +25,33 @@ const migratedMoonLandingFlagShadowsStarsClaimContent = defineMigratedClaimConte
     "הבדיקה כאן לא מנסה להוכיח את כל היסטוריית אפולו, אלא בודקת אם ארבע טענות צילום נפוצות מספיקות כהוכחה לזיוף.",
   ],
   overview: "זו אחת הטענות החזקות ביותר ברשת כי היא נשענת על אינטואיציה חזותית: אם אין כוכבים, אם הדגל נראה כאילו הוא זז, ואם הצללים לא נראים מושלמים — אולי זו תפאורה. אבל צילום על הירח שונה מצילום לילה בכדור הארץ: פני השטח מוארים בשמש חזקה, אין אטמוספירה שמרככת אור ומרחקים, והמצלמות כוונו לאסטרונאוטים ולקרקע המוארת, לא לכוכבים חלשים.",
+  reviewScope: {
+    whatThisChecks: [
+      "האם ארבע טענות צילום נפוצות — דגל, כוכבים, צללים ואיכות צילום — מספיקות כהוכחה לכך שנחיתת אפולו צולמה באולפן וזויפה.",
+      "האם במקורות שנבדקו יש הסבר צילום/סביבה חלופי למאפיינים הוויזואליים שמועלים בטענה.",
+    ],
+    whatThisDoesNotCheck: [
+      "העמוד אינו מנסה להוכיח מחדש את כל תוכנית אפולו או לבדוק כל טענה היסטורית על נאס״א.",
+      "העמוד אינו סקירה מלאה של כל חומרי אפולו, אלא בדיקה ממוקדת של ארבע טענות ויזואליות נפוצות.",
+    ],
+    evidenceLimitations: [
+      "חלק מהמקורות הם מקורות של NASA או מוסדות הקשורים לתיעוד חלל, ולכן הם טובים להבנת התיעוד הרשמי אך אינם מחליפים בדיקה עצמאית מלאה של כל הארכיון.",
+      "מקורות ההסבר הציבוריים שנבדקו עוסקים בטענות צילום נפוצות, לא בכל הטענות האפשריות סביב תוכנית אפולו.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מקור ראשוני, מסמך הפקה, הודאה מתועדת, ניתוח עצמאי או נתוני צילום שמראים שהתמונות לא יכולות להתאים לסביבת ירח ומחייבות צילום אולפני.",
+    ],
+    sourceQualityNotes: [
+      "מקורות NASA משמשים להבנת התיעוד הרשמי; LROC/ASU משמש כתיעוד אתרי נחיתה ממסלול הירח; Royal Museums Greenwich משמש כהסבר ציבורי משני לטענות הצילום.",
+    ],
+  },
   sources: [
     {
       id: "nasa-apollo-journals",
       title: "NASA — The Apollo Lunar Surface Journal and Apollo Flight Journal",
       url: "https://www.nasa.gov/history/alsj-and-afj/",
       level: "primary",
+      quality: "official-document",
       note: "ארכיון NASA עם תמלולים, תמונות, סרטונים, אודיו ומסמכי רקע למשימות אפולו.",
     },
     {
@@ -38,6 +59,7 @@ const migratedMoonLandingFlagShadowsStarsClaimContent = defineMigratedClaimConte
       title: "NASA SVS — NASA Releases Preview Partially Restored Apollo 11 Video",
       url: "https://svs.gsfc.nasa.gov/10451/",
       level: "primary",
+      quality: "official-document",
       note: "מקור NASA על שיקום חלקים מהווידאו של אפולו 11 ועל ההבדל בין שידור הטלוויזיה לבין חומרי הגיבוי המקוריים.",
     },
     {
@@ -45,6 +67,7 @@ const migratedMoonLandingFlagShadowsStarsClaimContent = defineMigratedClaimConte
       title: "LROC / Arizona State University — Apollo landing site imagery",
       url: "https://www.lroc.asu.edu/featured_sites#ApolloSites",
       level: "context",
+      quality: "primary-source",
       note: "תיעוד של אתרי הנחיתה כפי שצולמו ממסלול הירח על ידי Lunar Reconnaissance Orbiter Camera, כולל סימני ציוד ושבילים באתרים שונים.",
     },
     {
@@ -52,6 +75,7 @@ const migratedMoonLandingFlagShadowsStarsClaimContent = defineMigratedClaimConte
       title: "Royal Museums Greenwich — Moon landing conspiracy theories, debunked",
       url: "https://www.rmg.co.uk/stories/topics/moon-landing-conspiracy-theories-debunked",
       level: "secondary",
+      quality: "secondary-analysis",
       note: "הסברים נגישים לטענות נפוצות כמו דגל, כוכבים וצללים, בשפה ציבורית ולא טכנית מדי.",
     },
   ],
