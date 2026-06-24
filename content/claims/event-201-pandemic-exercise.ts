@@ -25,10 +25,30 @@ const migratedEvent201PandemicExerciseClaimContent = defineMigratedClaimContent(
     "הדמיון הכללי בין תרגיל מגפה לבין מגפה אמיתית אינו מספיק כדי להוכיח תכנון מוקדם של האירוע האמיתי.",
   ],
   overview: "הטענה מתחילה מגרעין אמת חזק: Event 201 באמת התקיים זמן קצר לפני התפרצות COVID-19, ובאמת עסק בתרחיש של מגפת קורונה. לכן לא נכון לנפנף את החשד בזלזול. אבל השאלה אינה אם היה תרגיל, אלא מה אפשר להסיק ממנו. המקורות הרשמיים מתארים אותו כתרגיל שולחני לימודי שנועד להמחיש פערי מוכנות ושיתוף פעולה בזמן מגפה קשה. הם לא מציגים אותו כתוכנית פעולה להפצת וירוס, ובינואר 2020 Johns Hopkins הבהיר שהתרגיל לא נועד לנבא את nCoV.",
+  reviewScope: {
+    whatThisChecks: [
+      "האם המקורות שנבדקו תומכים בטענה ש-Event 201 היה תכנון מוקדם, חזרה גנרלית או תחזית מכוונת של COVID-19.",
+      "האם עצם הדמיון בין תרגיל מגפה על נגיף קורונה בדיוני לבין מגפה אמיתית מספיק כדי להוכיח תכנון מוקדם.",
+    ],
+    whatThisDoesNotCheck: [
+      "העמוד אינו בודק את כל הביקורת האפשרית על מעורבות WEF, Gates Foundation או שיתופי פעולה ציבוריים-פרטיים במדיניות בריאות.",
+      "העמוד אינו מכריע את כל שאלות מדיניות הקורונה, אלא בודק טענה צרה לגבי הקשר בין התרגיל לבין תכנון מראש של COVID-19.",
+    ],
+    evidenceLimitations: [
+      "הבדיקה נשענת בעיקר על דף התרגיל הרשמי, הודעת WEF והצהרת Johns Hopkins אחרי פרוץ nCoV. אלה מקורות חשובים להבנת המסגור הרשמי, אך הם אינם תחליף לחקירה היסטורית מלאה של כל החלטות המגפה.",
+      "ביקורת על תרגילי מוכנות, משתתפים או השפעה מוסדית יכולה להיות לגיטימית גם בלי להסיק שהייתה תוכנית להפצת וירוס.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מסמך, הוראה, תיעוד פעולה, הודאה או מקור ישיר שמחבר בין Event 201 לבין יצירה, הפצה או ניהול מכוון של COVID-19 לפני ההתפרצות.",
+    ],
+    sourceQualityNotes: [
+      "Johns Hopkins ו-WEF הם מקורות רשמיים לגבי מטרת התרגיל וההצהרות סביבו; הם טובים למסגור הרשמי, אבל לא לבדם מכריעים כל ביקורת רחבה על מדיניות מגפות.",
+    ],
+  },
   sources: [
-    { id: "event-201-official", title: "Johns Hopkins Center for Health Security — Event 201", url: "https://centerforhealthsecurity.org/our-work/tabletop-exercises/event-201-pandemic-tabletop-exercise", level: "primary", note: "דף התרגיל הרשמי. מתאר את Event 201 כתרגיל שולחני על תרחיש בדיוני, שנועד להמחיש אתגרי מוכנות ושיתוף פעולה בזמן מגפה קשה." },
-    { id: "event-201-statement-ncov", title: "Johns Hopkins — Statement about nCoV and our pandemic exercise", url: "https://centerforhealthsecurity.org/2020/statement-about-ncov-and-our-pandemic-exercise", level: "primary", note: "הצהרה רשמית מ-24 בינואר 2020 שמבהירה שהתרגיל לא היה תחזית, שהתרחיש היה בדיוני, ושקלטי המידול לא היו דומים ל-nCoV-2019." },
-    { id: "wef-event-201-press", title: "World Economic Forum — Live Simulation Exercise to Prepare Public and Private Leaders for Pandemic Response", url: "https://www.weforum.org/press/2019/10/live-simulation-exercise-to-prepare-public-and-private-leaders-for-pandemic-response/", level: "official", note: "הודעת WEF לפני האירוע. מתארת את התרגיל כסימולציה היפותטית שנועדה לקדם מוכנות ושיתוף פעולה ציבורי-פרטי." },
+    { id: "event-201-official", title: "Johns Hopkins Center for Health Security — Event 201", url: "https://centerforhealthsecurity.org/our-work/tabletop-exercises/event-201-pandemic-tabletop-exercise", level: "primary", quality: "official-document", note: "דף התרגיל הרשמי. מתאר את Event 201 כתרגיל שולחני על תרחיש בדיוני, שנועד להמחיש אתגרי מוכנות ושיתוף פעולה בזמן מגפה קשה." },
+    { id: "event-201-statement-ncov", title: "Johns Hopkins — Statement about nCoV and our pandemic exercise", url: "https://centerforhealthsecurity.org/2020/statement-about-ncov-and-our-pandemic-exercise", level: "primary", quality: "official-document", note: "הצהרה רשמית מ-24 בינואר 2020 שמבהירה שהתרגיל לא היה תחזית, שהתרחיש היה בדיוני, ושקלטי המידול לא היו דומים ל-nCoV-2019." },
+    { id: "wef-event-201-press", title: "World Economic Forum — Live Simulation Exercise to Prepare Public and Private Leaders for Pandemic Response", url: "https://www.weforum.org/press/2019/10/live-simulation-exercise-to-prepare-public-and-private-leaders-for-pandemic-response/", level: "official", quality: "official-document", note: "הודעת WEF לפני האירוע. מתארת את התרגיל כסימולציה היפותטית שנועדה לקדם מוכנות ושיתוף פעולה ציבורי-פרטי." },
   ],
   faq: [
     { question: "האם Event 201 באמת התרחש לפני הקורונה?", answer: "כן. התרגיל התקיים ב-18 באוקטובר 2019 בניו יורק, כמה חודשים לפני שהעולם הכיר את COVID-19." },
