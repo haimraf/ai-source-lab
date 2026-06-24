@@ -25,12 +25,33 @@ const migratedMrnaVaccinesDnaGenomeClaimContent = defineMigratedClaimContent({
     "העמוד בודק טענה על מנגנון ו-DNA בלבד. הוא לא נותן המלצה רפואית בעד או נגד חיסון.",
   ],
   overview: "הטענה נשמעת מדעית כי היא משתמשת במילים אמיתיות: mRNA, DNA, גנים וגנום. אבל בדיקה טובה צריכה להפריד בין חומר גנטי מסוג RNA שנכנס זמנית לציטופלזמה של התא, לבין שינוי קבוע של DNA בתוך גרעין התא. המקורות הרשמיים שנבדקו לא תומכים בקפיצה הזאת.",
+  reviewScope: {
+    whatThisChecks: [
+      "האם המקורות הרשמיים שנבדקו תומכים בטענה שחיסוני mRNA נכנסים לגרעין התא, משתלבים ב-DNA או משנים את הגנום.",
+      "האם עצם העובדה ש-mRNA הוא חומר גנטי מסוג RNA מספיקה כדי להסיק שינוי DNA קבוע.",
+    ],
+    whatThisDoesNotCheck: [
+      "העמוד אינו המלצה רפואית אישית בעד או נגד חיסון.",
+      "העמוד אינו בודק את כל שאלות היעילות, תופעות הלוואי, מדיניות החיסונים או שקיפות רגולטורית.",
+    ],
+    evidenceLimitations: [
+      "הבדיקה נשענת על מקורות רפואיים רשמיים ונועדה לבדוק טענה מנגנונית צרה לגבי DNA וגנום.",
+      "מקור בדיקה אינו מחליף רופא, במיוחד במצב רפואי אישי או בקבלת החלטות טיפוליות.",
+    ],
+    strongerEvidenceWouldBe: [
+      "מקור רגולטורי, מחקרי או מנגנוני שמראה שחיסון mRNA נכנס לגרעין התא, משתלב ב-DNA האנושי ומשנה את הגנום באופן קבוע.",
+    ],
+    sourceQualityNotes: [
+      "CDC ו-NCI משמשים כאן כמקורות רפואיים רשמיים לטענה המנגנונית על mRNA ו-DNA; הם אינם משמשים כתחליף לייעוץ רפואי אישי.",
+    ],
+  },
   sources: [
     {
       id: "cdc-covid-vaccine-basics",
       title: "CDC — COVID-19 Vaccine Basics",
       url: "https://www.cdc.gov/covid/vaccines/how-they-work.html",
       level: "official",
+      quality: "official-document",
       note: "המקור המרכזי: CDC מסביר שחיסוני COVID-19 אינם משפיעים או מתקשרים עם DNA, ושחיסוני mRNA אינם נכנסים לגרעין התא שבו נמצא ה-DNA.",
     },
     {
@@ -38,6 +59,7 @@ const migratedMrnaVaccinesDnaGenomeClaimContent = defineMigratedClaimContent({
       title: "National Cancer Institute — COVID-19 Vaccines and People with Cancer",
       url: "https://www.cancer.gov/about-cancer/coronavirus/covid-19-vaccines-people-with-cancer",
       level: "official",
+      quality: "official-document",
       note: "מקור רשמי נוסף שמנסח בפשטות שאין ראיה שחיסוני COVID-19 גורמים לסרטן או משנים DNA.",
     },
     {
@@ -45,6 +67,7 @@ const migratedMrnaVaccinesDnaGenomeClaimContent = defineMigratedClaimContent({
       title: "CDC — COVID-19 vaccine development, authorization and safety monitoring",
       url: "https://www.cdc.gov/covid/vaccines/how-they-work.html#cdc_generic_section_5-about-developing-covid-19-vaccines",
       level: "official",
+      quality: "official-document",
       note: "רקע על תהליך האישור, הניטור וההקשר הרגולטורי. אינו מקור לטענה על DNA בפני עצמו, אלא למסגרת הבדיקה הרשמית.",
     },
   ],
