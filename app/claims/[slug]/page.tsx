@@ -19,7 +19,7 @@ const verdictLabels: Record<string, string> = {
   "ai-bci-synthetic-soul": "טכנולוגיה אמיתית — הטענה על שליטה חיצונית לא נתמכת במקורות שנבדקו",
   "agenda-2030-seven-steps": "במקורות שנבדקו לא נמצא מקור רשמי לשבעת השלבים",
   "you-will-own-nothing-klaus-schwab": "מקור תרחישי — לא נמצאה בו תוכנית הפקעה רשמית",
-  "who-pandemic-agreement-sovereignty": "הטקסט שנבדק שולל סמכות להכתיב מדיניות פנים",
+  "who-pandemic-agreement-sovereignty": "הטקסט שולל סמכות להכתיב מדיניות פנים — לפי הסעיף שנבדק",
   "15-minute-city-prison": "במקורות שנבדקו לא נמצא מקור רשמי לכליאה או איסור יציאה",
 };
 const headlineOverrides: Record<string, string> = {
