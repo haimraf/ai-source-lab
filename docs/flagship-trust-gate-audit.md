@@ -8,17 +8,19 @@ This audit applies the Trust Quality Gate to flagship claim pages before the pro
 
 Do not rewrite all flagship pages at once.
 
-The first fix should be limited to the strongest trust issue found in the audit: `ai-bci-synthetic-soul` had a weak top-level `shortAnswer` value and lacked the optional trust layer already used by stronger pages.
+The first fix was limited to the strongest trust issue found in the audit: `ai-bci-synthetic-soul` had a weak top-level `shortAnswer` value and lacked the optional trust layer already used by stronger pages.
+
+After that first fix, the later Hold batch upgraded the mature flagship pages that were already good enough for beta but still lacked the explicit trust layer.
 
 ## Status key
 
 - Pass: aligned enough; do not touch now.
-- Hold: good enough for beta, but should be upgraded in a later batched pass.
-- Fix: real trust issue; safe to fix now.
+- Completed: upgraded during this gate; do not touch again unless a real contradiction is found.
+- Open: outside this flagship-page batch; review later as part of the wider Trust Quality Gate.
 
 ## Flagship page status
 
-### Pass
+### Pass — do not touch now
 
 #### `great-reset-global-government`
 
@@ -58,75 +60,62 @@ Why it passes for now:
 
 Do not touch now.
 
-### Hold
-
-#### `moon-landing-flag-shadows-stars`
-
-Current wording is much better after the visual-claim sync.
-
-Why it is on hold:
-
-- top-level conclusion is already bounded;
-- FAQ and share copy are aligned;
-- but the page still lacks `reviewScope` and source quality labels.
-
-Later upgrade: add scope/source-quality layer in a batch with other mature pages.
-
-#### `mrna-vaccines-dna-genome`
-
-Good current page, especially because it includes a medical boundary.
-
-Why it is on hold:
-
-- it clearly says this is not medical advice;
-- it checks a narrow mechanism claim;
-- because it is a health page, it should eventually get an explicit `reviewScope`.
-
-Later upgrade: add health-specific scope boundary and source-quality labels.
-
-#### `event-201-pandemic-exercise`
-
-Good current page with a strong true-kernel vs leap structure.
-
-Why it is on hold:
-
-- the page separates the real exercise from the stronger planning claim;
-- it explains the logical leap;
-- but it is not yet in the full optional trust layer pattern.
-
-Later upgrade: add `reviewScope`, evidence limitations and source-quality labels.
-
-#### `haarp-earthquakes`
-
-Good current page, but wording can be tightened later.
-
-Why it is on hold:
-
-- the true kernel is clear: HAARP is real;
-- the leap to earthquake causation is explained;
-- one wording pattern is slightly broader than the new standard: prefer `in the reviewed sources...` over bare `no evidence found`.
-
-Later upgrade: add `reviewScope`, source-quality labels and evidence-limitations wording.
-
-### Fix
+### Completed during this gate
 
 #### `ai-bci-synthetic-soul`
 
-This was the first real trust fix.
+Completed in PR #66.
 
-Why it needed a fix:
-
-- top-level `shortAnswer` was `שורה תחתונה`, which is a label, not an answer;
-- the answer-box repeated the same generic title;
-- the page already had good body copy, but lacked the optional trust layer used by stronger pages.
-
-Fix applied in this PR:
+What changed:
 
 - replaced the top-level `shortAnswer` with a real evidence-bounded answer;
 - aligned the answer-box title with the fixed `shortAnswer`;
 - added `reviewScope`;
 - added source quality labels;
 - did not change the conclusion or expand the claim.
+
+#### `moon-landing-flag-shadows-stars`
+
+Completed in PR #67.
+
+What changed:
+
+- added `reviewScope` for the specific visual-claim check;
+- added source quality labels;
+- kept the visible conclusion, FAQ, share copy and structured data unchanged.
+
+#### `mrna-vaccines-dna-genome`
+
+Completed in PR #68.
+
+What changed:
+
+- added a health-specific `reviewScope`;
+- added source quality labels;
+- kept the medical-advice boundary intact;
+- kept the visible conclusion, FAQ, share copy and structured data unchanged.
+
+#### `event-201-pandemic-exercise`
+
+Completed in PR #69.
+
+What changed:
+
+- added `reviewScope` for the narrow planning-claim check;
+- added evidence limitations and source quality labels;
+- kept the true-kernel vs leap structure unchanged;
+- kept the visible conclusion, FAQ and share copy unchanged.
+
+#### `haarp-earthquakes`
+
+Completed in PR #70.
+
+What changed:
+
+- added `reviewScope` for the narrow earthquake-causation claim;
+- added source quality labels;
+- added evidence limitation wording inside the trust layer;
+- kept the visible conclusion, FAQ and share copy unchanged.
 
 ## What was intentionally not changed
 
@@ -137,13 +126,23 @@ Fix applied in this PR:
 - No production trigger.
 - No broad rewrite of pages already passing.
 
-## Next recommended batch
+## Remaining Trust Quality Gate work
 
-One later PR can upgrade Hold pages together:
+The flagship Hold batch is complete, but the wider Trust Quality Gate is not fully complete yet.
 
-- `moon-landing-flag-shadows-stars`
-- `mrna-vaccines-dna-genome`
-- `event-201-pandemic-exercise`
-- `haarp-earthquakes`
+Still open:
 
-That batch should only add trust-layer metadata and source-quality notes. It should not rewrite conclusions unless a real contradiction is found.
+- Gate 2: topic pages should be checked for shared-pattern explanations and over-grouping risk.
+- Gate 3: suggest/correction flow should be checked for clarity around useful evidence and stronger-source submission.
+- Documentation should stay aligned with the public methodology and editorial pattern.
+
+## Current recommendation
+
+Do not open more claim-page trust PRs right now.
+
+Next work should be either:
+
+1. a light Gate 2 audit of topic pages; or
+2. a light Gate 3 audit of suggest/correction flow.
+
+Do not make a domain or promotion decision only because the flagship pages are now cleaner. Treat the site as a public beta / lab until the remaining gate surfaces are reviewed.
