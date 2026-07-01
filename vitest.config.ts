@@ -8,6 +8,6 @@ export default defineConfig({
     },
   },
   test: {
-    exclude: [...configDefaults.exclude, "**/.worktrees/**"],
+    exclude: [...configDefaults.exclude, "**/.worktrees/**", "**/ai-source-lab/**"],
   },
 });

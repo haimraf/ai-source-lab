@@ -30,6 +30,7 @@ Stage 2 does not add:
 
 - claim creation or editing;
 - submissions or an intake inbox;
+- an active `/dashboard/submissions` route or submission UI;
 - publish, deploy, merge or rollback actions;
 - a CMS or database-backed public content;
 - user invitations or user-management UI;
@@ -68,6 +69,8 @@ The implementation provides these surfaces:
 - a server-side logout action available from the dashboard header.
 
 The dashboard uses its own shell and does not render the public site header, footer, mobile navigation, reading-time behavior, site schema or public analytics. Implementation will keep the root layout limited to document-wide HTML, body, fonts and global styles; move the current public chrome, site schema, reading-time behavior and public analytics into a `(public)` route-group layout; and place dashboard pages under a separate `(dashboard)` route-group layout. Route groups preserve existing public URLs. Moving routes into the public group requires route, metadata and visual-parity tests before merge.
+
+Stage 2 must preserve the public `/suggest-claim` route and its manual email/GitHub flow. It may define authorization expectations for a future protected `/dashboard/submissions` boundary, but it must not implement that route, inbox data model or submission management UI. Stage 3 remains the Claim Submissions Inbox.
 
 The current `/internal/content-status` URL stops serving the report publicly during implementation. It must execute server-side authorization and redirect an authorized user to `/dashboard/content`; an unauthenticated request reaches the login flow. The content-status calculation remains in the existing shared library and is not duplicated in a page or database.
 
