@@ -27,7 +27,7 @@ export interface DashboardConfig {
   allowedCallbackUrls: readonly string[];
   githubRepository: string;
   githubDefaultBranch: string;
-  githubReadToken: string;
+  githubReadToken: string | undefined;
 }
 
 type DashboardEnv = Partial<Record<DashboardEnvKey, string | undefined>>;
@@ -36,6 +36,11 @@ function requireEnv(env: DashboardEnv, key: DashboardEnvKey): string {
   const value = env[key]?.trim();
   if (!value) throw new Error(`Missing required dashboard environment variable: ${key}`);
   return value;
+}
+
+function optionalEnv(env: DashboardEnv, key: DashboardEnvKey): string | undefined {
+  const value = env[key]?.trim();
+  return value || undefined;
 }
 
 function requireUrl(value: string, key: DashboardEnvKey): string {
@@ -75,6 +80,6 @@ export function readDashboardConfig(env?: DashboardEnv): DashboardConfig {
     allowedCallbackUrls: parseAllowedCallbackUrls(requireEnv(source, "DASHBOARD_ALLOWED_CALLBACK_URLS")),
     githubRepository: requireEnv(source, "GITHUB_REPOSITORY"),
     githubDefaultBranch: requireEnv(source, "GITHUB_DEFAULT_BRANCH"),
-    githubReadToken: requireEnv(source, "GITHUB_READ_TOKEN"),
+    githubReadToken: optionalEnv(source, "GITHUB_READ_TOKEN"),
   };
 }

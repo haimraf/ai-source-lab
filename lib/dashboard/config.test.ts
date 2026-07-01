@@ -42,9 +42,20 @@ describe("dashboard config", () => {
     ]);
   });
 
+  it("loads when the optional GitHub read token is missing or blank", () => {
+    const { GITHUB_READ_TOKEN: _token, ...withoutToken } = completeEnv;
+
+    expect(readDashboardConfig(withoutToken).githubReadToken).toBeUndefined();
+    expect(readDashboardConfig({ ...completeEnv, GITHUB_READ_TOKEN: "   " }).githubReadToken).toBeUndefined();
+  });
+
   it("fails closed when required production values are missing", () => {
     expect(() => readDashboardConfig({ ...completeEnv, SUPABASE_SERVICE_ROLE_KEY: "" })).toThrow(
       "SUPABASE_SERVICE_ROLE_KEY",
+    );
+    expect(() => readDashboardConfig({ ...completeEnv, DASHBOARD_ADMIN_EMAIL: "" })).toThrow("DASHBOARD_ADMIN_EMAIL");
+    expect(() => readDashboardConfig({ ...completeEnv, DASHBOARD_RATE_LIMIT_HMAC_SECRET: "" })).toThrow(
+      "DASHBOARD_RATE_LIMIT_HMAC_SECRET",
     );
     expect(() => readDashboardConfig({ ...completeEnv, DASHBOARD_ALLOWED_CALLBACK_URLS: "" })).toThrow(
       "DASHBOARD_ALLOWED_CALLBACK_URLS",
