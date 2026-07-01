@@ -46,6 +46,10 @@ describe("App Router shell boundaries", () => {
     expect(dashboardLayout).not.toMatch(/@vercel\/analytics|@vercel\/speed-insights/);
     expect(dashboardLayout).not.toMatch(/PublicSiteShell|site-header|site-footer|mobile-bottom-nav/);
     expect(dashboardLayout).not.toMatch(/ReadingTimeInjector|createSiteSchema/);
+    expect(dashboardLayout).toContain("robots");
+    expect(dashboardLayout).toContain("index: false");
+    expect(dashboardLayout).toContain("follow: false");
+    expect(dashboardLayout).toContain("nocache: true");
     expect(dashboardFiles.filter((path) => path.endsWith("page.tsx"))).toEqual([]);
   });
 });
