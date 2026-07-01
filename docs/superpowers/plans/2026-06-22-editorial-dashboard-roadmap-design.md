@@ -255,6 +255,7 @@
 **סטטוס:** 🟡 בעבודה מ־2026-06-22
 **מה מתבצע:** design ו־ADR ל־admin shell פרטי ו־read-only עם Supabase ל־auth/session/audit/rate-limit בלבד.
 **הערה:** implementation טרם התחיל; אין לסמן ✅ לפני merge, בדיקות, restore drill ואימות production.
+**יישור גבולות:** שלב 2 אינו מממש inbox. הוא חייב לשמר את הנתיב הציבורי `/suggest-claim`, ויכול רק להכין גבול מוגן עתידי ל־`/dashboard/submissions` ללא נתיב פעיל או UI. שלב 3 נשאר Claim Submissions Inbox.
 
 ### מטרה
 
@@ -274,6 +275,7 @@
 
 ### לא בשלב זה
 
+- inbox להצעות או ניהול submissions;
 - editor/reviewer roles מלאים;
 - SSO ארגוני;
 - UI מלא להרשאות;
