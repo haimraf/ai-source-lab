@@ -20,8 +20,8 @@ describe("blue-beam and cloud-seeding rich content records", () => {
 
   it("keeps both cutover claims as legacy fixtures", () => {
     for (const claim of [blueBeam, cloud]) {
-      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"))).toBe(false);
-      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
+      expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "page.tsx"))).toBe(false);
+      expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
     }
   });
 });

@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 const claimListConsumers = [
-  "app/page.tsx",
-  "app/topics/page.tsx",
+  "app/(public)/page.tsx",
+  "app/(public)/topics/page.tsx",
   "components/ClaimBreadcrumbs.tsx",
   "components/ClaimSearch.tsx",
   "lib/topic-clusters.ts",

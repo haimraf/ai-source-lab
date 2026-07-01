@@ -7,7 +7,7 @@ import { aiAsSourcePyramidsClaimContent as pilotClaim } from "../content/claims/
 import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 
 const staticPageSource = readFileSync(
-  join(process.cwd(), "app", "claims", "ai-as-source-pyramids", "legacy-page.fixture.tsx"),
+  join(process.cwd(), "app", "(public)", "claims", "ai-as-source-pyramids", "legacy-page.fixture.tsx"),
   "utf8",
 );
 const staticPageBody = staticPageSource.slice(staticPageSource.indexOf("return ("));

@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticPage, { metadata as pageMetadata } from "../../app/claims/who-pandemic-agreement-sovereignty/legacy-page.fixture";
+import StaticPage, { metadata as pageMetadata } from "../../app/(public)/claims/who-pandemic-agreement-sovereignty/legacy-page.fixture";
 import { whoPandemicAgreementSovereigntyClaimContent as claim } from "../../content/claims/who-pandemic-agreement-sovereignty";
 
 function extractArticleJsonLd() {

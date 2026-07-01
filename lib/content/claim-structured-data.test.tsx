@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import DynamicClaimPage from "../../app/claims/[slug]/page";
+import DynamicClaimPage from "../../app/(public)/claims/[slug]/page";
 import { claimContentRecords } from "../../content/claims";
 import { aiBciSyntheticSoulClaimContent as aiBci } from "../../content/claims/ai-bci-synthetic-soul";
 import { chemtrailsAluminumClaimContent as chemtrails } from "../../content/claims/chemtrails-aluminum";

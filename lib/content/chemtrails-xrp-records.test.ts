@@ -28,8 +28,8 @@ describe("chemtrails-aluminum and xrp-global-currency rich content records", () 
 
   it("keeps both cutover claims as legacy fixtures", () => {
     for (const claim of [chemtrails, xrp]) {
-      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"))).toBe(false);
-      expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
+      expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "page.tsx"))).toBe(false);
+      expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
     }
   });
 });

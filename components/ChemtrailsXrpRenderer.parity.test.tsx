@@ -21,7 +21,7 @@ function verifyParity(claim: ClaimContent, markers: readonly string[]) {
   const sourceFile = ["chemtrails-aluminum", "xrp-global-currency"].includes(claim.slug)
     ? "legacy-page.fixture.tsx"
     : "page.tsx";
-  const source = readFileSync(join(process.cwd(), "app", "claims", claim.slug, sourceFile), "utf8");
+  const source = readFileSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, sourceFile), "utf8");
   const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />).replaceAll("&quot;", '"').replaceAll("&amp;", "&");
   const claimBodyHtml = html.slice(html.indexOf(claim.lead ?? claim.shortAnswer));
 

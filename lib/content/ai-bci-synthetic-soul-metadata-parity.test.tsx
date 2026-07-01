@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticPage, { metadata } from "../../app/claims/ai-bci-synthetic-soul/legacy-page.fixture";
+import StaticPage, { metadata } from "../../app/(public)/claims/ai-bci-synthetic-soul/legacy-page.fixture";
 import { aiBciSyntheticSoulClaimContent as claim } from "../../content/claims/ai-bci-synthetic-soul";
 import { siteUrl } from "../site";
 

@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyCloudPage, { metadata as legacyMetadata } from "../../app/claims/cloud-seeding-chemtrails/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
+import LegacyCloudPage, { metadata as legacyMetadata } from "../../app/(public)/claims/cloud-seeding-chemtrails/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { cloudSeedingChemtrailsClaimContent as cloud } from "../../content/claims/cloud-seeding-chemtrails";
 
 const params = Promise.resolve({ slug: cloud.slug });

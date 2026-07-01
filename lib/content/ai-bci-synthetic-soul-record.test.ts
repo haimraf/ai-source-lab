@@ -24,7 +24,7 @@ describe("ai-bci-synthetic-soul rich content record", () => {
   });
 
   it("keeps the claim on its existing static route", () => {
-    expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "page.tsx"))).toBe(false);
-    expect(existsSync(join(process.cwd(), "app", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
+    expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "page.tsx"))).toBe(false);
+    expect(existsSync(join(process.cwd(), "app", "(public)", "claims", claim.slug, "legacy-page.fixture.tsx"))).toBe(true);
   });
 });

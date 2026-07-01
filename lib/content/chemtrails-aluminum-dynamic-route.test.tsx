@@ -1,9 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyChemtrailsPage, { metadata as legacyMetadata } from "../../app/claims/chemtrails-aluminum/legacy-page.fixture";
-import LegacyChemtrailsLayout, { metadata as legacyLayoutMetadata } from "../../app/claims/chemtrails-aluminum/layout";
-import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
+import LegacyChemtrailsPage, { metadata as legacyMetadata } from "../../app/(public)/claims/chemtrails-aluminum/legacy-page.fixture";
+import LegacyChemtrailsLayout, { metadata as legacyLayoutMetadata } from "../../app/(public)/claims/chemtrails-aluminum/layout";
+import DynamicClaimPage, { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { chemtrailsAluminumClaimContent as chemtrails } from "../../content/claims/chemtrails-aluminum";
 import { siteUrl } from "../site";
 
