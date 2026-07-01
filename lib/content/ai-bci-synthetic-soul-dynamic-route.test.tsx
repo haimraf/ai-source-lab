@@ -2,8 +2,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-import LegacyPage, { metadata as legacyMetadata } from "../../app/claims/ai-bci-synthetic-soul/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/claims/[slug]/page";
+import LegacyPage, { metadata as legacyMetadata } from "../../app/(public)/claims/ai-bci-synthetic-soul/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/(public)/claims/[slug]/page";
 import { aiBciSyntheticSoulClaimContent as claim } from "../../content/claims/ai-bci-synthetic-soul";
 
 const params = Promise.resolve({ slug: claim.slug });

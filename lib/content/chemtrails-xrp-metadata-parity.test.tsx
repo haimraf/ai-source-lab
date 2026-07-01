@@ -1,10 +1,10 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import ChemtrailsPage, { metadata as chemtrailsMetadata } from "../../app/claims/chemtrails-aluminum/legacy-page.fixture";
-import ChemtrailsLayout, { metadata as chemtrailsLayoutMetadata } from "../../app/claims/chemtrails-aluminum/layout";
-import XrpPage, { metadata as xrpMetadata } from "../../app/claims/xrp-global-currency/legacy-page.fixture";
-import { metadata as xrpLayoutMetadata } from "../../app/claims/xrp-global-currency/layout";
+import ChemtrailsPage, { metadata as chemtrailsMetadata } from "../../app/(public)/claims/chemtrails-aluminum/legacy-page.fixture";
+import ChemtrailsLayout, { metadata as chemtrailsLayoutMetadata } from "../../app/(public)/claims/chemtrails-aluminum/layout";
+import XrpPage, { metadata as xrpMetadata } from "../../app/(public)/claims/xrp-global-currency/legacy-page.fixture";
+import { metadata as xrpLayoutMetadata } from "../../app/(public)/claims/xrp-global-currency/layout";
 import { chemtrailsAluminumClaimContent as chemtrails } from "../../content/claims/chemtrails-aluminum";
 import { xrpGlobalCurrencyClaimContent as xrp } from "../../content/claims/xrp-global-currency";
 

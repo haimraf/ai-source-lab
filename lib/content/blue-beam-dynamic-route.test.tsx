@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyBlueBeamPage, { metadata as legacyMetadata } from "../../app/claims/project-blue-beam-nasa/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
+import LegacyBlueBeamPage, { metadata as legacyMetadata } from "../../app/(public)/claims/project-blue-beam-nasa/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { projectBlueBeamNasaClaimContent as blueBeam } from "../../content/claims/project-blue-beam-nasa";
 
 const params = Promise.resolve({ slug: blueBeam.slug });

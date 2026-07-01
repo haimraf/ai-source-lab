@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { generateMetadata } from "../../app/claims/[slug]/page";
+import { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { monsterEnergy666LogoClaimContent as monster } from "../../content/claims/monster-energy-666-logo";
 
 describe("Monster claim OG metadata", () => {

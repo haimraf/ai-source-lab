@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticClaimLayout from "../../app/claims/ai-as-source-pyramids/layout";
-import StaticClaimPage, { metadata as staticMetadata } from "../../app/claims/ai-as-source-pyramids/legacy-page.fixture";
+import StaticClaimLayout from "../../app/(public)/claims/ai-as-source-pyramids/layout";
+import StaticClaimPage, { metadata as staticMetadata } from "../../app/(public)/claims/ai-as-source-pyramids/legacy-page.fixture";
 import { aiAsSourcePyramidsClaimContent as pilotClaim } from "../../content/claims/ai-as-source-pyramids";
 import type { ClaimMetadataOverrides } from "./claim-schema";
 

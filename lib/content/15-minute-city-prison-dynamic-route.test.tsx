@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import { metadata as legacyMetadata } from "../../app/claims/15-minute-city-prison/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/claims/[slug]/page";
+import { metadata as legacyMetadata } from "../../app/(public)/claims/15-minute-city-prison/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/(public)/claims/[slug]/page";
 import { fifteenMinuteCityPrisonClaimContent as claim } from "../../content/claims/15-minute-city-prison";
 
 const publicSlug = "15-minute-city-prison";

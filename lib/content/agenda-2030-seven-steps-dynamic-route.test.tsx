@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyPage, { metadata as legacyMetadata } from "../../app/claims/agenda-2030-seven-steps/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/claims/[slug]/page";
+import LegacyPage, { metadata as legacyMetadata } from "../../app/(public)/claims/agenda-2030-seven-steps/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/(public)/claims/[slug]/page";
 import { agenda2030SevenStepsClaimContent as claim } from "../../content/claims/agenda-2030-seven-steps";
 
 const params = Promise.resolve({ slug: claim.slug });

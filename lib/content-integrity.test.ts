@@ -11,9 +11,9 @@ describe("content integrity", () => {
       fileExists: () => false,
     })).toEqual([
       "Missing sitemap URL: /claims/example",
-      "Missing page file: app/claims/example/page.tsx",
-      "Missing OG file: app/claims/example/opengraph-image.tsx",
-      "Missing page file: app/topics/example/page.tsx",
+      "Missing page file: app/(public)/claims/example/page.tsx",
+      "Missing OG file: app/(public)/claims/example/opengraph-image.tsx",
+      "Missing page file: app/(public)/topics/example/page.tsx",
     ]);
   });
 });

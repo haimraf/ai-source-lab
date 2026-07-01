@@ -1,9 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyXrpPage, { metadata as legacyMetadata } from "../../app/claims/xrp-global-currency/legacy-page.fixture";
-import { metadata as legacyLayoutMetadata } from "../../app/claims/xrp-global-currency/layout";
-import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
+import LegacyXrpPage, { metadata as legacyMetadata } from "../../app/(public)/claims/xrp-global-currency/legacy-page.fixture";
+import { metadata as legacyLayoutMetadata } from "../../app/(public)/claims/xrp-global-currency/layout";
+import DynamicClaimPage, { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { xrpGlobalCurrencyClaimContent as xrp } from "../../content/claims/xrp-global-currency";
 
 const params = Promise.resolve({ slug: xrp.slug });

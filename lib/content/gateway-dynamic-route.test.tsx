@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyGatewayPage, { metadata as legacyMetadata } from "../../app/claims/gateway-process-out-of-body/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata } from "../../app/claims/[slug]/page";
+import LegacyGatewayPage, { metadata as legacyMetadata } from "../../app/(public)/claims/gateway-process-out-of-body/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata } from "../../app/(public)/claims/[slug]/page";
 import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../../content/claims/gateway-process-out-of-body";
 
 const params = Promise.resolve({ slug: gatewayClaim.slug });

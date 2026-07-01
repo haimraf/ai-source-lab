@@ -1,8 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticPage, { metadata as pageMetadata } from "../../app/claims/agenda-2030-seven-steps/legacy-page.fixture";
-import { metadata as layoutMetadata } from "../../app/claims/agenda-2030-seven-steps/layout";
+import StaticPage, { metadata as pageMetadata } from "../../app/(public)/claims/agenda-2030-seven-steps/legacy-page.fixture";
+import { metadata as layoutMetadata } from "../../app/(public)/claims/agenda-2030-seven-steps/layout";
 import { agenda2030SevenStepsClaimContent as claim } from "../../content/claims/agenda-2030-seven-steps";
 
 function extractArticleJsonLd() {

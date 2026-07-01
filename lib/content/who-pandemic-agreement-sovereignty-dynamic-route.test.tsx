@@ -2,8 +2,8 @@ import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import LegacyPage, { metadata as legacyMetadata } from "../../app/claims/who-pandemic-agreement-sovereignty/legacy-page.fixture";
-import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/claims/[slug]/page";
+import LegacyPage, { metadata as legacyMetadata } from "../../app/(public)/claims/who-pandemic-agreement-sovereignty/legacy-page.fixture";
+import DynamicClaimPage, { generateMetadata, generateStaticParams } from "../../app/(public)/claims/[slug]/page";
 import { whoPandemicAgreementSovereigntyClaimContent as claim } from "../../content/claims/who-pandemic-agreement-sovereignty";
 
 const params = Promise.resolve({ slug: claim.slug });

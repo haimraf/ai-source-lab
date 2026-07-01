@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
-import StaticGatewayPage, { metadata as staticMetadata } from "../../app/claims/gateway-process-out-of-body/legacy-page.fixture";
+import StaticGatewayPage, { metadata as staticMetadata } from "../../app/(public)/claims/gateway-process-out-of-body/legacy-page.fixture";
 import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../../content/claims/gateway-process-out-of-body";
 
 interface ArticleJsonLd {

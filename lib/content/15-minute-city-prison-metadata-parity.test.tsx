@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { metadata as pageMetadata } from "../../app/claims/15-minute-city-prison/legacy-page.fixture";
+import { metadata as pageMetadata } from "../../app/(public)/claims/15-minute-city-prison/legacy-page.fixture";
 import { fifteenMinuteCityPrisonClaimContent as claim } from "../../content/claims/15-minute-city-prison";
 
 describe("15-minute-city-prison metadata parity", () => {

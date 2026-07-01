@@ -7,7 +7,7 @@ import { gatewayProcessOutOfBodyClaimContent as gatewayClaim } from "../content/
 import { ClaimBodyRenderer } from "./ClaimBodyRenderer";
 
 const staticPageSource = readFileSync(
-  join(process.cwd(), "app", "claims", "gateway-process-out-of-body", "legacy-page.fixture.tsx"),
+  join(process.cwd(), "app", "(public)", "claims", "gateway-process-out-of-body", "legacy-page.fixture.tsx"),
   "utf8",
 );
 const staticPageBody = staticPageSource.slice(staticPageSource.indexOf("return ("));

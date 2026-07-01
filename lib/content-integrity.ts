@@ -10,11 +10,11 @@ export function findContentIntegrityIssues(input: IntegrityInput) {
 
   for (const route of [...input.claimPaths, ...input.topicPaths]) {
     if (!input.sitemapPaths.has(route)) issues.push(`Missing sitemap URL: ${route}`);
-    const pageFile = `app${route}/page.tsx`;
+    const pageFile = `app/(public)${route}/page.tsx`;
     if (!input.fileExists(pageFile)) issues.push(`Missing page file: ${pageFile}`);
 
     if (route.startsWith("/claims/")) {
-      const ogFile = `app${route}/opengraph-image.tsx`;
+      const ogFile = `app/(public)${route}/opengraph-image.tsx`;
       if (!input.fileExists(ogFile)) issues.push(`Missing OG file: ${ogFile}`);
     }
   }

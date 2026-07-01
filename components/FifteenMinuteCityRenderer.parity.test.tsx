@@ -16,7 +16,7 @@ function expectMarkersInOrder(subject: string, markers: readonly string[]) {
 }
 
 describe("15-minute-city-prison renderer parity", () => {
-  const source = readFileSync(join(process.cwd(), "app", "claims", "15-minute-city-prison", "legacy-page.fixture.tsx"), "utf8");
+  const source = readFileSync(join(process.cwd(), "app", "(public)", "claims", "15-minute-city-prison", "legacy-page.fixture.tsx"), "utf8");
   const html = renderToStaticMarkup(<ClaimBodyRenderer claim={claim} />)
     .replaceAll("&quot;", '"')
     .replaceAll("&#x27;", "'")

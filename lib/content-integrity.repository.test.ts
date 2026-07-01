@@ -1,4 +1,4 @@
-﻿import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import { claimContentRecords } from "../content/claims";
@@ -14,7 +14,7 @@ describe("published content repository", () => {
     expect(updateClaimSitemapXml(sitemap)).toBe(sitemap);
     const sitemapPaths = new Set(Array.from(sitemap.matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g), (match) => match[1] || "/"));
     const dynamicClaimPageFiles = new Set(
-      claimContentRecords.map((claim) => `app${claim.path}/page.tsx`),
+      claimContentRecords.map((claim) => `app/(public)${claim.path}/page.tsx`),
     );
 
     const issues = findContentIntegrityIssues({
@@ -23,8 +23,8 @@ describe("published content repository", () => {
       sitemapPaths,
       fileExists: (path) =>
         existsSync(path) ||
-        (dynamicClaimPageFiles.has(path) && existsSync("app/claims/[slug]/page.tsx")) ||
-        (path.startsWith("app/topics/") && existsSync("app/topics/[slug]/page.tsx")),
+        (dynamicClaimPageFiles.has(path) && existsSync("app/(public)/claims/[slug]/page.tsx")) ||
+        (path.startsWith("app/(public)/topics/") && existsSync("app/(public)/topics/[slug]/page.tsx")),
     });
 
     const workflowIssues = claimContentRecords.flatMap(findClaimWorkflowIntegrityIssues);
