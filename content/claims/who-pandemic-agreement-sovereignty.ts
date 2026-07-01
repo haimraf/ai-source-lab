@@ -6,7 +6,7 @@ const migratedWhoPandemicAgreementSovereigntyClaimContent = defineMigratedClaimC
   slug: "who-pandemic-agreement-sovereignty",
   path: "/claims/who-pandemic-agreement-sovereignty",
   title: "האם אמנת המגיפות נותנת ל-WHO סמכות על מדיניות פנים?",
-  description: "בדיקה של הטענה שאמנת המגיפות של WHO נותנת לארגון סמכות להכתיב למדינות מדיניות פנימית, חקיקה או צעדי חירום.",
+  description: "בדיקה בעברית של הטענה שאמנת המגיפות של WHO נותנת לארגון סמכות להכתיב למדינות מדיניות פנים, חקיקה או צעדי חירום — ומה באמת כתוב בטקסט הרשמי ובסעיף הסמכות.",
   kicker: "WHO ואמנת מגיפות",
   tags: ["WHO", "אמנת מגיפות", "ריבונות", "מדיניות פנים", "מקור רשמי"],
   verdict: "הסכם אמיתי — לא סמכות ישירה להכתיב מדיניות פנים",
