@@ -772,11 +772,78 @@
   }
 
   .evidence-orbit {
-    min-height: 320px;
-    margin: 8px 0 14px;
+    display: grid;
+    gap: 12px;
+    min-height: auto;
+    margin: 12px 0 16px;
+  }
+
+  .evidence-orbit::before,
+  .evidence-orbit::after,
+  .orbit-icon {
+    display: none;
+  }
+
+  .map-node,
+  .claim-node,
+  .source-node,
+  .verdict-node {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: auto;
+    transform: none;
   }
 
   .map-node {
-    width: min(210px, 78%);
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 6px 10px;
+    padding: 14px;
+  }
+
+  .map-node svg {
+    grid-row: 1 / span 2;
+  }
+
+  .map-node span,
+  .map-node strong {
+    min-width: 0;
+  }
+
+  .map-node strong {
+    -webkit-line-clamp: 2;
+  }
+
+  .map-related {
+    gap: 12px;
+  }
+
+  #checks .grid {
+    gap: 24px;
+  }
+
+  #checks .card > a {
+    padding: 0 18px 20px;
+  }
+
+  .claim-card-cover {
+    min-height: 142px;
+    margin-bottom: 20px;
+  }
+
+  #checks .card .card-meta {
+    margin-bottom: 12px;
+  }
+
+  #checks .card h3 {
+    margin-bottom: 12px;
+  }
+
+  #checks .card .small {
+    margin-bottom: 18px;
+  }
+
+  #checks .card .tag-list {
+    margin-bottom: 18px;
   }
 }
