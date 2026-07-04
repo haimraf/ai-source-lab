@@ -18,6 +18,7 @@ export type ClaimContentIndexEntry = Pick<
   | "changeFrequency"
   | "priority"
   | "ogAlt"
+  | "coverImage"
 >;
 
 const migratedClaimContentBySlug = new Map<string, ClaimContent>(

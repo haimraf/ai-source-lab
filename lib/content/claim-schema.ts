@@ -242,6 +242,13 @@ export interface ClaimSocialImage {
   alt?: string;
 }
 
+export interface ClaimCoverImage {
+  src: string;
+  alt: string;
+  credit?: string;
+  focalPoint?: string;
+}
+
 export interface ClaimMetadataOverrides {
   title?: string;
   description?: string;
@@ -342,6 +349,7 @@ export interface ClaimContent {
   changeFrequency: ChangeFrequency;
   priority: number;
   ogAlt: string;
+  coverImage?: ClaimCoverImage;
   claim: string;
   shortAnswer: string;
   bottomLine: string;

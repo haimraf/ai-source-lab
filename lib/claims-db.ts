@@ -1,4 +1,5 @@
 import { claimContentRecords } from "../content/claims";
+import type { ClaimCoverImage } from "./content/claim-schema";
 
 export const staticPages = [
   { path: "/", updated: "2026-06-23", changeFrequency: "weekly", priority: 1 },
@@ -25,6 +26,10 @@ export type TopicClusterSlug =
   | "public-health"
   | "digital-money";
 
+function getClaimCoverImage(claim: (typeof claimContentRecords)[number]): ClaimCoverImage | undefined {
+  return "coverImage" in claim ? (claim.coverImage as ClaimCoverImage | undefined) : undefined;
+}
+
 export const claimRecords = claimContentRecords.map((claim) => ({
   slug: claim.slug,
   path: claim.path,
@@ -38,6 +43,7 @@ export const claimRecords = claimContentRecords.map((claim) => ({
   priority: claim.priority,
   cluster: claim.cluster,
   ogAlt: claim.ogAlt,
+  coverImage: getClaimCoverImage(claim),
 }));
 
 export type ClaimRecord = (typeof claimRecords)[number];

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CheckCircle2, CircleDot, FileText, Network, Search } from "lucide-react";
 import {
   getFeaturedClaimContent,
   getPublishedClaimContent,
@@ -59,8 +60,11 @@ function toCheck(claim: ClaimContentIndexEntry) {
     tags: claim.tags,
     verdict: claim.verdict,
     updated: formatDate(claim.updated),
+    coverImage: claim.coverImage,
   };
 }
+
+type HomeCheck = ReturnType<typeof toCheck>;
 
 function TagList({ tags, limit = 3 }: { tags: readonly string[]; limit?: number }) {
   return (
@@ -87,6 +91,77 @@ function ClusterCard({ cluster }: { cluster: TopicCluster }) {
   );
 }
 
+function EvidenceMapPreview({ checks }: { checks: readonly HomeCheck[] }) {
+  const [primaryCheck, ...relatedChecks] = checks;
+
+  return (
+    <div className="evidence-map-preview">
+      <div className="source-stack" aria-label="מקורות נבחרים">
+        <strong>מקורות נבחנים</strong>
+        {checks.map((check, index) => (
+          <a href={check.href} key={check.href}>
+            <FileText aria-hidden="true" />
+            <span>{check.topic}</span>
+            <small>{check.updated}</small>
+            <span className="source-index">{String(index + 1).padStart(2, "0")}</span>
+          </a>
+        ))}
+      </div>
+
+      <div className="evidence-orbit" aria-label="מפת טענה מקור ומסקנה">
+        <div className="map-node claim-node">
+          <CircleDot aria-hidden="true" />
+          <span>הטענה</span>
+          <strong>{primaryCheck?.topic}</strong>
+        </div>
+        <div className="map-node source-node">
+          <FileText aria-hidden="true" />
+          <span>המקור</span>
+          <strong>מסמך / נתון / פרסום</strong>
+        </div>
+        <div className="map-node verdict-node">
+          <CheckCircle2 aria-hidden="true" />
+          <span>המסקנה</span>
+          <strong>{primaryCheck?.verdict}</strong>
+        </div>
+        <div className="orbit-icon orbit-icon-1"><Search aria-hidden="true" /></div>
+        <div className="orbit-icon orbit-icon-2"><Network aria-hidden="true" /></div>
+        <div className="orbit-icon orbit-icon-3"><FileText aria-hidden="true" /></div>
+      </div>
+
+      <div className="map-related">
+        {relatedChecks.map((check) => (
+          <a href={check.href} key={check.href}>
+            <span>{check.topic}</span>
+            <strong>{check.title}</strong>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ClaimCoverVisual({ check, index }: { check: HomeCheck; index: number }) {
+  if (check.coverImage) {
+    return (
+      <div className="claim-card-cover has-cover">
+        <img src={check.coverImage.src} alt={check.coverImage.alt} />
+      </div>
+    );
+  }
+
+  return (
+    <div className={`claim-card-cover generated-cover generated-cover-${(index % 3) + 1}`} aria-hidden="true">
+      <div className="cover-node cover-claim"><CircleDot /></div>
+      <div className="cover-node cover-source"><FileText /></div>
+      <div className="cover-node cover-verdict"><CheckCircle2 /></div>
+      <div className="cover-line cover-line-a" />
+      <div className="cover-line cover-line-b" />
+      <span>{check.topic}</span>
+    </div>
+  );
+}
+
 const publishedClaims = getPublishedClaimContent();
 const sortedClaims = [...publishedClaims].sort(byHomepageFreshness);
 const homeFeaturedCheck = toCheck(getFeaturedClaimContent() ?? sortedClaims[0]);
@@ -100,9 +175,8 @@ const homepageClusters = [...topicClusters].sort(byClusterPriority).slice(0, 3);
 export default function HomePage() {
   return (
     <>
-      <section className="home-hero">
+      <section className="home-hero evidence-hero">
         <div>
-          <span className="badge">מאגר בדיקות מקור</span>
           <h1>בודקים טענות שרצות ברשת מול המקור עצמו.</h1>
           <p className="lead">
             זה לא צ׳אט שבודק כל פרומפט בזמן אמת. זה מאגר בדיקות: <a className="text-link" href="/topics#find-check">מחפשים בדיקה קיימת</a>, פותחים מקור, ורואים מה באמת אפשר לקבוע.
@@ -114,21 +188,7 @@ export default function HomePage() {
         </div>
 
         <div className="hero-visual" aria-label="טענות שנבדקות באתר">
-          <span className="topic-label">מה מקבלים?</span>
-          <p className="visual-intro">
-            בכל בדיקה: הטענה, שורה תחתונה, מה כן נכון, איפה הקפיצה, ומה המקורות אומרים.
-          </p>
-          <div className="signal-list claim-signal-list">
-            {featuredChecks.map((check, index) => (
-              <a className="signal-row claim-signal" href={check.href} key={check.href}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <strong>{check.title}</strong>
-                  <small>{check.verdict}</small>
-                </div>
-              </a>
-            ))}
-          </div>
+          <EvidenceMapPreview checks={featuredChecks} />
         </div>
       </section>
 
@@ -182,9 +242,10 @@ export default function HomePage() {
           </div>
         </div>
         <div className="grid">
-          {latestChecks.map((check) => (
+          {latestChecks.map((check, index) => (
             <article className="card" key={check.href}>
               <a href={check.href}>
+                <ClaimCoverVisual check={check} index={index} />
                 <div className="card-meta"><span>{check.topic}</span><span>•</span><span>עודכן {check.updated}</span></div>
                 <h3>{check.title}</h3>
                 <p className="small">{check.summary}</p>

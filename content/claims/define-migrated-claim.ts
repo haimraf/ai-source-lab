@@ -14,6 +14,7 @@ type ClaimMetadata = Pick<
   | "changeFrequency"
   | "priority"
   | "ogAlt"
+  | "coverImage"
 >;
 
 type MigratedSource = Omit<ClaimSource, "accessedAt">;
