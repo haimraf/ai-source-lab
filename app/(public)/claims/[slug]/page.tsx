@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ClaimBodyRenderer } from "@/components/ClaimBodyRenderer";
+import { ClaimSixtySeconds } from "@/components/ClaimSixtySeconds";
 import { claimContentRecords } from "@/content/claims";
 import type { ClaimContent } from "@/lib/content/claim-schema";
 import { createClaimStructuredData } from "@/lib/content/claim-structured-data";
@@ -127,6 +128,9 @@ export default async function ClaimPage({ params }: ClaimPageProps) {
         </div>
 
         <h1>{headlineOverrides[slug] ?? claim.title}</h1>
+        {/* Above the body: a reader who leaves after one screen should still
+            leave with the answer, the sourced points and the primary link. */}
+        <ClaimSixtySeconds claim={claim} updatedLabel={updatedLabel} />
         <ClaimBodyRenderer claim={claim} />
       </article>
     </>

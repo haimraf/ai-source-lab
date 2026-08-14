@@ -300,3 +300,88 @@ a.signal-row:focus-visible,
     border-radius: var(--radius-card-mobile);
   }
 }
+
+/*
+ * The claim in sixty seconds.
+ *
+ * Every string it renders was already in the content files and had never been
+ * shown: shortAnswer, bottomLine and summaryPoints were rendered in zero
+ * non-test components before this block existed.
+ *
+ * The labels are load-bearing, not decoration. What the sources say, how they
+ * were read, and what was concluded are three different kinds of statement, and
+ * this product's whole argument is that they must stay visibly apart. Styling
+ * them as one pleasant block would read better and would erase the distinction.
+ */
+.claim-sixty {
+  margin: 1.75rem 0 2.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.claim-sixty__title {
+  margin: 0 0 1.15rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.claim-sixty__block + .claim-sixty__block {
+  margin-top: 1.15rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Quiet, but never absent — the reader has to be able to tell which is which. */
+.claim-sixty__label {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.claim-sixty__answer {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.claim-sixty__points {
+  margin: 0;
+  padding-inline-start: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+  line-height: 1.6;
+}
+
+.claim-sixty__bottom {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.claim-sixty__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.claim-sixty__source { color: var(--accent); }
+.claim-sixty__source--none { color: var(--muted); }
+.claim-sixty__updated { color: var(--muted); }
+
+@media (max-width: 640px) {
+  .claim-sixty { padding: 1.15rem; }
+  .claim-sixty__answer { font-size: 1.03rem; }
+}
