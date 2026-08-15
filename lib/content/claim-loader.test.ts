@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { claimContentRecords } from "../../content/claims";
+import { definedMetadata } from "./metadata-parity";
 import { aiAsSourcePyramidsClaimContent } from "../../content/claims/ai-as-source-pyramids";
 import { allClaimTags, claimRecords, homeFeaturedClaimSlug } from "../claims-db";
 import {
@@ -37,7 +38,9 @@ describe("claim content loader", () => {
 
   it("preserves every existing claim metadata record", () => {
     for (const claim of claimContentRecords) {
-      expect(claim).toMatchObject(claimRecords.find((record) => record.slug === claim.slug)!);
+      expect(claim).toMatchObject(
+        definedMetadata(claimRecords.find((record) => record.slug === claim.slug)!),
+      );
     }
   });
 
