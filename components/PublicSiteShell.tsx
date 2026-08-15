@@ -73,6 +73,18 @@ export function PublicSiteShell({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <p className="footer-note">בכל עמוד מופיעים המקורות שנבדקו, תאריך העדכון והפרדה בין עובדה, פרשנות וקפיצה לוגית.</p>
+        {/*
+          The build credit. Deliberately without the heart that the same credit
+          carries on באר יעקב+ — this product's whole voice is sober, and a
+          decorative flourish in the footer of a fact-checking site reads as a
+          different kind of claim than it does on a local guide.
+        */}
+        <p className="footer-credit">
+          נבנה על ידי{" "}
+          <a href="https://studio-haim.com/" target="_blank" rel="noreferrer noopener">
+            Studio Haim
+          </a>
+        </p>
       </footer>
 
       <Analytics />
