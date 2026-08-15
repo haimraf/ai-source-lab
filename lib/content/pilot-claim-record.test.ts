@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { aiAsSourcePyramidsClaimContent } from "../../content/claims/ai-as-source-pyramids";
 import { claimRecords } from "../claims-db";
 import { getAllClaimContent, getClaimContentBySlug } from "./claim-loader";
+import { definedMetadata } from "./metadata-parity";
 import type { ClaimContent } from "./claim-schema";
 
 const typedPilotClaim: ClaimContent = aiAsSourcePyramidsClaimContent;
@@ -67,7 +68,7 @@ describe("pilot claim content record", () => {
   it("keeps the pilot metadata aligned with the existing claim record", () => {
     const existingClaim = claimRecords.find((claim) => claim.slug === typedPilotClaim.slug);
     expect(existingClaim).toBeDefined();
-    expect(typedPilotClaim).toMatchObject(existingClaim!);
+    expect(typedPilotClaim).toMatchObject(definedMetadata(existingClaim!));
     expect(typedPilotClaim.path).toBe(existingClaim?.path);
   });
 
@@ -88,6 +89,8 @@ describe("pilot claim content record", () => {
 
   it("keeps loader output aligned with the existing claim records", () => {
     expect(getAllClaimContent().map((claim) => claim.slug)).toEqual(claimRecords.map((claim) => claim.slug));
-    expect(getClaimContentBySlug(typedPilotClaim.slug)).toMatchObject(claimRecords.find((claim) => claim.slug === typedPilotClaim.slug)!);
+    expect(getClaimContentBySlug(typedPilotClaim.slug)).toMatchObject(
+      definedMetadata(claimRecords.find((claim) => claim.slug === typedPilotClaim.slug)!),
+    );
   });
 });

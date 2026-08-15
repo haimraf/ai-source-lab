@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { claimRecords, getClaimBySlug } from "./claims-db";
 import { getClaimContentBySlug } from "./content/claim-loader";
+import { definedMetadata } from "./content/metadata-parity";
 import { getClaimsForTopicCluster, getTopicClusterBySlug } from "./topic-clusters";
 import { GET as getLlmsText } from "../app/llms.txt/route";
 
@@ -23,7 +24,7 @@ describe("WHO pandemic agreement claim integration", () => {
     });
     expect(claimRecords).toContain(claim);
     expect(cluster?.claimSlugs).toContain(slug);
-    expect(contentClaim).toMatchObject(claim!);
+    expect(contentClaim).toMatchObject(definedMetadata(claim!));
     expect(cluster && getClaimsForTopicCluster(cluster)).toContain(contentClaim);
   });
 
