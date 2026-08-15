@@ -385,3 +385,40 @@ a.signal-row:focus-visible,
   .claim-sixty { padding: 1.15rem; }
   .claim-sixty__answer { font-size: 1.03rem; }
 }
+
+/*
+ * Build credit.
+ *
+ * The same credit appears on באר יעקב+ with a heart badge; here it does not.
+ * This product's voice is deliberately sober — "מקור לפני מסקנה" — and a
+ * decorative flourish in the footer of a fact-checking site reads as a
+ * different kind of claim than it does on a local guide.
+ *
+ * The mobile padding is not cosmetic. theme.css gives .footer-note a 96px
+ * bottom pad so it clears the fixed bottom nav; this line now sits below it, so
+ * the clearance has to move down with it or the credit is what gets covered.
+ */
+.footer-credit {
+  max-width: var(--layout-shell-width);
+  margin: 0 auto;
+  padding: 0 22px 32px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-credit a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .footer-note { padding-bottom: 14px; }
+  .footer-credit { padding: 0 16px 96px; }
+}
